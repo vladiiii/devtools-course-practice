@@ -6,7 +6,7 @@
 
 TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Sum) {
     // Arrange
-    const ComplexNumber a(3, 6), b(4, 8);
+    const ComplexNumber a(3., 6.), b(4., 8.);
 
     // Act
     ComplexNumber c = a + b;
@@ -18,7 +18,7 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Sum) {
 
 TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Subtract) {
     // Arrange
-    const ComplexNumber a(7, 14), b(4, 8);
+    const ComplexNumber a(7., 14.), b(4., 8.);
 
     // Act
     ComplexNumber c = a - b;
@@ -26,4 +26,30 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Subtract) {
     // Assert
     EXPECT_EQ(3, c.getRe());
     EXPECT_EQ(6, c.getIm());
+}
+
+TEST(Obolenskiy_Arseniy_ComplexNumberTest,
+                    Subtraction_Of_The_Same_Number_Gives_Zero) {
+    // Arrange
+    ComplexNumber a(7., 14.);
+
+    // Act
+    ComplexNumber c = a - a;
+
+    // Assert
+    EXPECT_EQ(0, c.getRe());
+    EXPECT_EQ(0, c.getIm());
+}
+
+TEST(Obolenskiy_Arseniy_ComplexNumberTest,
+                    Can_Combine_Multiplication_And_Addition) {
+    // Arrange
+    ComplexNumber a(7., 14.), b(9., 10.), c(2., 3.);
+
+    // Act
+    ComplexNumber d = a + b * c;
+
+    // Assert
+    EXPECT_EQ(-5., d.getRe());
+    EXPECT_EQ(61., d.getIm());
 }
