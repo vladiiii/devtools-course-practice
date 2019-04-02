@@ -72,3 +72,14 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest, Cannot_Divide_By_Zero) {
     // Act & Assert
     EXPECT_ANY_THROW(a / (b - c));
 }
+
+TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Plus_And_Assign_To_Itself) {
+    // Arrange
+    ComplexNumber a(7., 14.);
+
+    // Act
+    a = a + a;
+
+    // Assert
+    EXPECT_EQ(ComplexNumber(14., 28.), a);
+}
