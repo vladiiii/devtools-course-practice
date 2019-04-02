@@ -64,3 +64,11 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Create_Via_Copy_Constructor) {
     // Assert
     EXPECT_EQ(a, b);
 }
+
+TEST(Obolenskiy_Arseniy_ComplexNumberTest, Cannot_Divide_By_Zero) {
+    // Arrange
+    const ComplexNumber a(7., 14.), b(8., 9.), c(b);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a / (b - c));
+}
