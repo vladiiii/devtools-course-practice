@@ -53,3 +53,14 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest,
     EXPECT_EQ(-5., d.getRe());
     EXPECT_EQ(61., d.getIm());
 }
+
+TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Create_Via_Copy_Constructor) {
+    // Arrange
+    const ComplexNumber a(7., 14.);
+
+    // Act
+    ComplexNumber b(a);
+
+    // Assert
+    EXPECT_EQ(a, b);
+}
