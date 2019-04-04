@@ -4,7 +4,8 @@
 
 #include "include/complex_number.h"
 
-TEST(Savkin_Yuriy_ComplexNumberTest, Dividing_By_Same_Number_Give_1) {
+TEST(Savkin_Yuriy_ComplexNumberTest, 
+     Dividing_By_Same_Number_Give_1) {
     // Arrange
     double re = 5.8;
     double im = 28.1;
@@ -18,7 +19,8 @@ TEST(Savkin_Yuriy_ComplexNumberTest, Dividing_By_Same_Number_Give_1) {
     EXPECT_TRUE(y == z);
 }
 
-TEST(Savkin_Yuriy_ComplexNumberTest, Multiplication_By_Imaginary_One_Works_Correctly) {
+TEST(Savkin_Yuriy_ComplexNumberTest, 
+     Multiplication_By_Imaginary_One_Works_Correctly) {
     // Arrange
     double d1 = 5.8;
     double d2 = 28.1;
@@ -33,7 +35,8 @@ TEST(Savkin_Yuriy_ComplexNumberTest, Multiplication_By_Imaginary_One_Works_Corre
     EXPECT_TRUE(y == w);
 }
 
-TEST(Savkin_Yuriy_ComplexNumberTest, Adding_To_Real_Part_Do_Not_Change_Imaginary) {
+TEST(Savkin_Yuriy_ComplexNumberTest, 
+     Adding_To_Real_Part_Do_Not_Change_Imaginary) {
     // Arrange
     double d1 = 5.8;
     double d2 = 28.1;
@@ -48,7 +51,8 @@ TEST(Savkin_Yuriy_ComplexNumberTest, Adding_To_Real_Part_Do_Not_Change_Imaginary
     EXPECT_EQ(28.1, z.getIm());
 }
 
-TEST(Savkin_Yuriy_ComplexNumberTest, Adding_To_Imaginary_Part_Do_Not_Change_Real) {
+TEST(Savkin_Yuriy_ComplexNumberTest, 
+     Adding_To_Imaginary_Part_Do_Not_Change_Real) {
     // Arrange
     double d1 = 5.8;
     double d2 = 28.1;
