@@ -1,4 +1,4 @@
-// Copyright 2017 Obolenskiy Arseniy
+// Copyright 2019 Obolenskiy Arseniy
 
 #include <gtest/gtest.h>
 
