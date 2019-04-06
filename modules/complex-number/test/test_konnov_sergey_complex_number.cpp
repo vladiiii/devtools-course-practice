@@ -31,7 +31,8 @@ TEST(Konnov_Sergey_ComplexNumberTest, Can_Sum_Multiple_Times) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Konnov_Sergey_ComplexNumberTest, Dividing_The_Complex_Number_By_Itself_Gives_One) {
+TEST(Konnov_Sergey_ComplexNumberTest,
+     Dividing_The_Complex_Number_By_Itself_Gives_One) {
     // Arrange
     ComplexNumber z1(1.0, 2.0);
 
