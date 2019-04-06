@@ -14,7 +14,7 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Numbers_Is_Equal_After_Multiply) {
 
     // Assert
     ComplexNumber exp_ans(17.0, 30.0);
-    EXPECT_EQ(exp_ans,c);
+    EXPECT_EQ(exp_ans, c);
 }
 
 TEST(Kurakin_Mikhail_ComplexNumberTest, Numbers_Is_Equal_After_Division) {
@@ -27,7 +27,7 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Numbers_Is_Equal_After_Division) {
 
     // Assert
     ComplexNumber exp_ans(9, -8.0);
-    EXPECT_EQ(exp_ans,c);
+    EXPECT_EQ(exp_ans, c);
 }
 
 TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Copy) {
@@ -36,12 +36,12 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Copy) {
     double im = 44.4;
 
     // Act
-    ComplexNumber a(re,im);
+    ComplexNumber a(re, im);
     ComplexNumber c(a);
 
     // Assert
-    EXPECT_EQ(a.getRe(),c.getRe());
-    EXPECT_EQ(a.getIm(),c.getIm());
+    EXPECT_EQ(a.getRe(), c.getRe());
+    EXPECT_EQ(a.getIm(), c.getIm());
 }
 
 TEST(Kurakin_Mikhail_ComplexNumberTest, Copy_Has_Its_Own_Memory) {
@@ -50,11 +50,11 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Copy_Has_Its_Own_Memory) {
     double im = 44.4;
 
     // Act
-    ComplexNumber a(re,im);
+    ComplexNumber a(re, im);
     ComplexNumber c(a);
 
     // Assert
-    EXPECT_NE(&a,&c);
+    EXPECT_NE(&a, &c);
 }
 
 TEST(Kurakin_Mikhail_ComplexNumberTest, Throws_Excp_When_Division_By_Zero) {
