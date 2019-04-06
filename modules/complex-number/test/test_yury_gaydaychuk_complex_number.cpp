@@ -27,3 +27,16 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Solve_General_Equation) {
     // Assert
     EXPECT_EQ(minus_one, z);
 }
+
+TEST(Gaydaychuk_Yury_ComplexNumberTest, Satisfy_Algebraic_Rule) {
+    // Arrange
+    ComplexNumber z1(-12.34, -56.78);
+    ComplexNumber z_negative(12.34, 56.78);
+	ComplexNumber z_nul(0.0, 0.0);
+
+    // Act
+    ComplexNumber z = z1 + z_negative;
+
+    // Assert
+    EXPECT_EQ(z, z_nul);
+}
