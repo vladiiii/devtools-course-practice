@@ -4,6 +4,7 @@
 
 #include "include/complex_number.h"
 
+// Multiplication on 1 must be precise
 TEST(Gaydaychuk_Yury_ComplexNumberTest, Precise_One_Multiplication) {
     // Arrange
 	ComplexNumber z1(1.0, 0.0);
@@ -16,6 +17,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Precise_One_Multiplication) {
     EXPECT_EQ(z2, z3);
 }
 
+// Satisfiying additional group equation
 TEST(Gaydaychuk_Yury_ComplexNumberTest, Precise_Solve_General_Equation) {
     // Arrange
     ComplexNumber im_one(0.0, 1.0);
@@ -28,6 +30,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Precise_Solve_General_Equation) {
     EXPECT_EQ(minus_one, z);
 }
 
+// Adding of negative z must be precise
 TEST(Gaydaychuk_Yury_ComplexNumberTest, Precisly_Satisfy_Algebraic_Rule) {
     // Arrange
     ComplexNumber z1(-12.34, -56.78);
