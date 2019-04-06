@@ -22,3 +22,15 @@ TEST(Bykovskaya_Alina_ComplexNumberTest, Can_Assign_To_Itself) {
     // Act & Assert
     ASSERT_NO_THROW(a = a);
 }
+
+TEST(Bykovskaya_Alina_ComplexNumberTest, Can_Create_By_Copy_Constructor) {
+    // Arrange
+    ComplexNumber a(3.0, 5.0);
+
+    // Act
+    ComplexNumber b(a);
+
+    // Assert
+    EXPECT_EQ(a.getRe(), b.getRe());
+    EXPECT_EQ(a.getIm(), b.getIm());
+}
