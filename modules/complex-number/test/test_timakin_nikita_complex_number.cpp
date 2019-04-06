@@ -15,3 +15,14 @@ TEST(Timakin_Nikita_ComplexNumberTest, Default_Equals_Zero) {
     // Assert
     EXPECT_EQ(z, zero);
 }
+
+TEST(Timakin_Nikita_ComplexNumberTest, Can_Get_Real) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+
+    // Act
+    double real = z.getRe();
+
+    // Assert
+    EXPECT_EQ(1.0, real);
+}
