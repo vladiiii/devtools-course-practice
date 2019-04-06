@@ -1,5 +1,6 @@
 // Copyright 2019 Obolenskiy Arseniy
 #include <gtest/gtest.h>
+#include <string>
 #include "include/vigenere_cipher.h"
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Zero_Shift) {
@@ -14,9 +15,10 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_1) {
     std::string key = "b";
     std::string expected(message);
     for (unsigned i = 0; i < expected.size(); ++i) {
-        expected[i] += shift;
-        if (!isalnum(expected[i]))
-            expected[i] -= 26;
+        int ch = expected[i] + shift;
+        if (ch > 122)
+            ch -= 26;
+        expected[i] = ch;
     }
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
@@ -27,9 +29,10 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_5) {
     std::string key = "f";
     std::string expected(message);
     for (unsigned i = 0; i < expected.size(); ++i) {
-        expected[i] += shift;
-        if (!isalnum(expected[i]))
-            expected[i] -= 26;
+        int ch = expected[i] + shift;
+        if (ch > 122)
+            ch -= 26;
+        expected[i] = ch;
     }
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
@@ -40,9 +43,10 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
     std::string key = "z";
     std::string expected(message);
     for (unsigned i = 0; i < expected.size(); ++i) {
-        expected[i] += shift;
-        if (!isalnum(expected[i]))
-            expected[i] -= 26;
+        int ch = expected[i] + shift;
+        if (ch > 122)
+            ch -= 26;
+        expected[i] = ch;
     }
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
