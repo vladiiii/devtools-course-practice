@@ -26,3 +26,14 @@ TEST(Timakin_Nikita_ComplexNumberTest, Can_Get_Real) {
     // Assert
     EXPECT_EQ(1.0, real);
 }
+
+TEST(Timakin_Nikita_ComplexNumberTest, Can_Get_Imaginary) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+
+    // Act
+    double im = z.getIm();
+
+    // Assert
+    EXPECT_EQ(2.0, im);
+}
