@@ -37,3 +37,14 @@ TEST(Timakin_Nikita_ComplexNumberTest, Can_Get_Imaginary) {
     // Assert
     EXPECT_EQ(2.0, im);
 }
+
+TEST(Timakin_Nikita_ComplexNumberTest, Copy_Constructor_Returns_Copy) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+
+    // Act
+    ComplexNumber z_copy(z);
+
+    // Assert
+    EXPECT_EQ(z, z_copy);
+}
