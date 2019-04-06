@@ -62,6 +62,6 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Throws_Excp_When_Division_By_Zero) {
     ComplexNumber a(50.0, 20.0);
     ComplexNumber b(0.0, 0.0);
 
-    // Assert and Act
+    // Act & Assert
     ASSERT_ANY_THROW(a / b);
 }
