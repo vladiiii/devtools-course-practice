@@ -48,3 +48,14 @@ TEST(Timakin_Nikita_ComplexNumberTest, Copy_Constructor_Returns_Copy) {
     // Assert
     EXPECT_EQ(z, z_copy);
 }
+
+TEST(Timakin_Nikita_ComplexNumberTest, Addidng_Zero_Does_Not_Change_Number) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+
+    // Act
+    ComplexNumber the_same_z = z + ComplexNumber(0, 0);
+
+    // Assert
+    EXPECT_EQ(z, the_same_z);
+}
