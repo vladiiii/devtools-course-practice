@@ -2,8 +2,8 @@
 
 #include <gtest/gtest.h>
 
-#include "include/complex_number.h"
 #include <string>
+#include "include/complex_number.h"
 
 TEST(Shkerin_Igor_ComplexNumberTest, Can_Create_Zero) {
     // Arrange
