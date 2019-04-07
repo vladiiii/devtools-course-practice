@@ -56,8 +56,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_not_divide_by_zero) {
     ASSERT_ANY_THROW(z1/z);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, 
-    Multiplying_by_one_gives_the_same_number) {
+TEST(Valiullin_Damir_ComplexNumberTest, Mult_by_one_gives_the_same_number) {
     // Arrange
     double re = 10.0;
     double im = 20.0;
