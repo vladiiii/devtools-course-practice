@@ -27,7 +27,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Complex_numbers_are_equal) {
     ComplexNumber z1(z);
 
     // Assert
-    EXPECT_EQ(z,z1);
+    EXPECT_EQ(z, z1);
 }
 
 TEST(Valiullin_Damir_ComplexNumberTest, Can_multiply_by_zero) {
@@ -40,7 +40,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_multiply_by_zero) {
     ComplexNumber z1(0.0, 0.0);
 
     // Assert
-    EXPECT_EQ(z1,z*z1);
+    EXPECT_EQ(z1, z*z1);
 }
 
 TEST(Valiullin_Damir_ComplexNumberTest, Can_not_divide_by_zero) {
@@ -56,7 +56,8 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_not_divide_by_zero) {
     ASSERT_ANY_THROW(z1/z);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Multiplying_by_one_gives_the_same_number) {
+TEST(Valiullin_Damir_ComplexNumberTest, 
+    Multiplying_by_one_gives_the_same_number) {
     // Arrange
     double re = 10.0;
     double im = 20.0;
