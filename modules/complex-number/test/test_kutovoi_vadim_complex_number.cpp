@@ -22,7 +22,7 @@ TEST(Kutovoi_Vadim_ComplexNumberTest, Can_add_two_complex_numbers) {
     EXPECT_EQ(im1 + im2, z.getIm());
 }
 
-TEST(Kutovoi_Vadim_ComplexNumberTest, Can_subtract_two_complex_numbers) {
+TEST(Kutovoi_Vadim_ComplexNumberTest, Can_subtr_two_complex_numbers) {
     // Arrange
     double re1 = 10;
     double im1 = 5;
@@ -72,7 +72,7 @@ TEST(Kutovoi_Vadim_ComplexNumberTest, Can_compare_equals_complex_numbers) {
     EXPECT_EQ(x.getIm(), y.getIm());
 }
 
-TEST(Kutovoi_Vadim_ComplexNumberTest, Can_differnet_not_equals_complex_numbers) {
+TEST(Kutovoi_Vadim_ComplexNumberTest, Can_diff_not_equals_complex_numbers) {
     // Arrange
     double re = 2;
     double im = 3;
