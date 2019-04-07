@@ -17,7 +17,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Complex_numbers_are_equal) {
+TEST(Valiullin_Damir_ComplexNumberTest, Complex_Numbers_Are_Equal) {
     // Arrange
     double re = 0.0;
     double im = 0.0;
@@ -30,7 +30,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Complex_numbers_are_equal) {
     EXPECT_EQ(z, z1);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Can_multiply_by_zero) {
+TEST(Valiullin_Damir_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
     double re = 10.0;
     double im = 20.0;
@@ -43,7 +43,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_multiply_by_zero) {
     EXPECT_EQ(z1, z*z1);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Can_not_divide_by_zero) {
+TEST(Valiullin_Damir_ComplexNumberTest, Can_Not_Divide_By_Zero) {
     // Arrange
     double re = 0.0;
     double im = 0.0;
@@ -56,7 +56,7 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_not_divide_by_zero) {
     ASSERT_ANY_THROW(z1/z);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Mult_by_one_gives_the_same_number) {
+TEST(Valiullin_Damir_ComplexNumberTest, Mult_By_One_Gives_The_Same_Number) {
     // Arrange
     double re = 10.0;
     double im = 20.0;
