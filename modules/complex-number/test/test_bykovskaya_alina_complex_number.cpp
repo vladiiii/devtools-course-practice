@@ -65,7 +65,7 @@ TEST(Bykovskaya_Alina_ComplexNumberTest,
     EXPECT_EQ(expect.getIm(), c.getIm());
 }
 
-TEST(Bykovskaya_Alina_ComplexNumberTest, cant_division_by_zero) {
+TEST(Bykovskaya_Alina_ComplexNumberTest, Cant_Division_By_Zero) {
     // Arrange
     ComplexNumber a(5.0, 5.0), b(-5.0, -5.0), c(5.6, 9.8);
 
