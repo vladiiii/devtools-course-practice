@@ -7,7 +7,7 @@
 TEST(Andronov_Maxim_ComplexNumberTest, Can_Create_Copy) {
     // Arrange
     ComplexNumber expected_z(10.0, 20.0);
-    
+
     // Act
     ComplexNumber z(expected_z);
 
@@ -30,7 +30,7 @@ TEST(Andronov_Maxim_ComplexNumberTest, Can_Assign) {
 TEST(Andronov_Maxim_ComplexNumberTest, Can_Assign_To_Itself) {
     // Arrange
     ComplexNumber z(10.0, 20.0);
-    
+
     // Act & Assert
     ASSERT_NO_THROW(z = z);
 }
