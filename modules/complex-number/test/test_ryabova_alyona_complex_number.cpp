@@ -9,7 +9,8 @@
 
 using std::string;
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Create_Complex_With_Negative_Real_And_Imaginary) {
+TEST(Ryabova_Alyona_ComplexNumberTest,
+	Can_Create_Complex_With_Negative_Real_And_Imaginary) {
     // Arrange
     double re = -1.23;
     double im = -1.23;
