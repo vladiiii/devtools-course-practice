@@ -92,6 +92,47 @@ TEST(Andronov_Maxim_ComplexNumberTest, Can_Difference_Several) {
     // Assert
     EXPECT_EQ(expected_z, z4);
 }
+///
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Multiplication) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(3.0, 4.0);
+    ComplexNumber z3;
+    ComplexNumber expected_z(-5.0, 10.0);
 
+    // Act
+    z3 = z2 * z1;
 
+    // Assert
+    EXPECT_EQ(expected_z, z3);
+}
+
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Multiplication_Several) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(3.0, 4.0);
+    ComplexNumber z3(5.0, 6.0);
+    ComplexNumber z4;
+    ComplexNumber expected_z(-85.0, 20.0);
+
+    // Act
+    z4 = z3 * z2 * z1;
+
+    // Assert
+    EXPECT_EQ(expected_z, z4);
+}
+
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Division) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(30.0, 40.0);
+    ComplexNumber z3;
+    ComplexNumber expected_z(22.0, -4.0);
+
+    // Act
+    z3 = z2 / z1;
+
+    // Assert
+    EXPECT_EQ(expected_z, z3);
+}
 
