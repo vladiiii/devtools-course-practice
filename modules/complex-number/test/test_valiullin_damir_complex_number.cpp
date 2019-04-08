@@ -4,9 +4,9 @@
 
 #include "include/complex_number.h"
 
-TEST(Valiullin_Damir_ComplexNumberTest, Can_Create_Zero) {
+TEST(Valiullin_Damir_ComplexNumberTest, Can_Create_Only_Re) {
     // Arrange
-    double re = 0.0;
+    double re = 1.0;
     double im = 0.0;
 
     // Act
@@ -17,17 +17,17 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Complex_Numbers_Are_Equal) {
+TEST(Valiullin_Damir_ComplexNumberTest, Can_Create_Only_Im) {
     // Arrange
     double re = 0.0;
-    double im = 0.0;
+    double im = 1.0;
 
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber z1(z);
 
     // Assert
-    EXPECT_EQ(z, z1);
+    EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(im, z.getIm());
 }
 
 TEST(Valiullin_Damir_ComplexNumberTest, Can_Multiply_By_Zero) {
@@ -43,17 +43,17 @@ TEST(Valiullin_Damir_ComplexNumberTest, Can_Multiply_By_Zero) {
     EXPECT_EQ(z1, z*z1);
 }
 
-TEST(Valiullin_Damir_ComplexNumberTest, Can_Not_Divide_By_Zero) {
+TEST(Valiullin_Damir_ComplexNumberTest, Div_By_One_Gives_The_Same_Number) {
     // Arrange
-    double re = 0.0;
-    double im = 0.0;
+    double re = 10.0;
+    double im = 20.0;
 
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber z1(10.0, 20.0);
+    ComplexNumber z1(1.0, 0.0);
 
     // Assert
-    ASSERT_ANY_THROW(z1/z);
+    EXPECT_EQ(z, z/z1);
 }
 
 TEST(Valiullin_Damir_ComplexNumberTest, Mult_By_One_Gives_The_Same_Number) {
