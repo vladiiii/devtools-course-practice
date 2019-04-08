@@ -67,8 +67,8 @@ TEST(Bykovskaya_Alina_ComplexNumberTest,
 
 TEST(Bykovskaya_Alina_ComplexNumberTest, Cant_Divide_By_Zero) {
     // Arrange
-    ComplexNumber a(5.0, 5.0), b(-5.0, -5.0), c(5.6, 9.8);
+    ComplexNumber a(5.0, 5.0), b(-5.0, -5.0), z(5.6, 9.8);
 
     // Act & Assert
-    ASSERT_ANY_THROW((c + c) / (a + b));
+    ASSERT_ANY_THROW((z + z) / (a + b));
 }
