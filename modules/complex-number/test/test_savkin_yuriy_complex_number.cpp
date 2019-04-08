@@ -67,3 +67,32 @@ TEST(Savkin_Yuriy_ComplexNumberTest,
     EXPECT_EQ(5.8, z.getRe());
 }
 
+TEST(Savkin_Yuriy_ComplexNumberTest,
+     Multiplication_By_Real_One_Works_Correctly) {
+    // Arrange
+    double d1 = 5.8;
+    double d2 = 28.1;
+    ComplexNumber x(d1, d2);
+    ComplexNumber y(1.0, 0.0);
+
+    // Act
+    ComplexNumber z = x * y;
+
+    // Assert
+    EXPECT_TRUE(x == z);
+}
+
+TEST(Savkin_Yuriy_ComplexNumberTest,
+     Dividing_By_1_Give_Same_Number) {
+    // Arrange
+    double re = 5.8;
+    double im = 28.1;
+    ComplexNumber x(re, im);
+    ComplexNumber y(1.0, 0.0);
+
+    // Act
+    ComplexNumber z = x / y;
+
+    // Assert
+    EXPECT_TRUE(x == z);
+}
