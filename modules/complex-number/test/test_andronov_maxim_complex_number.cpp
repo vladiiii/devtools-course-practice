@@ -35,51 +35,63 @@ TEST(Andronov_Maxim_ComplexNumberTest, Can_Assign_To_Itself) {
     ASSERT_NO_THROW(z = z);
 }
 
-//TEST(Andronov_Maxim_ComplexNumberTest, ) {
-//    // Arrange
-//
-//
-//    // Act
-//
-//
-//    // Assert
-//
-//
-//}
-//
-//TEST(Andronov_Maxim_ComplexNumberTest, ) {
-//    // Arrange
-//
-//
-//    // Act
-//
-//
-//    // Assert
-//
-//
-//}
-//
-//TEST(Andronov_Maxim_ComplexNumberTest, ) {
-//    // Arrange
-//
-//
-//    // Act
-//
-//
-//    // Assert
-//
-//
-//}
-//
-//TEST(Andronov_Maxim_ComplexNumberTest, ) {
-//    // Arrange
-//
-//
-//    // Act
-//
-//
-//    // Assert
-//
-//
-//}
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Add) {
+    // Arrange
+    ComplexNumber z1(10.0, 20.0);
+    ComplexNumber z2(30.0, 40.0);
+    ComplexNumber z3;
+    ComplexNumber expected_z(40.0, 60.0);
+
+    // Act
+    z3 = z1 + z2;
+
+    // Assert
+    EXPECT_EQ(expected_z, z3);
+}
+
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Add_Several) {
+    // Arrange
+    ComplexNumber z1(10.0, 20.0);
+    ComplexNumber z2(30.0, 40.0);
+    ComplexNumber z3(50.0, 60.0);
+    ComplexNumber z4;
+    ComplexNumber expected_z(90.0, 120.0);
+
+    // Act
+    z4 = z1 + z2 + z3;
+
+    // Assert
+    EXPECT_EQ(expected_z, z4);
+}
+
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Difference) {
+    // Arrange
+    ComplexNumber z1(10.0, 20.0);
+    ComplexNumber z2(30.0, 40.0);
+    ComplexNumber z3;
+    ComplexNumber expected_z(20.0, 20.0);
+
+    // Act
+    z3 = z2 - z1;
+
+    // Assert
+    EXPECT_EQ(expected_z, z3);
+}
+
+TEST(Andronov_Maxim_ComplexNumberTest, Can_Difference_Several) {
+    // Arrange
+    ComplexNumber z1(10.0, 20.0);
+    ComplexNumber z2(30.0, 40.0);
+    ComplexNumber z3(50.0, 60.0);
+    ComplexNumber z4;
+    ComplexNumber expected_z(10.0, 0.0);
+
+    // Act
+    z4 = z3 - z2 - z1;
+
+    // Assert
+    EXPECT_EQ(expected_z, z4);
+}
+
+
 
