@@ -26,7 +26,7 @@ TEST(Korobeinikov_Aleksey_ComplexNumberTest,
 }
 
 TEST(Korobeinikov_Aleksey_ComplexNumberTest,
-    Can_Multiplication_And_Division) {
+    Can_Multiply_And_Divide) {
     // Arrange
     ComplexNumber a(5.0, 1.25);
     ComplexNumber b(6.0, 8.0);
