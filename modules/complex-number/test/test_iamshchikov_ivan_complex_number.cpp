@@ -52,7 +52,8 @@ TEST(Iamshchikov_Ivan_ComplexNumberTest, Division_Of_Two_Complex_Number) {
   EXPECT_EQ(re1 / re2, res.getRe());
 }
 
-TEST(Iamshchikov_Ivan_ComplexNumberTest, Two_Complex_Number_With_Different_Values_Are_Not_Equal) {
+TEST(Iamshchikov_Ivan_ComplexNumberTest,
+     Two_Complex_Number_With_Different_Values_Are_Not_Equal) {
   // Arrange
   double re1 = 1.5;
   double im1 = -5.2;
