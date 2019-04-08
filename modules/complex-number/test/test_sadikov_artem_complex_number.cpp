@@ -1,4 +1,4 @@
-// Copyright 2019 <Sadikov Artem>
+// Copyright 2019 Sadikov Artem
 
 #include <gtest/gtest.h>
 
