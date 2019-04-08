@@ -7,7 +7,7 @@
 // Multiplication on 1 must be precise
 TEST(Gaydaychuk_Yury_ComplexNumberTest, Precise_One_Multiplication) {
     // Arrange
-	ComplexNumber z1(1.0, 0.0);
+    ComplexNumber z1(1.0, 0.0);
     ComplexNumber z2(22.33, 22.33);
 
     // Act
@@ -35,7 +35,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Precisly_Satisfy_Algebraic_Rule) {
     // Arrange
     ComplexNumber z1(-12.34, -56.78);
     ComplexNumber z_negative(12.34, 56.78);
-	ComplexNumber z_nul(0.0, 0.0);
+    ComplexNumber z_nul(0.0, 0.0);
 
     // Act
     ComplexNumber z = z1 + z_negative;
