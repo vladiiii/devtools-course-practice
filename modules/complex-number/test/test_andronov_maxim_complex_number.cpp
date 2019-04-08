@@ -12,7 +12,7 @@ TEST(Andronov_Maxim_ComplexNumberTest, Can_Create_Copy) {
     ComplexNumber z(expected_z);
 
     // Assert
-    EXPECT_EQ(expected_z, z);    
+    EXPECT_EQ(expected_z, z);
 }
 
 TEST(Andronov_Maxim_ComplexNumberTest, Can_Assign) {
