@@ -17,8 +17,8 @@ TEST(Korobeinikov_Aleksey_ComplexNumberTest,
     ComplexNumber e;
 
     // Act
-    e = d - c;
     ComplexNumber d = a + b;
+    e = d - c;
 
     // Assert
     ComplexNumber  expected_ans(0.0, 0.0);
@@ -34,8 +34,8 @@ TEST(Korobeinikov_Aleksey_ComplexNumberTest,
     ComplexNumber e;
 
     // Act
-    e = d/c;
     ComplexNumber d = a * b;
+    e = d/c;
 
     // Assert
     ComplexNumber expected_ans(1.0, 0.0);
