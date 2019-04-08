@@ -66,5 +66,5 @@ TEST(Iamshchikov_Ivan_ComplexNumberTest, Two_Complex_Number_With_Different_Value
   res = z1 == z2;
 
   // Assert
-  EXPECT_EQ(false, res);
+  EXPECT_EQ(0, res);
 }
