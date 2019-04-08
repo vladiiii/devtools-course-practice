@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <cmath>
+
 #include "include/complex_number.h"
 
 TEST(Sadikov_Artem_ComplexNumberTest, Return_zero_if_multiplicate_with_zero) {
@@ -37,8 +39,8 @@ TEST(Sadikov_Artem_ComplexNumberTest, Can_multiply_module) {
     ComplexNumber z1(12.0, 13.0);
 
     // Act
-    ab1 = abs(z.getRe() + z.getIm());
-    ab2 = abs(z1.getRe() + z1.getIm());
+    ab1 = fabs(z.getRe() + z.getIm());
+    ab2 = fabs(z1.getRe() + z1.getIm());
     abr = ab1 * ab2;
 
     // Assert
