@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Add_Two_Numbers) {
+TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Add_Two_Const_Numbers) {
     // Arrange
     const ComplexNumber a(3., 6.), b(4., 8.);
 
@@ -16,7 +16,7 @@ TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Add_Two_Numbers) {
     EXPECT_EQ(14, c.getIm());
 }
 
-TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Subtract_Two_Numbers) {
+TEST(Obolenskiy_Arseniy_ComplexNumberTest, Can_Subtract_Two_Const_Numbers) {
     // Arrange
     const ComplexNumber a(7., 14.), b(4., 8.);
 
