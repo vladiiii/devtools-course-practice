@@ -21,6 +21,17 @@ TEST(Pinaev_Danil_ComplexNumberTest, can_add_complex_numbers) {
 	ASSERT_EQ(a+b, ComplexNumber(4,-4));
 }
 
+
+TEST(Pinaev_Danil_ComplexNumberTest, can_subtract_complex_numbers) {
+	// Arrange
+	ComplexNumber a(1, -2);
+	ComplexNumber b(3, -2);
+
+	// Assert
+	ASSERT_EQ(a - b, ComplexNumber(-2, -0));
+}
+
+
 TEST(Pinaev_Danil_ComplexNumberTest, can_multiple_complex_numbers) {
 	// Arrange
 	ComplexNumber a(1, -2);
