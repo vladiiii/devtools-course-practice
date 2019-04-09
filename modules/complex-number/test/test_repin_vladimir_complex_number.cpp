@@ -45,7 +45,7 @@ TEST(Repin_Vladimir_ComplexNumberTest, multiple_assign_is_correct) {
     ComplexNumber z(re, im);
     ComplexNumber z1, z2;
 
-    // Act 
+    // Act
     z2 = z1 = z;
 
     // Assert
@@ -63,7 +63,7 @@ TEST(Repin_Vladimir_ComplexNumberTest, sum_operands_stay_unchanged) {
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
 
-    // Act 
+    // Act
     ComplexNumber z = z1 + z2;
 
     // Assert
@@ -82,7 +82,7 @@ TEST(Repin_Vladimir_ComplexNumberTest, division_operands_stay_unchanged) {
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
 
-    // Act 
+    // Act
     ComplexNumber z = z1 / z2;
 
     // Assert
