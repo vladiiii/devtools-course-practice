@@ -25,3 +25,21 @@ TEST(Kumbrasev_Pavel_ComplexNumberTest, Can_Copy_Class_Instances) {
 	// Assert
 	EXPECT_EQ(result_complex, test_number);
 }
+
+TEST(Kumbrasev_Pavel_ComplexNumberTest,	Numbers_With_Different_Real_Parts_Different) {
+	// Arrange
+	ComplexNumber test_number(2, 0);
+	ComplexNumber diff_test_number(3, 0);
+
+	// Act & Assert
+	EXPECT_FALSE(test_number == diff_test_number);
+}
+
+TEST(Kumbrasev_Pavel_ComplexNumberTest, Numbers_With_Different_Imaginary_Parts_Different) {
+	// Arrange
+	ComplexNumber test_number(0, 1);
+	ComplexNumber diff_test_number(0, 7);
+
+	// Act & Assert
+	EXPECT_FALSE(test_number == diff_test_number);
+}
