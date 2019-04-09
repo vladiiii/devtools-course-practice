@@ -1,12 +1,22 @@
 // Copyright 2019 Obolenskiy Arseniy
 #include <string>
+#include <stdexcept>
 #include "include/vigenere_cipher.h"
 
-std::string VigenereCipher::encrypt(const std::string &message,
-                                    const std::string& key) {
-    std::string nkey(message);
-    for (unsigned i = 0; i < nkey.size(); ++i)
+std::string VigenereCipher::expand_key(const std::string &key, int size) {
+    std::string nkey;
+    nkey.resize(size);
+    for (unsigned i = 0; i < nkey.size(); ++i) {
+        if (!isalpha(key[i % key.size()]))
+            throw std::runtime_error("Key should be alphabetic");
         nkey[i] = tolower(key[i % key.size()]);
+    }
+    return nkey;
+}
+
+std::string VigenereCipher::encrypt(const std::string &message,
+                                    const std::string &key) {
+    std::string nkey = expand_key(key, message.size());
     std::string result(message);
     for (unsigned i = 0; i < result.size(); ++i) {
         if (isalpha(result[i])) {
@@ -20,10 +30,8 @@ std::string VigenereCipher::encrypt(const std::string &message,
 }
 
 std::string VigenereCipher::decrypt(const std::string &message,
-                                    const std::string& key) {
-    std::string nkey(message);
-    for (unsigned i = 0; i < nkey.size(); ++i)
-        nkey[i] = tolower(key[i % key.size()]);
+                                    const std::string &key) {
+    std::string nkey = expand_key(key, message.size());
     std::string result(message);
     for (unsigned i = 0; i < result.size(); ++i) {
         if (isalpha(result[i])) {
