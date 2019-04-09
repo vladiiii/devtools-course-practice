@@ -20,7 +20,7 @@ TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expressions_With_Su
     EXPECT_EQ(11.0, answer.getIm());
 }
 
-TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expressions_With_Sub) {
+TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expr_With_Sub) {
     // Arrange
     ComplexNumber a(11.0, 11.0);
     ComplexNumber b(1.1, 3.3);
@@ -34,6 +34,22 @@ TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expressions_With_Su
     // Assert
     EXPECT_EQ(4.4, answer.getRe());
     EXPECT_EQ(4.4, answer.getIm());
+}
+
+TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expr_With_Mult) {
+    // Arrange
+    ComplexNumber a(1.1, 1.1);
+    ComplexNumber b(2.2, 2.2);
+    ComplexNumber c(3.3, 3.3);
+    ComplexNumber d(4.4, 4.4);
+    ComplexNumber answer;
+
+    // Act
+    answer = a * b * c * d;
+
+    // Assert
+    EXPECT_NEAR(-140.5536, answer.getRe(), 0.01);
+    EXPECT_NEAR(0.0, answer.getIm(), 0.01);
 }
 
 TEST(Prytov_Denis_ComplexNumberTest, Are_Equal_Complex_Numbers) {
