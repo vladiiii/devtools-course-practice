@@ -112,3 +112,56 @@ TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
                         VigenereCipher::encrypt(message, key),
                         key));
 }
+
+TEST(VigenereCipherTest, Handles_Empty_Key) {
+    // Arrange
+    std::string message = "Lorem ipsum";
+    std::string key = "";
+
+    // Act & Assert
+    ASSERT_EQ(message, VigenereCipher::decrypt(
+                        VigenereCipher::encrypt(message, key),
+                        key));
+}
+
+TEST(VigenereCipherTest, Encrypting_Handles_Empty_Messages) {
+    // Arrange
+    std::string message = "";
+    std::string key = "test";
+    std::string expected = "";
+
+    // Act & Assert
+    ASSERT_EQ(message, VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest, Decrypting_Handles_Empty_Messages) {
+    // Arrange
+    std::string message = "";
+    std::string key = "test";
+    std::string expected = "";
+
+    // Act & Assert
+    ASSERT_EQ(message, VigenereCipher::decrypt(message, key));
+}
+
+TEST(VigenereCipherTest,
+                Encrypting_Handles_Empty_Messages_And_Keys_At_The_Same_Time) {
+    // Arrange
+    std::string message = "";
+    std::string key = "";
+    std::string expected = "";
+
+    // Act & Assert
+    ASSERT_EQ(message, VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest,
+                Decrypting_Handles_Empty_Messages_And_Keys_At_The_Same_Time) {
+    // Arrange
+    std::string message = "";
+    std::string key = "";
+    std::string expected = "";
+
+    // Act & Assert
+    ASSERT_EQ(message, VigenereCipher::decrypt(message, key));
+}
