@@ -4,12 +4,16 @@
 #include "include/vigenere_cipher.h"
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Zero_Shift) {
+    // Arrange
     std::string message = "walrus";
     std::string key = "a";
+
+    // Act & Assert
     ASSERT_EQ(message, VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_1) {
+    // Arrange
     const char shift = 1;
     std::string message = "walrus";
     std::string key = "b";
@@ -20,10 +24,13 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_1) {
             ch -= 26;
         expected[i] = ch;
     }
+
+    // Act & Assert
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_5) {
+    // Arrange
     const char shift = 5;
     std::string message = "walrus";
     std::string key = "f";
@@ -34,10 +41,13 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_5) {
             ch -= 26;
         expected[i] = ch;
     }
+
+    // Act & Assert
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
+    // Arrange
     const char shift = 25;
     std::string message = "walrus";
     std::string key = "z";
@@ -48,25 +58,36 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
             ch -= 26;
         expected[i] = ch;
     }
+
+    // Act & Assert
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrest_Key) {
+    // Arrange
     std::string message = "word";
     std::string key = "doo1";
+
+    // Act & Assert
     ASSERT_ANY_THROW(VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Encrypt_Word_With_Key_With_The_Same_Size) {
+    // Arrange
     std::string message = "word";
     std::string key = "door";
     std::string expected = "zcfu";
+
+    // Act & Assert
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
+    // Arrange
     std::string message = "Lorem ipsum";
     std::string key = "test";
+
+    // Act & Assert
     ASSERT_EQ(message, VigenereCipher::decrypt(
                         VigenereCipher::encrypt(message, key),
                         key));
