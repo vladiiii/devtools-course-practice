@@ -65,7 +65,7 @@ TEST(Repin_Vladimir_ComplexNumberTest, sum_operands_stay_unchanged) {
 
     // Act
     ComplexNumber z = z1 + z2;
-
+    z = z;
     // Assert
     ComplexNumber expected_z1(3.0, 7.0);
     ComplexNumber expected_z2(3.0, 7.0);
@@ -83,7 +83,9 @@ TEST(Repin_Vladimir_ComplexNumberTest, division_operands_stay_unchanged) {
     ComplexNumber z2(re2, im2);
 
     // Act
+
     ComplexNumber z = z1 / z2;
+    z = z;
 
     // Assert
     ComplexNumber expected_z1(3.0, 7.0);
