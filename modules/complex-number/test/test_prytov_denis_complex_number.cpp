@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Expr_Sum) {
+TEST(Prytov_Denis_ComplexNumberTest, Can_Calc_Expr_Sum) {
     // Arrange
     ComplexNumber a(1.1, 4.4);
     ComplexNumber b(2.2, 3.3);
@@ -20,7 +20,7 @@ TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Expr_Sum) {
     EXPECT_EQ(11.0, answer.getIm());
 }
 
-TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Expr_Sub) {
+TEST(Prytov_Denis_ComplexNumberTest, Can_Calc_Expr_Sub) {
     // Arrange
     ComplexNumber a(11.0, 11.0);
     ComplexNumber b(1.1, 3.3);
@@ -36,7 +36,7 @@ TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Expr_Sub) {
     EXPECT_EQ(4.4, answer.getIm());
 }
 
-TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Expr_Mult) {
+TEST(Prytov_Denis_ComplexNumberTest, Can_Calc_Expr_Mult) {
     // Arrange
     ComplexNumber a(1.1, 1.1);
     ComplexNumber b(2.2, 2.2);
