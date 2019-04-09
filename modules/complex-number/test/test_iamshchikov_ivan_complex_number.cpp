@@ -4,35 +4,30 @@
 
 #include "include/complex_number.h"
 
-TEST(Iamshchikov_Ivan_ComplexNumberTest, Can_Create_Complex_Number) {
+TEST(Iamshchikov_Ivan_ComplexNumberTest,
+     Copied_Complex_Number_Has_Own_Memory) {
   // Arrange
-  double re = 1.5;
-  double im = -5.2;
+  ComplexNumber z1(2.3, 3.2);
 
   // Act
-  ComplexNumber z(re, im);
+  ComplexNumber z2 = z1;
 
   // Assert
-  EXPECT_EQ(re, z.getRe());
-  EXPECT_EQ(im, z.getIm());
+  EXPECT_NE(&z1, &z2);
 }
 
-TEST(Iamshchikov_Ivan_ComplexNumberTest, Addition_Of_Two_Complex_Number) {
+TEST(Iamshchikov_Ivan_ComplexNumberTest,
+     Number_Copied_Via_Copy_Constructor_Is_Equal_To_Original_Number) {
   // Arrange
-  double re1 = 1.5;
-  double im1 = -5.2;
-  double re2 = 5.2;
-  double im2 = 1.3;
-  ComplexNumber z1(re1, im1);
-  ComplexNumber z2(re2, im2);
-  ComplexNumber res;
+  ComplexNumber z1(2.3, 3.2);
+  ComplexNumber z2(z1);
+  bool res;
 
   // Act
-  res = z1 + z2;
+  res = z1 == z2;
 
   // Assert
-  EXPECT_EQ(re1 + re2, res.getRe());
-  EXPECT_EQ(im1 + im2, res.getIm());
+  EXPECT_EQ(1, res);
 }
 
 TEST(Iamshchikov_Ivan_ComplexNumberTest, Division_Of_Two_Complex_Number) {
