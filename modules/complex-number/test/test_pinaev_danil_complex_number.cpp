@@ -16,7 +16,7 @@ TEST(Pinaev_Danil_ComplexNumberTest, can_add_complex_numbers) {
     ComplexNumber b(3, -2);
     
     // Assert
-    ASSERT_EQ(a+b, ComplexNumber(4,-4));
+    ASSERT_EQ(a+b, ComplexNumber(4, -4));
 }
 
 
