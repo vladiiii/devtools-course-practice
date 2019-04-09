@@ -43,3 +43,14 @@ TEST(Kumbrasev_Pavel_ComplexNumberTest, Numbers_With_Different_Imaginary_Parts_D
 	// Act & Assert
 	EXPECT_FALSE(test_number == diff_test_number);
 }
+
+TEST(Kumbrasev_Pavel_ComplexNumberTest, Can_Multiply_Twice) {
+	// Arrange
+	ComplexNumber test_number(2, 0);
+
+	// Act
+	ComplexNumber result_complex = test_number * test_number * test_number;
+
+	// Assert
+	EXPECT_EQ(8, result_complex.getRe());
+}
