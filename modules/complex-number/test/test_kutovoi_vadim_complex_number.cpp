@@ -1,4 +1,4 @@
-// Copyright 2019
+// Copyright 2019 Kutovoi Vadim
 
 #include <gtest/gtest.h>
 
