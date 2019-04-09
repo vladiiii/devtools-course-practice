@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Pinaev_Danil_ComplexNumberTest, Ñan_Ñreate_Ñomplex_Òumbers) {
+TEST(Pinaev_Danil_ComplexNumberTest, Can_Create_Complex_Numbers) {
     // Assert
     ASSERT_NO_THROW(ComplexNumber a(1.0, 1.0));
 }
