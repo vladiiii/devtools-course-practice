@@ -52,7 +52,8 @@ TEST(Holobko_Vladimir_ComplexNumberTest, Can_Assign_To_Itself_Complex_Numbers) {
     ASSERT_NO_THROW(a = a);
 }
 
-TEST(Holobko_Vladimir_ComplexNumberTest, Can_Difference_More_Than_Two_Complex_Numbers) {
+TEST(Holobko_Vladimir_ComplexNumberTest,
+    Can_Difference_More_Than_Two_Complex_Numbers) {
     // Act
     ComplexNumber a(10., 10.);
     ComplexNumber b(1., 1.);
