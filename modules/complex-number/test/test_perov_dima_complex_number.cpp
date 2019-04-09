@@ -90,7 +90,7 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Degree) {
 
 
     // Assert
-    ComplexNumber expectedRes(-1, 0);
+    ComplexNumber expectedRes(0, -1);
     EXPECT_EQ(expectedRes, res);
     
 }
