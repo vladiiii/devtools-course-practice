@@ -29,21 +29,26 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Combination_Operations) {
 
 }
 
-TEST(Perov_Dima_ComplexNumberTest, Can_Unary_Minus) {
+TEST(Perov_Dima_ComplexNumberTest, Check_Multiplication_Division_Priority) {
     // Arrange
     double re1 = 1.0;
     double im1 = 1.0;
+    double re2 = 0.0;
+    double im2 = 1.0;
+    
     ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber res(0, 0);
     
     // Act
-    z1 = -z1;
+    res = z1/z2*z2;
 
 
     // Assert
-    double expectedRe = -1;
-    double expectedIm = -1;
+    double expectedRe = 0;
+    double expectedIm = 1;
     ComplexNumber expectedZ(expectedRe, expectedIm);
-    EXPECT_EQ(expectedZ, z1);
+    EXPECT_EQ(expectedZ, res);
     
 }
 
@@ -70,3 +75,41 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Comparison_Priority) {
     
 }
 
+TEST(Perov_Dima_ComplexNumberTest, Can_Degree) {
+    // Arrange
+    double re1 = 0.0;
+    double im1 = 1.0;
+    
+    ComplexNumber z1(re1, im1);
+    
+    
+    // Act
+    for(int i = 0; i < 10; i++)
+    z1 = z1*z1;
+
+
+    // Assert
+    ComplexNumber expectedRes(-1, 0);
+    EXPECT_EQ(expectedRes, z1);
+    
+}
+
+TEST(Perov_Dima_ComplexNumberTest, Check_Set_Get) {
+    // Arrange
+    double re1 = 0.0;
+    double im1 = 1.0;
+    
+    ComplexNumber z1(re1, im1);
+    
+    
+    // Act
+    ComplexNumber res();
+    res.setRe(z1.getRe())
+    res.setIm(z1.getIm())
+
+
+    // Assert
+
+    EXPECT_EQ(res, z1);
+    
+}
