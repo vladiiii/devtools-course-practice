@@ -63,7 +63,7 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
 
-TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrest_Key) {
+TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrect_Key) {
     // Arrange
     std::string message = "word";
     std::string key = "doo1";
@@ -80,6 +80,26 @@ TEST(VigenereCipherTest, Can_Encrypt_Word_With_Key_With_The_Same_Size) {
 
     // Act & Assert
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest, Encrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
+    // Arrange
+    std::string message = "Vigenere Cipher 123_+=0";
+    std::string key = "aba";
+    std::string expected = "Vjgeoerf Cjphfr 123_+=0";
+
+    // Act & Assert
+    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest, Decrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
+    // Arrange
+    std::string message = "Vjgeoerf Cjphfr 123_+=0";
+    std::string key = "aba";
+    std::string expected = "Vigenere Cipher 123_+=0";
+
+    // Act & Assert
+    ASSERT_EQ(expected, VigenereCipher::decrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
