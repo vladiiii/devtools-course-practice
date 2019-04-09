@@ -69,7 +69,7 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Comparison_Priority) {
 
     // Assert
     bool expectedRes = true;
-    EXPECT_EQ(expectedRes, res); 
+    EXPECT_EQ(expectedRes, res);
 }
 
 TEST(Perov_Dima_ComplexNumberTest, Can_Degree) {
@@ -78,7 +78,7 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Degree) {
     double im1 = 1.0;
 
     ComplexNumber z1(re1, im1);
-    ComplexNumber res(re1, im1); 
+    ComplexNumber res(re1, im1);
 
     // Act
     for (int i = 0; i < 10; i++)
