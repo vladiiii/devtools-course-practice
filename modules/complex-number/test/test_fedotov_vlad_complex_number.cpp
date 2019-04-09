@@ -15,6 +15,7 @@ TEST(Fedotov_Vlad_ComplexNumberTest, Can_Create_With_No_Arguments_Correctly) {
     EXPECT_EQ(0.0, z.getRe());
     EXPECT_EQ(0.0, z.getIm());
 }
+
 /*
 TEST(Fedotov_Vlad_ComplexNumberTest, DISABLED_Can_Increment) {
     // Arrange
@@ -73,8 +74,8 @@ TEST(Fedotov_Vlad_ComplexNumberTest, Is_Precision_Enough) {
     // Arrange
     double re = 0.000000001;
     double im = 0.000000001;
-    double re2= 0.0;
-    double im2= 0.0;
+    double re2 = 0.0;
+    double im2 = 0.0;
 
     // Act
     ComplexNumber z(re, im);
