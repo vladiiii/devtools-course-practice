@@ -70,3 +70,15 @@ TEST(Timakin_Nikita_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
     // Assert
     EXPECT_EQ(z, zero);
 }
+
+TEST(Timakin_Nikita_ComplexNumberTest, Difference_By_Itself_Equals_Zero) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+    ComplexNumber zero(0, 0);
+
+    // Act
+    ComplexNumber diff_result = z - z;
+
+    // Assert
+    EXPECT_EQ(diff_result, zero);
+}
