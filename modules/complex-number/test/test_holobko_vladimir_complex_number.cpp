@@ -56,7 +56,7 @@ TEST(Holobko_Vladimir_ComplexNumberTest, Can_Difference_More_Than_Two_Complex_Nu
     // Act
     ComplexNumber a(10., 10.);
     ComplexNumber b(1., 1.);
-    ComplexNumber expect(6., 6.);
+    ComplexNumber expect(7., 7.);
     ComplexNumber c = a - b - b - b;
 
     // Assert
