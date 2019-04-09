@@ -4,44 +4,46 @@
 
 #include "include/complex_number.h"
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Numbers_Is_Equal_After_Multiply) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply) {
     // Arrange
     ComplexNumber a(5.0, 2.0);
     ComplexNumber b(5.0, 4.0);
+    ComplexNumber c(2.0, 2.0);
 
     // Act
-    ComplexNumber c = a * b;
+    ComplexNumber d = a * b * c;
 
     // Assert
-    ComplexNumber exp_ans(17.0, 30.0);
-    EXPECT_EQ(exp_ans, c);
+    ComplexNumber exp_ans(-26.0, 94.0);
+    EXPECT_EQ(exp_ans, d);
 }
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Numbers_Is_Equal_After_Division) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Multiply_Divide_Add_Substract_Complex) {
     // Arrange
     ComplexNumber a(50.0, 20.0);
     ComplexNumber b(2.0, 4.0);
+    ComplexNumber c(4.0, 4.0);
+    ComplexNumber d(10.0, 10.0);
 
     // Act
-    ComplexNumber c = a / b;
+    ComplexNumber f = (a / b) + c - d;
 
     // Assert
-    ComplexNumber exp_ans(9, -8.0);
-    EXPECT_EQ(exp_ans, c);
+    ComplexNumber exp_ans(3.0, -14.0);
+    EXPECT_EQ(exp_ans, f);
 }
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Copy) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Assign_Complex) {
     // Arrange
     double re = 55.5;
     double im = 44.4;
 
     // Act
     ComplexNumber a(re, im);
-    ComplexNumber c(a);
+    ComplexNumber c(2.0, 2.0);
 
     // Assert
-    EXPECT_EQ(a.getRe(), c.getRe());
-    EXPECT_EQ(a.getIm(), c.getIm());
+    ASSERT_NO_THROW(c = a);
 }
 
 TEST(Kurakin_Mikhail_ComplexNumberTest, Copy_Has_Its_Own_Memory) {
@@ -57,11 +59,14 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Copy_Has_Its_Own_Memory) {
     EXPECT_NE(&a, &c);
 }
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Throws_Excp_When_Division_By_Zero) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
     ComplexNumber a(50.0, 20.0);
     ComplexNumber b(0.0, 0.0);
 
-    // Act & Assert
-    ASSERT_ANY_THROW(a / b);
+    // Act
+    ComplexNumber c = a * b;
+
+    // Assert
+    EXPECT_EQ(b, c);
 }
