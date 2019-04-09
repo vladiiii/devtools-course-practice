@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply_Comples) {
     // Arrange
     ComplexNumber a(5.0, 2.0);
     ComplexNumber b(5.0, 4.0);
@@ -18,7 +18,7 @@ TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply) {
     EXPECT_EQ(exp_ans, d);
 }
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Multiply_Divide_Add_Substract_Complex) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Do_All_Operations_Complex) {
     // Arrange
     ComplexNumber a(50.0, 20.0);
     ComplexNumber b(2.0, 4.0);
