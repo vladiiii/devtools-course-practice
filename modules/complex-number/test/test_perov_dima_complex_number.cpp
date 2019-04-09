@@ -103,7 +103,7 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Set_Get) {
     
     
     // Act
-    ComplexNumber res();
+    ComplexNumber res(0, 0);
     res.setRe(z1.getRe());
     res.setIm(z1.getIm());
 
