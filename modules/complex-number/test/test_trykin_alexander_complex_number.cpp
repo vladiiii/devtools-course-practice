@@ -30,3 +30,15 @@ TEST(Trykin_Alexander_ComplexNumberTest, Can_Divide_By_Im_One) {
     EXPECT_EQ(expected_z, z);
 }
 
+TEST(Trykin_Alexander_ComplexNumberTest, Can_Multiply_By_Re_One) {
+    // Arrange
+    ComplexNumber z(-2.9, -4.8);
+    ComplexNumber one(1, 0);
+
+    // Act
+    z = z * one;
+
+    // Assert
+    ComplexNumber expected_z(-2.9, -4.8);
+    EXPECT_EQ(expected_z, z);
+}
