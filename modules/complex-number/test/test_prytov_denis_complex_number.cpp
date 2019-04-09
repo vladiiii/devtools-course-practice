@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expressions_With_Sum) {
+TEST(Prytov_Denis_ComplexNumberTest, Can_Сalculate_Сomplex_Expr_With_Sum) {
     // Arrange
     ComplexNumber a(1.1, 4.4);
     ComplexNumber b(2.2, 3.3);
