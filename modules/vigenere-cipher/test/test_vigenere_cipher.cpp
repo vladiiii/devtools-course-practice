@@ -50,3 +50,24 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
     }
     ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
 }
+
+TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrest_Key) {
+    std::string message = "word";
+    std::string key = "doo1";
+    ASSERT_ANY_THROW(VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest, Can_Encrypt_Word_With_Key_With_The_Same_Size) {
+    std::string message = "word";
+    std::string key = "door";
+    std::string expected = "zcfu";
+    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+}
+
+TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
+    std::string message = "Lorem ipsum";
+    std::string key = "test";
+    ASSERT_EQ(message, VigenereCipher::decrypt(
+                        VigenereCipher::encrypt(message, key),
+                        key));
+}
