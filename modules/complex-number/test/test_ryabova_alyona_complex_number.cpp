@@ -10,41 +10,41 @@
 using std::string;
 
 TEST(Ryabova_Alyona_ComplexNumberTest,
-    Can_Create_Complex_With_Negative_Real_And_Imaginary) {
+    No_Throw_When_Set_Negative_Real_And_Imaginary) {
     // Arrange
     double re = -1.23;
     double im = -1.23;
+    ComplexNumber z;
 
-     // Act
-    ComplexNumber z(re, im);
-
-     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    // Act & Assert
+    ASSERT_NO_THROW(z.setRe(re));
+    ASSERT_NO_THROW(z.setIm(im));
 }
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Set_Negative_Real) {
+TEST(Ryabova_Alyona_ComplexNumberTest, Correct_Division_By_Itself) {
     // Arrange
-    double re = -1.23;
+    ComplexNumber z1(2.0, 3.0);
 
-     // Act
-    ComplexNumber z;
-    z.setRe(re);
+    // Act
+    ComplexNumber z = z1 / z1;
 
-     // Assert
-    EXPECT_EQ(re, z.getRe());
+    // Assert
+    ComplexNumber expected_z(1.0, 0.0);
+    EXPECT_EQ(expected_z, z);
 }
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Set_Negative_Imaginary) {
+TEST(Ryabova_Alyona_ComplexNumberTest, Can_Multiplication_Some_Complex) {
     // Arrange
-    double im = -1.23;
+    ComplexNumber z1(1.0, 3.0);
+    ComplexNumber z2(3.0, 2.0);
+    ComplexNumber z3(2.0, 2.0);
 
-     // Act
-    ComplexNumber z;
-    z.setIm(im);
+    // Act
+    ComplexNumber z = z1 * z2 * z3;
 
-     // Assert
-    EXPECT_EQ(im, z.getIm());
+    // Assert
+    ComplexNumber expected_z(-28.0, 16.0);
+    EXPECT_EQ(expected_z, z);
 }
 
 TEST(Ryabova_Alyona_ComplexNumberTest, Can_Add_Some_Complex) {
