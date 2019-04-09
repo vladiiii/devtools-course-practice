@@ -45,7 +45,7 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Multiplication_Division_Priority) {
 
 
     // Assert
-    double expectedRe = 0;
+    double expectedRe = 1;
     double expectedIm = 1;
     ComplexNumber expectedZ(expectedRe, expectedIm);
     EXPECT_EQ(expectedZ, res);
@@ -60,7 +60,7 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Comparison_Priority) {
     double im2 = -1.0;
     double re3 = 0.0;
     double im3 = 2.0;
-    bool res = true;
+    bool res;
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
     ComplexNumber z3(re3, im3);
@@ -104,8 +104,8 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Set_Get) {
     
     // Act
     ComplexNumber res();
-    res.setRe(z1.getRe())
-    res.setIm(z1.getIm())
+    res.setRe(z1.getRe());
+    res.setIm(z1.getIm());
 
 
     // Assert
