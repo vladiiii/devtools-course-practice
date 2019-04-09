@@ -81,16 +81,17 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Degree) {
     double im1 = 1.0;
     
     ComplexNumber z1(re1, im1);
+    ComplexNumber res(re1, im1);
     
     
     // Act
     for(int i = 0; i < 10; i++)
-    z1 = z1*z1;
+    res = res*z1;
 
 
     // Assert
     ComplexNumber expectedRes(-1, 0);
-    EXPECT_EQ(expectedRes, z1);
+    EXPECT_EQ(expectedRes, res);
     
 }
 
