@@ -37,18 +37,18 @@ TEST(Muravev_Denis_ComplexNumberTest, Sum_Complex_Numbers) {
     EXPECT_EQ(3.0, c.getRe());
     EXPECT_EQ(2.0, c.getIm());
 }
-TEST(Muravev_Denis_ComplexNumberTest, Copying_And_Subtraction) {
+TEST(Muravev_Denis_ComplexNumberTest, Subtraction_Complex_Numbers) {
     // Arrange
-    ComplexNumber a(1.7, 2.5);
-    ComplexNumber b(a);
+    ComplexNumber a(8.5, 8.0);
+    ComplexNumber b(4.0, 16.5);
     ComplexNumber c;
 
     // Act
     c = a - b;
 
     // Assert
-    EXPECT_EQ(0.0, c.getRe());
-    EXPECT_EQ(0.0, c.getIm());
+    EXPECT_EQ(4.5, c.getRe());
+    EXPECT_EQ(-8.5, c.getIm());
 }
 TEST(Muravev_Denis_ComplexNumberTest, Multiplication_Im_Parts) {
     // Arrange
@@ -62,4 +62,16 @@ TEST(Muravev_Denis_ComplexNumberTest, Multiplication_Im_Parts) {
     // Assert
     EXPECT_EQ(-1.0, c.getRe());
     EXPECT_EQ(0.0, c.getIm());
+}
+TEST(Muravev_Denis_ComplexNumberTest, Copying_Complex_Numbers) {
+    // Arrange
+    ComplexNumber a(1.7, 2.5);
+    ComplexNumber b;
+
+    // Act
+    b = a;
+
+    // Assert
+    EXPECT_EQ(1.7, b.getRe());
+    EXPECT_EQ(2.5, b.getIm());
 }
