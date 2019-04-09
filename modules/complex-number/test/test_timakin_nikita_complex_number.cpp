@@ -4,7 +4,6 @@
 
 #include "include/complex_number.h"
 
-
 TEST(Timakin_Nikita_ComplexNumberTest, Default_Equals_Zero) {
     // Arrange
     ComplexNumber zero(0.0, 0.0);
@@ -58,4 +57,16 @@ TEST(Timakin_Nikita_ComplexNumberTest, Addidng_Zero_Does_Not_Change_Number) {
 
     // Assert
     EXPECT_EQ(z, the_same_z);
+}
+
+TEST(Timakin_Nikita_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+    ComplexNumber zero(0, 0);
+
+    // Act
+    z = z * zero;
+
+    // Assert
+    EXPECT_EQ(z, zero);
 }
