@@ -1,18 +1,16 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Kumbrasev Pavel
 
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
 
-TEST(Korniakov_Kirill_ComplexNumberTest, Can_Create_Zero) {
+TEST(Kumbrasev_Pavel_ComplexNumberTest, Zero_Number_Does_Not_Change_Value) {
     // Arrange
-    double re = 0.0;
-    double im = 0.0;
+	ComplexNumber test_number(2, 0);
 
     // Act
-    ComplexNumber z(re, im);
+	ComplexNumber result_complex = test_number + ComplexNumber(0, 0);
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_EQ(result_complex, test_number);
 }
