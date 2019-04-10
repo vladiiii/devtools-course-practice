@@ -25,7 +25,6 @@ TEST(Vikhrev_Ivan_ComplexNumberTest, copied_has_its_own_memory) {
     ComplexNumber z1(re, im);
     ComplexNumber z2(z1);
     // Assert
-    EXPECT_EQ(&z1, &z1);
     EXPECT_NE(&z1, &z2);
 }
 
