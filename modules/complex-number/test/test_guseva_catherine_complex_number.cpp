@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <cmath>
+
 #include "include/complex_number.h"
 
 TEST(Guseva_Catherine_ComplexNumberTest, Can_multiply_module) {
