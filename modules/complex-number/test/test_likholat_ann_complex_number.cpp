@@ -15,7 +15,7 @@ TEST(Likholat_Ann_ComplexNumberTest, Can_Create_Copy) {
     EXPECT_EQ(z, z_1);
 }
 
-TEST(Likholat_Ann_ComplexNumberTest, Addition_Associativy) {
+TEST(Likholat_Ann_ComplexNumberTest, Can_Add_Associativy) {
     // Arrange
     ComplexNumber z(2.0, 1.4);
     ComplexNumber z_1(4.6, 3.0);
