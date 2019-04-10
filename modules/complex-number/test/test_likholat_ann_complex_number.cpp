@@ -53,5 +53,5 @@ TEST(Likholat_Ann_ComplexNumberTest, Can_Multiply_By_Itself) {
     // Assert
     ComplexNumber expected_res(3.85, 5.52);
     EXPECT_DOUBLE_EQ(expected_res.getRe(), res.getRe());
-	EXPECT_DOUBLE_EQ(expected_res.getIm(), res.getIm());
+    EXPECT_DOUBLE_EQ(expected_res.getIm(), res.getIm());
 }
