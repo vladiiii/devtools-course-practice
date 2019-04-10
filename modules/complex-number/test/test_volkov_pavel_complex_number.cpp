@@ -30,7 +30,6 @@ TEST(Volkov_Pavel_ComplexNumberTest, Copy_Constructor_Is_Not_Deep) {
 }
 
 TEST(Volkov_Pavel_ComplexNumberTest, Imagine_One_Sqr_Equal_Negative_One) {
-    
     // Arrange
     double re = 0.0;
     double im = 1.0;
@@ -47,7 +46,6 @@ TEST(Volkov_Pavel_ComplexNumberTest, Imagine_One_Sqr_Equal_Negative_One) {
 }
 
 TEST(Volkov_Pavel_ComplexNumberTest, Assignment_Operator_Return_Correct_Link) {
-
     // Arrange
     ComplexNumber z1;
     ComplexNumber z2(2.0, 3.0);
