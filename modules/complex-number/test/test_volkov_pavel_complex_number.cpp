@@ -59,3 +59,40 @@ TEST(Volkov_Pavel_ComplexNumberTest, Assignment_Operator_Return_Correct_Link) {
     EXPECT_EQ(returned_link, &z1);
 }
 
+TEST(Volkov_Pavel_ComplexNumberTest, Multiple_Summation_Check) {
+    // Arrange
+    ComplexNumber z;
+    ComplexNumber z_rezult;
+
+    z.setRe(1.0);
+    z.setIm(2.0);
+
+    z_rezult.setIm(0.0);
+    z_rezult.setRe(0.0);
+
+    // Act
+    z_rezult = z + z + z;    
+
+    // Assert
+    EXPECT_EQ(3, z_rezult.getRe());
+    EXPECT_EQ(6, z_rezult.getIm());
+}
+
+TEST(Volkov_Pavel_ComplexNumberTest, Multiply_On_Zero_Check) {
+    // Arrange
+    ComplexNumber z;
+    ComplexNumber z_rezult;
+
+    z.setRe(0.0);
+    z.setIm(0.0);
+
+    z_rezult.setIm(1.0);
+    z_rezult.setRe(1.0);
+
+    // Act
+    z_rezult = z_rezult * z;    
+
+    // Assert
+    EXPECT_EQ(0.0, z_rezult.getRe());
+    EXPECT_EQ(0.0, z_rezult.getIm());
+}
