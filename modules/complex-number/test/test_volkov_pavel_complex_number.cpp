@@ -71,7 +71,7 @@ TEST(Volkov_Pavel_ComplexNumberTest, Multiple_Summation_Check) {
     z_rezult.setRe(0.0);
 
     // Act
-    z_rezult = z + z + z;    
+    z_rezult = z + z + z;
 
     // Assert
     EXPECT_EQ(3, z_rezult.getRe());
@@ -90,7 +90,7 @@ TEST(Volkov_Pavel_ComplexNumberTest, Multiply_On_Zero_Check) {
     z_rezult.setRe(1.0);
 
     // Act
-    z_rezult = z_rezult * z;    
+    z_rezult = z_rezult * z;
 
     // Assert
     EXPECT_EQ(0.0, z_rezult.getRe());
