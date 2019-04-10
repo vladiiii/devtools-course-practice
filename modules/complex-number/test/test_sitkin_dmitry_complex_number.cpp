@@ -80,10 +80,10 @@ TEST(Sitkin_Dmitry_ComplexNumberTest, Division_Equals_Number_Is_One) {
 
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber division=z/z;
+    ComplexNumber division = z/z;
 
     // Assert
-    double expected_re=1.0;
+    double expected_re = 1.0;
     double expected_im = 0.0;
     EXPECT_EQ(expected_re, division.getRe());
     EXPECT_EQ(expected_im, division.getIm());
