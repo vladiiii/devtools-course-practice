@@ -25,6 +25,8 @@ TEST(Likholat_Ann_ComplexNumberTest, Addition_Associativy) {
     ComplexNumber res = (z + z_1) + z_2;
     ComplexNumber res_1 = z + (z_1 + z_2);
 
+
+
     // Assert
     EXPECT_DOUBLE_EQ(res.getRe(), res_1.getRe());
     EXPECT_DOUBLE_EQ(res.getIm(), res_1.getIm());
