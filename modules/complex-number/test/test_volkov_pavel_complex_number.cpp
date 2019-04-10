@@ -18,7 +18,7 @@ TEST(Volkov_Pavel_ComplexNumberTest, Copy_Constructor_Is_Not_Deep) {
 
     ComplexNumber z2(z1);
 
-    z2.setRe(re_changed);                      
+    z2.setRe(re_changed);
     z2.setIm(im_changed);
 
     // Assert
@@ -27,7 +27,6 @@ TEST(Volkov_Pavel_ComplexNumberTest, Copy_Constructor_Is_Not_Deep) {
 
     EXPECT_EQ(re_changed, z2.getRe());
     EXPECT_EQ(im_changed, z2.getIm());
-
 }
 
 TEST(Volkov_Pavel_ComplexNumberTest, Imagine_One_Sqr_Equal_Negative_One) {
@@ -45,7 +44,6 @@ TEST(Volkov_Pavel_ComplexNumberTest, Imagine_One_Sqr_Equal_Negative_One) {
     // Assert
     EXPECT_EQ(-1.0, z2.getRe());
     EXPECT_EQ(0.0, z2.getIm());
-
 }
 
 TEST(Volkov_Pavel_ComplexNumberTest, Assignment_Operator_Return_Correct_Link) {
@@ -61,6 +59,5 @@ TEST(Volkov_Pavel_ComplexNumberTest, Assignment_Operator_Return_Correct_Link) {
 
     // Assert
     EXPECT_EQ(returned_link, &z1);
-
 }
 
