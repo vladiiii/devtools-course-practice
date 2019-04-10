@@ -42,10 +42,10 @@ TEST(Soluyanov_Alexsey_ComplexNumberTest, EQ_Copy_Variables) {
     // Arrange
     ComplexNumber z1(3.0, 2.0);
     // Act
-    ComplexNumber copy(z1);
+    ComplexNumber compl_copy(z1);
 
     // Assert
-    EXPECT_EQ(z1, copy);
+    EXPECT_EQ(z1, compl_copy);
 }
 
 TEST(Soluyanov_Alexsey_ComplexNumberTest, EQ_Addition_ComplNum) {
