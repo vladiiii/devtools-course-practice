@@ -54,7 +54,7 @@ TEST(Soluyanov_Alexsey_ComplexNumberTest, EQ_Addition_ComplNum) {
     ComplexNumber z2(4.5, 6.0);
     ComplexNumber res;
     // Act
-    res = z1 + z1;
+    res = z1 + z2;
     // Assert
-    EXPECT_TRUE(8.0, res.getIm());
+    EXPECT_EQ(8.0, res.getIm());
 }
