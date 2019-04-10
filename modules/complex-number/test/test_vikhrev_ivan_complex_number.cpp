@@ -1,4 +1,4 @@
-// Copyright 2017 Vikhrev Ivan
+// Copyright 2019 Vikhrev Ivan
 
 #include <gtest/gtest.h>
 
