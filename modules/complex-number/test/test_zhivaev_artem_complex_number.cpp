@@ -4,6 +4,75 @@
 
 #include "include/complex_number.h"
 
+TEST(Zhivaev_Artem_ComplexNumberTest, Can_Create_Without_Parametrs) {
+    // Act
+    ComplexNumber z;
+
+    // Assert
+    EXPECT_EQ(0.0, z.getRe());
+    EXPECT_EQ(0.0, z.getIm());
+}
+
+TEST(Zhivaev_Artem_ComplexNumberTest, Can_Assign_Another_Number) {
+    // Arrange
+    double re = 13.45;
+    double im = 3.85;
+    ComplexNumber z;
+    ComplexNumber expected_z(re, im);
+
+    // Act
+    z = expected_z;
+
+    // Assert
+    EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(im, z.getIm());
+}
+
+TEST(Zhivaev_Artem_ComplexNumberTest,
+     Assign_Operator_Returns_Reference_To_Original_Number) {
+    // Arrange
+    double re = 13.45;
+    double im = 3.85;
+    double new_im = 8.95;
+    ComplexNumber z;
+
+    // Act
+    ComplexNumber expected_z(re, im);
+    (z = expected_z).setIm(new_im);
+
+    // Assert
+    EXPECT_EQ(new_im, z.getIm());
+    EXPECT_EQ(re, z.getRe());
+}
+
+TEST(Zhivaev_Artem_ComplexNumberTest,
+     Multiply_Zero_Number_On_Non_Zero_Returns_Zero) {
+    // Arrage
+    ComplexNumber z(11.85, 19.35);
+    ComplexNumber z_zero(0.0, 0.0);
+
+    // Act
+    ComplexNumber result = z_zero * z;
+
+    // Assert
+    EXPECT_EQ(0.0, result.getIm());
+    EXPECT_EQ(0.0, result.getRe());
+}
+
+TEST(Zhivaev_Artem_ComplexNumberTest,
+     Division_Zero_On_Non_Zero_Returns_Zero) {
+    // Arrage
+    ComplexNumber z(11.85, 19.35);
+    ComplexNumber z_zero(0.0, 0.0);
+
+    // Act
+    ComplexNumber result = z_zero / z;
+
+    // Assert
+    EXPECT_EQ(0.0, result.getIm());
+    EXPECT_EQ(0.0, result.getRe());
+}
+
 TEST(Zhivaev_Artem_ComplexNumberTest, Can_Create_Negative_Real) {
     // Arrange
     double re = -9.45;
@@ -27,44 +96,6 @@ TEST(Zhivaev_Artem_ComplexNumberTest, Can_Create_Negative_Imagine) {
 
     // Assert
     EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
-}
-
-TEST(Zhivaev_Artem_ComplexNumberTest, Can_Copy) {
-    // Arrange
-    double re = 123.123;
-    double im = 321.321;
-
-    // Act
-    ComplexNumber z1(re, im);
-    ComplexNumber z2(z1);
-
-    // Assert
-    EXPECT_EQ(re, z2.getRe());
-    EXPECT_EQ(im, z2.getIm());
-}
-
-TEST(Zhivaev_Artem_ComplexNumberTest, Can_SetRe) {
-    // Arrange
-    double re = -123.123;
-
-    // Act
-    ComplexNumber z;
-    z.setRe(re);
-
-    // Assert
-    EXPECT_EQ(re, z.getRe());
-}
-
-TEST(Zhivaev_Artem_ComplexNumberTest, Can_SetIm) {
-    // Arrange
-    double im = -123.123;
-
-    // Act
-    ComplexNumber z;
-    z.setIm(im);
-
-    // Assert
     EXPECT_EQ(im, z.getIm());
 }
 
