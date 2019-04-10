@@ -23,13 +23,16 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_multiply_module) {
 	EXPECT_EQ(abr, ab1 * ab2);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Cant_divide_by_zero) {
+TEST(Guseva_Catherine_ComplexNumberTest, Cant_multiply_by_zero) {
 	// Arrange
-	ComplexNumber z1(1.0, 2.0);
+	ComplexNumber z1(4.0, 6.0);
 	ComplexNumber z2(0.0, 0.0);
 
-	// Act & Assert
-	ASSERT_ANY_THROW(z1 / z2);
+	// Act 
+	ComplexNumber z3 = z1 * z2;
+
+	//Assert
+	EXPECT_EQ(z2, z3);
 }
 
 TEST(Guseva_Catherine_ComplexNumberTest, Can_assign_complex) {
