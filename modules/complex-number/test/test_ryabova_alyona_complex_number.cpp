@@ -33,7 +33,7 @@ TEST(Ryabova_Alyona_ComplexNumberTest, Correct_Division_By_Itself) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Multiplication_Some_Complex) {
+TEST(Ryabova_Alyona_ComplexNumberTest, Can_Multiply_Complex_Twice) {
     // Arrange
     ComplexNumber z1(1.0, 3.0);
     ComplexNumber z2(3.0, 2.0);
@@ -47,7 +47,7 @@ TEST(Ryabova_Alyona_ComplexNumberTest, Can_Multiplication_Some_Complex) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Add_Some_Complex) {
+TEST(Ryabova_Alyona_ComplexNumberTest, Can_Add_Complex_Twice) {
     // Arrange
     ComplexNumber z1(1.0, 3.0);
     ComplexNumber z2(1.0, 7.0);
@@ -61,7 +61,7 @@ TEST(Ryabova_Alyona_ComplexNumberTest, Can_Add_Some_Complex) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Ryabova_Alyona_ComplexNumberTest, Can_Difference_Some_Complex) {
+TEST(Ryabova_Alyona_ComplexNumberTest, Can_Difference_Complex_Twice) {
     // Arrange
     ComplexNumber z1(10.0, 5.0);
     ComplexNumber z2(1.0, 3.0);
