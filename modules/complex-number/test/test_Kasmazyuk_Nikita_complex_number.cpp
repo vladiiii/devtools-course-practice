@@ -1,6 +1,7 @@
 // Copyright 2019 Kasmazyuk Nikita
 
 #include <gtest/gtest.h>
+
 #include "include/complex_number.h"
 
 TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Create_Zero) {
