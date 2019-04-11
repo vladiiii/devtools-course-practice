@@ -22,8 +22,8 @@ TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Add_A_Lot_Of_Complex_Numbers) {
 // Act
     t = q + w + e + r;
 // Assert
-    EXPECT_EQ(44.0, e.getRe());
-    EXPECT_EQ(30.0, e.getIm());
+    EXPECT_EQ(44.0, t.getRe());
+    EXPECT_EQ(30.0, t.getIm());
 }
 
 TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Be_Multiplied_By_Itself) {
