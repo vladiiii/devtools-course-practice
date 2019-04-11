@@ -30,3 +30,17 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Are_Additive_Inverse_Complex_Numbers) 
 	//Assert
 	ASSERT_TRUE(result);
 }
+
+
+TEST(Trubina_Anastasia_ComplexNumberTest, Are_Reciprocal_Complex_Number) {
+	//Arrange
+	ComplexNumber dir(3.0, 4.0);
+
+	//Act
+	ComplexNumber rec(dir.getRe() / (dir.getRe() * dir.getRe() + dir.getIm() * dir.getIm()),
+		              dir.getIm() / (dir.getRe() * dir.getRe() + dir.getIm() * dir.getIm()));
+
+	//Assert
+	EXPECT_FLOAT_EQ(0.12, rec.getRe());
+	EXPECT_FLOAT_EQ(0.16, rec.getIm());
+}
