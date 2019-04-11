@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Create_Complex_Number {
+TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Create_Complex_Number) {
 // Arrange
     double re = 2.0;
     double im = 3.0;
