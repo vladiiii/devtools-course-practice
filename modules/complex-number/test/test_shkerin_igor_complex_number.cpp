@@ -44,3 +44,12 @@ TEST(Shkerin_Igor_ComplexNumberTest, Can_Multiplication_Complex_By_Zero) {
     // Assert
     EXPECT_EQ(z3, expected_z3);
 }
+
+TEST(Shkerin_Igor_ComplexNumberTest, Multiplication_By_One_Give_The_Same) {
+    // Arrange
+    ComplexNumber z1(27.0, 11.0);
+    ComplexNumber z2(1.0, 0.0);
+
+    // Act & Assert
+    EXPECT_EQ(z1*z2, z1);
+}
