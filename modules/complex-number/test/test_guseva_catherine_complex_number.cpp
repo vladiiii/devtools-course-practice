@@ -62,7 +62,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_Add_Complex_Twice) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_difference_complex_twice) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Subtract_Complex_Twice) {
     // Arrange
     ComplexNumber z1(10.0, 5.0);
     ComplexNumber z2(1.0, 3.0);
