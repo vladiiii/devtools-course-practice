@@ -12,24 +12,24 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Property_Of_The_Imaginary_Unit) {
 	ComplexNumber a(-1.0, 0);
 	bool res;
 	
-	//Act
+	// Act
 	res = a == i * i;
 
-	//Assert
+	// Assert
 	ASSERT_TRUE(res);
 }
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Is_Additive_Inverse_Complex_Number) {
-	//Arrange
+	// Arrange
 	ComplexNumber dir(1.0, 1.0);
 	ComplexNumber inv(-1.0, -1.0);
 	ComplexNumber res(0.0, 0.0);
 	bool result;
 	
-	//Act
+	// Act
 	result = res == dir + inv;
 	
-	//Assert
+	// Assert
 	ASSERT_TRUE(result);
 }
 
@@ -47,29 +47,29 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
 }
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Is_Reciprocal_Complex_Number) {
-	//Arrange
+	// Arrange
 	ComplexNumber dir(3.0, 4.0);
 	
-	//Act
+	// Act
 	ComplexNumber rec(dir.getRe() / (dir.getRe() * dir.getRe() +
 		dir.getIm() * dir.getIm()), dir.getIm() / (dir.getRe() *
 		dir.getRe() + dir.getIm() * dir.getIm()));
 	
-	//Assert
+	// Assert
 	EXPECT_FLOAT_EQ(0.12, rec.getRe());
 	EXPECT_FLOAT_EQ(0.16, rec.getIm());
 }
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Infinity_Not_Reciprocal_Null) {
-	//Arrange
+	// Arrange
 	ComplexNumber dir(0, 0);
 	
-	//Act
+	// Act
 	ComplexNumber rec(dir.getRe() / (dir.getRe() * dir.getRe() +
 		dir.getIm() * dir.getIm()), dir.getIm() / (dir.getRe() *
 		dir.getRe() + dir.getIm() * dir.getIm()));
 	
-	//Assert
+	// Assert
 	EXPECT_NE(DBL_MAX, rec.getRe());
 	EXPECT_NE(DBL_MAX, rec.getIm());
 }
