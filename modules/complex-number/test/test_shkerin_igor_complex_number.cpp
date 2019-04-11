@@ -31,3 +31,16 @@ TEST(Shkerin_Igor_ComplexNumberTest, Correct_Setter_And_Getter) {
     // Assert
     EXPECT_EQ(z1, z2);
 }
+
+TEST(Shkerin_Igor_ComplexNumberTest, Can_Multiplication_Complex_By_Zero) {
+    // Arrange
+    ComplexNumber z1(27.0, 11.0);
+    ComplexNumber zero(0.0, 0.0);
+
+    // Act
+    ComplexNumber z3 = z1 * zero;
+    ComplexNumber expected_z3(0.0, 0.0);
+
+    // Assert
+    EXPECT_EQ(z3, expected_z3);
+}
