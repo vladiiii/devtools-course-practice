@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
+#include <limits>
 
 /* Divided by zero exception */
 /* C++ Standard 5.6.4
