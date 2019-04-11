@@ -10,46 +10,6 @@ TEST(Pinaev_Danil_ComplexNumberTest, Can_Create_Complex_Numbers) {
 }
 
 
-TEST(Pinaev_Danil_ComplexNumberTest, Can_Add_Complex_Numbers) {
-    // Arrange
-    ComplexNumber a(1, -2);
-    ComplexNumber b(3, -2);
-
-    // Assert
-    ASSERT_EQ(a+b, ComplexNumber(4, -4));
-}
-
-
-TEST(Pinaev_Danil_ComplexNumberTest, Can_Subtract_Complex_Numbers) {
-    // Arrange
-    ComplexNumber a(1, -2);
-    ComplexNumber b(3, -2);
-
-    // Assert
-    ASSERT_EQ(a - b, ComplexNumber(-2, -0));
-}
-
-
-TEST(Pinaev_Danil_ComplexNumberTest, Can_Multiple_Complex_Numbers) {
-    // Arrange
-    ComplexNumber a(1, -2);
-    ComplexNumber b(3, -2);
-
-    // Assert
-    ASSERT_EQ(a * b, ComplexNumber(-1, -8));
-}
-
-
-TEST(Pinaev_Danil_ComplexNumberTest, Can_Not_Division_On_Zero_Complex_Number) {
-    // Arrange
-    ComplexNumber a(1, -2);
-    ComplexNumber b(0, 0);
-
-    // Assert
-    ASSERT_ANY_THROW(a / b);
-}
-
-
 TEST(Pinaev_Danil_ComplexNumberTest, Have_A_Defauld_Value) {
     // Arrange
     ComplexNumber a;
@@ -88,7 +48,7 @@ TEST(Pinaev_Danil_ComplexNumberTest, Can_Add_To_Arr) {
 
 TEST(Pinaev_Danil_ComplexNumberTest, Some_Weird_Acts_With_Arr) {
     // Arrange
-    ComplexNumber a, b;
+    ComplexNumber a, b, c, d;
     ComplexNumber A[4];
     A[0] = ComplexNumber(3, 4);
     A[1] = ComplexNumber(-3, -4);
@@ -96,7 +56,9 @@ TEST(Pinaev_Danil_ComplexNumberTest, Some_Weird_Acts_With_Arr) {
     A[3] = ComplexNumber(7, 8);
 
     // Act
-    b = ((A[0] + A[1]) / (A[2] * A[3]));
+    c = A[0] + A[1];
+    d = A[2] * A[3];
+    b = c / d;
 
     // Assert
     ASSERT_EQ(a, b);
