@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Zhivaev_Artem_ComplexNumberTest, Can_Create_Without_Parametrs) {
-    // Act
+    // Arrange & Act
     ComplexNumber z;
 
     // Assert
@@ -99,3 +99,20 @@ TEST(Zhivaev_Artem_ComplexNumberTest, Can_Create_Negative_Imagine) {
     EXPECT_EQ(im, z.getIm());
 }
 
+TEST(Zhivaev_Artem_ComplexNumberTest, Do_Not_Throw_If_Assign_To_Itself) {
+    // Arrange
+    ComplexNumber z(13.45, 9.25);
+
+    // Act & Assert
+    EXPECT_NO_THROW(z = z);
+}
+
+TEST(Zhivaev_Artem_ComplexNumberTest,
+     Do_Not_Throw_If_Divide_By_Zero_Real_Non_Zero_Imagine) {
+    // Arrange
+    ComplexNumber z(45.65, 13.35);
+    ComplexNumber zero_real_z(0.0, 34.75);
+
+    // Act & Assert
+    EXPECT_NO_THROW(z / zero_real_z);
+}
