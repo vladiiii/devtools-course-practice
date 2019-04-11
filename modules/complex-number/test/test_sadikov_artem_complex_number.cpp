@@ -6,7 +6,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Sadikov_Artem_ComplexNumberTest, Return_zero_if_multiplicate_with_zero) {
+TEST(Sadikov_Artem_ComplexNumberTest, Return_Zero_If_Multiplied_By_Zero) {
     // Arrange
     double re = 13.0;
     double im = 12.0;
