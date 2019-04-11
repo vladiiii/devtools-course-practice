@@ -6,12 +6,12 @@
 
 TEST(Fedotov_Vlad_ComplexNumberTest, Can_Create_With_No_Arguments) {
     // Act & Assert
-    ASSERT_NO_THROW(ComplexNumber z);
+    ASSERT_NO_THROW(ComplexNumber{});
 }
 
 TEST(Fedotov_Vlad_ComplexNumberTest, Can_Create_With_No_Arguments_Correctly) {
     // Act & Assert
-    ComplexNumber z;
+    ComplexNumber{};
     EXPECT_EQ(0.0, z.getRe());
     EXPECT_EQ(0.0, z.getIm());
 }
