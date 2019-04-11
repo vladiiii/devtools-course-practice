@@ -4,6 +4,8 @@
 
 #include "include/complex_number.h"
 
+#include <cfloat>
+
 TEST(Trubina_Anastasia_ComplexNumberTest, Property_Of_The_Imaginary_Unit) {
 	// Arrange
 	ComplexNumber i(0, 1.0);
@@ -31,6 +33,18 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Are_Additive_Inverse_Complex_Numbers) 
 	ASSERT_TRUE(result);
 }
 
+TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
+	// Arrange
+	ComplexNumber res;
+
+	// Act
+	res.setRe(2.3);
+	res.setIm(4.7);
+
+	// Assert
+	EXPECT_FLOAT_EQ(2.3, res.getRe());
+	EXPECT_FLOAT_EQ(4.7, res.getIm());
+}
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Are_Reciprocal_Complex_Number) {
 	//Arrange
@@ -45,15 +59,15 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Are_Reciprocal_Complex_Number) {
 	EXPECT_FLOAT_EQ(0.16, rec.getIm());
 }
 
-TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
-	// Arrange
-	ComplexNumber res;
+TEST(Trubina_Anastasia_ComplexNumberTest, Infinity_Is_Not_Reciprocal_Of_Complex_Null) {
+	//Arrange
+	ComplexNumber dir(0.0, 0.0);
 
-	// Act
-	res.setRe(2.3);
-	res.setIm(4.7);
+	//Act
+	ComplexNumber rec(dir.getRe() / (dir.getRe() * dir.getRe() + dir.getIm() * dir.getIm()),
+		dir.getIm() / (dir.getRe() * dir.getRe() + dir.getIm() * dir.getIm()));
 
-	// Assert
-	EXPECT_FLOAT_EQ(2.3, res.getRe());
-	EXPECT_FLOAT_EQ(4.7, res.getIm());
+	//Assert
+	EXPECT_NE(DBL_MAX, rec.getRe());
+	EXPECT_NE(DBL_MAX, rec.getIm());
 }
