@@ -28,10 +28,10 @@ TEST(Guseva_Catherine_ComplexNumberTest, Cant_multiply_by_zero) {
     ComplexNumber z1(4.0, 6.0);
     ComplexNumber z2(0.0, 0.0);
 
-    // Act 
+    // Act
     ComplexNumber z3 = z1 * z2;
 
-    //Assert
+    // Assert
     EXPECT_EQ(z2, z3);
 }
 
