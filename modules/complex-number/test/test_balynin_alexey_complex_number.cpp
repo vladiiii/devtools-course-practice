@@ -36,7 +36,7 @@ TEST(Balynin_Alexey_ComplexNumberTest, Can_Generate_Zero) {
     EXPECT_EQ(b, c.getIm());
 }
 
-TEST(Alexey_Balynin_ComplexNumberTest, Creation_Without_Arguments) {
+TEST(Alexey_Balynin_ComplexNumberTest, Can_Create_Without_Arguments) {
     // Arrange & Act
     ComplexNumber f(0.0, 0.0);
     ComplexNumber fp;
@@ -45,7 +45,7 @@ TEST(Alexey_Balynin_ComplexNumberTest, Creation_Without_Arguments) {
     EXPECT_EQ(f, fp);
 }
 
-TEST(Balynin_Alexey_ComplexNumberTest, Can_assign_Complex) {
+TEST(Balynin_Alexey_ComplexNumberTest, Can_Assign_Complex) {
     // Arrange & Act
     ComplexNumber c(15.0, 15.0);
     ComplexNumber c1;
