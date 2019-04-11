@@ -52,7 +52,6 @@ TEST(Kruglov_Yegor_ComplexNumberTest, Can_Assign_Other_Number) {
 
     // Assert
     EXPECT_EQ(z, z1);
-
 }
 
 TEST(Kruglov_Yegor_ComplexNumberTest, Can_Add_Two_Numbers) {
@@ -65,7 +64,6 @@ TEST(Kruglov_Yegor_ComplexNumberTest, Can_Add_Two_Numbers) {
 
     // Assert
     EXPECT_EQ(z2, z1);
-
 }
 
 TEST(Kruglov_Yegor_ComplexNumberTest, Can_Subtract_One_From_The_Other) {
@@ -89,9 +87,8 @@ TEST(Kruglov_Yegor_ComplexNumberTest, Can_Multiply_By_Num_Without_Im) {
     // Act
     z1 = z1 * z3;
 
-    //Assert
+    // Assert
     EXPECT_EQ(z2, z1);
-
 }
 
 TEST(Kruglov_Yegor_ComplexNumberTest, Can_Multiply_By_Num_Without_Re) {
@@ -103,7 +100,7 @@ TEST(Kruglov_Yegor_ComplexNumberTest, Can_Multiply_By_Num_Without_Re) {
     // Act
     z1 = z1 * z3;
 
-    //Assert
+    // Assert
     EXPECT_EQ(z2, z1);
 }
 
