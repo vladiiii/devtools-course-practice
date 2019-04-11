@@ -11,7 +11,7 @@ TEST(Fedotov_Vlad_ComplexNumberTest, Can_Create_With_No_Arguments) {
 
 TEST(Fedotov_Vlad_ComplexNumberTest, Can_Create_With_No_Arguments_Correctly) {
     // Act & Assert
-    ComplexNumber{};
+    ComplexNumber z;
     EXPECT_EQ(0.0, z.getRe());
     EXPECT_EQ(0.0, z.getIm());
 }
