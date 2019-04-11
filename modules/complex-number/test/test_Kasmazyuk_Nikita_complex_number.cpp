@@ -49,11 +49,14 @@ TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Be_Multiplied_By_Zero_Complex_Numbe
     EXPECT_EQ(0.0, e.getIm());
 }
 
-TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Choose_A_Larger_Number) {
+TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Add_Zero_Complex_Numbers) {
 // Act
     ComplexNumber q(1.0, 2.0);
-    ComplexNumber w(15.0, 15.0);
-
-//  Act & Assert
-    EXPECT_LT(q, w);
+    ComplexNumber w(0.0, 0.0);
+    ComplexNumber e;
+// Act
+    e = q + w;
+// Assert
+    EXPECT_EQ(1.0, e.getRe());
+    EXPECT_EQ(2.0, e.getIm());
 }
