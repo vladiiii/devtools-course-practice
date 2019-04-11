@@ -7,14 +7,12 @@
 #include "include/complex_number.h"
 
 
-TEST(Astafeva_Irina_ComplexNumberTest, Can_Create_Without_Parameters)
-{
+TEST(Astafeva_Irina_ComplexNumberTest, Can_Create_Without_Parameters) {
     // Act & Assert
     ASSERT_NO_THROW(ComplexNumber c);
 }
 
-TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Priority)
-{
+TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Priority) {
     // Arrange
     ComplexNumber c1(5.0, 4.0);
     ComplexNumber c2(7.0, 3.0);
@@ -26,8 +24,7 @@ TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Priority)
     ASSERT_EQ(c4, expected_c4);
 }
 
-TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Difficult_Priority)
-{
+TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Difficult_Priority) {
     // Arrange
     ComplexNumber c1(5.0, 5.0);
     ComplexNumber c2(7.0, 3.0);
@@ -40,16 +37,14 @@ TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Difficult_Priority)
     ASSERT_EQ(c5, expected_c5);
 }
 
-TEST(Astafeva_Irina_ComplexNumberTest, Can_Divide_By_Itself)
-{
+TEST(Astafeva_Irina_ComplexNumberTest, Can_Divide_By_Itself) {
     // Arrange
     ComplexNumber c(5.0, 6.5);
     // Act & Assert
     ASSERT_NO_THROW(c / c);
 }
 
-TEST(Astafeva_Irina_ComplexNumberTest, Can_Multiply_By_Itself)
-{
+TEST(Astafeva_Irina_ComplexNumberTest, Can_Multiply_By_Itself) {
     // Arrange
     ComplexNumber c(5.0, 6.5);
     // Act & Assert
