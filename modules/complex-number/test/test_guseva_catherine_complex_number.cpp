@@ -6,24 +6,16 @@
 
 #include "include/complex_number.h"
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_multiply_module) {
-    // Arrange
-    int ab1;
-    int ab2;
-    int abr;
-    ComplexNumber z(13.0, 12.0);
-    ComplexNumber z1(12.0, 13.0);
-
-    // Act
-    ab1 = fabs(z.getRe() + z.getIm());
-    ab2 = fabs(z1.getRe() + z1.getIm());
-    abr = ab1 * ab2;
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Create_Without_Args) {
+    // Arrange & Act
+    ComplexNumber z1(0.0, 0.0);
+    ComplexNumber z2;
 
     // Assert
-    EXPECT_EQ(abr, ab1 * ab2);
+    EXPECT_EQ(z1, z2);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Cant_multiply_by_zero) {
+TEST(Guseva_Catherine_ComplexNumberTest, Cant_Multiply_By_Zero) {
     // Arrange
     ComplexNumber z1(4.0, 6.0);
     ComplexNumber z2(0.0, 0.0);
@@ -35,7 +27,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Cant_multiply_by_zero) {
     EXPECT_EQ(z2, z3);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_assign_complex) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Assign_Complex) {
     // Arrange
     double re = 55.5;
     double im = 44.4;
@@ -48,7 +40,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_assign_complex) {
     ASSERT_NO_THROW(c = a);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_add_complex_twice) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Add_Complex_Twice) {
     // Arrange
     ComplexNumber z1(1.0, 3.0);
     ComplexNumber z2(1.0, 7.0);
@@ -62,7 +54,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_add_complex_twice) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_difference_complex_twice) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Difference_Complex_Twice) {
     // Arrange
     ComplexNumber z1(10.0, 5.0);
     ComplexNumber z2(1.0, 3.0);
