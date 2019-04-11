@@ -37,10 +37,10 @@ TEST(Vdovin_Eugene_ComplexNumberTest, Work_Triple_Assignment) {
     EXPECT_EQ(true, f);
 }
 
-TEST(Vdovin_Eugene_ComplexNumberTest, Multiplication_And_Division_Compensation) {
+TEST(Vdovin_Eugene_ComplexNumberTest, Mult_And_Div_Compensation) {
     bool f = false;
 
-	// Only at such coefficients, otherwise the computational error is large
+    // Only at such coefficients, otherwise the computational error is large
 
     ComplexNumber cn1(4.0, 4.0);
     ComplexNumber cn2(5.0, 5.0);
