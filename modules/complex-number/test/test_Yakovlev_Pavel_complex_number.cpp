@@ -50,8 +50,8 @@ TEST(Yakovlev_Pavel_ComplexNumberTest, test_compare_functions) {
 TEST(Yakovlev_Pavel_ComplexNumberTest, test_complex_assignment) {
     // Arrange
     ComplexNumber z1(3.0, 2.0);
-	ComplexNumber z2();
-	ComplexNumber z3();
+	ComplexNumber z2(0.0, 0.0);
+	ComplexNumber z3(0.0, 0.0);
     // Act
 	z3 = z2 = z1;
     // Assert
