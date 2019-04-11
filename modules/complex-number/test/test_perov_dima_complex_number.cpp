@@ -18,7 +18,7 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Combination_Operations) {
     ComplexNumber res(0, 0);
 
     // Act
-    res = z3+z1*z2;
+    res = z3+z2*z1;
 
 
     // Assert
