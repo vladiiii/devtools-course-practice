@@ -35,7 +35,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_Multiply_By_Zero) {
     EXPECT_EQ(z2, z3);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_assign_complex) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Assign_Complex) {
     // Arrange
     double re = 55.5;
     double im = 44.4;
