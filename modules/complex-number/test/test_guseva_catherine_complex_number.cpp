@@ -23,7 +23,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_multiply_module) {
     EXPECT_EQ(abr, ab1 * ab2);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Cant_multiply_by_zero) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
     ComplexNumber z1(4.0, 6.0);
     ComplexNumber z2(0.0, 0.0);
