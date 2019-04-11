@@ -9,11 +9,11 @@
 TEST(Trubina_Anastasia_ComplexNumberTest, Property_Of_The_Imaginary_Unit) {
     // Arrange
     ComplexNumber i(0, 1.0);
-    ComplexNumber a(-1.0, 0);
+    ComplexNumber n(-1.0, 0);
     bool res;
 
     // Act
-    res = a == i * i;
+    res = n == i * i;
 
     // Assert
     ASSERT_TRUE(res);
@@ -23,7 +23,7 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Is_Additive_Inverse_Complex_Number) {
     // Arrange
     ComplexNumber dir(1.0, 1.0);
     ComplexNumber inv(-1.0, -1.0);
-	ComplexNumber res(0, 0);
+    ComplexNumber res(0, 0);
 
     // Act
 
