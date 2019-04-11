@@ -37,12 +37,13 @@ TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Be_Multiplied_By_Itself) {
     EXPECT_EQ(48.0, e.getIm());
 }
 
-TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Be_Multiplied_By_Zero) {
+TEST(Kasmazyuk_Nikita_ComplexNumberTest, Can_Be_Multiplied_By_Zero_Complex_Numbers) {
 // Arrange
     ComplexNumber q(15.0, 15.0);
     ComplexNumber w(0.0, 0.0);
+    ComplexNumber e;
 // Act
-    e = q * 0.0;
+    e = q * w;
 // Assert
     EXPECT_EQ(0.0, e.getRe());
     EXPECT_EQ(0.0, e.getIm());
