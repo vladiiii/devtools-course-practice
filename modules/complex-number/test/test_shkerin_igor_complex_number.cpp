@@ -25,8 +25,8 @@ TEST(Shkerin_Igor_ComplexNumberTest, Correct_Setter_And_Getter) {
     // Act
     ComplexNumber z1(re1, im1);
     ComplexNumber z2;
-	z2.setRe(z1.getRe());
-	z2.setIm(z1.getIm());
+    z2.setRe(z1.getRe());
+    z2.setIm(z1.getIm());
 
     // Assert
     EXPECT_EQ(z1, z2);
