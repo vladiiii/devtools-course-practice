@@ -17,15 +17,16 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Property_Of_The_Imaginary_Unit) {
 	ASSERT_TRUE(res);
 }
 
-TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
-	// Arrange
-	ComplexNumber res();
+TEST(Trubina_Anastasia_ComplexNumberTest, Are_Additive_Inverse_Complex_Numbers) {
+	//Arrange
+	ComplexNumber dir(1.0, 1.0);
+	ComplexNumber inv(-1.0, -1.0);
+	ComplexNumber res(0.0, 0.0);
+	bool result;
 
-	// Act
-	res.setRe(2.3);
-	res.setIm(4.7);
+	//Act
+	result = res == dir + inv;
 
-	// Assert
-	EXPECT_FLOAT_EQ(2.3, res.getRe());
-	EXPECT_FLOAT_EQ(4.7, res.getIm());
+	//Assert
+	ASSERT_TRUE(result);
 }
