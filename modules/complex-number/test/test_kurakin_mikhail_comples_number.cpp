@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply_Comples) {
+TEST(Kurakin_Mikhail_ComplexNumberTest, Can_Triple_Multiply_Complex) {
     // Arrange
     ComplexNumber a(5.0, 2.0);
     ComplexNumber b(5.0, 4.0);
