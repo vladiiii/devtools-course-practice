@@ -48,7 +48,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_Assign_Complex) {
     ASSERT_NO_THROW(c = a);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_add_complex_twice) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Add_Complex_Twice) {
     // Arrange
     ComplexNumber z1(1.0, 3.0);
     ComplexNumber z2(1.0, 7.0);
