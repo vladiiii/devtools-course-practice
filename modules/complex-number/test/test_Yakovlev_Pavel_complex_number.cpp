@@ -6,10 +6,10 @@
 
 TEST(Yakovlev_Pavel_ComplexNumberTest, sum_sub_test) {
     // Arrange
-	ComplexNumber z1(3.0, 2.0);
-	ComplexNumber z2(z1);
+    ComplexNumber z1(3.0, 2.0);
+    ComplexNumber z2(z1);
     // Act
-	ComplexNumber res = z1 - z2;
+    ComplexNumber res = z1 - z2;
     // Assert
     EXPECT_DOUBLE_EQ(0.0, res.getRe());
     EXPECT_DOUBLE_EQ(0.0, res.getIm());
@@ -50,8 +50,8 @@ TEST(Yakovlev_Pavel_ComplexNumberTest, test_compare_functions) {
 TEST(Yakovlev_Pavel_ComplexNumberTest, test_complex_assignment) {
     // Arrange
     ComplexNumber z1(3.0, 2.0);
-	ComplexNumber z2(0.0, 0.0);
-	ComplexNumber z3(0.0, 0.0);
+    ComplexNumber z2(0.0, 0.0);
+    ComplexNumber z3(0.0, 0.0);
     // Act
     z3 = z2 = z1;
     // Assert
