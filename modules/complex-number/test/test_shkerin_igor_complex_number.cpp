@@ -53,3 +53,16 @@ TEST(Shkerin_Igor_ComplexNumberTest, Multiplication_By_One_Give_The_Same) {
     // Act & Assert
     EXPECT_EQ(z1*z2, z1);
 }
+
+TEST(Shkerin_Igor_ComplexNumberTest, Different_Equal_Initialize_Is_Equal) {
+    // Arrange
+    double re = 1.0;
+    double im = 2.0;
+
+    // Act
+    ComplexNumber z1(re, im);
+    ComplexNumber z2(1.0, 2.0);
+
+    // Assert
+    EXPECT_EQ(z1, z2);
+}
