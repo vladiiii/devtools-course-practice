@@ -1,4 +1,4 @@
-//Copyright 2019 Astafeva Irina
+// Copyright 2019 Astafeva Irina
 
 #include <gtest/gtest.h>
 
