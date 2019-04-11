@@ -21,7 +21,7 @@ TEST(Sadikov_Artem_ComplexNumberTest, Return_Zero_If_Multiplied_By_Zero) {
     EXPECT_EQ(z1, zr);
 }
 
-TEST(Sadikov_Artem_ComplexNumberTest, Can_create_without_args) {
+TEST(Sadikov_Artem_ComplexNumberTest, Can_Create_Without_Args) {
     // Arrange & Act
     ComplexNumber z(0.0, 0.0);
     ComplexNumber zr;
@@ -30,37 +30,30 @@ TEST(Sadikov_Artem_ComplexNumberTest, Can_create_without_args) {
     EXPECT_EQ(z, zr);
 }
 
-TEST(Sadikov_Artem_ComplexNumberTest, Can_multiply_module) {
+TEST(Sadikov_Artem_ComplexNumberTest, Can_Copy_Complex_Without_Args) {
     // Arrange
-    int ab1;
-    int ab2;
-    int abr;
-    ComplexNumber z(13.0, 12.0);
-    ComplexNumber z1(12.0, 13.0);
+    ComplexNumber z;
 
     // Act
-    ab1 = fabs(z.getRe() + z.getIm());
-    ab2 = fabs(z1.getRe() + z1.getIm());
-    abr = ab1 * ab2;
+    ComplexNumber z1(z);
 
     // Assert
-    EXPECT_EQ(abr, ab1 * ab2);
+    EXPECT_EQ(z1.getRe(), 0.0);
+    EXPECT_EQ(z1.getIm(), 0.0);
 }
 
-TEST(Sadikov_Artem_ComplexNumberTest, Can_Multiply_Complex_with_zero) {
+TEST(Sadikov_Artem_ComplexNumberTest, Copyed_Number_Is_Equal_To_Original) {
     // Arrange
     ComplexNumber z(12.0, 12.0);
-    ComplexNumber z1(0.0, 0.0);
-    ComplexNumber zr;
 
     // Act
-    zr = z * z1;
+    ComplexNumber z1(z);
 
     // Assert
-    EXPECT_EQ(zr, z1);
+    EXPECT_EQ(z1, z);
 }
 
-TEST(Sadikov_Artem_ComplexNumberTest, Can_assign_Complex) {
+TEST(Sadikov_Artem_ComplexNumberTest, Can_Assign_Complex) {
     // Arrange & Act
     ComplexNumber z(12.0, 12.0);
     ComplexNumber z1;
