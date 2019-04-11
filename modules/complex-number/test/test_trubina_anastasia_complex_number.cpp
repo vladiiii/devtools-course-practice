@@ -9,13 +9,13 @@
 TEST(Trubina_Anastasia_ComplexNumberTest, Property_Of_The_Imaginary_Unit) {
     // Arrange
     ComplexNumber i(0, 1.0);
-    ComplexNumber n(-1.0, 0);
+    ComplexNumber a(-1.0, 0);
     bool res;
 
     // Act
-    res = n == i * i;
+    res = a == i * i;
 
-	// Assert
+    // Assert
     ASSERT_TRUE(res);
 }
 
@@ -34,16 +34,16 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Is_Additive_Inverse_Complex_Number) {
 }
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
-	// Arrange
-	ComplexNumber res;
+    // Arrange
+    ComplexNumber res;
 
-	// Act
-	res.setRe(2.3);
-	res.setIm(4.7);
+    // Act
+    res.setRe(2.3);
+    res.setIm(4.7);
 
-	// Assert
-	EXPECT_FLOAT_EQ(2.3, res.getRe());
-	EXPECT_FLOAT_EQ(4.7, res.getIm());
+    // Assert
+    EXPECT_FLOAT_EQ(2.3, res.getRe());
+    EXPECT_FLOAT_EQ(4.7, res.getIm());
 }
 
 TEST(Trubina_Anastasia_ComplexNumberTest, Is_Reciprocal_Complex_Number) {
