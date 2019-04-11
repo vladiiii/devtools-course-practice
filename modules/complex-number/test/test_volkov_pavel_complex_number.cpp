@@ -4,7 +4,6 @@
 
 #include "include/complex_number.h"
 
-
 TEST(Volkov_Pavel_ComplexNumberTest, Copy_Constructor_Is_Not_Deep) {
     // Arrange
     double re = 0.0;
