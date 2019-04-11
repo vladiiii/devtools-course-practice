@@ -4,13 +4,15 @@
 
 #include "include/complex_number.h"
 
-TEST(Yakovlev_Pavel_ComplexNumberTest, make_default_constructor) {
+TEST(Yakovlev_Pavel_ComplexNumberTest, sum_sub_test) {
     // Arrange
-	ComplexNumber z1();
+	ComplexNumber z1(3.0, 2.0);
+	ComplexNumber z2(z1);
     // Act
+	ComplexNumber res = z1 - z2;
     // Assert
-    EXPECT_DOUBLE_EQ(0.0, z1.getRe());
-    EXPECT_DOUBLE_EQ(0.0, z1.getIm());
+    EXPECT_DOUBLE_EQ(0.0, res.getRe());
+    EXPECT_DOUBLE_EQ(0.0, res.getIm());
 }
 
 TEST(Yakovlev_Pavel_ComplexNumberTest, div_number_by_imaginary_unit) {
