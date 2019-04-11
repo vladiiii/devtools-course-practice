@@ -2,14 +2,12 @@
 
 #include <gtest/gtest.h>
 
-#include <string.h>
-
 #include "include/complex_number.h"
 
 
 TEST(Astafeva_Irina_ComplexNumberTest, Can_Create_Without_Parameters) {
     // Act & Assert
-    ASSERT_NO_THROW(ComplexNumber c);
+    ASSERT_NO_THROW(ComplexNumber{});
 }
 
 TEST(Astafeva_Irina_ComplexNumberTest, Calculates_By_Priority) {
