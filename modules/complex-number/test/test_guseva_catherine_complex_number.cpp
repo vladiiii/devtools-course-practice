@@ -15,7 +15,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_Create_Without_Args) {
     EXPECT_EQ(z1, z2);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Cant_Multiply_By_Zero) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
     ComplexNumber z1(4.0, 6.0);
     ComplexNumber z2(0.0, 0.0);
@@ -54,7 +54,7 @@ TEST(Guseva_Catherine_ComplexNumberTest, Can_Add_Complex_Twice) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Guseva_Catherine_ComplexNumberTest, Can_Difference_Complex_Twice) {
+TEST(Guseva_Catherine_ComplexNumberTest, Can_Subtract_Complex_Twice) {
     // Arrange
     ComplexNumber z1(10.0, 5.0);
     ComplexNumber z2(1.0, 3.0);
