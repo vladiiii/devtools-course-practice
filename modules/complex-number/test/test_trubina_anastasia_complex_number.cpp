@@ -44,3 +44,16 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Are_Reciprocal_Complex_Number) {
 	EXPECT_FLOAT_EQ(0.12, rec.getRe());
 	EXPECT_FLOAT_EQ(0.16, rec.getIm());
 }
+
+TEST(Trubina_Anastasia_ComplexNumberTest, Correctness_Of_Operation_Set) {
+	// Arrange
+	ComplexNumber res;
+
+	// Act
+	res.setRe(2.3);
+	res.setIm(4.7);
+
+	// Assert
+	EXPECT_FLOAT_EQ(2.3, res.getRe());
+	EXPECT_FLOAT_EQ(4.7, res.getIm());
+}
