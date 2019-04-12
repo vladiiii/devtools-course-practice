@@ -24,7 +24,7 @@ TEST(Druzhinin_Alexei_ComplexNumberTest, Pow_Of_Imaginary_Unit) {
     // Arrange
     ComplexNumber z1(0, 1.0);
     bool res;
-    
+
     // Act
     res = z1 == z1*z1*z1*z1*z1;
 
