@@ -6,7 +6,7 @@
 
 #include "include/complex_number.h"
 
-# define M_PI           3.14159265358979323846  /* pi */
+constexpr double pi           3.14159265358979323846  /* pi */
 
 
 TEST(Zolotareva_Olesya_NumberComplex_test, Can_distribute_one) {
@@ -49,7 +49,7 @@ TEST(Zolotareva_Olesya_NumberComplex_test, Can_complex_logarifm) {
     double Phi = Re / Im;
 
     Re = log10(R);
-    Im = Phi + 2 * M_PI;
+    Im = Phi + 2 * pi;
 
         ComplexNumber res(Re, Im);
     // assert
