@@ -27,7 +27,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Assign) {
     ComplexNumber b(1.1 , 1.1);
 
     // Assert
-    EXPECT_EQ(a = b);
+    ASSERT_NO_THROW(a = b);
 }
 TEST(Evdokimov_Artem_ComplexNumberTest, Self_Assign) {
     // Arrange
