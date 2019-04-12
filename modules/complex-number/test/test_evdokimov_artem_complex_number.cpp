@@ -29,7 +29,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Assign) {
     // Assert
     EXPECT_EQ(a , b);
 }
-TEST(Evdokimov_Artem_ComplexNumberTest, Can_Self_Assign) {
+TEST(Evdokimov_Artem_ComplexNumberTest, Self_Assign) {
     // Arrange
     double re = 1.1;
     double im = 1.1;
