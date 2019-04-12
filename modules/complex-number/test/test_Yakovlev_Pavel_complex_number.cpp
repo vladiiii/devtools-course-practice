@@ -4,16 +4,6 @@
 
 #include "include/complex_number.h"
 
-TEST(Yakovlev_Pavel_ComplexNumberTest, sum_sub_test) {
-    // Arrange
-	ComplexNumber z1(3.0, 2.0);
-	ComplexNumber z2(z1);
-    // Act
-	ComplexNumber res = z1 - z2;
-    // Assert
-    EXPECT_DOUBLE_EQ(0.0, res.getRe());
-    EXPECT_DOUBLE_EQ(0.0, res.getIm());
-}
 
 TEST(Yakovlev_Pavel_ComplexNumberTest, div_number_by_imaginary_unit) {
     // Arrange
@@ -21,30 +11,43 @@ TEST(Yakovlev_Pavel_ComplexNumberTest, div_number_by_imaginary_unit) {
     ComplexNumber z2(0.0, 1.0);
     // Act
     ComplexNumber res = z1 / z2;
+	ComplexNumber simple(2.0, -3.0);
     // Assert
-    EXPECT_DOUBLE_EQ(2.0, res.getRe());
-    EXPECT_DOUBLE_EQ(-3.0, res.getIm());
+    EXPECT_EQ(simple, res);
 }
 
-TEST(Yakovlev_Pavel_ComplexNumberTest, test_set_function) {
-    // Arrange
-    ComplexNumber z1(0.0, 0.0);
-    // Act
-    z1.setRe(3.0);
-    z1.setIm(2.0);
-    // Assert
-    EXPECT_DOUBLE_EQ(3.0, z1.getRe());
-    EXPECT_DOUBLE_EQ(2.0, z1.getIm());
-}
-
-TEST(Yakovlev_Pavel_ComplexNumberTest, test_compare_functions) {
+TEST(Yakovlev_Pavel_ComplexNumberTest, test_mult_conjugate_numbers) {
     // Arrange
     ComplexNumber z1(3.0, 2.0);
-    ComplexNumber z2(3.0, 2.0);
+	ComplexNumber _z1(3.0, -2.0);
     // Act
+    ComplexNumber res = z1 * _z1;
+	ComplexNumber simple(13.0, 0.0);
     // Assert
-    EXPECT_NE(false, z1 == z2);
-    EXPECT_NE(true, z1 != z2);
+    EXPECT_EQ(simple, res);
+}
+
+TEST(Yakovlev_Pavel_ComplexNumberTest, test_div_conjugate_numbers) {
+    // Arrange
+    ComplexNumber z1(3.0, 2.0);
+	ComplexNumber _z1(3.0, -2.0);
+    // Act
+    ComplexNumber res = z1 / _z1;
+	ComplexNumber simple(5.0/13.0, 12.0/13.0);
+    // Assert
+    EXPECT_EQ(simple, res);
+}
+
+TEST(Yakovlev_Pavel_ComplexNumberTest, test_complex_expression) {
+    // Arrange
+    ComplexNumber z1(3.0, 2.0);
+    ComplexNumber z2(-3.0, 1.0);
+	ComplexNumber z3(2.0, 1.0);
+    // Act
+	ComplexNumber res = (z1 + z2) * z3;
+	ComplexNumber simple(-3.0, 6.0);
+    // Assert
+    EXPECT_EQ(simple, res);
 }
 
 TEST(Yakovlev_Pavel_ComplexNumberTest, test_complex_assignment) {
