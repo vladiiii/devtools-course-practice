@@ -1,34 +1,8 @@
-// Copyright 2017 Holobko Vladimir
+// Copyright 2019 Holobko Vladimir
 
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
-
-TEST(Holobko_Vladimir_ComplexNumberTest, Numbers_Is_Equal_After_Multiply) {
-    // Arrange
-    ComplexNumber a(6.0, 3.0);
-    ComplexNumber b(6.0, 3.0);
-
-    // Act
-    ComplexNumber c = a * b;
-
-    // Assert
-    ComplexNumber exp_ans(27.0, 36.0);
-    EXPECT_EQ(exp_ans, c);
-}
-
-TEST(Holobko_Vladimir_ComplexNumberTest, Numbers_Is_Equal_After_Division) {
-    // Arrange
-    ComplexNumber a(50.0, 20.0);
-    ComplexNumber b(2.0, 4.0);
-
-    // Act
-    ComplexNumber c = a / b;
-
-    // Assert
-    ComplexNumber exp_ans(9, -8.0);
-    EXPECT_EQ(exp_ans, c);
-}
 
 TEST(Holobko_Vladimir_ComplexNumberTest, Can_CC_CV) {
     // Arrange
@@ -44,6 +18,14 @@ TEST(Holobko_Vladimir_ComplexNumberTest, Can_CC_CV) {
     EXPECT_EQ(a.getIm(), c.getIm());
 }
 
+TEST(Holobko_Vladimir_ComplexNumberTest, Can_Check_Equality) {
+    // Act
+    ComplexNumber x(5.0, 5.0);
+    ComplexNumber y(5.0, 5.0);
+
+    // Assert
+    EXPECT_EQ(true, x == y);
+}
 TEST(Holobko_Vladimir_ComplexNumberTest, Can_Assign_To_Itself_Complex_Numbers) {
     // Act
     ComplexNumber a(5.0, 7.7);
@@ -53,7 +35,7 @@ TEST(Holobko_Vladimir_ComplexNumberTest, Can_Assign_To_Itself_Complex_Numbers) {
 }
 
 TEST(Holobko_Vladimir_ComplexNumberTest,
-    Can_Difference_More_Than_Two_Complex_Numbers) {
+    Can_Difference_Four_Complex_Numbers) {
     // Act
     ComplexNumber a(10., 10.);
     ComplexNumber b(1., 1.);
