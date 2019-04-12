@@ -66,4 +66,3 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Assert
     EXPECT_EQ(b , a * b);
 }
-    
