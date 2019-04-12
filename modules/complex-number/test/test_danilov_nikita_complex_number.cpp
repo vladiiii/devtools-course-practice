@@ -66,10 +66,10 @@ TEST(Danilov_Nikita_ComplexNumberTest, multiplying_by_zero_gives_zero) {
                 (result.getIm() == 0.0));
 }
 
-/* Comparison of complex numbers has the same behavior
- * as comparison of doubles
+/* Rounding of complex numbers has the same behavior
+ * as rounding of doubles
  */
-TEST(Danilov_Nikita_ComplexNumberTest, Comparison_behavior) {
+TEST(Danilov_Nikita_ComplexNumberTest, Rounding_behavior) {
     /* Arrange */
     ComplexNumber z1(std::numeric_limits<double>::max(),
                      std::numeric_limits<double>::max());
