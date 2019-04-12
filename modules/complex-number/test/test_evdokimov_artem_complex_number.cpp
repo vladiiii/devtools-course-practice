@@ -27,7 +27,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Assign) {
     ComplexNumber b(1.1 , 1.1);
 
     // Assert
-    ASSERT_NO_THROW(a = b);
+    EXPECT_EQ(a , b);
 }
 TEST(Evdokimov_Artem_ComplexNumberTest, Self_Assign) {
     // Arrange
@@ -38,7 +38,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Self_Assign) {
     ComplexNumber a(re , im);
 
     // Assert
-    ASSERT_NO_THROW(a = a);
+	EXPECT_EQ(a , a);
 }
 
 TEST(Evdokimov_Artem_ComplexNumberTest, Can_Create_Object_Without_Arguments) {
@@ -51,7 +51,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Create_Object_Without_Arguments) {
     ComplexNumber b;
 
     //Assert
-    ASSERT_NO_THROW(a , b);
+	EXPECT_EQ(a , b);
 }
 
 TEST(Evdokimov_Artem_ComplexNumberTest, Can_Multiply_By_Zero) {
