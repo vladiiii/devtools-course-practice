@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "math.h"
+#include <math.h>
 
 #include "include/complex_number.h"
 
