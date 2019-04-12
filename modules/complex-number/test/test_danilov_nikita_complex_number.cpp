@@ -51,7 +51,7 @@ TEST(Danilov_Nikita_ComplexNumberTest, Sum_and_multiply_by_two_equality) {
 }
 
 /* Multiplying by zero gives zero */
-TEST(Danilov_Nikita_ComplexNumberTest, multiplying_by_zero_gives_zero) {
+TEST(Danilov_Nikita_ComplexNumberTest, Multiplying_by_zero_gives_zero) {
     /* Arrange */
     ComplexNumber z1(std::numeric_limits<double>::min(),
                      std::numeric_limits<double>::min());
