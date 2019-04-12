@@ -29,8 +29,6 @@ TEST(Vdovin_Eugene_ComplexNumberTest, Work_Triple_Assignment) {
 
 TEST(Vdovin_Eugene_ComplexNumberTest, Mult_And_Div_Compensation) {
     // Arrange
-    // Only at such coefficients, otherwise the computational error is large
-
     ComplexNumber cn1(4.0, 4.0);
     ComplexNumber cn2(5.0, 5.0);
     ComplexNumber cn3;
