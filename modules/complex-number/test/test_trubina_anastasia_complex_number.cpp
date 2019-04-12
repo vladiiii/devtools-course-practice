@@ -25,9 +25,7 @@ TEST(Trubina_Anastasia_ComplexNumberTest, Is_Additive_Inverse_Complex_Number) {
     ComplexNumber inv(-1.0, -1.0);
     ComplexNumber res(0, 0);
 
-    // Act
-
-    // Assert
+    // Act&Assert
     ASSERT_TRUE(res == dir + inv);
 }
 
