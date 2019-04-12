@@ -38,7 +38,7 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Self_Assign) {
     ComplexNumber a(re , im);
 
     // Assert
-	EXPECT_EQ(a , a);
+    EXPECT_EQ(a , a);
 }
 
 TEST(Evdokimov_Artem_ComplexNumberTest, Can_Create_Object_Without_Arguments) {
@@ -46,12 +46,12 @@ TEST(Evdokimov_Artem_ComplexNumberTest, Can_Create_Object_Without_Arguments) {
     double re = 0.0;
     double im = 0.0;
 
-    //Act
+    // Act
     ComplexNumber a(re , im);
     ComplexNumber b;
 
-    //Assert
-	EXPECT_EQ(a , b);
+    // Assert
+    EXPECT_EQ(a , b);
 }
 
 TEST(Evdokimov_Artem_ComplexNumberTest, Can_Multiply_By_Zero) {
