@@ -6,7 +6,7 @@
 
 #include "include/complex_number.h"
 
-constexpr double pi           3.14159265358979323846  /* pi */
+constexpr double pi = 3.14159265358979323846;  /* pi */
 
 
 TEST(Zolotareva_Olesya_NumberComplex_test, Can_distribute_one) {
