@@ -1,4 +1,5 @@
 // Copyright 2019 Galuzina Anna
+
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
