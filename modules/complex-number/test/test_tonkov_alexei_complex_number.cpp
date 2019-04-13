@@ -38,3 +38,29 @@ TEST(Tonkov_Alexei_ComplexNumberTest, Non_Equality) {
     // Assert
     ASSERT_TRUE(result);
 }
+
+TEST(Tonkov_Alexei_ComplexNumberTest, Only_Re_Creation) {
+    // Arrange
+    double re = 1.0;
+    double im = 0.0;
+
+    // Act
+    ComplexNumber a(re, im);
+
+    // Assert
+    EXPECT_EQ(re, a.getRe());
+    EXPECT_EQ(im, a.getIm());
+}
+
+TEST(Tonkov_Alexei_ComplexNumberTest, Only_Im_Creation) {
+    // Arrange
+    double re = 0.0;
+    double im = 1.0;
+
+    // Act
+    ComplexNumber b(re, im);
+
+    // Assert
+    EXPECT_EQ(re, b.getRe());
+    EXPECT_EQ(im, b.getIm());
+}
