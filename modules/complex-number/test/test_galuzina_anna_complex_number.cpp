@@ -20,10 +20,7 @@ TEST(Galuzina_Anna_ComplexNumberTest, Assignment_Returns_The_Value) {
   ComplexNumber z1(0.0, 0.0);
   ComplexNumber z2(1.0, 1.0);
 
-<<<<<<< HEAD
   // Assert
-=======
->>>>>>> d8d49b6503fae396461084680d05649a7d457c1b
   EXPECT_EQ(z2, z1 = z2);
 }
 
@@ -38,10 +35,7 @@ TEST(Galuzina_Anna_ComplexNumberTest, Copy_Constructor_Works) {
 
 TEST(Galuzina_Anna_ComplexNumberTest,
 The_multiplication_operation_is_commutative) {
-<<<<<<< HEAD
   // Arrange
-=======
->>>>>>> d8d49b6503fae396461084680d05649a7d457c1b
   ComplexNumber z1(1.0, 1.0);
   ComplexNumber z2(2.0, 1.0);
 
