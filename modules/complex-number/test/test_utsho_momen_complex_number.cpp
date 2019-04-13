@@ -24,8 +24,8 @@ TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
 
 TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
     // Arrange 
-	ComplexNumber z1 ;
-	ComplexNumber z2 ;
+	ComplexNumber z1;
+	ComplexNumber z2;
 
 	// Assert 
 	EXPECT_TRUE(z1 == z2);
@@ -42,7 +42,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Trig_Function_Sin) {
 
 TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
 	// Arrange & Act
-	ComplexNumber z1 ;
+	ComplexNumber z1;
 	double d = 5.0;
 	ComplexNumber z3 = z1;
 
