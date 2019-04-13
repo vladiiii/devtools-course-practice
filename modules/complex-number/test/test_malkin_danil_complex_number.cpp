@@ -1,7 +1,6 @@
 // Copyright 2019 Malkin Danil
 
 #include <gtest/gtest.h>
-
 #include "include/complex_number.h"
 
 TEST(Malkin_Danil_ComplexNumberTest, Two_Zero_Numbers_Equals) {
