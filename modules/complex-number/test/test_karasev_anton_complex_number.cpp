@@ -38,7 +38,7 @@ TEST(Karasev_Anton_ComplexNumberTest, Multiple_Conj_Numb) {
 	ComplexNumber z = x * y;
 
 	// Assert
-	ASSERT_EQ(z.getRe(), 61);
+	ASSERT_EQ(z.getRe(), 74);
 }
 
 TEST(Karasev_Anton_ComplexNumberTest, Prop_compar_not_equal) {
