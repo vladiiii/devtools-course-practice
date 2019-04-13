@@ -6,18 +6,15 @@
 
 TEST(Logvinenko_Alexandra_ComplexNumberTest, Can_Compare) {
     // Arrange
-    bool result1, result2;
+    bool result1, result2, bltr = true;
     ComplexNumber z1(1.2, 1.2);
     ComplexNumber z2(1.2, 1.2);
-    ComplexNumber z3(21.2, 1.2);
 
     // Act
     result1 = (z1 == z2);
-    result2 = (z1 == z3);
 
     // Assert
-    EXPECT_EQ(true, result1);
-    EXPECT_EQ(false, result2);
+    EXPECT_EQ(bltr, result1);
 }
 
 TEST(Logvinenko_Alexandra_ComplexNumberTest, Can_Summarize) {
