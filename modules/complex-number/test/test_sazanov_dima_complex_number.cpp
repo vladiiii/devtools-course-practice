@@ -41,7 +41,7 @@ TEST(Sazanov_Dima_ComplexNumberTest, Comolex_Number_Can_Create_A_Negative) {
     EXPECT_EQ(n2 , z.getIm());
 }
 
-TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Multiplication_By_Zero) {
+TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Mp_By_Zero) {
     // Arrange
     double n1 = 13.0;
     double n2 = 37.0;
