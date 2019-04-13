@@ -22,7 +22,7 @@ TEST(Dudchenko_Anton_ComplexNumberTest, Can_Execute_Multiple_Operations) {
     ComplexNumber num3(65.0, 35.0);
     // Act
     ComplexNumber result = num2 + num1 * num3;
-    // Assert	
+    // Assert
     ComplexNumber expectedResult(-280.0, 1107.0);
     EXPECT_EQ(expectedResult, result);
 }
