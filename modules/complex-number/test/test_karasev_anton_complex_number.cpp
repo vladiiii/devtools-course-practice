@@ -32,7 +32,7 @@ TEST(Karasev_Anton_ComplexNumberTest, Sum_Conj_Numb) {
 TEST(Karasev_Anton_ComplexNumberTest, Multiple_Conj_Numb) {
 	// Arrange
 	ComplexNumber x(5, 7);
-	ComplexNumber y(6, -7);
+	ComplexNumber y(5, -7);
 
 	// Act
 	ComplexNumber z = x * y;
