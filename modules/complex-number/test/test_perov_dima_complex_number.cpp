@@ -37,6 +37,7 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Multiplication_Division_Priority) {
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
     ComplexNumber res(0, 0);
+    ComplexNumber expectedRes(0, 0);
 
     // Act
     res = z1/z2*z2;
