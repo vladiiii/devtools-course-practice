@@ -23,26 +23,26 @@ TEST(Blagin_Ivan_ComplexNumberTest, Can_Multiplication_By_Zero) {
     ComplexNumber a(1.0, 1.0);
     ComplexNumber zero(0.0, 0.0);
     ComplexNumber res;
-    
-    // Act  
+
+    // Act
     res = a * zero;
 
     // Assert
     EXPECT_EQ(res, zero);
 }
 
-TEST(Blagin_Ivan_ComplexNumberTest, Can_Multiply_By_Minus_One) {
-	// Arrange
-	ComplexNumber x(5.0, 5.0);
-	ComplexNumber minOne(-1.0, 0.0);
-	ComplexNumber res;
+TEST(Blagin_Ivan_ComplexNumberTest, Can_Divide_By_Minus_One) {
+    // Arrange
+    ComplexNumber x(5.0, 5.0);
+    ComplexNumber minOne(-1.0, 0.0);
+    ComplexNumber res;
 
-	// Act
-	res = x * minOne;
+    // Act
+    res = x / minOne;
 
-	// Assert
-	EXPECT_EQ(res.getRe(), -5.0);
-	EXPECT_EQ(res.getIm(), -5.0);
+    // Assert
+    EXPECT_EQ(res.getRe(), -5.0);
+    EXPECT_EQ(res.getIm(), -5.0);
 }
 
 TEST(Blagin_Ivan_ComplexNumberTest, Can_compare_equals_complex_numbers) {
@@ -57,4 +57,18 @@ TEST(Blagin_Ivan_ComplexNumberTest, Can_compare_equals_complex_numbers) {
     // Assert
     EXPECT_EQ(x.getRe(), y.getRe());
     EXPECT_EQ(x.getIm(), y.getIm());
+}
+
+TEST(Blagin_Ivan_ComplexNumberTest,
+    The_result_of_div_and_mult_by_the_same_numb_shouldnt_diff_from_the_origin) {
+    // Arrange
+    ComplexNumber x(5.0, 6.0);
+    ComplexNumber y(3.0, 2.0);
+    ComplexNumber res(5.0, 6.0);
+
+    // Act
+    x = x / y * y;
+
+    // Assert
+    EXPECT_EQ(x, res);
 }
