@@ -4,68 +4,50 @@
 
 #include "include/complex_number.h" 
 
-TEST(Utsho_Momen_ComplexNumberTest, Can_Create_Zero) {
-	// Arrange
-	double re = 0.0;
-	double im = 0.0;
+TEST(Utsho_Momen_ComplexNumberTest, Init_Imaginary_To_Zero) {
+	// Arrange// Act
+	ComplexNumber z;
+		
+	// Assert
+	ASSERT_NO_THROW(0, z.im());
+}
 
-	// Act
-	ComplexNumber с3(re, im);
+TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
+	// Arrange // Act
+	ComplexNumber z1 = ComplexNumber(5, -2);
+	ComplexNumber z2 = ComplexNumber(1, -1);
 
 	// Assert
-	EXPECT_EQ(re, с3.getRe());
-	EXPECT_EQ(im, с3.getIm());
-}
-
-TEST(Utsho_Momen_ComplexNumberTest, Multiplication_With_Two_Numbers) {
-	// Arrange 
-	ComplexNumber c1(5.0, 3.0);
-	ComplexNumber c2(4.0, 6.0);
-
-	// Act
-	ComplexNumber c3 = c1 * c2;
-
-	// Assert
-	EXPECT_EQ(2, c3.getRe());
-	EXPECT_EQ(42, c3.getIm());
+	ASSERT_NO_THROW(5, z1.re());
+	ASSERT_NO_THROW(-2, z2.im());
 
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Adding_Two_Numbers) {
+TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
 	// Arrange 
-	ComplexNumber c1(1.0, 3.0);
-	ComplexNumber c2(4.0, 6.0);
+	ComplexNumber z1 ;
+	ComplexNumber z2 ;
+	
+    // Assert 
+	EXPECT_TRUE(z1 == z2);
+}
 
-	// Act
-	ComplexNumber c3 = c1 + c2;
+TEST(Utsho_Momen_ComplexNumberTest, Trig_Function_Sin) {
+	// Arrange 
+	ComplexNumber z1;
 
 	// Assert 
-	EXPECT_EQ(5, c3.getRe());
-	EXPECT_EQ(9, c3.getIm());
+	ASSERT_NO_THROW(3.4, sin(z1).re());
+	ASSERT_NO_THROW(-1.5, sin(z1).im());
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Substracting_Number) {
-	// Arrange 
-	ComplexNumber c1(1.0, 3.0);
-	ComplexNumber c2(4.0, 6.0);
-
-	// Act
-	ComplexNumber c3 = c1 - c2;
-
+TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
+	// Arrange // Act
+	ComplexNumber z1 ;
+	double d = 5.0;
+	ComplexNumber z3 = z1;
+	
 	// Assert 
-	EXPECT_EQ(-3, c3.getRe());
-	EXPECT_EQ(-3, c3.getIm());
-}
-
-TEST(Utsho_Momen_ComplexNumberTest, Dividing_Two_Number) {
-	// Arrange 
-	ComplexNumber c1(4.0, 6.0);
-	ComplexNumber c2(2.0, 3.0);
-
-	// Act
-	ComplexNumber c3 = c1 / c2;
-
-	// Assert 
-	EXPECT_EQ(2, c3.getRe());
-	EXPECT_EQ(0, c3.getIm());
+	ASSERT_NO_THROW(2.5, z3.re());
+	ASSERT_NO_THROW(-2.5, z3.im());
 }
