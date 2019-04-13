@@ -4,13 +4,19 @@
 
 #include "include/complex_number.h"
 
-TEST(Tonkov_Alexei_ComplexNumberTest, Division_By_Zero) {
+TEST(Tonkov_Alexei_ComplexNumberTest, Set_Values) {
     // Arrange
-    ComplexNumber a(1.0, 1.0);
-    ComplexNumber b(2.0, 2.0);
+    double re = 1.0;
+    double im = 2.0;
 
-    // Act & Assert
-    EXPECT_ANY_THROW(b / (a - a));
+    // Act
+    ComplexNumber a;
+    a.setRe(re);
+    a.setIm(im);
+
+    // Assert
+    EXPECT_EQ(re, a.getRe());
+    EXPECT_EQ(im, a.getIm());
 }
 
 TEST(Tonkov_Alexei_ComplexNumberTest, Equality) {
