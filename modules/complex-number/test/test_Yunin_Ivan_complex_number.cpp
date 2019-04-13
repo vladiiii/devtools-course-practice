@@ -1,7 +1,5 @@
 // Copyright 2019 Ivan Yunin
-
 #include <gtest/gtest.h>
-
 #include "include/complex_number.h"
 
 TEST(Yunin_Ivan_ComplexNumberTest, Priority_Of_Multiplication_Operation) {
@@ -15,6 +13,7 @@ TEST(Yunin_Ivan_ComplexNumberTest, Priority_Of_Multiplication_Operation) {
     ComplexNumber check = z1 + (z2 * z3);
     // Assert
     EXPECT_EQ(ans, res);
+    EXPECT_EQ(check, res);
 }
 
 TEST(Yunin_Ivan_ComplexNumberTest, Rize_To_Third_Degree ) {
