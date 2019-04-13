@@ -57,7 +57,7 @@ TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Mp_By_Zero) {
     EXPECT_EQ(cnr , cn0);
 }
 
-TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Cant_Divide_By_Zero) {
+TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Copy_If_Empty) {
     // Arrange
     ComplexNumber cn0;
 
