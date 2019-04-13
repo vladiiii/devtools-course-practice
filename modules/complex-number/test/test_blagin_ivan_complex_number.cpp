@@ -60,7 +60,7 @@ TEST(Blagin_Ivan_ComplexNumberTest, Can_compare_equals_complex_numbers) {
 }
 
 TEST(Blagin_Ivan_ComplexNumberTest,
-    The_result_of_div_and_mult_by_the_same_numb_shouldnt_diff_from_the_origin) {
+    The_result_of_div_and_mult_by_the_same_numb_diff_from_the_origin) {
     // Arrange
     ComplexNumber x(5.0, 6.0);
     ComplexNumber y(3.0, 2.0);
@@ -70,5 +70,5 @@ TEST(Blagin_Ivan_ComplexNumberTest,
     x = x / y * y;
 
     // Assert
-    EXPECT_EQ(x, res);
+    EXPECT_NE(x, res);	
 }
