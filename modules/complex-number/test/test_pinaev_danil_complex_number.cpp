@@ -9,7 +9,6 @@ TEST(Pinaev_Danil_ComplexNumberTest, Can_Create_Complex_Numbers) {
     ASSERT_NO_THROW(ComplexNumber a(1.0, 1.0));
 }
 
-
 TEST(Pinaev_Danil_ComplexNumberTest, Have_A_Defauld_Value) {
     // Arrange
     ComplexNumber a;
@@ -18,7 +17,6 @@ TEST(Pinaev_Danil_ComplexNumberTest, Have_A_Defauld_Value) {
     // Assert
     ASSERT_EQ(a, b);
 }
-
 
 TEST(Pinaev_Danil_ComplexNumberTest, Defauld_Value_Is_Zero_Value) {
     // Arrange
@@ -29,12 +27,10 @@ TEST(Pinaev_Danil_ComplexNumberTest, Defauld_Value_Is_Zero_Value) {
     ASSERT_EQ(a, b);
 }
 
-
 TEST(Pinaev_Danil_ComplexNumberTest, Can_Create_Arr_Complex_Numbers) {
     // Assert
     ASSERT_NO_THROW(ComplexNumber A[5]);
 }
-
 
 TEST(Pinaev_Danil_ComplexNumberTest, Can_Add_To_Arr) {
     // Arrange
@@ -44,7 +40,6 @@ TEST(Pinaev_Danil_ComplexNumberTest, Can_Add_To_Arr) {
     // Assert
     ASSERT_NO_THROW(A[0] = a);
 }
-
 
 TEST(Pinaev_Danil_ComplexNumberTest, Some_Weird_Acts_With_Arr) {
     // Arrange
