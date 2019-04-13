@@ -10,7 +10,7 @@ TEST(Tonkov_Alexei_ComplexNumberTest, Division_By_Zero) {
     ComplexNumber b(2.0, 2.0);
 
     // Act & Assert
-    EXPECT_ANY_THROW(b / (a + b));
+    EXPECT_ANY_THROW(b / (a - a));
 }
 
 TEST(Tonkov_Alexei_ComplexNumberTest, Equality) {
@@ -36,7 +36,7 @@ TEST(Tonkov_Alexei_ComplexNumberTest, Non_Equality) {
     result = a != b;
 
     // Assert
-    ASSERT_TRUE(result);
+    ASSERT_FALSE(result);
 }
 
 TEST(Tonkov_Alexei_ComplexNumberTest, Only_Re_Creation) {
