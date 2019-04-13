@@ -7,13 +7,13 @@ TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Sum_with_negative_complex_number) {
     // Arrange
     ComplexNumber z1(4.0, 3.0);
     ComplexNumber z2(7.0, 1.0);
-    ComplexNumber z(7.0, 1.0);
+    ComplexNumber z(-7.0, -1.0);
     // Act
     ComplexNumber z3 = z1 - z2;
-    complexNumber z4 = z1 + z;
+    ComplexNumber z4 = z1 + z;
     // Assert
-    EXPECT_TRUE(z3.getRe(), z4.getRe());
-    EXPECT_TRUE(z3.getIm(), z4.getIm());
+    EXPECT_EQ(z3.getRe(), z4.getRe());
+    EXPECT_EQ(z3.getIm(), z4.getIm());
 }
 
 TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Complex_Number_Divide_By_Imagine) {
