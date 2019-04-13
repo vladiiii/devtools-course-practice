@@ -17,7 +17,6 @@ TEST(Galuzina_Anna_ComplexNumberTest, Assignment_Returns_The_Value) {
   ComplexNumber z1(0.0, 0.0);
   ComplexNumber z2(1.0, 1.0);
 
-    
   EXPECT_EQ(z2, z1 = z2);
 }
 
@@ -28,7 +27,8 @@ TEST(Galuzina_Anna_ComplexNumberTest, Copy_Constructor_Works) {
   EXPECT_EQ(z1, z2);
 }
 
-TEST(Galuzina_Anna_ComplexNumberTest, The_multiplication_operation_is_commutative) {
+TEST(Galuzina_Anna_ComplexNumberTest,
+The_multiplication_operation_is_commutative) {
   ComplexNumber z1(1.0, 1.0);
   ComplexNumber z2(2.0, 1.0);
 
