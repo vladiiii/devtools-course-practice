@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Sazanov_Dima_ComplexNumberTest, Comolex_Number_Can_Create_If_Empty) {
-	// Arrange
+    // Arrange
     double n1 = 0.0;
     double n2 = 0.0;
     ComplexNumber cnn(n1 , n2);
@@ -50,7 +50,7 @@ TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Multiplication) {
     ComplexNumber cn1(n1 , n2);
     ComplexNumber cn2(n3 , n4);
     ComplexNumber cnr;
-    
+
     // Act
     cnr = cn1 * cn2;
 
