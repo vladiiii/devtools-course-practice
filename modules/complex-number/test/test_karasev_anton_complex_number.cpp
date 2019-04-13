@@ -52,7 +52,7 @@ TEST(Karasev_Anton_ComplexNumberTest, Prop_compar_not_equal) {
 	res = z != x + y;
 
 	// Assert
-	ASSERT_NE(res, false);
+	ASSERT_NE(res, true);
 }
 
 TEST(Karasev_Anton_ComplexNumberTest, Correct_Mem_Al_And_Fill) {
