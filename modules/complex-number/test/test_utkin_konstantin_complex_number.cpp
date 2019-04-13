@@ -23,7 +23,7 @@ TEST(Utkin_Konstantin_ComplexNumberTest, Can_Add_Several_Complex_Numbers) {
     ComplexNumber res_z = z1 + z2 + z3;
     // Assert
     EXPECT_EQ(exp_z.getRe(), res_z.getRe());
-	EXPECT_EQ(exp_z.getIm(), res_z.getIm());
+    EXPECT_EQ(exp_z.getIm(), res_z.getIm());
 }
 
 TEST(Utkin_Konstantin_ComplexNumberTest, Priorities_Of_Operations_Are_Correct) {
