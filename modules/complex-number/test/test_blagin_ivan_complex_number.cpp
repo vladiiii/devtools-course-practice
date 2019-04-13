@@ -70,5 +70,5 @@ TEST(Blagin_Ivan_ComplexNumberTest,
     x = x / y * y;
 
     // Assert
-    EXPECT_NE(x, res);	
+    EXPECT_NE(x, res);
 }
