@@ -40,12 +40,10 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Multiplication_Division_Priority) {
 
     // Act
     res = z1/z2*z2;
+    expectedRes = (z1/z2)*z2;
 
     // Assert
-    double expectedRe = 1;
-    double expectedIm = 1;
-    ComplexNumber expectedZ(expectedRe, expectedIm);
-    EXPECT_EQ(expectedZ, res);
+    EXPECT_EQ(expectedRes, res);
 }
 
 TEST(Perov_Dima_ComplexNumberTest, Check_Comparison_Priority) {
