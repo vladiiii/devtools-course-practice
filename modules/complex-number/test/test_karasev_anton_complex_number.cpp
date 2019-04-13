@@ -10,7 +10,7 @@ TEST(Karasev_Anton_ComplexNumberTest, Sum_Numb_Other_Sign) {
     ComplexNumber y(-2.5, -45.7);
 
     // Act
-    ComplexNumber z = x + y;;
+    ComplexNumber z = x + y;
 
     // Assert
     ASSERT_EQ(z.getRe(), 0);
@@ -63,6 +63,6 @@ TEST(Karasev_Anton_ComplexNumberTest, Correct_Mem_Al_And_Fill) {
     z = new ComplexNumber(22, -10);
 
     // Assert
-    ASSERT_TRUE(z->getRe() == 22);
-    ASSERT_TRUE(z->getIm() == -10);
+    ASSERT_EQ((z->getRe(), 22);
+    ASSERT_EQ(z->getIm(), -10);
 }
