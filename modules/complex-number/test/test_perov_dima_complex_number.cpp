@@ -20,7 +20,6 @@ TEST(Perov_Dima_ComplexNumberTest, Can_Combination_Operations) {
     // Act
     res = z3+z1*z2;
 
-
     // Assert
     double expectedRe = 1;
     double expectedIm = 1;
@@ -65,7 +64,6 @@ TEST(Perov_Dima_ComplexNumberTest, Check_Comparison_Priority) {
 
     // Act
     res = z1 == z2+z3;
-
 
     // Assert
     bool expectedRes = true;
