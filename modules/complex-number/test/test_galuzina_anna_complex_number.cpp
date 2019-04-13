@@ -16,7 +16,7 @@ TEST(Galuzina_Anna_ComplexNumberTest, Can_difference_three_complex) {
 }
 
 TEST(Galuzina_Anna_ComplexNumberTest, Assignment_Returns_The_Value) {
-  // Arrange & Act
+  // Arrange
   ComplexNumber z1(0.0, 0.0);
   ComplexNumber z2(1.0, 1.0);
 
