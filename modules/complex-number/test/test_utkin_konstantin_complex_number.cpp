@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Utkin_Konstantin_ComplexNumberTest, Cant_Divide_By_Zero) {
+TEST(Utkin_Konstantin_ComplexNumberTest, Throws_When_Divide_By_Zero) {
     // Arrange
     ComplexNumber z1(5.9, 10.9);
     ComplexNumber z2(-5.9, -10.9);
@@ -25,5 +25,22 @@ TEST(Utkin_Konstantin_ComplexNumberTest, Can_Add_Several_Complex_Numbers) {
     ComplexNumber res_z = z1 + z2 + z3;
     
     // Assert
-    EXPECT_EQ(exp_z, res_z);
+    EXPECT_EQ(exp_z.getRe(), res_z.getRe());
+	EXPECT_EQ(exp_z.getIm(), res_z.getIm());
 }
+
+TEST(Utkin_Konstantin_ComplexNumberTest, Priorities_Of_Operations_Are_Correct) {
+    // Arrange
+    ComplexNumber z1(2.0, 4.0);
+    ComplexNumber z2(8.0, 8.0);
+    ComplexNumber z3(1.5, -0.25);
+    ComplexNumber exp_z(1.875, -0.125);
+    
+    // Act
+    ComplexNumber res_z = z3 + z1 / z2;
+    
+    // Assert
+    EXPECT_EQ(exp_z.getRe(), res_z.getRe());
+    EXPECT_EQ(exp_z.getIm(), res_z.getIm());
+}
+
