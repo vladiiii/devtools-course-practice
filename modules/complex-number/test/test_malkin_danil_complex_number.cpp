@@ -8,7 +8,7 @@ TEST(Malkin_Danil_ComplexNumberTest, Two_Zero_Numbers_Equals) {
     // Arrange
     ComplexNumber a(0, 0);
     ComplexNumber b(0, 0);
-    
+
     // Act & Assert
     EXPECT_TRUE(a == b);
 }
