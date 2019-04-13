@@ -6,7 +6,7 @@
 
 TEST(Karasev_Anton_ComplexNumberTest, Sum_Numb_Other_Sign) {
 	// Arrange
-	ComplexNumber x(2.5, 45.7);
+    ComplexNumber x(2.5, 45.7);
 	ComplexNumber y(-2.5, -45.7);
 
 	// Act
@@ -23,7 +23,7 @@ TEST(Karasev_Anton_ComplexNumberTest, Sum_Conj_Numb) {
 	ComplexNumber y(26, -7);
 
 	// Act
-	ComplexNumber z = a + b;
+	ComplexNumber z = x + y;
 
 	// Assert
 	ASSERT_EQ(z.getRe(), 52);
@@ -63,6 +63,6 @@ TEST(Karasev_Anton_ComplexNumberTest, Correct_Mem_Al_And_Fill) {
 	z = new ComplexNumber(22, -10);
 
 	// Assert
-	ASSERT_TRUE(z.getRe == 22);
-	ASSERT_TRUE(z.getIM == -10);
+	ASSERT_TRUE(z.getRe() == 22);
+	ASSERT_TRUE(z.getIm() == -10);
 }
