@@ -41,32 +41,30 @@ TEST(Sazanov_Dima_ComplexNumberTest, Comolex_Number_Can_Create_A_Negative) {
     EXPECT_EQ(n2 , z.getIm());
 }
 
-TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Multiplication) {
+TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Can_Multiplication_By_Zero) {
     // Arrange
-    double n1 = 1.0;
-    double n2 = 3.0;
-    double n3 = 3.0;
-    double n4 = -7.0;
+    double n1 = 13.0;
+    double n2 = 37.0;
+    double n0 = 0.0;
     ComplexNumber cn1(n1 , n2);
-    ComplexNumber cn2(n3 , n4);
+    ComplexNumber cn0(n0 , n0);
     ComplexNumber cnr;
 
     // Act
-    cnr = cn1 * cn2;
+    cnr = cn1 * cn0;
 
     // Assert
-    EXPECT_EQ(26.0 , cnr.getRe() + cnr.getIm());
+    EXPECT_EQ(cnr , cn0);
 }
 
 TEST(Sazanov_Dima_ComplexNumberTest, Complex_Number_Cant_Divide_By_Zero) {
     // Arrange
-    double n1 = 13.0;
-    double n2 = 37.0;
-    double n3 = 0.0;
-    double n4 = 0.0;
-    ComplexNumber cn1(n1, n2);
-    ComplexNumber cn2(n3, n4);
+    ComplexNumber cn0;
 
-    // Act & Assert
-    ASSERT_ANY_THROW(cn1 / cn2);
+    // Act
+    ComplexNumber cn1(cn0);
+
+    // Assert
+    EXPECT_EQ(cn1.getRe() , 0.0);
+    EXPECT_EQ(cn1.getIm() , 0.0);
 }
