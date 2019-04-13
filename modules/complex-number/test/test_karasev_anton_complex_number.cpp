@@ -63,6 +63,6 @@ TEST(Karasev_Anton_ComplexNumberTest, Correct_Mem_Al_And_Fill) {
 	z = new ComplexNumber(22, -10);
 
 	// Assert
-	ASSERT_TRUE(z.getRe() == 22);
-	ASSERT_TRUE(z.getIm() == -10);
+	ASSERT_TRUE(z->getRe() == 22);
+	ASSERT_TRUE(z->getIm() == -10);
 }
