@@ -50,7 +50,7 @@ TEST(Zolotareva_Olesya_NumberComplex_test, Can_complex_logarifm) {
     Re = log10(R);
     Im = Phi + 2 * pi;
 
-        ComplexNumber res(Re, Im);
+    ComplexNumber res(Re, Im);
     // assert
     EXPECT_FLOAT_EQ(Re, res.getRe());
     EXPECT_FLOAT_EQ(Im, res.getIm());
