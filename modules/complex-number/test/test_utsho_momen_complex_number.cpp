@@ -16,7 +16,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Divide_By_Zero) {
     // Arrange
     ComplexNumber z1(45.65, 13.35);
     ComplexNumber z2(0.0, 34.75);
-    
+
     // Act & Assert
     EXPECT_NO_THROW(z1 / z2);
 }
@@ -33,10 +33,10 @@ TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
 TEST(Utsho_Momen_ComplexNumberTest, Double_Real_Number) {
     // Arrange
     ComplexNumber z(1.0, 2.0);
-    
+
     // Act
     double real = z.getRe();
-    
+
     // Assert
     EXPECT_EQ(1.0, real);
 }
