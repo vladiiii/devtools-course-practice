@@ -31,7 +31,8 @@ TEST(Emshanov_Andrey_ComplexNumberTest, Can_Add_Complex_Four) {
     EXPECT_EQ(expected_a, a);
 }
 
-TEST(Emshanov_Andrey_ComplexNumberTest, Multiplication_By_Imaginary_One_Works_Incorrectly) {
+TEST(Emshanov_Andrey_ComplexNumberTest,
+    Multiplication_By_Imaginary_One_Works_Incorrectly) {
     // Arrange
     double d1 = 7.1;
     double d2 = 54.3;
