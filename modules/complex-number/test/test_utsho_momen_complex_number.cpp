@@ -19,7 +19,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
 
     // Assert
     EXPECT_FLOAT_EQ(5, z1.getRe());
-    ASSERT_NO_THROW(-2, z2.im());
+    ASSERT_NO_THROW(-2,{ z2.im()});
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
@@ -36,8 +36,8 @@ TEST(Utsho_Momen_ComplexNumberTest, Trig_Function_Sin) {
      ComplexNumber z1;
 
      // Assert
-     ASSERT_NO_THROW(3.4, sin(z1).re());
-     ASSERT_NO_THROW(-1.5, sin(z1).im());
+     ASSERT_NO_THROW(3.4,{ sin(z1).re()});
+     ASSERT_NO_THROW(-1.5,{ sin(z1).im()});
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
@@ -47,6 +47,6 @@ TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
     ComplexNumber z3 = z1;
 
     // Assert
-    ASSERT_NO_THROW(2.5, z3.re());
-    ASSERT_NO_THROW(-2.5, z3.im());
+    ASSERT_NO_THROW(2.5,{ z3.re()});
+    ASSERT_NO_THROW(-2.5,{ z3.im()});
 }
