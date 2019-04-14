@@ -21,7 +21,7 @@ TEST(Emshanov_Andrey_ComplexNumberTest, Can_Add_Complex_Four) {
     ComplexNumber a1(2.0, 9.0);
     ComplexNumber a2(3.0, 11.0);
     ComplexNumber a3(4.0, 14.0);
-	ComplexNumber a4(5.0, 14.0);
+    ComplexNumber a4(5.0, 14.0);
 
     // Act
     ComplexNumber a = a1 + a2 + a3 + a4;
@@ -31,8 +31,7 @@ TEST(Emshanov_Andrey_ComplexNumberTest, Can_Add_Complex_Four) {
     EXPECT_EQ(expected_a, a);
 }
 
-TEST(Emshanov_Andrey_ComplexNumberTest,
-     Multiplication_By_Imaginary_One_Works_Incorrectly) {
+TEST(Emshanov_Andrey_ComplexNumberTest, Multiplication_By_Imaginary_One_Works_Incorrectly) {
     // Arrange
     double d1 = 7.1;
     double d2 = 54.3;
@@ -40,7 +39,7 @@ TEST(Emshanov_Andrey_ComplexNumberTest,
     ComplexNumber b(-d2, d1);
     ComplexNumber c(1.8, 1.3);
 
-     // Act
+    // Act
     ComplexNumber e = b * c;
 
      // Assert
