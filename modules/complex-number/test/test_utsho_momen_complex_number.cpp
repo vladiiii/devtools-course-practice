@@ -16,7 +16,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Divide_By_Zero) {
     // Arrange
     ComplexNumber z1(45.65, 13.35);
     ComplexNumber z2(0.0, 34.75);
-     
+    
     // Act & Assert
     EXPECT_NO_THROW(z1 / z2);
 }
