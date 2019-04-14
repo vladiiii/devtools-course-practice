@@ -1,3 +1,5 @@
+// Copyright 2019 Gribanov Mihail
+
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
