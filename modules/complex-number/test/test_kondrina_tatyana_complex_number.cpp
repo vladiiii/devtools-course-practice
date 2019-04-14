@@ -37,7 +37,7 @@ TEST(Kondrina_Tatyana_ComplexNumber, Check_Correct_Sequence_Of_Actions) {
     ComplexNumber res1 = z2 / z3;
     res1 = res1 + z1;
     
-    // Arrange
+    // Assert
     EXPECT_EQ(res, res1);
 }
 
