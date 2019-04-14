@@ -1,6 +1,7 @@
 // Copyright 2019 Daria Koroleva
 
 #include <gtest/gtest.h>
+#include <limits>
 #include "include/complex_number.h"
 
 TEST(Koroleva_Daria_ComplexNumberTest, Constructor_Complexnumber_Is_OK) 
