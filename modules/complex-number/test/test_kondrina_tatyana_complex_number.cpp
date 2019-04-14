@@ -57,7 +57,7 @@ TEST(Kondrina_Tatyana_ComplexNumber, Can_Multi_Some_Numbers) {
     // Act
     ComplexNumber z2 = z + z1;
 
-    //Assert
+    // Assert
     ComplexNumber expected_z(-149.0, 43.0);
     EXPECT_EQ(expected_z, z*z1*z2);
 }
