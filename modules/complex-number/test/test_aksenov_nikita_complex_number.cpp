@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    can_not_divide_by_zero) {
+    Can_Not_Divide_By_Zero) {
     // Arrange
     double re1 = 3.0;
     double im1 = 7.0;
@@ -21,7 +21,7 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    two_reverse_numbers_are_not_equal) {
+    Two_Reverse_Numbers_Are_Not_Equal) {
     // Arrange
     double re1 = 3.0;
     double im1 = 7.0;
@@ -37,7 +37,7 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    the_same_result_after_multiplication_by_certain_number) {
+    The_Same_Result_After_Multiplication_By_Certain_Number) {
     // Arrange
     double re1 = 3.0;
     double im1 = 7.0;
@@ -54,7 +54,7 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    check_the_associativity_of_addition) {
+    Check_The_Associativity_Of_Addition) {
     // Arrange
     ComplexNumber z1(3.3, 3.3);
     ComplexNumber z2(7.7, 7.7);
@@ -69,7 +69,7 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    can_subtract_two_negative_numbers) {
+    Can_Subtract_Two_Negative_Numbers) {
     // Arrange
     double re1 = -3.0;
     double im1 = -7.0;
