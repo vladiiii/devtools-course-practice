@@ -1,6 +1,7 @@
 // Copyright 2019 Emshanov Andrey
 
 #include <gtest/gtest.h>
+
 #include "include/complex_number.h"
 
 TEST(Emshanov_Andrey_ComplexNumberTest, Can_Difference_Six_Complex_Numbers) {
