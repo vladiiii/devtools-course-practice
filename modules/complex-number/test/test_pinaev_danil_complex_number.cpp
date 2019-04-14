@@ -9,7 +9,7 @@ TEST(Pinaev_Danil_ComplexNumberTest, Can_Create_Complex_Numbers) {
     ASSERT_NO_THROW(ComplexNumber a(1.0, 1.0));
 }
 
-TEST(Pinaev_Danil_ComplexNumberTest, Have_A_Defauld_Value) {
+TEST(Pinaev_Danil_ComplexNumberTest, Have_A_Default_Value) {
     // Arrange
     ComplexNumber a;
     ComplexNumber b;
