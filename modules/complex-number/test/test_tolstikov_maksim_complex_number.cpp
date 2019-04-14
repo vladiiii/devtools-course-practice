@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
 
-TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Sum_with_negative_complex_number) {
+TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Sum_With_Negative_Complex_Number) {
     // Arrange
     ComplexNumber z1(4.0, 3.0);
     ComplexNumber z2(7.0, 1.0);
@@ -38,7 +38,7 @@ TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Exponentiation) {
     EXPECT_EQ(24.0, z1.getIm());
 }
 
-TEST(Tolstikov_Maksim_ComplexNumberTest, Divide_with_equal_values) {
+TEST(Tolstikov_Maksim_ComplexNumberTest, Divide_With_Equal_Values) {
     // Arrange
     ComplexNumber z(4.0, 3.0);
     // Act
@@ -55,6 +55,6 @@ TEST(Tolstikov_Maksim_ComplexNumberTest, Can_Complex_Number_Divide_By_Real) {
     // Act
     ComplexNumber z3 = z2 / z1;
     // Assert
-    EXPECT_EQ(13.0, z3.getRe());
+    EXPECT_FLOAT_EQ(13.0, z3.getRe());
     EXPECT_EQ(7.0, z3.getIm());
 }
