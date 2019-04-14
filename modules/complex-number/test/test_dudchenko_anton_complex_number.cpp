@@ -28,7 +28,7 @@ TEST(Dudchenko_Anton_ComplexNumberTest, Can_Execute_Multiple_Operations) {
 }
 
 
-TEST(Dudchenko_Anton_ComplexNumberTest, Can_Construct_Numbers_Without_Arguments) {
+TEST(Dudchenko_Anton_ComplexNumberTest, Construct_Numbers_Without_Arguments) {
     // Act
     ComplexNumber num1;
     // Assert
