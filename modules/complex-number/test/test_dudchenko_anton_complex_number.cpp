@@ -28,13 +28,10 @@ TEST(Dudchenko_Anton_ComplexNumberTest, Can_Execute_Multiple_Operations) {
 }
 
 
-TEST(Dudchenko_Anton_ComplexNumberTest, Can_Multiply_By_Zero) {
-    // Arrange
-    ComplexNumber num1(3.0, 14.0);
-    ComplexNumber num2(0.0, 0.0);
+TEST(Dudchenko_Anton_ComplexNumberTest, Can_Construct_Numbers_Without_Arguments) {
     // Act
-    ComplexNumber result = num1 * num2;
+    ComplexNumber num1;
     // Assert
-    ComplexNumber expectedResult(0.0, 0.0);
-    EXPECT_EQ(expectedResult, result);
+    EXPECT_NO_THROW(num1.getRe());
+    EXPECT_NO_THROW(num1.getIm());
 }
