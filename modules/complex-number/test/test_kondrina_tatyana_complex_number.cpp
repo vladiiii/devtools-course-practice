@@ -1,8 +1,8 @@
-// Copyright 2019 Kondrina Tatyana 
+// Copyright 2019 Kondrina Tatyana
 
-#include <gtest/gtest.h> 
+#include <gtest/gtest.h>
 
-#include "include/complex_number.h" 
+#include "include/complex_number.h"
 
 TEST(Kondrina_Tatyana_ComplexNumder, Can_GetRe_And_GetIm) {
     // Arrange 
