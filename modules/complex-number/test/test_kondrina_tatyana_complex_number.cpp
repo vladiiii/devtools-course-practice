@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Kondrina_Tatyana_ComplexNumder, Can_GetRe_And_GetIm) {
+TEST(Kondrina_Tatyana_ComplexNumber, Can_GetRe_And_GetIm) {
     // Arrange
     ComplexNumber z(2.0, 3.0);
 
@@ -23,21 +23,6 @@ TEST(Kondrina_Tatyana_ComplexNumber, Can_Assign) {
 
     // Assert
     EXPECT_EQ(z, z1);
-}
-
-TEST(Kondrina_Tatyana_ComplexNumper, Can_Compare) {
-    // Arrange
-    ComplexNumber z;
-    ComplexNumber z1(2.0, 3.0);
-
-    // Assert
-    EXPECT_EQ(false, z == z1);
-
-    // Act
-    z = z1;
-
-    // Assert
-    EXPECT_EQ(false, z != z1);
 }
 
 TEST(Kondrina_Tatyana_ComplexNumber, Can_Add) {
