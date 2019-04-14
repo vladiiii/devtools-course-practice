@@ -9,7 +9,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Init_Imaginary_To_Zero) {
 	ComplexNumber z;
 
 	// Assert
-	ASSERT_NO_THROW(0, z.im());
+	EXPECT_FLOAT_EQ(0, z.getIm());
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
