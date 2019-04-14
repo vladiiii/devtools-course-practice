@@ -19,7 +19,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
 
     // Assert
     EXPECT_FLOAT_EQ(5, z1.getRe());
-    ASSERT_NO_THROW(-2, z2.im());
+    ASSERT_TRUE(-2, z2.im());
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
