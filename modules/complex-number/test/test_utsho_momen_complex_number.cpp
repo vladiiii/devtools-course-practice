@@ -12,14 +12,13 @@ TEST(Utsho_Momen_ComplexNumberTest, Init_Imaginary_To_Zero) {
     EXPECT_FLOAT_EQ(0, z.getIm());
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
-    // Arrange & Act
-    ComplexNumber z1 = ComplexNumber(5, -2);
-    ComplexNumber z2 = ComplexNumber(1, -1);
-
-    // Assert
-    EXPECT_FLOAT_EQ(5, z1.getRe());
-    EXPECT_EQ(-2, z2.im());
+TEST(Utsho_Momen_ComplexNumberTest, Divide_By_Zero) {
+    // Arrange
+    ComplexNumber z1(45.65, 13.35);
+    ComplexNumber z2(0.0, 34.75);
+    
+    // Act & Assert
+    EXPECT_NO_THROW(z1 / z2);
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
@@ -31,13 +30,15 @@ TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
     EXPECT_TRUE(z1 == z2);
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Trig_Function_Sin) {
-     // Arrange
-     ComplexNumber z1;
-
-     // Assert
-     EXPECT_ANY_THROW(3.4, sin(z1).re());
-     EXPECT_ANY_THROW(-1.5, sin(z1).im());
+TEST(Utsho_Momen_ComplexNumberTest, Double_Real_Number) {
+    // Arrange
+    ComplexNumber z(1.0, 2.0);
+    
+    // Act
+    double real = z.getRe();
+    
+    // Assert
+    EXPECT_EQ(1.0, real);
 }
 
 TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
@@ -46,7 +47,6 @@ TEST(Utsho_Momen_ComplexNumberTest, Divide_Double_By_ComplexNumber) {
     double d = 5.0;
     ComplexNumber z3 = z1;
 
-    // Assert
-    EXPECT_ANY_THROW(2.5, z3.re());
-    ASSERT_NO_THROW(-2.5, z3.im());
+    // Assert 
+    ASSERT_NO_THROW(2.5, z3.re());
 }
