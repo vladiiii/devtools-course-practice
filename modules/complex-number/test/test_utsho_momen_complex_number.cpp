@@ -18,7 +18,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Set_Init_Values) {
 	ComplexNumber z2 = ComplexNumber(1, -1);
 
     // Assert
-	ASSERT_NO_THROW(5, z1.re());
+	EXPECT_FLOAT_EQ(5, z1.getRe());
 	ASSERT_NO_THROW(-2, z2.im());
 }
 
