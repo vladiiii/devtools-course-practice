@@ -12,7 +12,7 @@ TEST(Utsho_Momen_ComplexNumberTest, Init_Imaginary_To_Zero) {
     EXPECT_FLOAT_EQ(0, z.getIm());
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Equal_To_Zero) {
+TEST(Utsho_Momen_ComplexNumberTest, Multiply_Complex) {
     // Arrange
     ComplexNumber z1(45.65, 13.35);
     ComplexNumber z2(0.0, 34.75);
