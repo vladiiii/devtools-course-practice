@@ -12,16 +12,16 @@ TEST(Utsho_Momen_ComplexNumberTest, Init_Imaginary_To_Zero) {
     EXPECT_FLOAT_EQ(0, z.getIm());
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Divide_By_Zero) {
+TEST(Utsho_Momen_ComplexNumberTest, Equal_To_Zero) {
     // Arrange
     ComplexNumber z1(45.65, 13.35);
     ComplexNumber z2(0.0, 34.75);
 
     // Act & Assert
-    EXPECT_NO_THROW(z1 / z2);
+    EXPECT_NO_THROW(z1 * z2);
 }
 
-TEST(Utsho_Momen_ComplexNumberTest, Comparison_Equal) {
+TEST(Utsho_Momen_ComplexNumberTest, Comparison_Between_Two_Variable) {
     // Arrange
     ComplexNumber z1;
     ComplexNumber z2;
