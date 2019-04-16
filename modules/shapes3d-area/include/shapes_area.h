@@ -1,8 +1,8 @@
 // Copyright 2019 Kurakin Mikhail
-#ifndef MODULES_CALCULATE_AREA3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
-#define MODULES_CALCULATE_AREA3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
+#ifndef MODULES_SHAPES_AREA_INCLUDE_SHAPES_AREA_H_
+#define MODULES_SHAPES_AREA_INCLUDE_SHAPES_AREA_H_
 
-class TShapesArea3D {
+class ShapesArea {
  public:
     static double sphereArea(double radius);
     static double cylinderArea(double radius, double height);
@@ -12,5 +12,8 @@ class TShapesArea3D {
     static double tetrahedronArea(double a);
 };
 
-#endif  // MODULES_CALCULATE_AREA3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
+#endif  // MODULES_SHAPES_AREA_INCLUDE_SHAPES_AREA_H_
+
+
+
 
