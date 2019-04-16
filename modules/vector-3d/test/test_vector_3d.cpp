@@ -176,7 +176,7 @@ TEST_F(Vector3dTest, Do_Throw_When_Vector_Null) {
     Vector3d v(0.0, 0.0, 0.0);
 
     // Act & Assert
-    EXPECT_THROW(v.norma(), std::string);
+    EXPECT_THROW(v.normalize(), std::string);
 }
 
 TEST_F(Vector3dTest, Can_Normalize_Vector) {
