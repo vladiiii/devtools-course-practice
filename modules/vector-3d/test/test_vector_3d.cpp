@@ -31,7 +31,9 @@ TEST_F(Vector3dTest, Can_Copy) {
     Vector3d expected_v = v;
 
     // Assert
-    EXPECT_EQ(expected_v, v);
+    EXPECT_EQ(expected_v.getX(), v.getX());
+    EXPECT_EQ(expected_v.getY(), v.getY());
+    EXPECT_EQ(expected_v.getZ(), v.getZ());
 }
 
 TEST_F(Vector3dTest, Can_Set_X) {
