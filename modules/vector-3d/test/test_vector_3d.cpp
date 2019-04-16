@@ -8,17 +8,6 @@
 
 class Vector3dTest : public ::testing::Test {};
 
-TEST_F(Vector3dTest, Can_Create_Via_Copying) {
-    // Arrange
-    Vector3d v(26.0, 20.0, 3.0);
-
-    // Act
-    Vector3d expected_v = v;
-
-    // Assert
-    EXPECT_EQ(expected_v, v);
-}
-
 TEST_F(Vector3dTest, Can_Create_Vector_With_X_Y_Z) {
     // Arrange
     double x = 4.0;
@@ -32,6 +21,17 @@ TEST_F(Vector3dTest, Can_Create_Vector_With_X_Y_Z) {
     EXPECT_EQ(x, v.getX());
     EXPECT_EQ(y, v.getY());
     EXPECT_EQ(z, v.getZ());
+}
+
+TEST_F(Vector3dTest, Can_Copy) {
+    // Arrange
+    Vector3d v(26.0, 5.0, 3.0);
+
+    // Act
+    Vector3d expected_v = v;
+
+    // Assert
+    EXPECT_EQ(expected_v, v);
 }
 
 TEST_F(Vector3dTest, Can_Set_X) {
