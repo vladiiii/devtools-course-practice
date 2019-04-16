@@ -9,12 +9,12 @@
 
 Vector3d::Vector3d() : x_(0), y_(0), z_(0) {}
 
-Vector3d::Vector3d(const double x, 
-    const double y, 
-    const double z) 
+Vector3d::Vector3d(const double x,
+    const double y,
+    const double z)
     : x_(x), y_(y), z_(z) {}
 
-Vector3d::Vector3d(const Vector3d& v) 
+Vector3d::Vector3d(const Vector3d& v)
     : x_(v.getX()), y_(v.getY()), z_(v.getZ()) {}
 
 Vector3d& Vector3d::operator=(const Vector3d& v) {
@@ -94,8 +94,8 @@ Vector3d Vector3d::operator/(const double& d) const {
 }
 
 double Vector3d::operator*(const Vector3d& v) const {
-    return this->getX() * v.getX() 
-        + this->getY() * v.getY() 
+    return this->getX() * v.getX()
+        + this->getY() * v.getY()
         + this->getZ() * v.getZ();
 }
 
@@ -125,12 +125,12 @@ Vector3d Vector3d::normalize() const {
         throw std::string("Can't find norma");
     }
 
-	return normal;
+    return normal;
 }
 
 bool Vector3d::operator == (const Vector3d& v) const {
-    if ((this->getX() == v.getX()) && 
-        (this->getY() == v.getY()) && 
+    if ((this->getX() == v.getX()) &&
+        (this->getY() == v.getY()) &&
         (this->getZ() == v.getZ())) {
         return true;
     } else {
