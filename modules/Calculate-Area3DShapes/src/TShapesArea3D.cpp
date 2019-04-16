@@ -25,3 +25,4 @@ double TShapesArea3D::coneArea(double radius, double generator) {
 double TShapesArea3D::tetrahedronArea(double a) {
     return sqrt(3.0) * pow(a, 2.0);
 }
+
