@@ -1,5 +1,6 @@
 // Copyright 2019 Kurakin Mikhail
-#pragma once
+#ifndef MODULES_CALCULATE_AREAD3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
+#define MODULES_CALCULATE_AREAD3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
 
 class TShapesArea3D {
     public:
@@ -10,3 +11,5 @@ class TShapesArea3D {
     static double coneArea(double radius, double generator);
     static double tetrahedronArea(double a);
 };
+
+#endif // MODULES_CALCULATE_AREAD3DSHAPES_INCLUDE_TSHAPESAREA3D_H_
