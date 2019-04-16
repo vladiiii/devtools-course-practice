@@ -19,6 +19,21 @@ TEST_F(Vector3dTest, Can_Create_Via_Copying) {
     EXPECT_EQ(expected_v, v);
 }
 
+TEST_F(Vector3dTest, Can_Create_Vector_With_X_Y_Z) {
+    // Arrange
+    double x = 4.0;
+    double y = 15.0;
+    double z = 27.0;
+
+    // Act
+    Vector3d v(x, y, z);
+
+    // Assert
+    EXPECT_EQ(x, v.getX());
+    EXPECT_EQ(y, v.getY());
+    EXPECT_EQ(z, v.getZ());
+}
+
 TEST_F(Vector3dTest, Can_Set_X) {
     // Arrange
     Vector3d v;
@@ -154,6 +169,14 @@ TEST_F(Vector3dTest, Can_Find_Norma) {
     // Assert
     double expected_d = 5.0;
     EXPECT_EQ(expected_d, d);
+}
+
+TEST_F(Vector3dTest, Do_Throw_When_Vector_Null) {
+    // Arrange
+    Vector3d v(0.0, 0.0, 0.0);
+
+    // Act & Assert
+    EXPECT_THROW(v.norma(), std::string);
 }
 
 TEST_F(Vector3dTest, Can_Normalize_Vector) {
