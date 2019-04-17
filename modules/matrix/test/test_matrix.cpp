@@ -76,7 +76,8 @@ TEST(MatrixTest, Can_Create_Via_Assignment_Operator) {
     };
 
     // Act
-    Matrix B = A;
+    Matrix B(3, 6);
+    B = A;
 
     // Assert
     EXPECT_EQ(B, A);
@@ -572,6 +573,17 @@ TEST(MatrixTest, Can_Inverse_Matrix) {
             {-1.0 / 2.0,    -1.0 / 16.0,    11.0 / 16.0},
     };
     EXPECT_EQ(expected, B);
+}
+
+TEST(MatrixTest, Do_Throw_When_Inverse_Non_Square_Matrix) {
+    // Arrange
+    Matrix A = {
+            {3, 5, 7},
+            {2, 3, 4},
+    };
+
+    // Act & Assert
+    EXPECT_THROW(A.Inverse(), std::string);
 }
 
 TEST(MatrixTest, Do_Throw_When_Inverse_Matrix_With_Null_Determinant) {
