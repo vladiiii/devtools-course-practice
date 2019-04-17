@@ -7,7 +7,7 @@
 TEST(Aksenov_Nikita_ComplexNumberTest,
     Can_Subtract_Complex_Number_From_Itself) {
     // Arrange
-    ComplexNumber z1(3.7777, 7.33);
+    ComplexNumber z1(3.0, 7.0);
     ComplexNumber z2(0, 0);
 
     // Act
