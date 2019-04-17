@@ -7,8 +7,7 @@
 Radix::Radix(const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
-    }
-    else {
+    } else {
         size_ = size;
 
         counter_ = new int[256];
@@ -20,8 +19,7 @@ Radix::Radix(const int size) {
 Radix::Radix(int* mas, const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
-    }
-    else {
+    } else {
         size_ = size;
 
         counter_ = new int[256];
@@ -41,9 +39,7 @@ Radix::~Radix() {
 void Radix::radixSort(int* mas, const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
-    } 
-    else {
-
+    } else {
         if (size != size_) {
             delete[] tempMas_;
 
@@ -65,9 +61,7 @@ int Radix::getSize() const {
 void Radix::setSize(const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
-    }
-    else {
-
+    } else {
         if (size != size_) {
             delete[] tempMas_;
 
@@ -97,7 +91,7 @@ void Radix::sortMas(int* mas) {
 }
 
 void Radix::radix(int* mas, int* tempMas, int byte) {
-    unsigned char* c = (unsigned char*)mas;
+    unsigned char* c = reinterpret_cast<unsigned char*>(mas);
     offset_[0] = 0;
     resetCounter();
 
@@ -115,7 +109,7 @@ void Radix::radix(int* mas, int* tempMas, int byte) {
 }
 
 void Radix::lastRadix(int* mas, int* tempMas) {
-    char* c = (char*)mas;
+    char* c = reinterpret_cast<char*>(mas);
     offset_[0] = 0;
     resetCounter();
 
