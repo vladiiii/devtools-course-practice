@@ -72,8 +72,7 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 
     // Act
     ComplexNumber mult1 = z1 * z2;
-    ComplexNumber mult2 = z2 * z1;
-    
+    ComplexNumber mult2 = z2 * z1;    
 
     // Assert
     EXPECT_EQ(mult1, mult2);
