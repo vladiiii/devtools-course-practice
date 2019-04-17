@@ -279,8 +279,9 @@ double Matrix::Det() {
 
         auto inv_count = [](std::vector<int> &numbers_of_index) -> int {
             int count = 0;
-            for (int i = 0; i < numbers_of_index.size() - 1; i++) {
-                for (int j = i + 1; j < numbers_of_index.size(); j++) {
+
+            for (unsigned int i = 0; i < numbers_of_index.size() - 1; i++) {
+                for (unsigned int j = i + 1; j < numbers_of_index.size(); j++) {
                     if (numbers_of_index[i] > numbers_of_index[j]) {
                         count++;
                     }
