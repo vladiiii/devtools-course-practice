@@ -20,17 +20,17 @@ TEST(RadixTest, Can_Create_Radix_With_Size) {
     EXPECT_EQ(20, rdx.getSize());
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Size_EQ_Zero) {
+TEST(RadixTest, Throw_Then_Create_Radix_Zero_Size) {
     // Arrange & Act & Assert
     ASSERT_ANY_THROW(Radix rdx(0));
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_Then_Create_Radix_With_Size_Less_Than_Zero) {
     // Arrange & Act & Assert
     ASSERT_ANY_THROW(Radix rdx(-1));
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_Then_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
@@ -38,7 +38,7 @@ TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     ASSERT_ANY_THROW(Radix rdx(mas, -1));
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Zero) {
+TEST(RadixTest, Throw_Then_Create_Radix_With_Array_And_Zero_Size) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
@@ -110,7 +110,7 @@ TEST(RadixTest, Can_Set_Size) {
     EXPECT_EQ(rdx.getSize(), 5);
 }
 
-TEST(RadixTest, Cant_Set_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_Then_Size_Less_Than_Zero_In_Function_SetSize) {
     // Arrange
     Radix rdx(3);
 
@@ -118,7 +118,7 @@ TEST(RadixTest, Cant_Set_Size_Less_Than_Zero) {
     ASSERT_ANY_THROW(rdx.setSize(-1));
 }
 
-TEST(RadixTest, Cant_Set_Size_EQ_Zero) {
+TEST(RadixTest, Throw_Then_Zero_Size_In_Function_SetSize) {
     // Arrange
     Radix rdx(3);
 
@@ -203,7 +203,7 @@ TEST(RadixTest, Can_Use_RadixSort_After_Constructor) {
     EXPECT_EQ(flag, true);
 }
 
-TEST(RadixTest, Cant_Use_RadixSort_With_Size_EQ_Zero) {
+TEST(RadixTest, Throw_Then_Zero_Size_In_Function_RadixSort) {
     // Arrange
     int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
     Radix rdx(10);
@@ -212,7 +212,7 @@ TEST(RadixTest, Cant_Use_RadixSort_With_Size_EQ_Zero) {
     ASSERT_ANY_THROW(rdx.radixSort(mas, 0));
 }
 
-TEST(RadixTest, Cant_Use_RadixSort_With_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_Then_Size_Less_Than_Zero_In_Function_RadixSort) {
     // Arrange
     int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
     Radix rdx(10);
