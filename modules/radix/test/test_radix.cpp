@@ -9,7 +9,7 @@ TEST(RadixTest, Can_Create_Radix_Withowt_Parameters) {
     Radix rdx;
 
     // Act & Assert
-    EXPECT_EQ(1,rdx.getSize());
+    EXPECT_EQ(1, rdx.getSize());
 }
 
 TEST(RadixTest, Can_Create_Radix_With_Size) {
@@ -30,7 +30,7 @@ TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Zero) {
     int mas[] = { 1, 2, 3 };
 
     // Act & Assert
-    ASSERT_ANY_THROW(Radix rdx(mas,0));
+    ASSERT_ANY_THROW(Radix rdx(mas, 0));
 }
 
 TEST(RadixTest, Can_Calculate_Memory) {
@@ -66,7 +66,7 @@ TEST(RadixTest, Size_Will_Change_If_Array_Is_Of_A_Different_Size) {
     Radix rdx(3);
 
     // Act
-    rdx.sort(mas, 5);
+    rdx.radixSort(mas, 5);
 
     // Assert
     EXPECT_EQ(rdx.getSize(), 5);
@@ -79,7 +79,7 @@ TEST(RadixTest, Correctness_Of_Sorting) {
     bool flag = true;
 
     // Act
-    rdx.sort(mas, 10);
+    rdx.radixSort(mas, 10);
 
     for (int i = -5; i < 5; ++i) {
         if (mas[i + 5] != i) {
@@ -105,7 +105,7 @@ TEST(RadixTest, Correctness_Of_Sorting_With_Large_Numbers) {
     bool flag = true;
 
     // Act
-    rdx.sort(mas, 9);
+    rdx.radixSort(mas, 9);
 
     for (int i = 0; i < 9; ++i) {
         if (mas[i] != sortMas[i]) {

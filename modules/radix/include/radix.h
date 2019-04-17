@@ -5,11 +5,11 @@
 
 class Radix {
  public:
-    Radix(const int size = 1);
+	explicit Radix(const int size = 1);
     Radix(int* mas, const int size);
     ~Radix();
 
-    void sort(int* mas, const int size);
+    void radixSort(int* mas, const int size);
     int getSize() const;
     void setSize(const int size);
     int howMuchMem();
@@ -17,8 +17,8 @@ class Radix {
  private:
     void resetCounter();
     void sortMas(int* mas);
-    void radixSort(int* mas, int* tempMas, int byte);
-    void lastRadixSort(int* mas, int* tempMas);
+    void radix(int* mas, int* tempMas, int byte);
+    void lastRadix(int* mas, int* tempMas);
 
     int size_;
     int* tempMas_;
