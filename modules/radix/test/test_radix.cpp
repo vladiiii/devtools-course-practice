@@ -25,12 +25,20 @@ TEST(RadixTest, Cant_Create_Radix_With_Size_EQ_Zero) {
     ASSERT_ANY_THROW(Radix rdx(0));
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Or_Less_Than_Zero) {
+TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
     // Act & Assert
     ASSERT_ANY_THROW(Radix rdx(mas, -1));
+}
+
+TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Zero) {
+    // Arrange
+    int mas[] = { 1, 2, 3 };
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Radix rdx(mas, 0));
 }
 
 TEST(RadixTest, Can_Calculate_Memory) {
@@ -97,12 +105,20 @@ TEST(RadixTest, Can_Set_Size) {
     EXPECT_EQ(rdx.getSize(), 5);
 }
 
-TEST(RadixTest, Cant_Set_Size_EQ_Or_Less_Than_Zero) {
+TEST(RadixTest, Cant_Set_Size_Less_Than_Zero) {
     // Arrange
     Radix rdx(3);
 
     // Act & Assert
     ASSERT_ANY_THROW(rdx.setSize(-1));
+}
+
+TEST(RadixTest, Cant_Set_Size_EQ_Zero) {
+    // Arrange
+    Radix rdx(3);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(rdx.setSize(0));
 }
 
 TEST(RadixTest, Size_Will_Change_If_Array_Is_Of_A_Different_Size) {
