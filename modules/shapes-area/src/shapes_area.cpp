@@ -1,4 +1,5 @@
 // Copyright 2019 Kurakin Mikhail
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include "include/shapes_area.h"
 
