@@ -56,7 +56,7 @@ TEST(RadixTest, Memory_Will_Change_If_The_Array_Is_Of_A_Different_Size) {
     int size1 = 3;
     int size2 = 5;
     int mas1[] = { 1, 2, 3 };
-    int mas2[] = { 1, 2, 3 ,3, 2 };
+    int mas2[] = { 1, 2, 3, 3, 2 };
     Radix rdx(mas1, size1);
 
     // Act
