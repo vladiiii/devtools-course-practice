@@ -5,39 +5,36 @@
 #include "include/complex_number.h"
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    Can_Not_Divide_By_Zero) {
+    Can_Create_With_Negative_Imaginary) {
     // Arrange
-    double re1 = 3.0;
-    double im1 = 7.0;
-    double re2 = 0.0;
-    double im2 = 0.0;
+    double re = 20.0;
+    double im = -20.0;
 
     // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
+    ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_ANY_THROW(z1 / z2);
+    EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(im, z.getIm());
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    Two_Reverse_Numbers_Are_Not_Equal) {
+    Check_The_Distributivity) {
     // Arrange
-    double re1 = 3.0;
-    double im1 = 7.0;
-    double re2 = 7.0;
-    double im2 = 3.0;
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(3.0, 4.0);
+    ComplexNumber z3(5.0, 6.0);
 
     // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
+    ComplexNumber res1 = (z1 + z2) * z3;
+    ComplexNumber res2 = z1 * z3 + z2 * z3;
 
     // Assert
-    EXPECT_NE(z1, z2);
+    EXPECT_EQ(res1, res2);
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    The_Same_Result_After_Multiplication_By_Certain_Number) {
+    Number_Multiplied_By_1_Stays_Same) {
     // Arrange
     double re1 = 3.0;
     double im1 = 7.0;
@@ -69,19 +66,16 @@ TEST(Aksenov_Nikita_ComplexNumberTest,
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    Can_Subtract_Two_Negative_Numbers) {
+    Check_The_Commutativity_Of_Multiplication) {
     // Arrange
-    double re1 = -3.0;
-    double im1 = -7.0;
-    double re2 = -3.0;
-    double im2 = -7.0;
+    ComplexNumber z1(3.0, 7.0);
+    ComplexNumber z2(2.4, 5.6);
 
     // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
-    ComplexNumber result = z1 - z2;
+    ComplexNumber mult1 = z1 * z2;
+    ComplexNumber mult2 = z2 * z1;
+    
 
     // Assert
-    ComplexNumber expected_result(0.0, 0.0);
-    EXPECT_EQ(expected_result, result);
+    EXPECT_EQ(mult1, mult2);
 }
