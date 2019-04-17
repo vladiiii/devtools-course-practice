@@ -25,12 +25,12 @@ TEST(RadixTest, Cant_Create_Radix_With_Size_EQ_Zero) {
     ASSERT_ANY_THROW(Radix rdx(0));
 }
 
-TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Zero) {
+TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_EQ_Or_Less_Than_Zero) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
     // Act & Assert
-    ASSERT_ANY_THROW(Radix rdx(mas, 0));
+    ASSERT_ANY_THROW(Radix rdx(mas, -1));
 }
 
 TEST(RadixTest, Can_Calculate_Memory) {
@@ -49,6 +49,43 @@ TEST(RadixTest, Can_Calculate_Memory) {
     EXPECT_EQ(rdx.howMuchMem(), mem);
 }
 
+TEST(RadixTest, Memory_Will_Change_If_The_Array_Is_Of_A_Different_Size) {
+    // Arrange
+    int mem = 0;
+
+    int size1 = 3;
+    int size2 = 5;
+    int mas1[] = { 1, 2, 3 };
+    int mas2[] = { 1, 2, 3 ,3, 2 };
+    Radix rdx(mas1, size1);
+
+    // Act
+    rdx.radixSort(mas2, size2);
+    mem += 2 * 256 * 4 + 4;
+    mem += size2 * 4;
+
+    // Assert
+    EXPECT_EQ(rdx.howMuchMem(), mem);
+}
+
+TEST(RadixTest, Memory_Will_Not_Change_If_The_Array_Is_Of_A_Different_Size) {
+    // Arrange
+    int mem = 0;
+
+    int size = 3;
+    int mas1[] = { 1, 2, 3 };
+    int mas2[] = { 3, 2, 1 };
+    Radix rdx(mas1, size);
+
+    // Act
+    rdx.radixSort(mas2, size);
+    mem += 2 * 256 * 4 + 4;
+    mem += size * 4;
+
+    // Assert
+    EXPECT_EQ(rdx.howMuchMem(), mem);
+}
+
 TEST(RadixTest, Can_Set_Size) {
     // Arrange
     Radix rdx(3);
@@ -58,6 +95,14 @@ TEST(RadixTest, Can_Set_Size) {
 
     // Assert
     EXPECT_EQ(rdx.getSize(), 5);
+}
+
+TEST(RadixTest, Cant_Set_Size_EQ_Or_Less_Than_Zero) {
+    // Arrange
+    Radix rdx(3);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(rdx.setSize(-1));
 }
 
 TEST(RadixTest, Size_Will_Change_If_Array_Is_Of_A_Different_Size) {
@@ -109,6 +154,26 @@ TEST(RadixTest, Correctness_Of_Sorting_With_Large_Numbers) {
 
     for (int i = 0; i < 9; ++i) {
         if (mas[i] != sortMas[i]) {
+            flag = false;
+        }
+    }
+
+    // Assert
+    EXPECT_EQ(flag, true);
+}
+
+TEST(RadixTest, Can_Use_RadixSort_After_Constructor) {
+    // Arrange
+    int mas1[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
+    int mas2[] = { 4, -1, 1, -3, -4, -2, 3, -5, 2, 0 };
+    Radix rdx(mas1, 10);
+    bool flag = true;
+
+    // Act
+    rdx.radixSort(mas2, 10);
+
+    for (int i = -5; i < 5; ++i) {
+        if (mas2[i + 5] != i) {
             flag = false;
         }
     }
