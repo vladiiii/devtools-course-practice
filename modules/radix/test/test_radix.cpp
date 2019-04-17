@@ -202,3 +202,21 @@ TEST(RadixTest, Can_Use_RadixSort_After_Constructor) {
     // Assert
     EXPECT_EQ(flag, true);
 }
+
+TEST(RadixTest, Cant_Use_RadixSort_With_Size_EQ_Zero) {
+	// Arrange
+	int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
+	Radix rdx(10);
+
+	// Act & Assert
+	ASSERT_ANY_THROW(rdx.radixSort(mas, 0));
+}
+
+TEST(RadixTest, Cant_Use_RadixSort_With_Size_Less_Than_Zero) {
+	// Arrange
+	int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
+	Radix rdx(10);
+
+	// Act & Assert
+	ASSERT_ANY_THROW(rdx.radixSort(mas, -1));
+}
