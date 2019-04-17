@@ -5,17 +5,16 @@
 #include "include/complex_number.h"
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
-    Can_Create_With_Negative_Imaginary) {
+    Can_Subtract_Complex_Number_From_Itself) {
     // Arrange
-    double re = 20.0;
-    double im = -20.0;
+    ComplexNumber z1(3.7777, 7.33);
+    ComplexNumber z2(0, 0);
 
     // Act
-    ComplexNumber z(re, im);
+    ComplexNumber res = z1 - z1;
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_EQ(z2, res);
 }
 
 TEST(Aksenov_Nikita_ComplexNumberTest,
