@@ -25,6 +25,11 @@ TEST(RadixTest, Cant_Create_Radix_With_Size_EQ_Zero) {
     ASSERT_ANY_THROW(Radix rdx(0));
 }
 
+TEST(RadixTest, Cant_Create_Radix_With_Size_Less_Than_Zero) {
+    // Arrange & Act & Assert
+    ASSERT_ANY_THROW(Radix rdx(-1));
+}
+
 TEST(RadixTest, Cant_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     // Arrange
     int mas[] = { 1, 2, 3 };
