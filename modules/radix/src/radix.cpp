@@ -4,12 +4,6 @@
 
 #include <string>
 
-Radix::Radix() : size_(1) {
-    counter_ = new int[256];
-    offset_ = new int[256];
-    tempMas_ = new int[1];
-}
-
 Radix::Radix(const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");

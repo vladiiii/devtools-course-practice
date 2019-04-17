@@ -5,7 +5,6 @@
 
 class Radix {
  public:
-    Radix();
     Radix(const int size = 1);
     Radix(int* mas, const int size);
     ~Radix();
