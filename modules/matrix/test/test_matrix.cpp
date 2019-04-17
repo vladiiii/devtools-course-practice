@@ -6,23 +6,38 @@
 #include "include/matrix.h"
 
 TEST(MatrixTest, Can_Create_Empty_Matrix) {
-    // Arrange
+    // Arrange & Act
     Matrix A;
 
-    // Act & Assert
+    // Assert
     EXPECT_EQ(0, A.getRows());
     EXPECT_EQ(0, A.getCols());
 }
 
+TEST(MatrixTest, Can_Create_Matrix_Via_Explicit_Constructor) {
+    // Arrange & Act
+    Matrix A(2, 2);
+
+    // Assert
+    EXPECT_EQ(2, A.getRows());
+    EXPECT_EQ(2, A.getCols());
+
+    EXPECT_EQ(0, A(0, 0));
+    EXPECT_EQ(0, A(0, 1));
+
+    EXPECT_EQ(0, A(1, 0));
+    EXPECT_EQ(0, A(1, 1));
+}
+
 TEST(MatrixTest, Can_Create_Matrix_Via_Initializer_List) {
-    // Arrange
+    // Arrange & Act
     Matrix A = {
             {2, 0, -1},
             {-1, 4, 3},
             {4, 2, 1},
     };
 
-    // Act & Assert
+    // Assert
     EXPECT_EQ(3, A.getRows());
     EXPECT_EQ(3, A.getCols());
 
@@ -61,8 +76,7 @@ TEST(MatrixTest, Can_Create_Via_Assignment_Operator) {
     };
 
     // Act
-    Matrix B(3, 3);
-    B = A;
+    Matrix B = A;
 
     // Assert
     EXPECT_EQ(B, A);
@@ -172,7 +186,7 @@ TEST(MatrixTest, Different_Matrices_Are_Not_Equal) {
     EXPECT_FALSE(A == B);
 }
 
-TEST(MatrixTest, DISABLED_Do_Throw_When_Compare_Incommensurate_Matrices) {
+TEST(MatrixTest, Do_Throw_When_Compare_Incommensurate_Matrices) {
     // Arrange
     Matrix A = {
             {2, 0},
@@ -458,7 +472,7 @@ TEST(MatrixTest, Can_Transpose_Matrix) {
     };
 
     // Act
-    Matrix B = A.transpose();
+    Matrix B = A.Transpose();
 
     // Assert
     Matrix expected = {
@@ -479,7 +493,7 @@ TEST(MatrixTest, Can_Calculate_Determinant) {
     };
 
     // Act & Assert
-    EXPECT_FLOAT_EQ(-574, A.det());
+    EXPECT_FLOAT_EQ(-574, A.Det());
 }
 
 TEST(MatrixTest, Do_Throw_When_Calculate_Determinant_Non_Square_Matrix) {
@@ -492,7 +506,7 @@ TEST(MatrixTest, Do_Throw_When_Calculate_Determinant_Non_Square_Matrix) {
     };
 
     // Act & Assert
-    EXPECT_THROW(A.det(), std::string);
+    EXPECT_THROW(A.Det(), std::string);
 }
 
 TEST(MatrixTest, Can_Get_Minor) {
@@ -505,7 +519,7 @@ TEST(MatrixTest, Can_Get_Minor) {
     };
 
     // Act
-    double det_minor = A.minor(2, 1);
+    double det_minor = A.Minor(2, 1);
 
     // Assert
     EXPECT_FLOAT_EQ(896, det_minor);
@@ -521,7 +535,7 @@ TEST(MatrixTest, Do_Throw_When_Get_Minor_Out_Of_Range) {
     };
 
     // Act & Assert
-    EXPECT_THROW(A.minor(5, 2), std::string);
+    EXPECT_THROW(A.Minor(5, 2), std::string);
 }
 
 TEST(MatrixTest, Do_Throw_When_Get_Minor_Non_Square_Matrix) {
@@ -533,7 +547,7 @@ TEST(MatrixTest, Do_Throw_When_Get_Minor_Non_Square_Matrix) {
     };
 
     // Act & Assert
-    EXPECT_THROW(A.minor(1, 1), std::string);
+    EXPECT_THROW(A.Minor(1, 1), std::string);
 }
 
 TEST(MatrixTest, Can_Inverse_Matrix) {
@@ -545,7 +559,7 @@ TEST(MatrixTest, Can_Inverse_Matrix) {
     };
 
     // Act
-    Matrix B = A.inverse();
+    Matrix B = A.Inverse();
 
     // Assert
     Matrix expected = {
@@ -565,5 +579,5 @@ TEST(MatrixTest, Do_Throw_When_Inverse_Matrix_With_Null_Determinant) {
     };
 
     // Act & Assert
-    EXPECT_THROW(A.inverse(), std::string);
+    EXPECT_THROW(A.Inverse(), std::string);
 }

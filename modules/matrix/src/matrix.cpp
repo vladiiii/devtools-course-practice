@@ -203,7 +203,7 @@ bool Matrix::operator==(const Matrix &src) const {
     }
 }
 
-Matrix Matrix::transpose() {
+Matrix Matrix::Transpose() {
     Matrix res(cols_, rows_);
 
     for (int i = 0; i < rows_; ++i) {
@@ -215,11 +215,11 @@ Matrix Matrix::transpose() {
     return res;
 }
 
-Matrix Matrix::inverse() {
+Matrix Matrix::Inverse() {
     if (rows_ != cols_) {
         throw std::string("NotSquareMatrixException");
     } else {
-        double det = this->det();
+        double det = this->Det();
         if (det == 0) {
             throw std::string("NullDeterminantException");
         }
@@ -229,15 +229,15 @@ Matrix Matrix::inverse() {
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 extra_minors.matrix_[i][j] =
-                        std::pow(-1, i + j) * this->minor(i, j) / det;
+                        std::pow(-1, i + j) * this->Minor(i, j) / det;
             }
         }
 
-        return extra_minors.transpose();
+        return extra_minors.Transpose();
     }
 }
 
-double Matrix::minor(int row, int col) {
+double Matrix::Minor(int row, int col) {
     if (row < 0 || row >= rows_ || col < 0 || col >= cols_) {
         throw std::string("OutOfRangeException");
     } else if (rows_ != cols_) {
@@ -263,11 +263,11 @@ double Matrix::minor(int row, int col) {
             offset_cols = 0;
         }
 
-        return res.det();
+        return res.Det();
     }
 }
 
-double Matrix::det() {
+double Matrix::Det() {
     if (rows_ != cols_) {
         throw std::string("NotSquareMatrixException");
     } else {

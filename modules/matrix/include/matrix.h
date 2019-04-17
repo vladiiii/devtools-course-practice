@@ -37,10 +37,10 @@ class Matrix {
 
     bool operator==(const Matrix &src) const;
 
-    Matrix transpose();
-    Matrix inverse();
-    double minor(int row, int col);
-    double det();
+    Matrix Transpose();
+    Matrix Inverse();
+    double Minor(int row, int col);
+    double Det();
 };
 
 #endif  // MODULES_MATRIX_INCLUDE_MATRIX_H_
