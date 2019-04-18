@@ -9,7 +9,7 @@ class Vector3d {
     Vector3d(const double x, const double y, const double z);
     Vector3d(const Vector3d& v);
 
-    Vector3d operator=(const Vector3d& z);
+    Vector3d& operator=(const Vector3d& v);
 
     double getX() const;
     double getY() const;

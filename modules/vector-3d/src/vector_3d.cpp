@@ -17,7 +17,7 @@ Vector3d::Vector3d(const double x,
 Vector3d::Vector3d(const Vector3d& v)
     : x_(v.getX()), y_(v.getY()), z_(v.getZ()) {}
 
-Vector3d Vector3d::operator=(const Vector3d& v) {
+Vector3d& Vector3d::operator=(const Vector3d& v) {
     this->setX(v.getX());
     this->setY(v.getY());
     this->setZ(v.getZ());
