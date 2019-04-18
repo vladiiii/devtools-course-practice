@@ -4,12 +4,259 @@
 
 #include "include/triangles.h"
 
-TEST(TrianglesTest, Can_Set_Point) {
+double epsilon = 0.0002;
+
+//TODO: Test for operator= && operator==
+TEST(TrianglesTest, Can_Create_Default_Point) {
     // Arrange
-    //Point a(3, 2);
-   // a.set_x(1);
-    //a.set_y(2);
+    Point a;
 
     // Act & Assert
-    EXPECT_EQ(true, true);
+    EXPECT_EQ(true, a.x == 0.0 && a.y == 0.0);
 }
+
+TEST(TrianglesTest, Can_Create_Point) {
+    // Arrange
+    Point a(3.0, 2.0);
+
+    // Act & Assert
+    EXPECT_EQ(true, a.x == 3.0 && a.y == 2.0);
+}
+
+TEST(TrianglesTest, Can_Create_Negative_Point) {
+    // Arrange
+    Point a(-3.0, -2.0);
+
+    // Act & Assert
+    EXPECT_EQ(true, a.x == -3.0 && a.y == -2.0);
+}
+
+TEST(TrianglesTest, Can_Create_Default_Triangle) {
+    // Arrange
+    Triangle abc;
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+
+    // Act & Assert
+    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+}
+
+TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
+    // Arrange
+    Triangle abc(5.0, 2.0, 3.0, 1.0, 0.0, 0.0);
+    Point a(5.0, 2.0);
+    Point b(3.0, 1.0);
+    Point c(0.0, 0.0);
+
+    // Act & Assert
+    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+}
+
+TEST(TrianglesTest, Throw_When_Create_Triangle_On_Wrong_Coordinates) {
+    // Arrange & Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(1.0, 2.0, 3.0, 4.0, 5.0, 6.0), std::string);
+}
+
+TEST(TrianglesTest, Can_Create_Triangle_From_Vector) {
+    // Arrange
+    std::vector<double> coordinates = { 5.0, 2.0, 3.0, 1.0, 0.0, 0.0 };
+    Triangle abc(coordinates);
+    Point a(5.0, 2.0);
+    Point b(3.0, 1.0);
+    Point c(0.0, 0.0);
+
+    // Act & Assert
+    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+}
+
+TEST(TrianglesTest, Throw_When_Create_Wrong_Triangle_From_Vector) {
+    // Arrange
+    std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0 };
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+}
+
+TEST(TrianglesTest, Throw_When_Create_Triangle_From_Vector_Not_Six_Size) {
+    // Arrange
+    std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0, 7.0 };
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+}
+
+TEST(TrianglesTest, Throw_When_Create_Triangle_From_Empty_Vector) {
+    // Arrange
+    std::vector<double> coordinates = { };
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+}
+
+TEST(TrianglesTest, Can_Create_Triangle_On_Three_Points) {
+    // Arrange
+    Point a(5.0, 2.0);
+    Point b(3.0, 1.0);
+    Point c(0.0, 0.0);
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+}
+
+TEST(TrianglesTest, Throw_When_Create_Triangle_From_Wrong_Points) {
+    // Arrange
+    Point a(1.0, 2.0);
+    Point b(3.0, 4.0);
+    Point c(5.0, 6.0);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+}
+
+TEST(TrianglesTest, Normal_Triangle_Is_Exist) {
+    // Arrange
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(true, abc.IsTriangleExist());
+}
+
+TEST(TrianglesTest, Zero_Triangle_Is_No_Exist) {
+    // Arrange
+    Point a;
+    Point b;
+    Point c;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+}
+
+TEST(TrianglesTest, Linear_Triangle_Is_No_Exist) {
+    // Arrange
+    Point a(0.0, 0.0);
+    Point b(-3.0, 0.0);
+    Point c(3.0, 0.0);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+}
+
+TEST(TrianglesTest, Can_Set_And_Get_A_B_C) {
+    // Arrange
+    Triangle abc;
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+
+    // Act 
+    abc.set_point_a(a);
+    abc.set_point_b(b);
+    abc.set_point_c(c);
+
+    // Assert
+    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+}
+
+TEST(TrianglesTest, Correct_Side_Length_Calculation) {
+    // Arrange
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+    double length_ab = 6.0;
+    Triangle abc(a, b, c);  
+
+    // Act & Assert
+    EXPECT_EQ(length_ab, abc.SideLength(a, b));
+}
+
+TEST(TrianglesTest, Length_Of_Side_Does_Not_Depend_On_Order_Points) {
+    // Arrange
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+    double length_ab = 6.0;
+    double length_ba = 6.0;
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(length_ab + length_ba, abc.SideLength(a, b) + abc.SideLength(b, a));
+}
+
+TEST(TrianglesTest, Correctly_Ñalculate_Perimeter) {
+    // Arrange
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+    Triangle abc(a, b, c);
+
+    // Act
+    double length_ab = abc.SideLength(a, b);
+    double length_ac = abc.SideLength(a, c);
+    double length_bc = abc.SideLength(b, c);
+
+    // Assert
+    EXPECT_EQ(length_ab + length_ac + length_bc, abc.Perimeter());
+}
+
+TEST(TrianglesTest, Get_Angel_A) {
+    // Arrange
+    Point a(0.0, 0.0);
+    Point b(4.0, 0.0);
+    Point c(0.0, 6.0);
+    Triangle abc(a, b, c);
+
+
+    // Act & Assert
+    EXPECT_EQ(true, abs(abc.get_angle_a() - 90) < epsilon);
+}
+
+TEST(TrianglesTest, Get_Angel_B) {
+    // Arrange
+    Point a(4.0, 0.0);
+    Point b(0.0, 0.0);
+    Point c(0.0, 6.0);
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(true, (abc.get_angle_b()- 90.0) < epsilon);
+}
+
+TEST(TrianglesTest, Get_Angel_C) {
+    // Arrange
+    Point a(4.0, 0.0);
+    Point b(0.0, 6.0);
+    Point c(0.0, 0.0);
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(true, abs(abc.get_angle_c() - 90.0) < epsilon);
+}
+
+TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
+    // Arrange
+    Point a(4.0, 0.0);
+    Point b(0.0, 6.0);
+    Point c(0.0, 0.0);
+    Triangle abc(a, b, c);
+
+    // Act & Assert
+    EXPECT_EQ(true, abs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
+}
+
+TEST(TrianglesTest, Correctly_Ñalculate_Square) {
+    // Arrange
+    Point a(-3.0, 0.0);
+    Point b(3.0, 0.0);
+    Point c(0.0, 3.0);
+    Triangle abc(a, b, c);
+    double square = 9.0;
+
+    // Act & Assert
+    EXPECT_EQ(true, abs(abc.Square() - square) < epsilon);
+}
+//TODO: Height, bisector, median.
