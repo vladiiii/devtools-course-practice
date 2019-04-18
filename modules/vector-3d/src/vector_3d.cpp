@@ -118,9 +118,9 @@ Vector3d Vector3d::Normalize() const {
     double norm = this->Norma();
 
     if (norm > 0) {
-        normal.setX(this->getX() / Norm);
-        normal.setY(this->getY() / Norm);
-        normal.setZ(this->getZ() / Norm);
+        normal.setX(this->getX() / norm);
+        normal.setY(this->getY() / norm);
+        normal.setZ(this->getZ() / norm);
     } else {
         throw std::string("Can't find norma");
     }
