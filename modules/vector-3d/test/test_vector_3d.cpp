@@ -34,7 +34,7 @@ TEST_F(Vector3dTest, Can_Create_Vector_With_Vector) {
     EXPECT_EQ(v1, v);
 }
 
-TEST_F(Vector3dTest, Can_Copy) {
+TEST_F(Vector3dTest, Can_Assign) {
     // Arrange
     Vector3d v(3.0, 4.0, 1.0);
     Vector3d expected_v;
