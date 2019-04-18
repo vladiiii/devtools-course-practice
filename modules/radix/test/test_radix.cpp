@@ -9,7 +9,7 @@ TEST(RadixTest, Can_Create_Radix_Withowt_Parameters) {
     Radix rdx;
 
     // Act & Assert
-    EXPECT_EQ(1, rdx.getSize());
+    EXPECT_EQ(1, rdx.GetSize());
 }
 
 TEST(RadixTest, Can_Create_Radix_With_Size) {
@@ -17,20 +17,20 @@ TEST(RadixTest, Can_Create_Radix_With_Size) {
     Radix rdx(20);
 
     // Act & Assert
-    EXPECT_EQ(20, rdx.getSize());
+    EXPECT_EQ(20, rdx.GetSize());
 }
 
-TEST(RadixTest, Throw_Then_Create_Radix_Zero_Size) {
+TEST(RadixTest, Throw_When_Create_Radix_Zero_Size) {
     // Arrange & Act & Assert
     ASSERT_ANY_THROW(Radix rdx(0));
 }
 
-TEST(RadixTest, Throw_Then_Create_Radix_With_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_When_Create_Radix_With_Size_Less_Than_Zero) {
     // Arrange & Act & Assert
     ASSERT_ANY_THROW(Radix rdx(-1));
 }
 
-TEST(RadixTest, Throw_Then_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
+TEST(RadixTest, Throw_When_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
@@ -38,7 +38,7 @@ TEST(RadixTest, Throw_Then_Create_Radix_With_Array_And_Size_Less_Than_Zero) {
     ASSERT_ANY_THROW(Radix rdx(mas, -1));
 }
 
-TEST(RadixTest, Throw_Then_Create_Radix_With_Array_And_Zero_Size) {
+TEST(RadixTest, Throw_When_Create_Radix_With_Array_And_Zero_Size) {
     // Arrange
     int mas[] = { 1, 2, 3 };
 
@@ -59,7 +59,7 @@ TEST(RadixTest, Can_Calculate_Memory) {
     mem += size * 4;
 
     // Assert
-    EXPECT_EQ(rdx.howMuchMem(), mem);
+    EXPECT_EQ(rdx.HowMuchMem(), mem);
 }
 
 TEST(RadixTest, Memory_Will_Change_If_The_Array_Is_Of_A_Different_Size) {
@@ -73,12 +73,12 @@ TEST(RadixTest, Memory_Will_Change_If_The_Array_Is_Of_A_Different_Size) {
     Radix rdx(mas1, size1);
 
     // Act
-    rdx.radixSort(mas2, size2);
+    rdx.RadixSort(mas2, size2);
     mem += 2 * 256 * 4 + 4;
     mem += size2 * 4;
 
     // Assert
-    EXPECT_EQ(rdx.howMuchMem(), mem);
+    EXPECT_EQ(rdx.HowMuchMem(), mem);
 }
 
 TEST(RadixTest, Memory_Will_Not_Change_If_The_Array_Is_Of_A_Different_Size) {
@@ -91,12 +91,12 @@ TEST(RadixTest, Memory_Will_Not_Change_If_The_Array_Is_Of_A_Different_Size) {
     Radix rdx(mas1, size);
 
     // Act
-    rdx.radixSort(mas2, size);
+    rdx.RadixSort(mas2, size);
     mem += 2 * 256 * 4 + 4;
     mem += size * 4;
 
     // Assert
-    EXPECT_EQ(rdx.howMuchMem(), mem);
+    EXPECT_EQ(rdx.HowMuchMem(), mem);
 }
 
 TEST(RadixTest, Can_Set_Size) {
@@ -104,26 +104,26 @@ TEST(RadixTest, Can_Set_Size) {
     Radix rdx(3);
 
     // Act
-    rdx.setSize(5);
+    rdx.SetSize(5);
 
     // Assert
-    EXPECT_EQ(rdx.getSize(), 5);
+    EXPECT_EQ(rdx.GetSize(), 5);
 }
 
-TEST(RadixTest, Throw_Then_Size_Less_Than_Zero_In_Function_SetSize) {
+TEST(RadixTest, Throw_When_Size_Less_Than_Zero_In_Function_SetSize) {
     // Arrange
     Radix rdx(3);
 
     // Act & Assert
-    ASSERT_ANY_THROW(rdx.setSize(-1));
+    ASSERT_ANY_THROW(rdx.SetSize(-1));
 }
 
-TEST(RadixTest, Throw_Then_Zero_Size_In_Function_SetSize) {
+TEST(RadixTest, Throw_When_Zero_Size_In_Function_SetSize) {
     // Arrange
     Radix rdx(3);
 
     // Act & Assert
-    ASSERT_ANY_THROW(rdx.setSize(0));
+    ASSERT_ANY_THROW(rdx.SetSize(0));
 }
 
 TEST(RadixTest, Size_Will_Change_If_Array_Is_Of_A_Different_Size) {
@@ -132,10 +132,10 @@ TEST(RadixTest, Size_Will_Change_If_Array_Is_Of_A_Different_Size) {
     Radix rdx(3);
 
     // Act
-    rdx.radixSort(mas, 5);
+    rdx.RadixSort(mas, 5);
 
     // Assert
-    EXPECT_EQ(rdx.getSize(), 5);
+    EXPECT_EQ(rdx.GetSize(), 5);
 }
 
 TEST(RadixTest, Correctness_Of_Sorting) {
@@ -145,7 +145,7 @@ TEST(RadixTest, Correctness_Of_Sorting) {
     bool flag = true;
 
     // Act
-    rdx.radixSort(mas, 10);
+    rdx.RadixSort(mas, 10);
 
     for (int i = -5; i < 5; ++i) {
         if (mas[i + 5] != i) {
@@ -171,7 +171,7 @@ TEST(RadixTest, Correctness_Of_Sorting_With_Large_Numbers) {
     bool flag = true;
 
     // Act
-    rdx.radixSort(mas, 9);
+    rdx.RadixSort(mas, 9);
 
     for (int i = 0; i < 9; ++i) {
         if (mas[i] != sortMas[i]) {
@@ -191,7 +191,7 @@ TEST(RadixTest, Can_Use_RadixSort_After_Constructor) {
     bool flag = true;
 
     // Act
-    rdx.radixSort(mas2, 10);
+    rdx.RadixSort(mas2, 10);
 
     for (int i = -5; i < 5; ++i) {
         if (mas2[i + 5] != i) {
@@ -203,20 +203,20 @@ TEST(RadixTest, Can_Use_RadixSort_After_Constructor) {
     EXPECT_EQ(flag, true);
 }
 
-TEST(RadixTest, Throw_Then_Zero_Size_In_Function_RadixSort) {
+TEST(RadixTest, Throw_When_Zero_Size_In_Function_RadixSort) {
     // Arrange
     int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
     Radix rdx(10);
 
     // Act & Assert
-    ASSERT_ANY_THROW(rdx.radixSort(mas, 0));
+    ASSERT_ANY_THROW(rdx.RadixSort(mas, 0));
 }
 
-TEST(RadixTest, Throw_Then_Size_Less_Than_Zero_In_Function_RadixSort) {
+TEST(RadixTest, Throw_When_Size_Less_Than_Zero_In_Function_RadixSort) {
     // Arrange
     int mas[] = { 0, -5, 2, 4, -1, 1, -3, -4, -2, 3 };
     Radix rdx(10);
 
     // Act & Assert
-    ASSERT_ANY_THROW(rdx.radixSort(mas, -1));
+    ASSERT_ANY_THROW(rdx.RadixSort(mas, -1));
 }

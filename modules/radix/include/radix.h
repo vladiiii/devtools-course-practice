@@ -6,22 +6,22 @@
 class Radix {
  public:
     explicit Radix(const int size = 1);
-    Radix(int* mas, const int size);
+    Radix(int* input_array, const int size);
     ~Radix();
 
-    void radixSort(int* mas, const int size);
-    int getSize() const;
-    void setSize(const int size);
-    int howMuchMem();
+    void RadixSort(int* input_array, const int size);
+    int GetSize() const;
+    void SetSize(const int size);
+    int HowMuchMem();
 
  private:
-    void resetCounter();
-    void sortMas(int* mas);
-    void radix(int* mas, int* tempMas, int byte);
-    void lastRadix(int* mas, int* tempMas);
+    void ResetCounter();
+    void SortArray(int* input_array);
+    void CountingSort(int* input_array, int* output_array, int byte);
+    void LastCountingSort(int* input_array, int* output_array);
 
     int size_;
-    int* tempMas_;
+    int* temp_array_;
     int* counter_;
     int* offset_;
 };

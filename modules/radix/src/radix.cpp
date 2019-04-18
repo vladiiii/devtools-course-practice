@@ -12,11 +12,11 @@ Radix::Radix(const int size) {
 
         counter_ = new int[256];
         offset_ = new int[256];
-        tempMas_ = new int[size_];
+		temp_array_ = new int[size_];
     }
 }
 
-Radix::Radix(int* mas, const int size) {
+Radix::Radix(int* inpArray, const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
     } else {
@@ -24,76 +24,76 @@ Radix::Radix(int* mas, const int size) {
 
         counter_ = new int[256];
         offset_ = new int[256];
-        tempMas_ = new int[size];
+		temp_array_ = new int[size];
 
-        sortMas(mas);
+        SortArray(inpArray);
     }
 }
 
 Radix::~Radix() {
-    delete[] tempMas_;
+    delete[] temp_array_;
     delete[] offset_;
     delete[] counter_;
 }
 
-void Radix::radixSort(int* mas, const int size) {
+void Radix::RadixSort(int* input_array, const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
     } else {
         if (size != size_) {
-            delete[] tempMas_;
+            delete[] temp_array_;
 
             size_ = size;
-            tempMas_ = new int[size_];
+			temp_array_ = new int[size_];
         }
 
-        radix(mas, tempMas_, 0);
-        radix(tempMas_, mas, 1);
-        radix(mas, tempMas_, 2);
-        lastRadix(tempMas_, mas);
+		CountingSort(input_array, temp_array_, 0);
+		CountingSort(temp_array_, input_array, 1);
+		CountingSort(input_array, temp_array_, 2);
+		LastCountingSort(temp_array_, input_array);
     }
 }
 
-int Radix::getSize() const {
+int Radix::GetSize() const {
     return size_;
 }
 
-void Radix::setSize(const int size) {
+void Radix::SetSize(const int size) {
     if (size <= 0) {
         throw std::string("Size can't be zero or lower");
     } else {
         if (size != size_) {
-            delete[] tempMas_;
+            delete[] temp_array_;
 
             size_ = size;
-            tempMas_ = new int[size_];
+			temp_array_ = new int[size_];
         }
     }
 }
-int Radix::howMuchMem() {
+int Radix::HowMuchMem() {
     int mem = 0;
     mem += 2 * 256 * 4 + 4;
     mem += size_ * 4;
     return mem;
 }
 
-void Radix::resetCounter() {
+void Radix::ResetCounter() {
     for (int i = 0; i < 256; ++i) {
         counter_[i] = 0;
     }
 }
 
-void Radix::sortMas(int* mas) {
-    radix(mas, tempMas_, 0);
-    radix(tempMas_, mas, 1);
-    radix(mas, tempMas_, 2);
-    lastRadix(tempMas_, mas);
+void Radix::SortArray(int* input_array) {
+	CountingSort(input_array, temp_array_, 0);
+	CountingSort(temp_array_, input_array, 1);
+	CountingSort(input_array, temp_array_, 2);
+	LastCountingSort(temp_array_, input_array);
 }
 
-void Radix::radix(int* mas, int* tempMas, int byte) {
-    unsigned char* c = reinterpret_cast<unsigned char*>(mas);
+void Radix::CountingSort(int* input_array, int* output_array, int byte) {
+    unsigned char* c = reinterpret_cast<unsigned char*>(input_array);
     offset_[0] = 0;
-    resetCounter();
+    ResetCounter();
 
     for (int i = 0; i < size_; ++i) {
         counter_[c[i * 4 + byte]]++;
@@ -104,14 +104,14 @@ void Radix::radix(int* mas, int* tempMas, int byte) {
     }
 
     for (int i = 0; i < size_; ++i) {
-        tempMas[offset_[c[i * 4 + byte]]++] = mas[i];
+		output_array[offset_[c[i * 4 + byte]]++] = input_array[i];
     }
 }
 
-void Radix::lastRadix(int* mas, int* tempMas) {
-    char* c = reinterpret_cast<char*>(mas);
+void Radix::LastCountingSort(int* input_array, int* output_array) {
+    char* c = reinterpret_cast<char*>(input_array);
     offset_[0] = 0;
-    resetCounter();
+    ResetCounter();
 
     for (int i = 0; i < size_; ++i) {
         counter_[c[i * 4 + 3] + 128]++;
@@ -122,6 +122,6 @@ void Radix::lastRadix(int* mas, int* tempMas) {
     }
 
     for (int i = 0; i < size_; ++i) {
-        tempMas[offset_[c[i * 4 + 3] + 128]++] = mas[i];
+		output_array[offset_[c[i * 4 + 3] + 128]++] = input_array[i];
     }
 }
