@@ -25,10 +25,11 @@ TEST_F(Vector3dTest, Can_Create_Vector_With_X_Y_Z) {
 
 TEST_F(Vector3dTest, Can_Copy) {
     // Arrange
-    Vector3d v(0.0, 0.0, 1.0);
+    Vector3d v(3.0, 4.0, 1.0);
+    Vector3d expected_v;
 
     // Act
-    Vector3d expected_v = v;
+    expected_v = v;
 
     // Assert
     EXPECT_EQ(expected_v, v);
