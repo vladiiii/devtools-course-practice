@@ -7,17 +7,17 @@
 #include <limits>
 #include <cmath>
 
-Vector3d::Vector3d() : x_(0), y_(0), z_(0) {}
+Vector3d::Vector3d() : x(0), y(0), z(0) {}
 
-Vector3d::Vector3d(const double x,
-    const double y,
-    const double z)
-    : x_(x), y_(y), z_(z) {}
+Vector3d::Vector3d(const double x_,
+    const double y_,
+    const double z_)
+    : x(x_), y(y_), z(z_) {}
 
 Vector3d::Vector3d(const Vector3d& v)
-    : x_(v.getX()), y_(v.getY()), z_(v.getZ()) {}
+    : x(v.getX()), y(v.getY()), z(v.getZ()) {}
 
-Vector3d& Vector3d::operator=(const Vector3d& v) {
+Vector3d& Vector3d::operator = (const Vector3d& v) {
     this->setX(v.getX());
     this->setY(v.getY());
     this->setZ(v.getZ());
@@ -26,30 +26,30 @@ Vector3d& Vector3d::operator=(const Vector3d& v) {
 }
 
 double Vector3d::getX() const {
-    return x_;
+    return x;
 }
 
 double Vector3d::getY() const {
-    return y_;
+    return y;
 }
 
 double Vector3d::getZ() const {
-    return z_;
+    return z;
 }
 
-void Vector3d::setX(const double x) {
-    x_ = x;
+void Vector3d::setX(const double x_) {
+    x = x_;
 }
 
-void Vector3d::setY(const double y) {
-    y_ = y;
+void Vector3d::setY(const double y_) {
+    y = y_;
 }
 
-void Vector3d::setZ(const double z) {
-    z_ = z;
+void Vector3d::setZ(const double z_) {
+    z = z_;
 }
 
-Vector3d Vector3d::operator+(const Vector3d& v) const {
+Vector3d Vector3d::operator + (const Vector3d& v) const {
     Vector3d sum;
 
     sum.setX(this->getX() + v.getX());
@@ -59,7 +59,7 @@ Vector3d Vector3d::operator+(const Vector3d& v) const {
     return sum;
 }
 
-Vector3d Vector3d::operator-(const Vector3d& v) const {
+Vector3d Vector3d::operator - (const Vector3d& v) const {
     Vector3d difference;
 
     difference.setX(this->getX() - v.getX());
@@ -69,7 +69,7 @@ Vector3d Vector3d::operator-(const Vector3d& v) const {
     return difference;
 }
 
-Vector3d Vector3d::operator*(const double& d) const {
+Vector3d Vector3d::operator * (const double& d) const {
     Vector3d multiplication;
 
     multiplication.setX(this->getX() * d);
@@ -79,7 +79,7 @@ Vector3d Vector3d::operator*(const double& d) const {
     return multiplication;
 }
 
-Vector3d Vector3d::operator/(const double& d) const {
+Vector3d Vector3d::operator / (const double& d) const {
     Vector3d division;
 
     if (d == 0.0) {
@@ -93,7 +93,7 @@ Vector3d Vector3d::operator/(const double& d) const {
     return division;
 }
 
-double Vector3d::operator*(const Vector3d& v) const {
+double Vector3d::operator * (const Vector3d& v) const {
     return this->getX() * v.getX()
         + this->getY() * v.getY()
         + this->getZ() * v.getZ();
