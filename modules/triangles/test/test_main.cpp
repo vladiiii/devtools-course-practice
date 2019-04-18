@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Shkerin Igor
 
 #include <gtest/gtest.h>
 
