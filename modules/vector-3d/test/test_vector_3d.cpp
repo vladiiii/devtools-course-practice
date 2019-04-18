@@ -23,6 +23,17 @@ TEST_F(Vector3dTest, Can_Create_Vector_With_X_Y_Z) {
     EXPECT_EQ(z, v.getZ());
 }
 
+TEST_F(Vector3dTest, Can_Create_Vector_With_Vector) {
+    // Arrange
+    Vector3d v(3.0, 4.0, 1.0);
+
+    // Act
+    Vector3d v1(v);
+
+    // Assert
+    EXPECT_EQ(v1, v);
+}
+
 TEST_F(Vector3dTest, Can_Copy) {
     // Arrange
     Vector3d v(3.0, 4.0, 1.0);
