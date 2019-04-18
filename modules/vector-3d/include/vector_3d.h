@@ -9,7 +9,7 @@ class Vector3d {
     Vector3d(const double x, const double y, const double z);
     Vector3d(const Vector3d& v);
 
-    Vector3d& operator=(const Vector3d& z);
+    Vector3d operator=(const Vector3d& z);
 
     double getX() const;
     double getY() const;
@@ -23,9 +23,9 @@ class Vector3d {
     Vector3d operator * (const double& d) const;
     Vector3d operator / (const double& d) const;
     double operator * (const Vector3d& v) const;
-    Vector3d cross(const Vector3d& v) const;
-    double norma() const;
-    Vector3d normalize() const;
+    Vector3d Cross(const Vector3d& v) const;
+    double Norma() const;
+    Vector3d Normalize() const;
 
     bool operator == (const Vector3d& v) const;
     bool operator != (const Vector3d& v) const;
