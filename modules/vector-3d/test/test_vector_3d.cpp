@@ -152,7 +152,7 @@ TEST_F(Vector3dTest, Can_Multiplicate_Vector) {
     Vector3d v2(1.0, 2.0, 3.0);
 
     // Act
-    Vector3d v = v1.cross(v2);
+    Vector3d v = v1.Cross(v2);
 
     // Assert
     Vector3d expected_v(2.0, -13.0, 8.0);
@@ -164,7 +164,7 @@ TEST_F(Vector3dTest, Can_Find_Norma) {
     Vector3d v(3.0, -4.0, 0.0);
 
     // Act
-    double d = v.norma();
+    double d = v.Norma();
 
     // Assert
     double expected_d = 5.0;
@@ -176,7 +176,7 @@ TEST_F(Vector3dTest, Do_Throw_When_Vector_Null) {
     Vector3d v(0.0, 0.0, 0.0);
 
     // Act & Assert
-    EXPECT_THROW(v.normalize(), std::string);
+    EXPECT_THROW(v.Normalize(), std::string);
 }
 
 TEST_F(Vector3dTest, Can_Normalize_Vector) {
@@ -184,7 +184,7 @@ TEST_F(Vector3dTest, Can_Normalize_Vector) {
     Vector3d v1(3.0, 0.0, -4.0);
 
     // Act
-    Vector3d v = v1.normalize();
+    Vector3d v = v1.Normalize();
 
     // Assert
     Vector3d expected_v(0.6, 0.0, -0.8);

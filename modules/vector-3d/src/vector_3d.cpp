@@ -17,7 +17,7 @@ Vector3d::Vector3d(const double x,
 Vector3d::Vector3d(const Vector3d& v)
     : x_(v.getX()), y_(v.getY()), z_(v.getZ()) {}
 
-Vector3d& Vector3d::operator=(const Vector3d& v) {
+Vector3d Vector3d::operator=(const Vector3d& v) {
     x_ = v.getX();
     y_ = v.getY();
     z_ = v.getZ();
@@ -99,7 +99,7 @@ double Vector3d::operator*(const Vector3d& v) const {
         + this->getZ() * v.getZ();
 }
 
-Vector3d Vector3d::cross(const Vector3d& v) const {
+Vector3d Vector3d::Cross(const Vector3d& v) const {
     Vector3d multiplication_v;
 
     multiplication_v.setX(this->getY() * v.getZ() - this->getZ() * v.getY());
@@ -109,15 +109,15 @@ Vector3d Vector3d::cross(const Vector3d& v) const {
     return multiplication_v;
 }
 
-double Vector3d::norma() const {
+double Vector3d::Norma() const {
     return sqrt(*this * *this);
 }
 
-Vector3d Vector3d::normalize() const {
+Vector3d Vector3d::Normalize() const {
     Vector3d normal;
-    double Norm = this->norma();
+    double norm = this->Norma();
 
-    if (Norm > 0) {
+    if (norm > 0) {
         normal.setX(this->getX() / Norm);
         normal.setY(this->getY() / Norm);
         normal.setZ(this->getZ() / Norm);
