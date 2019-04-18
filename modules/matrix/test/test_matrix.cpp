@@ -200,11 +200,7 @@ TEST(MatrixTest, Do_Throw_When_Compare_Incommensurate_Matrices) {
     };
 
     // Act & Assert
-    try {
-        bool res = A == B;
-    } catch (std::string) {
-        SUCCEED();
-    }
+    EXPECT_THROW(A.operator==(B), std::string);
 }
 
 TEST(MatrixTest, Can_Add_Matrices) {
