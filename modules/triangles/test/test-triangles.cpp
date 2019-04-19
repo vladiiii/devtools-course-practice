@@ -1,11 +1,11 @@
 // Copyright 2019 Shkerin Igor
 
-#include "include/triangles.h"
+#include <gtest/gtest.h>
 
 #include <cmath>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "include/triangles.h"
 
 double epsilon = 0.0002;
 
@@ -198,7 +198,7 @@ TEST(TrianglesTest, Can_Set_And_Get_A_B_C) {
     Point b(3.0, 0.0);
     Point c(0.0, 3.0);
 
-    // Act 
+    // Act
     abc.set_point_a(a);
     abc.set_point_b(b);
     abc.set_point_c(c);
