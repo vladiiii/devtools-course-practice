@@ -1,5 +1,5 @@
 // Copyright 2019 Shkerin Igor
 
- int main() {
+int main() {
     return 0;
 }
