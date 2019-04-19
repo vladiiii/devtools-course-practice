@@ -1,10 +1,11 @@
 // Copyright 2019 Shkerin Igor
 
+#include "include/triangles.h"
+
 #include <cmath>
+#include <vector>
 
 #include <gtest/gtest.h>
-
-#include "include/triangles.h"
 
 double epsilon = 0.0002;
 
@@ -79,7 +80,8 @@ TEST(TrianglesTest, Can_Create_Default_Triangle) {
     Point c(0.0, 3.0);
 
     // Act & Assert
-    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b &&
+                abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
@@ -90,7 +92,8 @@ TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
     Point c(0.0, 0.0);
 
     // Act & Assert
-    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b &&
+                abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_On_Wrong_Coordinates) {
@@ -107,12 +110,13 @@ TEST(TrianglesTest, Can_Create_Triangle_From_Vector) {
     Point c(0.0, 0.0);
 
     // Act & Assert
-    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b &&
+                abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Wrong_Triangle_From_Vector) {
     // Arrange
-    std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0 };
+    std::vector<double> coordinates = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
 
     // Act & Assert
     ASSERT_ANY_THROW(Triangle abc(coordinates));
@@ -120,7 +124,7 @@ TEST(TrianglesTest, Throw_When_Create_Wrong_Triangle_From_Vector) {
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_From_Vector_Not_Six_Size) {
     // Arrange
-    std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0, 7.0 };
+    std::vector<double> coordinates = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0 };
 
     // Act & Assert
     ASSERT_ANY_THROW(Triangle abc(coordinates));
@@ -142,7 +146,8 @@ TEST(TrianglesTest, Can_Create_Triangle_On_Three_Points) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b &&
+                abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_From_Wrong_Points) {
@@ -199,7 +204,8 @@ TEST(TrianglesTest, Can_Set_And_Get_A_B_C) {
     abc.set_point_c(c);
 
     // Assert
-    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b &&
+                abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Correct_Side_Length_Calculation) {
@@ -208,7 +214,7 @@ TEST(TrianglesTest, Correct_Side_Length_Calculation) {
     Point b(3.0, 0.0);
     Point c(0.0, 3.0);
     double length_ab = 6.0;
-    Triangle abc(a, b, c);  
+    Triangle abc(a, b, c);
 
     // Act & Assert
     EXPECT_EQ(length_ab, abc.SideLength(a, b));
@@ -224,7 +230,8 @@ TEST(TrianglesTest, Length_Of_Side_Does_Not_Depend_On_Order_Points) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(length_ab + length_ba, abc.SideLength(a, b) + abc.SideLength(b, a));
+    EXPECT_EQ(length_ab + length_ba, abc.SideLength(a, b) +
+              abc.SideLength(b, a));
 }
 
 TEST(TrianglesTest, Correctly_Calculate_Perimeter) {
@@ -284,7 +291,8 @@ TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    ASSERT_TRUE(fabs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
+    ASSERT_TRUE(fabs(abc.get_angle_a() + abc.get_angle_b() +
+                abc.get_angle_c() - 180.0) < epsilon);
 }
 
 TEST(TrianglesTest, Correctly_Calculate_Square) {
@@ -298,7 +306,6 @@ TEST(TrianglesTest, Correctly_Calculate_Square) {
     // Act & Assert
     ASSERT_TRUE(fabs(abc.Square() - square) < epsilon);
 }
-//TODO: Height, bisector, median.
 
 TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_A) {
     // Arrange
