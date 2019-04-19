@@ -29,8 +29,7 @@ struct Point {
 
 // The class of a triangle, which is given by its coordinates on the plane.
 class Triangle {
-
-public:
+ public:
     // Various triangle constructors
     Triangle();
     Triangle(double x1, double y1, double x2, double y2, double x3, double y3);
@@ -70,7 +69,7 @@ public:
     // Convert degrees to radians.
     double ConvertToRadian(double degrees);
 
-private:
+ private:
     Point a, b, c;  // triangle points
     double ab = 0, bc = 0, ac = 0;  // sides of a triangle
 };
