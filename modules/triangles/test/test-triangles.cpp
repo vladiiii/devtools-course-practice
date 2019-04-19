@@ -93,7 +93,7 @@ TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_On_Wrong_Coordinates) {
     // Arrange & Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(1.0, 2.0, 3.0, 4.0, 5.0, 6.0), std::string);
+    ASSERT_ANY_THROW(Triangle abc(1.0, 2.0, 3.0, 4.0, 5.0, 6.0));
 }
 
 TEST(TrianglesTest, Can_Create_Triangle_From_Vector) {
