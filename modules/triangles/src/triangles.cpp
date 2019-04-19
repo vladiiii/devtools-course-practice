@@ -111,7 +111,7 @@ double Triangle::Square() {
     return sqrt(h_p * (h_p - ab) * (h_p - ac) * (h_p - bc));
 }
 
-double Triangle::get_angle_a() {   
+double Triangle::get_angle_a() {
     return ConvertToDegrees(acos((pow(ab, 2) + pow(ac, 2) - pow(bc, 2)) /
                            (2 * ab * ac)));
 }
@@ -134,7 +134,7 @@ double Triangle::ConvertToRadian(double degrees) {
     return degrees / 57.2958;
 }
 
-//Check whether the basic triangle inequality holds.
+// Check whether the basic triangle inequality holds.
 bool Triangle::IsTriangleExist() {
     return (ab + bc > ac) && (ab + ac > bc) && (bc + ac > ab) ? true : false;
 }
