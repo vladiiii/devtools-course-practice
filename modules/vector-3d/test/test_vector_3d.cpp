@@ -108,7 +108,7 @@ TEST_F(Vector3dTest, Can_Difference_Vector) {
     EXPECT_EQ(expected_v, v);
 }
 
-TEST_F(Vector3dTest, Can_Multiplicate_By_Scalar) {
+TEST_F(Vector3dTest, Can_Multiply_By_Scalar) {
     // Arrange
     Vector3d v1(26.0, 14.0, 5.0);
     double d = 2.0;
@@ -158,7 +158,7 @@ TEST_F(Vector3dTest, Can_Scalar_Multiplication) {
     EXPECT_EQ(expected_d, d);
 }
 
-TEST_F(Vector3dTest, Can_Multiplicate_Vector) {
+TEST_F(Vector3dTest, Can_Multiply_Vector) {
     // Arrange
     Vector3d v1(6.0, 4.0, 5.0);
     Vector3d v2(1.0, 2.0, 3.0);
@@ -171,7 +171,7 @@ TEST_F(Vector3dTest, Can_Multiplicate_Vector) {
     EXPECT_EQ(expected_v, v);
 }
 
-TEST_F(Vector3dTest, Can_Find_Norma) {
+TEST_F(Vector3dTest, Can_Find_Norm) {
     // Arrange
     Vector3d v(3.0, -4.0, 0.0);
 
