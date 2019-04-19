@@ -1,4 +1,8 @@
+// Copyright 2019 Shkerin Igor
+
 #include <cmath>
+#include <vector>
+#include <string>
 
 #include "include/triangles.h"
 
@@ -8,9 +12,9 @@ Triangle::Triangle() : a(-3.0, 0.0), b(3.0, 0.0), c(0.0, 3.0) {
     ac = SideLength(a, c);
 }
 
-Triangle::Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
+Triangle::Triangle(double x1, double y1, double x2,
+                   double y2, double x3, double y3)
                    : a(x1, y1), b(x2, y2), c(x3, y3) {
-
     ab = SideLength(a, b);
     bc = SideLength(b, c);
     ac = SideLength(a, c);
@@ -18,7 +22,6 @@ Triangle::Triangle(double x1, double y1, double x2, double y2, double x3, double
     if (!IsTriangleExist()) {
         throw std::string("Such a triangle does not exist.");
     }
-
 }
 
 Triangle::Triangle(Point _a, Point _b, Point _c) : a(_a), b(_b), c(_c) {
@@ -92,7 +95,6 @@ void Triangle::set_point_c(const Point _c) {
     if (!IsTriangleExist()) {
         throw std::string("Such a triangle does not exist.");
     }
-
 }
 
 double Triangle::SideLength(Point _a, Point _b) {
@@ -105,32 +107,30 @@ double Triangle::Perimeter() {
 
 double Triangle::Square() {
     Triangle abc(a, b, c);
-    double h_p = abc.Perimeter() / 2; //half of perimeter
+    double h_p = abc.Perimeter() / 2;  // half of perimeter
     return sqrt(h_p * (h_p - ab) * (h_p - ac) * (h_p - bc));
 }
 
-double Triangle::get_angle_a() 
-{   
-    return ConvertToDegrees(acos((pow(ab, 2) + pow(ac, 2) - pow(bc, 2)) / (2 * ab * ac)));
+double Triangle::get_angle_a() {   
+    return ConvertToDegrees(acos((pow(ab, 2) + pow(ac, 2) - pow(bc, 2)) /
+                           (2 * ab * ac)));
 }
 
-double Triangle::get_angle_b() 
-{
-    return ConvertToDegrees(acos((pow(ab, 2) + pow(bc, 2) - pow(ac, 2)) / (2 * ab * bc)));
+double Triangle::get_angle_b() {
+    return ConvertToDegrees(acos((pow(ab, 2) + pow(bc, 2) - pow(ac, 2)) /
+                           (2 * ab * bc)));
 }
 
-double Triangle::get_angle_c() 
-{
-    return ConvertToDegrees(acos((pow(bc, 2) + pow(ac, 2) - pow(ab, 2)) / (2 * ac * bc)));
+double Triangle::get_angle_c() {
+    return ConvertToDegrees(acos((pow(bc, 2) + pow(ac, 2) - pow(ab, 2)) /
+                           (2 * ac * bc)));
 }
 
-double Triangle::ConvertToDegrees(double radian)
-{
+double Triangle::ConvertToDegrees(double radian) {
     return radian * 57.2958;
 }
 
-double Triangle::ConvertToRadian(double degrees)
-{
+double Triangle::ConvertToRadian(double degrees) {
     return degrees / 57.2958;
 }
 
