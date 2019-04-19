@@ -113,7 +113,7 @@ TEST(TrianglesTest, Throw_When_Create_Wrong_Triangle_From_Vector) {
     std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0 };
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+    ASSERT_ANY_THROW(Triangle abc(coordinates));
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_From_Vector_Not_Six_Size) {
@@ -121,7 +121,7 @@ TEST(TrianglesTest, Throw_When_Create_Triangle_From_Vector_Not_Six_Size) {
     std::vector<double> coordinates = { 1.0, 2.0, 3.0 ,4.0, 5.0, 6.0, 7.0 };
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+    ASSERT_ANY_THROW(Triangle abc(coordinates));
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_From_Empty_Vector) {
@@ -129,7 +129,7 @@ TEST(TrianglesTest, Throw_When_Create_Triangle_From_Empty_Vector) {
     std::vector<double> coordinates = { };
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(coordinates), std::string);
+    ASSERT_ANY_THROW(Triangle abc(coordinates));
 }
 
 TEST(TrianglesTest, Can_Create_Triangle_On_Three_Points) {
@@ -150,7 +150,7 @@ TEST(TrianglesTest, Throw_When_Create_Triangle_From_Wrong_Points) {
     Point c(5.0, 6.0);
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+    ASSERT_ANY_THROW(Triangle abc(a, b, c));
 }
 
 TEST(TrianglesTest, Normal_Triangle_Is_Exist) {
@@ -171,7 +171,7 @@ TEST(TrianglesTest, Zero_Triangle_Is_No_Exist) {
     Point c;
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+    ASSERT_ANY_THROW(Triangle abc(a, b, c));
 }
 
 TEST(TrianglesTest, Linear_Triangle_Is_No_Exist) {
@@ -181,7 +181,7 @@ TEST(TrianglesTest, Linear_Triangle_Is_No_Exist) {
     Point c(3.0, 0.0);
 
     // Act & Assert
-    ASSERT_ANY_THROW(Triangle abc(a, b, c), std::string);
+    ASSERT_ANY_THROW(Triangle abc(a, b, c));
 }
 
 TEST(TrianglesTest, Can_Set_And_Get_A_B_C) {
@@ -307,7 +307,7 @@ TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_A) {
     Point wrong_point_a(0.0, 0.0);
 
     // Act & Assert
-    ASSERT_ANY_THROW(abc.set_point_a(wrong_point_a), std::string);
+    ASSERT_ANY_THROW(abc.set_point_a(wrong_point_a));
 }
 
 TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_B) {
@@ -319,7 +319,7 @@ TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_B) {
     Point wrong_point_b(0.0, 3.0);
 
     // Act & Assert
-    ASSERT_ANY_THROW(abc.set_point_b(wrong_point_b), std::string);
+    ASSERT_ANY_THROW(abc.set_point_b(wrong_point_b));
 }
 
 TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_C) {
@@ -331,5 +331,5 @@ TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_C) {
     Point wrong_point_c(0.0, 3.0);
 
     // Act & Assert
-    ASSERT_ANY_THROW(abc.set_point_c(wrong_point_c), std::string);
+    ASSERT_ANY_THROW(abc.set_point_c(wrong_point_c));
 }
