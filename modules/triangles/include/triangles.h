@@ -8,10 +8,10 @@
 
 // The structure of the point contains the x and y coordinates.
 struct Point {
-    double x, y; //Accordingly, the x and y coordinates of the point.
+    double x, y;  // Accordingly, the x and y coordinates of the point.
 
     // Constructor class point.
-    Point(double _x = 0, double _y = 0) : x(_x), y(_y) {};
+    explicit Point(double _x = 0, double _y = 0) : x(_x), y(_y) {}
 
     // Assignment operator.
     Point& operator=(const Point& point) = default;
@@ -59,7 +59,7 @@ public:
     double Square();
 
     // Get the angle of a triangle at a point.
-    double get_angle_a(); 
+    double get_angle_a();
     double get_angle_b();
     double get_angle_c();
 
@@ -70,8 +70,9 @@ public:
     double ConvertToRadian(double degrees);
 
 private:
-    Point a, b, c; //triangle points
-    double ab = 0, bc = 0, ac = 0; //sides of a triangle
+
+    Point a, b, c;  // triangle points
+    double ab = 0, bc = 0, ac = 0;  // sides of a triangle
 };
 
 #endif  // MODULES_TRIANGLES_INCLUDE_TRIANGLES_H_
