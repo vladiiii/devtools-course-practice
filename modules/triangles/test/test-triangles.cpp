@@ -251,7 +251,7 @@ TEST(TrianglesTest, Get_Angel_A) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    ASSERT_TRUE(std::abs(abc.get_angle_a() - 90) < epsilon);
+    ASSERT_TRUE(std::fabs(abc.get_angle_a() - 90.0) < epsilon);
 }
 
 TEST(TrianglesTest, Get_Angel_B) {
@@ -273,7 +273,7 @@ TEST(TrianglesTest, Get_Angel_C) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    ASSERT_TRUE(std::abs(abc.get_angle_c() - 90.0) < epsilon);
+    ASSERT_TRUE(std::fabs(abc.get_angle_c() - 90.0) < epsilon);
 }
 
 TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
@@ -284,7 +284,7 @@ TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    ASSERT_TRUE(std::abs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
+    ASSERT_TRUE(std::fabs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
 }
 
 TEST(TrianglesTest, Correctly_Calculate_Square) {
@@ -296,7 +296,7 @@ TEST(TrianglesTest, Correctly_Calculate_Square) {
     double square = 9.0;
 
     // Act & Assert
-    ASSERT_TRUE(std::abs(abc.Square() - square) < epsilon);
+    ASSERT_TRUE(std::fabs(abc.Square() - square) < epsilon);
 }
 //TODO: Height, bisector, median.
 
