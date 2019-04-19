@@ -23,18 +23,19 @@ struct Point {
             return true;
         } else {
             return false;
-        } 
+        }
     }
 };
 
 // The class of a triangle, which is given by its coordinates on the plane.
 class Triangle {
+
 public:
     // Various triangle constructors
     Triangle();
     Triangle(double x1, double y1, double x2, double y2, double x3, double y3);
     Triangle(Point _a, Point _b, Point _c);
-    Triangle(std::vector<double> array);
+    explicit Triangle(std::vector<double> array);
 
     // Check whether the basic triangle inequality holds.
     bool IsTriangleExist();
@@ -58,7 +59,7 @@ public:
     // Area of a triangle.
     double Square();
 
-    // Get the angle of a triangle at a point.
+    // Get the angle of a triangle at a point in degrees.
     double get_angle_a();
     double get_angle_b();
     double get_angle_c();
@@ -70,7 +71,6 @@ public:
     double ConvertToRadian(double degrees);
 
 private:
-
     Point a, b, c;  // triangle points
     double ab = 0, bc = 0, ac = 0;  // sides of a triangle
 };

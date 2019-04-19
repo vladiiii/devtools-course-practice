@@ -335,3 +335,34 @@ TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_C) {
     // Act & Assert
     ASSERT_ANY_THROW(abc.set_point_c(wrong_point_c));
 }
+
+TEST(TrianglesTest, Correct_Convert_To_Radian) {
+    // Arrange
+    Point a(0.0, 3.0);
+    Point b(0.0, 0.0);
+    Point c(3.0, 0.0);
+    Triangle abc(a, b, c);
+
+    // Act
+    double degree = abc.get_angle_b();
+    ASSERT_TRUE(fabs(degree - 90.0) < epsilon);
+    double radian = abc.ConvertToRadian(degree);
+
+    // Assert
+    ASSERT_TRUE(fabs(radian - 1.5708) < epsilon);
+}
+
+TEST(TrianglesTest, Correct_Convert_To_Degree) {
+    // Arrange
+    Point a(0.0, 3.0);
+    Point b(0.0, 0.0);
+    Point c(3.0, 0.0);
+    Triangle abc(a, b, c);
+    double radian = 1.5708;
+
+    // Act
+    double degree = abc.get_angle_b();
+
+    // Assert
+    ASSERT_TRUE(fabs(radian - abc.ConvertToRadian(degree)) < epsilon);
+}
