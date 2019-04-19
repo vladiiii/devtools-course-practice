@@ -41,6 +41,18 @@ class Set {
   const_iterator end() const { return _items.end(); }
 
   size_t size() { return _items.size(); }
+
+  void expand(const Set &other) {
+      for (const auto& item : other) {
+          insert(item);
+      }
+  }
+
+  void subtract(const Set &other) {
+      for (const auto& item : other) {
+          remove(item);
+      }
+  }
 };
 
 #endif  // MODULES_SET_INCLUDE_SET_H_

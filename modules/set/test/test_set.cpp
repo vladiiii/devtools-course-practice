@@ -84,3 +84,40 @@ TEST(SetTest, Can_Move) {
   EXPECT_EQ(*mSet2.begin(), 5);
   EXPECT_EQ(mSet1.size(), 0);
 }
+
+TEST(SetTest, Can_Create_Union) {
+    // Arrange
+    Set<int> mSet1;
+    Set<int> mSet2;
+
+    mSet1.insert(1);
+    mSet1.insert(2);
+
+    mSet2.insert(2);
+    mSet2.insert(3);
+
+    // Act
+    mSet1.expand(mSet2);
+
+    // Assert
+    EXPECT_EQ(mSet1.size(), 3);
+}
+
+TEST(SetTest, Can_Create_Difference) {
+    // Arrange
+    Set<int> mSet1;
+    Set<int> mSet2;
+
+    mSet1.insert(1);
+    mSet1.insert(2);
+
+    mSet2.insert(2);
+    mSet2.insert(3);
+
+    // Act
+    mSet1.subtract(mSet2);
+
+    // Assert
+    EXPECT_EQ(mSet1.size(), 1);
+}
+
