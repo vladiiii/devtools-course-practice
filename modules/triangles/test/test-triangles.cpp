@@ -1,5 +1,7 @@
 // Copyright 2019 Shkerin Igor
 
+#include <cstdlib>
+
 #include <gtest/gtest.h>
 
 #include "include/triangles.h"
