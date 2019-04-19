@@ -1,6 +1,6 @@
 // Copyright 2019 Shkerin Igor
 
-#include <cstdlib>
+#include <cmath>
 
 #include <gtest/gtest.h>
 
