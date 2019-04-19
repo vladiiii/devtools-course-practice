@@ -15,7 +15,7 @@ TEST(TrianglesTest, Can_Create_Default_Point) {
 }
 
 TEST(TrianglesTest, Possibility_Of_Assigning_Point) {
-    // Arrange
+    // Arrang
     Point a(0.1, 0.3);
 
     // Act
@@ -35,7 +35,7 @@ TEST(TrianglesTest, Equal_Points_Are_Equal) {
     EXPECT_EQ(a, b);
 }
 
-TEST(TrianglesTest, Correct_Ñomparison_Of_Two_Not_Equal_Points) {
+TEST(TrianglesTest, Correct_Comparison_Of_Two_Not_Equal_Points) {
     // Arrange
     Point a(0.1, 0.3);
     Point b(1.0, 0.3);
@@ -44,7 +44,7 @@ TEST(TrianglesTest, Correct_Ñomparison_Of_Two_Not_Equal_Points) {
     ASSERT_FALSE(a == b);
 }
 
-TEST(TrianglesTest, Correct_Ñomparison_Of_Two_Equal_Points) {
+TEST(TrianglesTest, Correct_Comparison_Of_Two_Equal_Points) {
     // Arrange
     Point a(0.1, 0.3);
     Point b(0.1, 0.3);
@@ -225,7 +225,7 @@ TEST(TrianglesTest, Length_Of_Side_Does_Not_Depend_On_Order_Points) {
     EXPECT_EQ(length_ab + length_ba, abc.SideLength(a, b) + abc.SideLength(b, a));
 }
 
-TEST(TrianglesTest, Correctly_Ñalculate_Perimeter) {
+TEST(TrianglesTest, Correctly_Calculate_Perimeter) {
     // Arrange
     Point a(-3.0, 0.0);
     Point b(3.0, 0.0);
@@ -285,7 +285,7 @@ TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
     ASSERT_TRUE(abs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
 }
 
-TEST(TrianglesTest, Correctly_Ñalculate_Square) {
+TEST(TrianglesTest, Correctly_Calculate_Square) {
     // Arrange
     Point a(-3.0, 0.0);
     Point b(3.0, 0.0);
