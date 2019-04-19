@@ -1,6 +1,6 @@
 #include <cmath>
 
-#include "..\include\triangles.h"
+#include "include/triangles.h"
 
 Triangle::Triangle() : a(-3.0, 0.0), b(3.0, 0.0), c(0.0, 3.0) {
     ab = SideLength(a, b);
