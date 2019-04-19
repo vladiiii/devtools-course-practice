@@ -6,13 +6,51 @@
 
 double epsilon = 0.0002;
 
-//TODO: Test for operator= && operator==
 TEST(TrianglesTest, Can_Create_Default_Point) {
     // Arrange
     Point a;
 
     // Act & Assert
-    EXPECT_EQ(true, a.x == 0.0 && a.y == 0.0);
+    ASSERT_TRUE(a.x == 0.0 && a.y == 0.0);
+}
+
+TEST(TrianglesTest, Possibility_Of_Assigning_Point) {
+    // Arrange
+    Point a(0.1, 0.3);
+
+    // Act
+    ASSERT_TRUE(a.x == 0.1 && a.y == 0.3);
+    Point b = a;
+
+    // Assert
+    ASSERT_TRUE(b.x == 0.1 && b.y == 0.3);
+}
+
+TEST(TrianglesTest, Equal_Points_Are_Equal) {
+    // Arrange
+    Point a(0.1, 0.3);
+    Point b(0.1, 0.3);
+
+    // Act & Assert
+    EXPECT_EQ(a, b);
+}
+
+TEST(TrianglesTest, Correct_Ñomparison_Of_Two_Not_Equal_Points) {
+    // Arrange
+    Point a(0.1, 0.3);
+    Point b(1.0, 0.3);
+
+    // Act & Assert
+    ASSERT_FALSE(a == b);
+}
+
+TEST(TrianglesTest, Correct_Ñomparison_Of_Two_Equal_Points) {
+    // Arrange
+    Point a(0.1, 0.3);
+    Point b(0.1, 0.3);
+
+    // Act & Assert
+    ASSERT_TRUE(a == b);
 }
 
 TEST(TrianglesTest, Can_Create_Point) {
@@ -20,7 +58,7 @@ TEST(TrianglesTest, Can_Create_Point) {
     Point a(3.0, 2.0);
 
     // Act & Assert
-    EXPECT_EQ(true, a.x == 3.0 && a.y == 2.0);
+    ASSERT_TRUE(a.x == 3.0 && a.y == 2.0);
 }
 
 TEST(TrianglesTest, Can_Create_Negative_Point) {
@@ -28,7 +66,7 @@ TEST(TrianglesTest, Can_Create_Negative_Point) {
     Point a(-3.0, -2.0);
 
     // Act & Assert
-    EXPECT_EQ(true, a.x == -3.0 && a.y == -2.0);
+    ASSERT_TRUE(a.x == -3.0 && a.y == -2.0);
 }
 
 TEST(TrianglesTest, Can_Create_Default_Triangle) {
@@ -39,7 +77,7 @@ TEST(TrianglesTest, Can_Create_Default_Triangle) {
     Point c(0.0, 3.0);
 
     // Act & Assert
-    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
@@ -50,7 +88,7 @@ TEST(TrianglesTest, Can_Create_Triangle_On_Coordinates) {
     Point c(0.0, 0.0);
 
     // Act & Assert
-    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_On_Wrong_Coordinates) {
@@ -67,7 +105,7 @@ TEST(TrianglesTest, Can_Create_Triangle_From_Vector) {
     Point c(0.0, 0.0);
 
     // Act & Assert
-    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Wrong_Triangle_From_Vector) {
@@ -102,7 +140,7 @@ TEST(TrianglesTest, Can_Create_Triangle_On_Three_Points) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Throw_When_Create_Triangle_From_Wrong_Points) {
@@ -123,7 +161,7 @@ TEST(TrianglesTest, Normal_Triangle_Is_Exist) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(true, abc.IsTriangleExist());
+    ASSERT_TRUE(abc.IsTriangleExist());
 }
 
 TEST(TrianglesTest, Zero_Triangle_Is_No_Exist) {
@@ -159,7 +197,7 @@ TEST(TrianglesTest, Can_Set_And_Get_A_B_C) {
     abc.set_point_c(c);
 
     // Assert
-    EXPECT_EQ(true, abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
+    ASSERT_TRUE(abc.get_point_a() == a && abc.get_point_b() == b && abc.get_point_c() == c);
 }
 
 TEST(TrianglesTest, Correct_Side_Length_Calculation) {
@@ -210,9 +248,8 @@ TEST(TrianglesTest, Get_Angel_A) {
     Point c(0.0, 6.0);
     Triangle abc(a, b, c);
 
-
     // Act & Assert
-    EXPECT_EQ(true, abs(abc.get_angle_a() - 90) < epsilon);
+    ASSERT_TRUE(abs(abc.get_angle_a() - 90) < epsilon);
 }
 
 TEST(TrianglesTest, Get_Angel_B) {
@@ -223,7 +260,7 @@ TEST(TrianglesTest, Get_Angel_B) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(true, (abc.get_angle_b()- 90.0) < epsilon);
+    ASSERT_TRUE((abc.get_angle_b()- 90.0) < epsilon);
 }
 
 TEST(TrianglesTest, Get_Angel_C) {
@@ -234,7 +271,7 @@ TEST(TrianglesTest, Get_Angel_C) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(true, abs(abc.get_angle_c() - 90.0) < epsilon);
+    ASSERT_TRUE(abs(abc.get_angle_c() - 90.0) < epsilon);
 }
 
 TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
@@ -245,7 +282,7 @@ TEST(TrianglesTest, Sum_All_Angles_Of_Triangle_Is_180_Degrees) {
     Triangle abc(a, b, c);
 
     // Act & Assert
-    EXPECT_EQ(true, abs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
+    ASSERT_TRUE(abs(abc.get_angle_a() + abc.get_angle_b() + abc.get_angle_c() - 180.0) < epsilon);
 }
 
 TEST(TrianglesTest, Correctly_Ñalculate_Square) {
@@ -257,6 +294,42 @@ TEST(TrianglesTest, Correctly_Ñalculate_Square) {
     double square = 9.0;
 
     // Act & Assert
-    EXPECT_EQ(true, abs(abc.Square() - square) < epsilon);
+    ASSERT_TRUE(abs(abc.Square() - square) < epsilon);
 }
 //TODO: Height, bisector, median.
+
+TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_A) {
+    // Arrange
+    Point a(0.0, 3.0);
+    Point b(-3.0, 0.0);
+    Point c(3.0, 0.0);
+    Triangle abc(a, b, c);
+    Point wrong_point_a(0.0, 0.0);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(abc.set_point_a(wrong_point_a), std::string);
+}
+
+TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_B) {
+    // Arrange
+    Point a(0.0, 3.0);
+    Point b(-3.0, 0.0);
+    Point c(3.0, 0.0);
+    Triangle abc(a, b, c);
+    Point wrong_point_b(0.0, 3.0);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(abc.set_point_b(wrong_point_b), std::string);
+}
+
+TEST(TrianglesTest, Throw_When_Set_Wrong_Coordinate_In_Point_C) {
+    // Arrange
+    Point a(0.0, 3.0);
+    Point b(-3.0, 0.0);
+    Point c(3.0, 0.0);
+    Triangle abc(a, b, c);
+    Point wrong_point_c(0.0, 3.0);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(abc.set_point_c(wrong_point_c), std::string);
+}
