@@ -15,7 +15,7 @@ TEST(TrianglesTest, Can_Create_Default_Point) {
 }
 
 TEST(TrianglesTest, Possibility_Of_Assigning_Point) {
-    // Arrang
+    // Arrange
     Point a(0.1, 0.3);
 
     // Act
