@@ -220,3 +220,15 @@ TEST(RadixTest, Throw_When_Size_Less_Than_Zero_In_Function_RadixSort) {
     // Act & Assert
     ASSERT_ANY_THROW(rdx.RadixSort(mas, -1));
 }
+
+TEST(RadixTest, Can_Use_RadixSort_With_Array_Size_One) {
+    // Arrange
+    int mas[] = { 3 };
+    Radix rdx;
+
+    // Act
+    rdx.RadixSort(mas, 1);
+
+    // Assert
+    EXPECT_EQ(*mas, 3);
+}
