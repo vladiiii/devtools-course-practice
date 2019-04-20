@@ -3,24 +3,28 @@
 #ifndef MODULES_TREE_INCLUDE_TREE_H_
 #define MODULES_TREE_INCLUDE_TREE_H_
 
-class tree
+class Tree
 {
 private:
     struct Node
     {
         int data;
+        int count;
         Node* left, * right;
+        Node();
     }; // отдельная верщина дерева
     Node* root; //const? корень дерева
     Node* AddNode (Node*, int);
     Node* DelNode (Node*, int);
     int SearchNode(Node*, int);
+    void DelAll(Node*);
 public:
-    tree();
-    ~tree();
-    void Add(int data); // добавить элемент
-    void Del(int data); // убрать элемент
-    int Search(int data); // поиск элемента
+    Tree();
+    ~Tree();
+    void Add(int); // добавить элемент
+    void Del(int); // убрать элемент
+    bool Search(int); // поиск элемента
+    void Clear();
 };
 //все вершины справа - >=, слева - <
 
