@@ -4,28 +4,28 @@
 #define __SEGMENT_TREE_H__
 
 #include <functional>
+#include <stack>
 
 class segment_tree {
     private:
     struct node {
         node* left_n;
         node* right_n;
-        node* pre_n;
         int value;
         int push_value;
-        node(node* _l = nullptr, node* _r = nullptr, node* _p = nullptr);
+        node(int _v, node* _l = nullptr, node* _r = nullptr);
     };
 
-    const int base_elem;
-    const int left_barr;
-    const int right_barr;
-    std::function<void(int* const, int* const)> operation;
+    int base_elem;
+    int left_barr;
+    int right_barr;
+    std::function<int(int, int, int)> operation;
     node* root;
 
     public:
     segment_tree(const int lg, const int rg, const
-        std::function<void(int* const, int* const)>& fu =
-                [&](int* const a, int* const b) { *a += *b; },
+        std::function<int(int, int, int)>& fu =
+                [](int a, int b, int c) { return a + b * c; },
                     const int be = 0);
     segment_tree(const segment_tree& st);
     ~segment_tree();
@@ -38,9 +38,9 @@ class segment_tree {
     int get_value(int pos);
     int get_value(int l_pos, int r_pos);
 
-    const int get_base_elem();
-    const int get_left_barr();
-    const int get_right_barr();
+    const int get_base_elem() const;
+    const int get_left_barr() const;
+    const int get_right_barr() const;
 };
 
 #endif  // __SEGMENT_TREE_H__
