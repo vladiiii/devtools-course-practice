@@ -14,16 +14,20 @@ private:
         Node();
     }; // отдельная верщина дерева
     Node* root; // корень дерева
-    Node* AddNode (Node*, int);
+    Node* AddNode (Node*, int, int num = 1);
     Node* DelNode (Node*, int);
+    Node* CopyNode(Node*, Node*);
     int SearchNode(Node*, int);
     void DelAll(Node*);
 public:
     Tree();
+    Tree(const Tree&);
+    bool IsEmpty() const;
     ~Tree();
     void Add(int); // добавить элемент
     void Del(int); // убрать элемент
     int Search(int); // поиск элемента
+    Tree& operator=(const Tree&);
     void Clear();
 };
 
