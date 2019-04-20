@@ -46,18 +46,20 @@ double CalculatePrice::total_sum() {
 	}
 
     int count;
-    int i = 0;
 
-    while (shop_basket[i] != 0) {
-		shop_basket[i]--;
-		count = 1;
-		for (int j = i+1; j < 6; j++)
-		    if (shop_basket[j] > 0) {
-				count++;
-				shop_basket[j]--;
-			}
-		sum += discount_calculate(count);
-	}
+    for (int i = 0; i < 5; i++) {
+        while (shop_basket[i] != 0) {
+		    shop_basket[i]--;
+		    count = 1;
+		    for (int j = 0; j < 5; j++)
+		        if ((shop_basket[j] > 0)&&(i != j)) {
+				    count++;
+				    shop_basket[j]--;
+			    }
+		    sum += discount_calculate(count);
+	    }
+    i++;
+    }
 
 	return sum;
 }
