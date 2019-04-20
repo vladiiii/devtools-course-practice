@@ -6,7 +6,7 @@ set(TESTS       "test_${MODULE}")
 set(APPLICATION "app_${MODULE}")
 
 # Include directory with public headers
-include_directories("./")
+include_directories("include")
 
 # Add all submodules
 add_subdirectory(src)

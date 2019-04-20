@@ -13,7 +13,7 @@ private:
         Node* left, * right;
         Node();
     }; // отдельная верщина дерева
-    Node* root; //const? корень дерева
+    Node* root; // корень дерева
     Node* AddNode (Node*, int);
     Node* DelNode (Node*, int);
     int SearchNode(Node*, int);
@@ -23,9 +23,9 @@ public:
     ~Tree();
     void Add(int); // добавить элемент
     void Del(int); // убрать элемент
-    bool Search(int); // поиск элемента
+    int Search(int); // поиск элемента
     void Clear();
 };
-//все вершины справа - >=, слева - <
+
 
 #endif
