@@ -13,7 +13,13 @@ class segment_tree {
         node* right_n;
         int value;
         int push_value;
+        bool is_changed;
         node(int _v, node* _l = nullptr, node* _r = nullptr);
+    };
+
+    struct position {
+        int l, r;
+        node* p;
     };
 
     int base_elem;
@@ -21,6 +27,9 @@ class segment_tree {
     int right_barr;
     std::function<int(int, int, int)> operation;
     node* root;
+
+    void correct_node(node*& p);
+    bool is_correct_node(const node* const p) const;
 
     public:
     segment_tree(const int lg, const int rg, const
