@@ -3,7 +3,6 @@
 #ifndef MODULES_TRIANGLES_INCLUDE_TRIANGLES_H_
 #define MODULES_TRIANGLES_INCLUDE_TRIANGLES_H_
 
-#include <iostream>
 #include <vector>
 
 // The structure of the point contains the x and y coordinates.
