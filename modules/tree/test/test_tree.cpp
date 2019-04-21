@@ -260,15 +260,15 @@ TEST(TreeTest, can_delete_node_with_empty_left_child) {
 
 TEST(TreeTest, can_delete_node_with_empty_right_child) {
     // Arrange
-    int d3 = 3, d4 = 4, d5 = 5;
+    int d4 = 4, d5 = 5, d6 = 6;
     Tree t;
 
     // Act
     t.Add(4);
+    t.Add(6);
     t.Add(5);
-    t.Add(3);
-    t.Del(5);
+    t.Del(6);
 
     // Assert
-    EXPECT_EQ(0, t.Search(5));
+    EXPECT_EQ(0, t.Search(6));
 }
