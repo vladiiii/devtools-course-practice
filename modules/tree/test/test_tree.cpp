@@ -136,12 +136,15 @@ TEST(TreeTest, can_create_copy_of_tree) {
     Tree t1;
 
     // Act
+    t1.Add(data2);
+    t1.Add(data1);
     t1.Add(data3);
     Tree t2(t1);
 
     // Assert
 
-
+    EXPECT_EQ(1, t2.Search(data1));
+    EXPECT_EQ(1, t2.Search(data2));
     EXPECT_EQ(1, t2.Search(data3));
 }
 
@@ -169,8 +172,8 @@ TEST(TreeTest, copy_tree_has_its_own_memory) {
     Tree t1;
 
     // Act
-    t1.Add(data1);
     t1.Add(data2);
+    t1.Add(data1);
     t1.Add(data3);
     Tree t2 = t1;
     t1.Del(data2);
@@ -187,12 +190,85 @@ TEST(TreeTest, equated_tree_has_its_own_memory) {
     Tree t1, t2;
 
     // Act
-    t1.Add(data1);
     t1.Add(data2);
+    t1.Add(data1);
     t1.Add(data3);
     t2 = t1;
     t1.Del(data2);
 
     // Assert
     EXPECT_EQ(1, t2.Search(data2));
+}
+
+
+TEST(TreeTest, can_create_copy_of_empty_tree) {
+    // Arrange
+    Tree t1, t2;
+
+    // Act & Assert
+    ASSERT_NO_THROW(t1 = t2);
+}
+
+TEST(TreeTest, can_delete_elem_from_large_tree) {
+    // Arrange
+    int d1 = 1, d2 = 2, d3 = 3, d4 = 4, d5 = 5, d6 = 6;
+    Tree t;
+
+    // Act
+    t.Add(d5);
+    t.Add(d6);
+    t.Add(d1);
+    t.Add(d2);
+    t.Add(d3);
+    t.Add(d4);
+    t.Del(d5);
+
+    // Assert
+    EXPECT_EQ(0, t.Search(d5));
+}
+
+TEST(TreeTest, can_delete_elem_from_large_tree_with_empty_child_nodes) {
+    // Arrange
+    int d1 = 1, d2 = 2, d3 = 3, d4 = 4;
+    Tree t;
+
+    // Act
+    t.Add(d3);
+    t.Add(d2);
+    t.Add(d1);
+    t.Add(d4);
+    t.Del(d3);
+
+    // Assert
+    EXPECT_EQ(0, t.Search(d3));
+}
+
+TEST(TreeTest, can_delete_node_with_empty_left_child) {
+    // Arrange
+    int d2 = 2, d3 = 3, d4 = 4;
+    Tree t;
+
+    // Act
+    t.Add(4);
+    t.Add(2);
+    t.Add(3);
+    t.Del(2);
+
+    // Assert
+    EXPECT_EQ(0, t.Search(2));
+}
+
+TEST(TreeTest, can_delete_node_with_empty_right_child) {
+    // Arrange
+    int d3 = 3, d4 = 4, d5 = 5;
+    Tree t;
+
+    // Act
+    t.Add(4);
+    t.Add(5);
+    t.Add(3);
+    t.Del(5);
+
+    // Assert
+    EXPECT_EQ(0, t.Search(5));
 }
