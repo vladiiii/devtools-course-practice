@@ -122,6 +122,7 @@ void segment_tree::correct_node(node** p) {
     } else if ((*p)->is_changed) {
         (*p)->value = base_elem;
         (*p)->push_value = base_elem;
+        (*p)->is_changed = false;
         if ((*p)->left_n != nullptr)
             (*p)->left_n->is_changed = true;
         if ((*p)->right_n != nullptr)
@@ -237,10 +238,10 @@ int segment_tree::get_value(int pos) const {
         value = operation(value, root->value, 1);
         return value;
     }
-    value = operation(value, root->push_value, 1);
     node* t = root;
     while (l < r) {
         int c = l + (r - l) / 2;
+        value = operation(value, t->push_value, 1);
         if (pos <= c) {
             r = c;
             if (!is_correct_node(t->left_n))
@@ -250,7 +251,6 @@ int segment_tree::get_value(int pos) const {
                 value = operation(value, t->value, 1);
                 break;
             }
-            value = operation(value, t->push_value, 1);
         } else {
             l = c + 1;
             if (!is_correct_node(t->right_n))
@@ -260,7 +260,6 @@ int segment_tree::get_value(int pos) const {
                 value = operation(value, t->value, 1);
                 break;
             }
-            value = operation(value, t->push_value, 1);
         }
     }
     return value;

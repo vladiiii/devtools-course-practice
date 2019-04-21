@@ -510,3 +510,16 @@ TEST(segment_tree, cant_get_added_value_with_incorrect_barriers) {
     // Act & Assert
     ASSERT_ANY_THROW(a.get_value(4, 2));
 }
+
+TEST(segment_tree, correct_get_after_set_and_add_on_segment) {
+    // Arrange
+    segment_tree a(0, 7);
+    bool flag = true;
+    for (int i = 0; i < 8; ++i)
+        a.set_value(i, i);
+    // Act
+    a.set_value(4, 7, 10);
+    a.add_value(4, 5, 12);
+    // Assert
+    EXPECT_EQ(22, a.get_value(5));
+}
