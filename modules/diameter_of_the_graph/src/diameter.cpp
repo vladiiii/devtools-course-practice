@@ -4,6 +4,8 @@
 
 #include <queue>
 #include <climits>
+#include <algorithm>
+#include <vector>
 #include <iostream>
 
 #define inf 1000000000
@@ -104,5 +106,6 @@ Graph::Graph(const Graph& g) {
     for (int i = 0; i < n; ++i)
         for (int j = 0; j < n; ++j) dist[i][j] = g.dist[i][j];
     for (int i = 0; i < n; ++i)
-        for (unsigned int j = 0; j < g.v[i].size(); ++j) v[i].push_back(g.v[i][j]);
+        for (unsigned int j = 0; j < g.v[i].size(); ++j)
+            v[i].push_back(g.v[i][j]);
 }
