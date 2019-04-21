@@ -10,7 +10,7 @@
 class dHeap {
  private:
     int d;
-	std::vector<int> weight;
+    std::vector<int> weight;
 
     int Parent(int node);
     int Left_child(int node);
@@ -24,13 +24,13 @@ class dHeap {
 
  public:
     explicit dHeap(int _d = 2);
-	dHeap(int _d, std::vector<int> _w);
+    dHeap(int _d, std::vector<int> _w);
     void Insert(int w);
     void Delete(int node);
     void Delete_min();
     void print();
     int get_d();
-	std::vector<int> get_weight();
+    std::vector<int> get_weight();
     int get_parent(int i);
     int get_left_child(int i);
     int get_right_child(int i);

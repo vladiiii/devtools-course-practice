@@ -19,7 +19,7 @@ int dHeap::Parent(int node) {
 
 int dHeap::Left_child(int node) {
 	int leftch = node * d + 1;
-	if (leftch > weight.size() - 1) {
+	if (leftch > static_cast<int>(weight.size()) - 1) {
 		return -1;
 	}
 	return leftch;
@@ -30,7 +30,7 @@ int dHeap::Right_child(int node) {
 	if (leftch == -1) {
 		return -1;
 	}
-	return std::min(leftch + d - 1, int(weight.size()) - 1);
+	return std::min(leftch + d - 1, static_cast<int>(weight.size()) - 1);
 }
 
 int dHeap::Min_child(int node) {
@@ -96,13 +96,13 @@ void dHeap::Decrease_weight(int node, int w) {
 }
 
 void dHeap::Make() {
-	for (int i = weight.size() - 1; i >= 0; i--) {
+	for (unsigned int i = weight.size() - 1; i >= 0; i--) {
 		Diving(i);
 	}
 }
 
 void dHeap::print() {
-	for (int i = 0; i < weight.size(); i++) {
+	for (unsigned int i = 0; i < weight.size(); i++) {
 		std::cout << weight[i] << " ";
 	}
 	std::cout << std::endl;
