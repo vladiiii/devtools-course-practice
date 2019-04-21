@@ -1,0 +1,21 @@
+// Copyright 2019 Korobeinikov Aleksey
+
+#include <vector>
+
+
+class graph {
+ private:
+    std::vector<std::vector<int>> v;
+    int n;  // count of vertex
+    int **dist;
+ public:
+    graph(const std::vector<std::vector<int>> &, int _n);
+    graph(int **& dist, int _n);
+    graph(const graph&);
+    int diameter_of_tree(void);
+    int diameter_of_graph(void);
+    void print_dist();
+ private:
+    void floid(void);
+    void bfs(int x);
+};
