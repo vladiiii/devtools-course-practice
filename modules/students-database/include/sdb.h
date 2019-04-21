@@ -34,8 +34,6 @@ class Sdb {
 
  private:
      std::unordered_map<std::string, student> table_;
-
-     bool CheckStdExist(std::string&);
 };
 
-#endif // MODULES_STUDENTS_DATABASE_INCLUDE_SDB_H_
+#endif  // MODULES_STUDENTS_DATABASE_INCLUDE_SDB_H_
