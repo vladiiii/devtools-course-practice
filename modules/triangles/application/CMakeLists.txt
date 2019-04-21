@@ -4,7 +4,7 @@ set(target ${APPLICATION})
 set_source_files_properties(${srcs} PROPERTIES
     LABELS "${MODULE};Application")
 
- add_executable(${target} ${srcs})
+add_executable(${target} ${srcs})
 set_target_properties(${target} PROPERTIES
     OUTPUT_NAME ${MODULE}
     LABELS "${MODULE};Application")
