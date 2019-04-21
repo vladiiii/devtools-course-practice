@@ -94,7 +94,7 @@ TEST(TreeTest, is_empty_return_true_if_tree_is_empty) {
     t.Add(data);
     t.Del(data);
 
-    //Assert
+    // Assert
     EXPECT_EQ(0, t.Search(data));
     EXPECT_EQ(true, t.IsEmpty());
 }
@@ -107,7 +107,7 @@ TEST(TreeTest, is_empty_return_false_if_tree_is_not_empty) {
     // Act
     t.Add(data);
 
-    //Assert
+    // Assert
     EXPECT_EQ(false, t.IsEmpty());
 }
 
@@ -139,7 +139,7 @@ TEST(TreeTest, can_create_copy_of_tree) {
     t1.Add(data3);
     Tree t2(t1);
 
-    //Assert
+    // Assert
 
 
     EXPECT_EQ(1, t2.Search(data3));
