@@ -96,8 +96,8 @@ void dHeap::Decrease_weight(int node, int w) {
 }
 
 void dHeap::Make() {
-    for (unsigned int i = weight.size() - 1; i >= 0; i--) {
-        Diving(i);
+    for (unsigned int i = weight.size(); i > 0; i--) {
+        Diving(i - 1);
     }
 }
 
