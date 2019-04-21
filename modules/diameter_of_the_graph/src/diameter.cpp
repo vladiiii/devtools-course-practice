@@ -23,6 +23,17 @@ Graph::Graph(const std::vector<std::vector<int>>& vv, int _n) {
             dist[i][j] = -1;
 }
 
+Graph::Graph() {
+    n = 10;
+    dist = new int*[n];
+    for (int i = 0; i < n; ++i) {
+        dist[i] = new int[n];
+    }
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            dist[i][j] = 0;
+    v.resize(n);
+}
 Graph::Graph(int ***temp, int _n) {
     dist = *temp;
     n = _n;
@@ -34,8 +45,8 @@ Graph::Graph(int ***temp, int _n) {
 }
 
 Graph::~Graph() {
-    for (int i = 0; i < n; ++i) delete dist[i];
-    delete dist;
+    for (int i = 0; i < n; ++i) delete[] dist[i];
+    delete[] dist;
 }
 void Graph::floid(void) {
     for (int i = 0; i < n; ++i) {
@@ -108,4 +119,12 @@ Graph::Graph(const Graph& g) {
     for (int i = 0; i < n; ++i)
         for (unsigned int j = 0; j < g.v[i].size(); ++j)
             v[i].push_back(g.v[i][j]);
+}
+
+Graph& Graph::operator=(const Graph& g) {
+    n = g.n;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j) dist[i][j] = g.dist[i][j];
+    v = g.v;
+    return *this;
 }

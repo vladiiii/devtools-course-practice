@@ -130,3 +130,25 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     // Assert
     EXPECT_EQ(1, ans1 == ans2);
 }
+
+TEST(Korobeinikov_Aleksey_DiameterTest,
+    check_correctness_of_equality_operator) {
+    // Arrange
+    int n = 8;
+    std::vector <std::vector<int>> v;
+    v.resize(n);
+    v[0].push_back(2); v[1].push_back(2); v[2].push_back(1); v[2].push_back(3);
+    v[2].push_back(5); v[3].push_back(2); v[3].push_back(4); v[4].push_back(3);
+    v[5].push_back(2); v[5].push_back(6); v[6].push_back(5); v[7].push_back(5);
+    v[5].push_back(7); v[2].push_back(0);
+    Graph a(v, n);
+    Graph b;
+
+    // Act
+    int ans1 = a.diameter_of_tree();
+    b = a;
+    int ans2 = b.diameter_of_tree();
+
+    // Assert
+    EXPECT_EQ(1, ans1 == ans2);
+}

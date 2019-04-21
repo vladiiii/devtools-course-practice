@@ -13,9 +13,11 @@ class Graph {
     int **dist;
  public:
     ~Graph();
-    Graph(const std::vector<std::vector<int>> &, int _n);
+    Graph();
+    Graph(const std::vector<std::vector<int>> & v, int _n);
     Graph(int *** dist, int _n);
-    Graph(const Graph&);
+    Graph(const Graph& g);
+    Graph& operator=(const Graph& g);
     int diameter_of_tree(void);
     int diameter_of_Graph(void);
     void print_dist();
