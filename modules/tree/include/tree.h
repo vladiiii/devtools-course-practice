@@ -20,15 +20,15 @@ private:
     int SearchNode(Node*, int);
     void DelAll(Node*);
 public:
-    Tree();
-    Tree(const Tree&);
-    bool IsEmpty() const;
+    Tree(); // конструктор по умолчанию
+    Tree(const Tree&); // конструктор копирования
+    bool IsEmpty() const; // проверка, есть ли элементы в дереве
     ~Tree();
     void Add(int); // добавить элемент
     void Del(int); // убрать элемент
     int Search(int); // поиск элемента
-    Tree& operator=(const Tree&);
-    void Clear();
+    Tree& operator=(const Tree&); // оператор присваивания
+    void Clear(); // очистить дерево
 };
 
 
