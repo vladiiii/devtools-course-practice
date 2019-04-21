@@ -5,13 +5,14 @@
 #include "include/sdb.h"
 
 
-bool Sdb::AddStudent(std::string& first_name, std::string& last_name) {
+bool Sdb::AddStudent(const std::string& first_name,
+    const std::string& last_name) {
     student st = { first_name };
 
     return table_.insert(std::make_pair(last_name, st)).second;
 }
 
-bool Sdb::RemoveStudent(std::string& last_name) {
+bool Sdb::RemoveStudent(const std::string& last_name) {
     auto rec = table_.find(last_name);
 
     if (rec == table_.end()) {
@@ -22,19 +23,31 @@ bool Sdb::RemoveStudent(std::string& last_name) {
     }
 }
 
-bool Sdb::AddMark(std::string& last_name, uint& mark) {
+bool Sdb::AddMark(const std::string& last_name,
+                  const std::string& subject_name,
+                  const uint& mark) {
     auto rec = table_.find(last_name);
 
     if (rec == table_.end()) {
         return false;
     } else {
-        rec->second.marks.push_back(mark);
+        for (auto it = rec->second.subjects.begin();
+            it != rec->second.subjects.end(); ++it) {
+            if (subject_name == it->subject_name) {
+                it->marks.push_back(mark);
+                return true;
+            }
+        }
+        subject sbj = { subject_name };
+        sbj.marks.push_back(mark);
+
+        rec->second.subjects.push_back(sbj);
 
         return true;
     }
 }
 
-float Sdb::GetAvgMark(std::string& last_name) {
+float Sdb::GetAvgMark(const std::string& last_name) {
     auto rec = table_.find(last_name);
 
     if (rec == table_.end()) {
@@ -42,10 +55,13 @@ float Sdb::GetAvgMark(std::string& last_name) {
     } else {
         uint num_marks = 0, mark_sum = 0;
 
-        for (auto it = rec->second.marks.begin();
-            it != rec->second.marks.end(); ++it) {
-            mark_sum += *it;
-            num_marks++;
+        for (auto sbj = rec->second.subjects.begin();
+            sbj != rec->second.subjects.end(); sbj++) {
+            for (auto mark = sbj->marks.begin();
+                mark != sbj->marks.end(); mark++) {
+                num_marks++;
+                mark_sum += *mark;
+            }
         }
 
         return mark_sum / static_cast<float>(num_marks);

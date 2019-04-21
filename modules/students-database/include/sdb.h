@@ -6,9 +6,14 @@
 #include <string>
 
 
+struct subject {
+    std::string subject_name;
+    std::vector<int> marks;
+};
+
 struct student {
     std::string first_name;
-    std::vector<int> marks;
+    std::vector<subject> subjects;
 };
 
 
@@ -22,11 +27,13 @@ class Sdb {
      Sdb() = default;
      Sdb(Sdb&&) = default;
 
-     bool AddStudent(std::string&, std::string&);
-     bool RemoveStudent(std::string&);
-     bool AddMark(std::string&, uint&);
+     bool AddStudent(const std::string& first_name,
+         const std::string& last_name);
+     bool RemoveStudent(const std::string& last_name);
+     bool AddMark(const std::string& last_name,
+         const std::string& subject_name, const uint&);
 
-     float GetAvgMark(std::string&);
+     float GetAvgMark(const std::string& last_name);
 
      uint GetNumberOfStudents();
      uint GetNumberOfGoodStudents();
