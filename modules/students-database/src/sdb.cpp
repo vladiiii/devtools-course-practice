@@ -2,11 +2,6 @@
 
 #include "include/sdb.h"
 
-bool Sdb::CheckStdExist(std::string& last_name) {
-    auto rec = table_.find(last_name);
-
-    return !(rec == table_.end());
-}
 
 bool Sdb::AddStudent(std::string& first_name, std::string& last_name) {
     student st = { first_name };
