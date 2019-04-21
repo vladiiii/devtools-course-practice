@@ -7,10 +7,10 @@
 #ifndef MODULES_DHEAP_INCLUDE_DHEAP_H_
 #define MODULES_DHEAP_INCLUDE_DHEAP_H_
 
-class dHeap {
+class DHeap {
  private:
-    int d;
-    std::vector<int> weight;
+    int d_;
+    std::vector<int> weight_;
 
     int Parent(int node);
     int Left_child(int node);
@@ -23,8 +23,8 @@ class dHeap {
     void Make();
 
  public:
-    explicit dHeap(int _d = 2);
-    dHeap(int _d, std::vector<int> _w);
+    explicit DHeap(int d = 2);
+    DHeap(int _d, std::vector<int> w);
     void Insert(int w);
     void Delete(int node);
     void Delete_min();
