@@ -1,9 +1,10 @@
 // Copyright 2019 Kutovoi Vadim
 
-#include <gtest/gtest.h>
-
 #include "include/sdb.h"
 
+#include <gtest/gtest.h>
+
+#include <string>
 
 TEST(StudentDataBaseTest,
     Can_Add_Record) {
@@ -11,7 +12,7 @@ TEST(StudentDataBaseTest,
     Sdb db;
     std::string first_name = "Alan", last_name = "Turing";
 
-    // Act & Assert 
+    // Act & Assert
 
     ASSERT_TRUE(db.AddStudent(first_name, last_name));
 }
@@ -24,7 +25,7 @@ TEST(StudentDataBaseTest,
     std::string first_name = "Alan", last_name = "Turing";
     db.AddStudent(first_name, last_name);
     
-    // Act & Assert 
+    // Act & Assert
 
     ASSERT_FALSE(db.AddStudent(first_name, last_name));
 }
@@ -52,8 +53,6 @@ TEST(StudentDataBaseTest,
     db.AddStudent(first_name, last_name);
 
     last_name = "Cormen";
-
-    
     
     EXPECT_FALSE(db.RemoveStudent(last_name));
 }
