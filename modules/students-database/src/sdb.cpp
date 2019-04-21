@@ -68,11 +68,11 @@ float Sdb::GetAvgMark(const std::string& last_name) {
     }
 }
 
-uint Sdb::GetNumberOfStudents() {
+Sdb::uint Sdb::GetNumberOfStudents() {
     return table_.size();
 }
 
-uint Sdb::GetNumberOfGoodStudents() {
+Sdb::uint Sdb::GetNumberOfGoodStudents() {
     uint st_count = 0;
 
     for (auto it : table_) {
@@ -88,7 +88,7 @@ uint Sdb::GetNumberOfGoodStudents() {
     return st_count;
 }
 
-uint Sdb::GetNumberOfBadStudents() {
+Sdb::uint Sdb::GetNumberOfBadStudents() {
     uint st_count = 0;
 
     for (auto it : table_) {

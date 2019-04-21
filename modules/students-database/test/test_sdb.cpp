@@ -62,7 +62,7 @@ TEST(StudentDataBaseTest,
     // Arrange
 
     Sdb db;
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -79,7 +79,7 @@ TEST(StudentDataBaseTest,
     // Arrange
 
     Sdb db;
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -99,7 +99,7 @@ TEST(StudentDataBaseTest,
 
     Sdb db;
 
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -124,7 +124,7 @@ TEST(StudentDataBaseTest,
 
     Sdb db;
 
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -171,7 +171,7 @@ TEST(StudentDataBaseTest,
 
     Sdb db;
 
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -201,7 +201,7 @@ TEST(StudentDataBaseTest,
 
     Sdb db;
 
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -233,7 +233,7 @@ TEST(StudentDataBaseTest,
     // Arrange
 
     Sdb db;
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         subject_name = "Algebra";
@@ -250,7 +250,7 @@ TEST(StudentDataBaseTest,
     // Arrange
 
     Sdb db;
-    uint mark = 5;
+    Sdb::uint mark = 5;
     std::string first_name = "Alan",
         last_name = "Turing",
         first_subject_name = "Algebra",

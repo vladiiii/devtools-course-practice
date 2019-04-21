@@ -20,10 +20,11 @@ struct student {
 #ifndef MODULES_STUDENTS_DATABASE_INCLUDE_SDB_H_
 #define MODULES_STUDENTS_DATABASE_INCLUDE_SDB_H_
 
-using uint = unsigned int;
 
 class Sdb {
  public:
+     using uint = unsigned int;
+
      Sdb() = default;
      Sdb(Sdb&&) = default;
 
