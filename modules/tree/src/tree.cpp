@@ -62,17 +62,17 @@ Tree::Node* Tree::CopyNode(Node* node, Node* copyroot) {
 }
 
 Tree::Node* Tree::DelNode(Node* node, int data) {
-    if (node == nullptr)
+    if (node == nullptr) {
         return nullptr;
-    if (data < node->data)
-        node->left = DelNode(node->left, data);
-    else if (data > node->data)
-        node->right = DelNode(node->right, data);
-    else {
+        if (data < node->data)
+            node->left = DelNode(node->left, data);
+        else if (data > node->data)
+            node->right = DelNode(node->right, data);
+    } else {
         Node *p, *v;
-        if (node->left == node->right && node->left == nullptr)
+        if (node->left == node->right && node->left == nullptr) {
             p = node;
-        else if (node->right == nullptr) {
+        } else if (node->right == nullptr) {
             p = node;
             node = node->left;
         } else if (node->left == nullptr) {
