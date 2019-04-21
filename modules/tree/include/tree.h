@@ -10,23 +10,23 @@ class Tree {
         int count;
         Node* left, * right;
         Node();
-    };  // отдельная верщина дерева
-    Node* root;  // корень дерева
+    };  // single tree node
+    Node* root;  // root of the tree
     Node* AddNode(Node* node, int data, int count = 1);
     Node* DelNode(Node* node, int data);
     Node* CopyNode(Node* node, Node* copyroot);
     int SearchNode(Node* node, int data);
     void DelAll(Node* node);
  public:
-    Tree();  // конструктор по умолчанию
-    Tree(const Tree& t);  // конструктор копирования
-    bool IsEmpty() const;  // проверка, есть ли элементы в дереве
+    Tree();  // default constructor
+    Tree(const Tree& t);  // copy constructor
+    bool IsEmpty() const;  // check whether the tree is empty
     ~Tree();
-    void Add(int data);  // добавить элемент
-    void Del(int data);  // убрать элемент
-    int Search(int data);  // поиск элемента
-    Tree& operator=(const Tree& t); // оператор присваивания
-    void Clear();  // очистить дерево
+    void Add(int data);  // add element
+    void Del(int data);  // delete element
+    int Search(int data);  // search element
+    Tree& operator=(const Tree& t);  // assignment operator
+    void Clear();  // clear tree
 };
 
 
