@@ -1,7 +1,6 @@
 // Copyright 2019 Savkin Yuriy
 
 #include "include/segment_tree.h"
-#include <iostream>
 
 segment_tree::node::node(int _v, node* _l, node* _r): left_n(_l),
     right_n(_r), value(_v), push_value(_v) {

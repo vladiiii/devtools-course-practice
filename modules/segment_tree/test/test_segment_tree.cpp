@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/segment_tree.h"
-#include <iostream>
+#include <climits>
 
 TEST(segment_tree, can_create_segment_tree)
 {
