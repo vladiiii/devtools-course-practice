@@ -3,10 +3,9 @@
 #include <gtest/gtest.h>
 
 #include <string>
+#include <vector>
 
 #include "include/dHeap.h"
-
-#include <vector>
 
 TEST(dHeapTest, Can_Create_dHeap_With_d) {
     // Arrange

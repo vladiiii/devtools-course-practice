@@ -1,6 +1,9 @@
-#include "include/dHeap.h"
-#include <algorithm>
+// Copyright 2019 Soluyanov Alexsey
 
+#include <algorithm>
+#include <vector>
+
+#include "include/dHeap.h"
 
 dHeap::dHeap(int _d) : d(_d) {
     weight = std::vector<int>();
