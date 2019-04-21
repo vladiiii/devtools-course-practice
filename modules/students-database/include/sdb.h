@@ -23,14 +23,14 @@ class Sdb {
      Sdb(Sdb&&) = default;
 
      bool AddStudent(std::string&, std::string&);
-     inline bool RemoveStudent(std::string&);
-     inline bool AddMark(std::string&, uint&);
+     bool RemoveStudent(std::string&);
+     bool AddMark(std::string&, uint&);
 
-     inline float GetAvgMark(std::string&);
+     float GetAvgMark(std::string&);
 
-     inline uint GetNumberOfStudents();
-     inline uint GetNumberOfGoodStudents();
-     inline uint GetNumberOfBadStudents();
+     uint GetNumberOfStudents();
+     uint GetNumberOfGoodStudents();
+     uint GetNumberOfBadStudents();
 
  private:
      uint size_ = 0;
