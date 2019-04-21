@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "include/DHeap.h"
+#include "include/dHeap.h"
 
 TEST(DHeapTest, Can_Create_DHeap_With_d) {
     // Arrange

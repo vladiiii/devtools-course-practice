@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "include/DHeap.h"
+#include "include/dHeap.h"
 
 DHeap::DHeap(int d) : d_(d) {
     weight_ = std::vector<int>();
