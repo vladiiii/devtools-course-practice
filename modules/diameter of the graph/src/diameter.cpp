@@ -1,11 +1,7 @@
 // Copyright 2019 Korobeinikov Aleksey
 
 #include <queue>
-#include <vector>
-#include <set>
-#include <sstream>
 #include <iostream>
-#include <algorithm>
 #include "include/diameter.h"
 
 #define inf 1000000000
