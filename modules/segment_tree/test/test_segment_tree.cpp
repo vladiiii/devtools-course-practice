@@ -11,6 +11,11 @@ TEST(segment_tree, can_create_segment_tree) {
     ASSERT_NO_THROW(segment_tree a(1, 2));
 }
 
+TEST(segment_tree, cant_create_segment_tree_with_wrong_barriers) {
+    // Arrange & Act & Assert
+    ASSERT_ANY_THROW(segment_tree a(2, 1));
+}
+
 TEST(segment_tree, can_add_value) {
     // Arrange
     segment_tree a(1, 2);
@@ -405,6 +410,15 @@ TEST(segment_tree, can_get_from_very_small_tree) {
     EXPECT_EQ(0, a.get_value(0));
 }
 
+TEST(segment_tree, can_get_added_value_from_very_small_tree) {
+    // Arrange
+    segment_tree a(0, 0);
+    // Act
+    a.add_value(0, 7);
+    // Assert
+    EXPECT_EQ(7, a.get_value(0));
+}
+
 TEST(segment_tree, difficult_test_for_adding) {
     // Arrange
     segment_tree a(0, 9);
@@ -458,4 +472,41 @@ TEST(segment_tree, assigned_tree_equal_to_original) {
             flag = false;
     // Assert
     EXPECT_TRUE(flag);
+}
+
+TEST(segment_tree, can_assign_to_itself) {
+    // Arrange
+    segment_tree a(0, 9);
+    // Act & Assert
+    ASSERT_NO_THROW(a = a);
+}
+
+TEST(segment_tree, can_assign_filled_tree) {
+    // Arrange
+    segment_tree a(0, 9);
+    segment_tree b(0, 2);
+    for (int i = 0; i < 10; ++i)
+        a.set_value(i, 9, i);
+    a.add_value(4, 6, 5);
+    // Act & Assert
+    ASSERT_NO_THROW(a = b);
+}
+
+TEST(segment_tree, correct_get_after_set_on_segment) {
+    // Arrange
+    segment_tree a(0, 4);
+    bool flag = true;
+    for (int i = 0; i < 5; ++i)
+        a.set_value(i, i);
+    // Act
+    a.set_value(3, 4, 10);
+    // Assert
+    EXPECT_EQ(10, a.get_value(3));
+}
+
+TEST(segment_tree, cant_get_added_value_with_incorrect_barriers) {
+    // Arrange
+    segment_tree a(0, 4);
+    // Act & Assert
+    ASSERT_ANY_THROW(a.get_value(4, 2));
 }

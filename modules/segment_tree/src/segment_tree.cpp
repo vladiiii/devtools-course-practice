@@ -203,8 +203,6 @@ void segment_tree::add_value(int l_pos, int r_pos, int value) {
     while (!s.empty()) {
         position t = s.top();
         s.pop();
-        if ((t.l > r_pos) || (t.r < l_pos))
-            continue;
         if ((t.l >= l_pos) && (t.r <= r_pos)) {
             t.p->value = operation(t.p->value, value, t.r - t.l + 1);
             t.p->push_value = operation(t.p->push_value, value, 1);
@@ -299,8 +297,6 @@ int segment_tree::get_value(int l_pos, int r_pos) const {
     while (!s.empty()) {
         position t = s.top();
         s.pop();
-        if ((t.l > r_pos) || (t.r < l_pos))
-            continue;
         if ((t.l >= l_pos) && (t.r <= r_pos)) {
             value = operation(value, t.p->value, 1);
         } else {
@@ -385,8 +381,6 @@ void segment_tree::set_value(int l_pos, int r_pos, int value) {
     while (!s.empty()) {
         position t = s.top();
         s.pop();
-        if ((t.l > r_pos) || (t.r < l_pos))
-            continue;
         if ((t.l >= l_pos) && (t.r <= r_pos)) {
             t.p->value = operation(base_elem, value, t.r - t.l + 1);
             t.p->push_value = operation(base_elem, value, 1);
