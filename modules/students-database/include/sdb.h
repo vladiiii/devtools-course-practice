@@ -22,7 +22,7 @@ class Sdb {
      Sdb() = default;
      Sdb(Sdb&&) = default;
 
-     inline bool AddStudent(std::string&, std::string&);
+     bool AddStudent(std::string&, std::string&);
      inline bool RemoveStudent(std::string&);
      inline bool AddMark(std::string&, uint&);
 

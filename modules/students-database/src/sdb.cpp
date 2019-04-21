@@ -8,7 +8,7 @@ inline bool Sdb::CheckStdExist(std::string& last_name) {
     return !(rec == table.end());
 }
 
-inline bool Sdb::AddStudent(std::string& first_name, std::string& last_name) {
+bool Sdb::AddStudent(std::string& first_name, std::string& last_name) {
     student st = { first_name };
 
     return table.insert(std::make_pair(last_name, st)).second;

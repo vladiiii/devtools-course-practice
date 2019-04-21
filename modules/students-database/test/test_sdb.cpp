@@ -10,7 +10,7 @@ TEST(StudentDataBaseTest,
     // Arrange
     
     // Act
-
+    
     // Assert
 }
 
@@ -26,19 +26,23 @@ TEST(StudentDataBaseTest,
 TEST(StudentDataBaseTest,
     Can_Add_Record) {
     // Arrange
+    Sdb db;
+    std::string first_name = "Alan", last_name = "Turing";
 
-    // Act
-
-    // Assert
+    // Act & Assert 
+    ASSERT_TRUE(db.AddStudent(first_name, last_name));
 }
 
 TEST(StudentDataBaseTest,
     Cant_Add_Existing_Record) {
     // Arrange
+    Sdb db;
+    std::string first_name = "Alan", last_name = "Turing";
+    db.AddStudent(first_name, last_name);
+    
+    // Act & Assert
 
-    // Act
-
-    // Assert
+    ASSERT_FALSE(db.AddStudent(first_name, last_name));
 }
 
 TEST(StudentDataBaseTest,
