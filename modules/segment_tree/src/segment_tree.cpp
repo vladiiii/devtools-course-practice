@@ -14,7 +14,7 @@ SegmentTree::Node::Node(int _v, Node* _l, Node* _r): left_n(_l),
 SegmentTree::SegmentTree(const int left_barr, const int right_barr,
     const std::function<int(int, int, int)>& fu, const int base_elem):
         base_elem_(base_elem), left_barr_(left_barr), right_barr_(right_barr),
-			operation_(fu) {
+            operation_(fu) {
     if (left_barr_ > right_barr_)
         throw std::runtime_error("the right barrier is lesser then the left");
     root_ = nullptr;
