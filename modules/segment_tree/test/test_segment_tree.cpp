@@ -2,8 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/segment_tree.h"
 #include <climits>
+#include "include/segment_tree.h"
+
 
 TEST(segment_tree, can_create_segment_tree) {
     ASSERT_NO_THROW(segment_tree a(1, 2));
