@@ -33,9 +33,7 @@ class Sdb {
      uint GetNumberOfBadStudents();
 
  private:
-     uint size_ = 0;
-
-     std::unordered_map<std::string, student> table;
+     std::unordered_map<std::string, student> table_;
 
      bool CheckStdExist(std::string&);
 };
