@@ -44,8 +44,8 @@ class segment_tree {
     void add_value(int l_pos, int r_pos, int value);
     void set_value(int pos, int value);
     void set_value(int l_pos, int r_pos, int value);
-    int get_value(int pos);
-    int get_value(int l_pos, int r_pos);
+    int get_value(int pos) const;
+    int get_value(int l_pos, int r_pos) const;
 
     const int get_base_elem() const;
     const int get_left_barr() const;
