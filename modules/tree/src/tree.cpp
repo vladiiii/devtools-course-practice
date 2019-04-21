@@ -1,9 +1,10 @@
 // Copyright 2019 Konnov Sergey
 
-#include "tree.h"
+#include "include/tree.h"
 
 Tree::Node::Node() {
     data = 0;
+    count = 0;
     left = right = nullptr;
 }
 
@@ -61,7 +62,6 @@ Tree::Node* Tree::CopyNode(Node* node, Node* copyroot) {
 }
 
 Tree::Node* Tree::DelNode(Node* node, int data) {
-    Node *p, *v;
     if (node == nullptr)
         return nullptr;
     if (data < node->data)
@@ -69,6 +69,7 @@ Tree::Node* Tree::DelNode(Node* node, int data) {
     else if (data > node->data)
         node->right = DelNode(node->right, data);
     else {
+        Node *p, *v;
         if (node->left == node->right && node->left == nullptr)
             p = node;
         else if (node->right == nullptr) {

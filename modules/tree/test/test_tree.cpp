@@ -1,7 +1,7 @@
 // Copyright 2019 Konnov Sergey
 
 #include <gtest/gtest.h>
-#include "tree.h"
+#include "include/tree.h"
 
 TEST(TreeTest, can_search_elem) {
     // Arrange
