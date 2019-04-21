@@ -77,3 +77,42 @@ TEST(dHeapTest, Get_Min_Child) {
     // Assert
     EXPECT_EQ(4, my_heap.get_min_child(1));
 }
+
+TEST(dHeapTest, Insert_Element) {
+    // Arrange
+    unsigned int _d = 2;
+    std::vector<int> w = { 1, 4, 3, 5 };
+    std::vector<int> res = { 1, 2, 3, 5, 4};
+    // Act
+    dHeap my_heap = dHeap(_d, w);
+    my_heap.Insert(2);
+
+    // Assert
+    EXPECT_EQ(res, my_heap.get_weight());
+}
+
+TEST(dHeapTest, Delete_Elements) {
+    // Arrange
+    unsigned int _d = 2;
+    std::vector<int> w = { 1, 4, 3, 5 };
+    std::vector<int> res = { 1, 5, 3};
+    // Act
+    dHeap my_heap = dHeap(_d, w);
+    my_heap.Delete(1);
+
+    // Assert
+    EXPECT_EQ(res, my_heap.get_weight());
+}
+
+TEST(dHeapTest, Delete_Min_Element) {
+    // Arrange
+    unsigned int _d = 2;
+    std::vector<int> w = { 1, 4, 3, 5 };
+    std::vector<int> res = { 3, 4, 5 };
+    // Act
+    dHeap my_heap = dHeap(_d, w);
+    my_heap.Delete_min();
+
+    // Assert
+    EXPECT_EQ(res, my_heap.get_weight());
+}

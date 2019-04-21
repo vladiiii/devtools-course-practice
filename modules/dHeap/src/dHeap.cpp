@@ -83,7 +83,7 @@ void dHeap::Insert(int w) {
 }
 
 void dHeap::Delete_min() {
-    Swap(0, weight.size());
+    Swap(0, weight.size() - 1);
     weight.pop_back();
     Diving(0);
 }
