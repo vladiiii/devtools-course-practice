@@ -1,7 +1,7 @@
 // Copyright 2019 Korobeinikov Aleksey
 
-#ifndef MODULES_DIAMETER_OF_THE_Graph_INCLUDE_DIAMETER_H_
-#define MODULES_DIAMETER_OF_THE_Graph_INCLUDE_DIAMETER_H_
+#ifndef MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
+#define MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
 
 #include <vector>
 
@@ -23,4 +23,4 @@ class Graph {
     void floid(void);
     void bfs(int x);
 };
-#endif  // MODULES_DIAMETER_OF_THE_Graph_INCLUDE_DIAMETER_H_
+#endif  // MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
