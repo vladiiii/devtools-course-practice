@@ -1,5 +1,7 @@
 // Copyright 2019 Kutovoi Vadim
 
+#include <string>
+
 #include "include/sdb.h"
 
 
