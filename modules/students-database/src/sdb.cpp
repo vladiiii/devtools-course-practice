@@ -60,10 +60,11 @@ uint Sdb::GetNumberOfStudents() {
 
 uint Sdb::GetNumberOfGoodStudents() {
     uint st_count = 0;
-    float avg_mark = 0;
 
     for (auto it : table_) {
         std::string last_name = it.first;
+
+        float avg_mark = 0;
         avg_mark = GetAvgMark(last_name);
 
         if (avg_mark > 3)
@@ -75,10 +76,11 @@ uint Sdb::GetNumberOfGoodStudents() {
 
 uint Sdb::GetNumberOfBadStudents() {
     uint st_count = 0;
-    float avg_mark = 0;
 
     for (auto it : table_) {
         std::string last_name = it.first;
+
+        float avg_mark = 0;
         avg_mark = GetAvgMark(last_name);
 
         if (avg_mark < 4)
