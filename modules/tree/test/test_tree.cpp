@@ -96,7 +96,7 @@ TEST(TreeTest, is_empty_return_true_if_tree_is_empty) {
 
     // Assert
     EXPECT_EQ(0, t.Search(data));
-    EXPECT_EQ(true, t.IsEmpty());
+    EXPECT_TRUE(t.IsEmpty());
 }
 
 TEST(TreeTest, is_empty_return_false_if_tree_is_not_empty) {
@@ -108,7 +108,7 @@ TEST(TreeTest, is_empty_return_false_if_tree_is_not_empty) {
     t.Add(data);
 
     // Assert
-    EXPECT_EQ(false, t.IsEmpty());
+    EXPECT_FALSE(t.IsEmpty());
 }
 
 TEST(TreeTest, can_clear_tree) {
@@ -125,7 +125,7 @@ TEST(TreeTest, can_clear_tree) {
     t.Clear();
 
     // Assert
-    EXPECT_EQ(true, t.IsEmpty());
+    EXPECT_TRUE(t.IsEmpty());
 }
 
 TEST(TreeTest, can_create_copy_of_tree) {
