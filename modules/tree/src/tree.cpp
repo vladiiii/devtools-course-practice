@@ -1,7 +1,7 @@
 // Copyright 2019 Konnov Sergey
 
 #include "include/tree.h"
-
+#include <iostream>
 Tree::Node::Node() {
     data = 0;
     count = 0;
@@ -21,8 +21,7 @@ void Tree::Add(int data) {
 }
 
 void Tree::Del(int data) {
-    if (DelNode(root, data))
-        root = nullptr;
+    root = DelNode(root, data);
 }
 
 int Tree::Search(int data) {
@@ -50,14 +49,14 @@ Tree::Node* Tree::AddNode(Node * node, int data, int cnt) {
     return node;
 }
 
-Tree::Node* Tree::CopyNode(Node* node, Node* copyroot) {
+Tree::Node* Tree::CopyTree(Node* node, Node* copyroot) {
     if (copyroot == nullptr)
         return node;
     node = AddNode(node, copyroot->data, copyroot->count);
     if (copyroot->left != nullptr)
-        node->left = CopyNode(node->left, copyroot->left);
+        node->left = CopyTree(node->left, copyroot->left);
     if (copyroot->right != nullptr)
-        node->right = CopyNode(node->right, copyroot->right);
+        node->right = CopyTree(node->right, copyroot->right);
     return node;
 }
 
@@ -94,6 +93,8 @@ Tree::Node* Tree::DelNode(Node* node, int data) {
                 node->left = node->left->left;
             }
         }
+        if(p == node)
+            node = nullptr;
         delete p;
         p = nullptr;
     }
@@ -125,13 +126,13 @@ void Tree::DelAll(Node* node) {
 
 Tree::Tree(const Tree& copyroot) {
     root = nullptr;
-    root = CopyNode(root, copyroot.root);
+    root = CopyTree(root, copyroot.root);
 }
 
 Tree& Tree::operator=(const Tree& copyroot) {
     if (&copyroot != this) {
         Clear();
-        root = CopyNode(root, copyroot.root);
+        root = CopyTree(root, copyroot.root);
     }
     return *this;
 }

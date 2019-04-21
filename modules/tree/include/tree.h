@@ -14,7 +14,7 @@ class Tree {
     Node* root;  // root of the tree
     Node* AddNode(Node* node, int data, int count = 1);
     Node* DelNode(Node* node, int data);
-    Node* CopyNode(Node* node, Node* copyroot);
+    Node* CopyTree(Node* node, Node* copyroot);
     int SearchNode(Node* node, int data);
     void DelAll(Node* node);
  public:

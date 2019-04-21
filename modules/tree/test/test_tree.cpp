@@ -272,3 +272,19 @@ TEST(TreeTest, can_delete_node_with_empty_right_child) {
     // Assert
     EXPECT_EQ(0, t.Search(6));
 }
+
+TEST(TreeTest, search_after_del) {
+    // Arrange
+    int data = 1;
+    Tree t;
+
+    // Act
+    t.Add(data);
+    t.Add(data + 1);
+    t.Del(data);
+    t.Search(data + 1);
+
+    // Assert
+    EXPECT_EQ(0, t.Search(data));
+    EXPECT_EQ(1, t.Search(data + 1));
+}
