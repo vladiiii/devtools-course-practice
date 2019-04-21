@@ -1,5 +1,7 @@
 // Copyright 2019 Savkin Yuriy
 
+#include <algorithm>
+#include <stack>
 #include "include/segment_tree.h"
 
 segment_tree::node::node(int _v, node* _l, node* _r): left_n(_l),
@@ -7,9 +9,9 @@ segment_tree::node::node(int _v, node* _l, node* _r): left_n(_l),
     is_changed = false;
 }
 
-segment_tree::segment_tree(const int lg, const int rg, const
-        std::function<int(int, int, int)>& fu, const int be):
-            base_elem(be), left_barr(lg), right_barr(rg), operation(fu) {
+segment_tree::segment_tree(const int lg, const int rg,
+    const std::function<int(int, int, int)>& fu, const int be):
+        base_elem(be), left_barr(lg), right_barr(rg), operation(fu) {
     if (left_barr > right_barr)
         throw -2;
     root = nullptr;
@@ -113,9 +115,9 @@ segment_tree& segment_tree::operator=(const segment_tree& st) {
 }
 
 void segment_tree::correct_node(node** p) {
-    if (*p == nullptr)
+    if (*p == nullptr) {
         *p = new node(base_elem);
-    else if ((*p)->is_changed) {
+    } else if ((*p)->is_changed) {
         (*p)->value = base_elem;
         (*p)->push_value = base_elem;
         if ((*p)->left_n != nullptr)
@@ -148,12 +150,12 @@ const int segment_tree::get_right_barr() const {
 void segment_tree::add_value(int pos, int value) {
     if ((pos > right_barr) || (pos < left_barr))
         throw -1;
-    int l = left_barr, r = right_barr, c;
+    int l = left_barr, r = right_barr;
     correct_node(&root);
     root->value = operation(root->value, value, 1);
     node* p = root;
     while (l < r) {
-        c = l + (r - l) / 2;
+        int c = l + (r - l) / 2;
         if (pos <= c) {
             correct_node(&p->left_n);
             p = p->left_n;
@@ -219,7 +221,7 @@ void segment_tree::add_value(int l_pos, int r_pos, int value) {
 int segment_tree::get_value(int pos) const {
     if ((pos > right_barr) || (pos < left_barr))
         throw -1;
-    int l = left_barr, r = right_barr, c;
+    int l = left_barr, r = right_barr;
     int value = base_elem;
     if (!is_correct_node(root))
         return value;
@@ -230,7 +232,7 @@ int segment_tree::get_value(int pos) const {
     value = operation(value, root->push_value, 1);
     node* t = root;
     while (l < r) {
-        c = l + (r - l) / 2;
+        int c = l + (r - l) / 2;
         if (pos <= c) {
             r = c;
             if (!is_correct_node(t->left_n))
@@ -315,7 +317,7 @@ int segment_tree::get_value(int l_pos, int r_pos) const {
 void segment_tree::set_value(int pos, int value) {
     if ((pos > right_barr) || (pos < left_barr))
         throw -1;
-    int l = left_barr, r = right_barr, c;
+    int l = left_barr, r = right_barr;
     std::stack<node*> s;
     correct_node(&root);
     if (l == r) {
@@ -325,7 +327,7 @@ void segment_tree::set_value(int pos, int value) {
     node* t = root;
     s.push(root);
     while (l < r) {
-        c = l + (r - l) / 2;
+        int c = l + (r - l) / 2;
         correct_node(&t->left_n);
         correct_node(&t->right_n);
         t->left_n->value =

@@ -4,7 +4,6 @@
 #define MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
 
 #include <functional>
-#include <stack>
 
 class segment_tree {
  private:
