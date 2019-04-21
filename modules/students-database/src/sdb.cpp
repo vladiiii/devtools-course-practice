@@ -2,7 +2,7 @@
 
 #include "include/sdb.h"
 
-inline bool Sdb::CheckStdExist(std::string& last_name) {
+bool Sdb::CheckStdExist(std::string& last_name) {
     auto rec = table.find(last_name);
 
     return !(rec == table.end());
@@ -14,7 +14,7 @@ bool Sdb::AddStudent(std::string& first_name, std::string& last_name) {
     return table.insert(std::make_pair(last_name, st)).second;
 }
 
-inline bool Sdb::RemoveStudent(std::string& last_name) {
+bool Sdb::RemoveStudent(std::string& last_name) {
     auto rec = table.find(last_name);
 
     if (rec == table.end())
@@ -25,7 +25,7 @@ inline bool Sdb::RemoveStudent(std::string& last_name) {
     }
 }
 
-inline bool Sdb::AddMark(std::string& last_name, uint& mark) {
+bool Sdb::AddMark(std::string& last_name, uint& mark) {
     auto rec = table.find(last_name);
 
     if (rec == table.end())
@@ -37,7 +37,7 @@ inline bool Sdb::AddMark(std::string& last_name, uint& mark) {
     }
 }
 
-inline float Sdb::GetAvgMark(std::string& last_name) {
+float Sdb::GetAvgMark(std::string& last_name) {
     auto rec = table.find(last_name);
 
     if (rec == table.end())
@@ -54,11 +54,11 @@ inline float Sdb::GetAvgMark(std::string& last_name) {
     }
 }
 
-inline uint Sdb::GetNumberOfStudents() {
+uint Sdb::GetNumberOfStudents() {
     return table.size();
 }
 
-inline uint Sdb::GetNumberOfGoodStudents() {
+uint Sdb::GetNumberOfGoodStudents() {
     uint st_count = 0;
     float avg_mark = 0;
 
@@ -73,7 +73,7 @@ inline uint Sdb::GetNumberOfGoodStudents() {
     return st_count;
 }
 
-inline uint Sdb::GetNumberOfBadStudents() {
+uint Sdb::GetNumberOfBadStudents() {
     uint st_count = 0;
     float avg_mark = 0;
 
@@ -81,9 +81,9 @@ inline uint Sdb::GetNumberOfBadStudents() {
         std::string last_name = it.first;
         avg_mark = GetAvgMark(last_name);
 
-        if (avg_mark > 3)
+        if (avg_mark < 4)
             st_count++;
     }
-
-    return GetNumberOfStudents() - st_count;
+    
+    return st_count;
 }
