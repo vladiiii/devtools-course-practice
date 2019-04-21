@@ -29,7 +29,7 @@ class Set {
     }
   }
 
-  void Remove(T item) {
+  void Remove(const T &item) {
     const auto& pos = std::find(items_.begin(), items_.end(), item);
     if (pos != items_.end()) {
       items_.erase(pos);
@@ -40,15 +40,15 @@ class Set {
 
   const_iterator end() const { return items_.end(); }
 
-  size_t Size() { return items_.size(); }
+  size_t Size() const { return items_.size(); }
 
-  void Expand(Set &other) {
+  void Expand(const Set &other) {
       for (auto& item : other) {
           Insert(item);
       }
   }
 
-  void Subtract(Set &other) {
+  void Subtract(const Set &other) {
       for (auto& item : other) {
           Remove(item);
       }
@@ -63,7 +63,7 @@ class Set {
       return false;
   }
 
-  static Set Intersect(Set &set1, Set &set2) {
+  static Set Intersect(const Set &set1, const Set &set2) {
       Set<T> resSet(set1);
       for (auto item : set1.items_) {
           if (!set2.Contains(item)) {
@@ -73,7 +73,7 @@ class Set {
       return resSet;
   }
 
-  static Set SymmetricDifference(Set &set1, Set &set2) {
+  static Set SymmetricDifference(const Set &set1, const Set &set2) {
       Set<T> resSet(set1);
       for (auto item : set2.items_) {
           if (!set1.Contains(item)) {
