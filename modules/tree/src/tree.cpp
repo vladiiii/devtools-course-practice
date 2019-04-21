@@ -93,7 +93,7 @@ Tree::Node* Tree::DelNode(Node* node, int data) {
                 node->left = node->left->left;
             }
         }
-        if(p == node)
+        if (p == node)
             node = nullptr;
         delete p;
         p = nullptr;
