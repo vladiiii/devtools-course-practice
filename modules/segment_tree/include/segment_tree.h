@@ -1,20 +1,20 @@
 // Copyright 2019 Savkin Yuriy
 
-#ifndef __SEGMENT_TREE_H__
-#define __SEGMENT_TREE_H__
+#ifndef MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
+#define MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
 
 #include <functional>
 #include <stack>
 
 class segment_tree {
-    private:
+ private:
     struct node {
         node* left_n;
         node* right_n;
         int value;
         int push_value;
         bool is_changed;
-        node(int _v, node* _l = nullptr, node* _r = nullptr);
+        explicit node(int _v, node* _l = nullptr, node* _r = nullptr);
     };
 
     struct position {
@@ -28,10 +28,10 @@ class segment_tree {
     std::function<int(int, int, int)> operation;
     node* root;
 
-    void correct_node(node*& p);
+    void correct_node(node** p);
     bool is_correct_node(const node* const p) const;
 
-    public:
+ public:
     segment_tree(const int lg, const int rg, const
         std::function<int(int, int, int)>& fu =
                 [](int a, int b, int c) { return a + b * c; },
@@ -52,4 +52,4 @@ class segment_tree {
     const int get_right_barr() const;
 };
 
-#endif  // __SEGMENT_TREE_H__
+#endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
