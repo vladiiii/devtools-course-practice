@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/diameter.h"
-
 #include <vector>
+
+#include "include/diameter.h"
 
 
 TEST(Korobeinikov_Aleksey_DiameterTest,
