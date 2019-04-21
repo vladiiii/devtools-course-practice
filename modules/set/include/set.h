@@ -10,7 +10,7 @@
 template <typename T>
 class Set {
  private:
-  std::vector<T> _items;
+  std::vector<T> items_;
 
  public:
   typedef typename std::vector<T>::const_iterator const_iterator;
@@ -22,36 +22,64 @@ class Set {
   Set& operator=(Set&& src) = default;
   ~Set() = default;
 
-  void insert(T item) {
-    if (std::find(_items.begin(), _items.end(), item) == _items.end()) {
-      _items.push_back(item);
-      std::sort(_items.begin(), _items.end());
+  void Insert(T item) {
+    if (std::find(items_.begin(), items_.end(), item) == items_.end()) {
+      items_.push_back(item);
+      std::sort(items_.begin(), items_.end());
     }
   }
 
-  void remove(T item) {
-    const auto& pos = std::find(_items.begin(), _items.end(), item);
-    if (pos != _items.end()) {
-      _items.erase(pos);
+  void Remove(const T item) {
+    const auto& pos = std::find(items_.begin(), items_.end(), item);
+    if (pos != items_.end()) {
+      items_.erase(pos);
     }
   }
 
-  const_iterator begin() const { return _items.begin(); }
+  const_iterator begin() const { return items_.begin(); }
 
-  const_iterator end() const { return _items.end(); }
+  const_iterator end() const { return items_.end(); }
 
-  size_t size() { return _items.size(); }
+  size_t Size() { return items_.size(); }
 
-  void expand(const Set &other) {
+  void Expand(const Set &other) {
       for (const auto& item : other) {
-          insert(item);
+          Insert(item);
       }
   }
 
-  void subtract(const Set &other) {
+  void Subtract(const Set &other) {
       for (const auto& item : other) {
-          remove(item);
+          Remove(item);
       }
+  }
+
+  bool Contains(const T &item) const {
+      for (const auto &other : items_) {
+          if (item == other) {
+              return true;
+          }
+      }
+      return false;
+  }
+
+  void Intersect(const Set &other) {
+      for (const auto &item : items_) {
+          if (!other.Contains(item)) {
+              Remove(item);
+          }
+      }
+  }
+
+  void SymmetricDifference(const Set &with) {
+      Set<T> set_copy(with);
+      for (const auto &item : items_) {
+          if (with.Contains(item)) {
+              Remove(item);
+              set_copy.Remove(item);
+          }
+      }
+      Expand(set_copy);
   }
 };
 

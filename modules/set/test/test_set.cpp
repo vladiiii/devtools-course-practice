@@ -10,10 +10,10 @@ TEST(SetTest, Can_Add_Item) {
   Set<int> mSet;
 
   // Act
-  mSet.insert(5);
+  mSet.Insert(5);
 
   // Assert
-  EXPECT_EQ(*mSet.begin(), 5);
+  EXPECT_TRUE(mSet.Contains(5));
 }
 
 TEST(SetTest, Added_Items_Are_Unique) {
@@ -21,12 +21,12 @@ TEST(SetTest, Added_Items_Are_Unique) {
   Set<int> mSet;
 
   // Act
-  mSet.insert(5);
-  mSet.insert(5);
-  mSet.insert(5);
+  mSet.Insert(5);
+  mSet.Insert(5);
+  mSet.Insert(5);
 
   // Assert
-  EXPECT_EQ(mSet.size(), 1);
+  EXPECT_EQ(mSet.Size(), 1);
   EXPECT_EQ(*mSet.begin(), 5);
 }
 
@@ -35,9 +35,9 @@ TEST(SetTest, Added_Items_Are_Sorted) {
   Set<int> mSet;
 
   // Act
-  mSet.insert(3);
-  mSet.insert(2);
-  mSet.insert(1);
+  mSet.Insert(3);
+  mSet.Insert(2);
+  mSet.Insert(1);
 
   // Assert
   EXPECT_TRUE(std::is_sorted(mSet.begin(), mSet.end()));
@@ -47,12 +47,12 @@ TEST(SetTest, Can_Remove_Items) {
   // Arrange
   Set<int> mSet;
 
-  mSet.insert(3);
-  mSet.insert(2);
-  mSet.insert(1);
+  mSet.Insert(3);
+  mSet.Insert(2);
+  mSet.Insert(1);
 
   // Act
-  mSet.remove(2);
+  mSet.Remove(2);
 
   // Assert
   for (const auto &it : mSet) {
@@ -65,7 +65,7 @@ TEST(SetTest, Can_Copy) {
   Set<int> mSet1;
   Set<int> mSet2;
 
-  mSet1.insert(5);
+  mSet1.Insert(5);
 
   // Act & assert
   ASSERT_NO_THROW(mSet2 = mSet1);
@@ -77,12 +77,12 @@ TEST(SetTest, Can_Move) {
   Set<int> mSet1;
   Set<int> mSet2;
 
-  mSet1.insert(5);
+  mSet1.Insert(5);
 
   // Act & assert
   ASSERT_NO_THROW(mSet2 = std::move(mSet1));
   EXPECT_EQ(*mSet2.begin(), 5);
-  EXPECT_EQ(mSet1.size(), 0);
+  EXPECT_EQ(mSet1.Size(), 0);
 }
 
 TEST(SetTest, Can_Create_Union) {
@@ -90,17 +90,20 @@ TEST(SetTest, Can_Create_Union) {
     Set<int> mSet1;
     Set<int> mSet2;
 
-    mSet1.insert(1);
-    mSet1.insert(2);
+    mSet1.Insert(1);
+    mSet1.Insert(2);
 
-    mSet2.insert(2);
-    mSet2.insert(3);
+    mSet2.Insert(2);
+    mSet2.Insert(3);
 
     // Act
-    mSet1.expand(mSet2);
+    mSet1.Expand(mSet2);
 
     // Assert
-    EXPECT_EQ(mSet1.size(), 3);
+    EXPECT_EQ(mSet1.Size(), 3);
+    EXPECT_TRUE(mSet1.Contains(1));
+    EXPECT_TRUE(mSet1.Contains(2));
+    EXPECT_TRUE(mSet1.Contains(3));
 }
 
 TEST(SetTest, Can_Create_Difference) {
@@ -108,16 +111,56 @@ TEST(SetTest, Can_Create_Difference) {
     Set<int> mSet1;
     Set<int> mSet2;
 
-    mSet1.insert(1);
-    mSet1.insert(2);
+    mSet1.Insert(1);
+    mSet1.Insert(2);
 
-    mSet2.insert(2);
-    mSet2.insert(3);
+    mSet2.Insert(2);
+    mSet2.Insert(3);
 
     // Act
-    mSet1.subtract(mSet2);
+    mSet1.Subtract(mSet2);
 
     // Assert
-    EXPECT_EQ(mSet1.size(), 1);
+    EXPECT_EQ(mSet1.Size(), 1);
+    EXPECT_EQ(*mSet1.begin(), 1);
+}
+
+TEST(SetTest, Can_Create_Symmetric_Difference) {
+    // Arrange
+    Set<int> mSet1;
+    Set<int> mSet2;
+
+    mSet1.Insert(1);
+    mSet1.Insert(2);
+
+    mSet2.Insert(2);
+    mSet2.Insert(3);
+
+    // Act
+    mSet1.SymmetricDifference(mSet2);
+
+    // Assert
+    EXPECT_EQ(mSet1.Size(), 2);
+    EXPECT_TRUE(mSet1.Contains(1));
+    EXPECT_TRUE(mSet1.Contains(3));
+}
+
+TEST(SetTest, Can_Create_Intersection) {
+    // Arrange
+    Set<int> mSet1;
+    Set<int> mSet2;
+
+    mSet1.Insert(1);
+    mSet1.Insert(2);
+
+    mSet2.Insert(2);
+    mSet2.Insert(3);
+
+    // Act
+    mSet1.Intersect(mSet2);
+
+    // Assert
+    EXPECT_EQ(mSet1.Size(), 1);
+    EXPECT_TRUE(mSet1.Contains(2));
 }
 
