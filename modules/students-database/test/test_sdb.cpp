@@ -1,10 +1,10 @@
 // Copyright 2019 Kutovoi Vadim
 
+#include <gtest/gtest.h>
+
 #include <string>
 
 #include "include/sdb.h"
-
-#include <gtest/gtest.h>
 
 TEST(StudentDataBaseTest,
     Can_Add_Record) {
