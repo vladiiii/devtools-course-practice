@@ -24,7 +24,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     dist[0][5] = 1; dist[1][2] = 1; dist[2][1] = 1; dist[3][1] = 1;
     dist[4][5] = 1; dist[4][7] = 1; dist[5][0] = 1; dist[5][4] = 1;
     dist[6][2] = 1; dist[4][3] = 1;
-    graph g(dist, n);
+    graph g(&dist, n);
 
     // Act
     int ans = g.diameter_of_graph();
@@ -51,7 +51,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     dist[0][5] = 6; dist[1][2] = 9; dist[2][1] = 9; dist[3][1] = 1;
     dist[4][5] = 1; dist[4][7] = 2; dist[5][0] = 6; dist[5][4] = 1;
     dist[6][2] = 5; dist[4][3] = 4;
-    graph g(dist, n);
+    graph g(&dist, n);
 
     // Act
     int ans = g.diameter_of_graph();
@@ -95,7 +95,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     dist[2][3] = 3; dist[3][2] = 3; dist[3][4] = 2; dist[4][3] = 2;
     dist[2][5] = 2; dist[5][2] = 2; dist[5][6] = 2; dist[6][5] = 2;
     dist[5][7] = 1; dist[7][5] = 1;
-    graph g(dist, n);
+    graph g(&dist, n);
 
     // Act
     int ans = g.diameter_of_graph();
@@ -120,7 +120,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     dist[2][3] = 3; dist[3][2] = 3; dist[3][4] = 2; dist[4][3] = 2;
     dist[2][5] = 2; dist[5][2] = 2; dist[5][6] = 2; dist[6][5] = 2;
     dist[5][7] = 1; dist[7][5] = 1;
-    graph a(dist, n);
+    graph a(&dist, n);
     graph b(a);
 
     // Act

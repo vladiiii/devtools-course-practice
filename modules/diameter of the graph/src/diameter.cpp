@@ -19,8 +19,8 @@ graph::graph(const std::vector<std::vector<int>>& vv, int _n) {
             dist[i][j] = -1;
 }
 
-graph::graph(int **&temp, int _n) {
-    dist = temp;
+graph::graph(int ***temp, int _n) {
+    dist = *temp;
     n = _n;
     v.resize(n);
     for (int i = 0; i < n; ++i)

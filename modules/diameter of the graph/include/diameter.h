@@ -1,5 +1,8 @@
 // Copyright 2019 Korobeinikov Aleksey
 
+#ifndef MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
+#define MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
+
 #include <vector>
 
 
@@ -10,7 +13,7 @@ class graph {
     int **dist;
  public:
     graph(const std::vector<std::vector<int>> &, int _n);
-    graph(int **& dist, int _n);
+    graph(int *** dist, int _n);
     graph(const graph&);
     int diameter_of_tree(void);
     int diameter_of_graph(void);
@@ -19,3 +22,4 @@ class graph {
     void floid(void);
     void bfs(int x);
 };
+#endif
