@@ -48,4 +48,5 @@ class TwoLineSegments {
     LineSegment ls2_;
 };
 
-#endif // MODULES_TWO_LINE_SEGMENTS_INCLUDE_TWO_LINE_SEGMENTS_H_
+
+#endif  // MODULES_TWO_LINE_SEGMENTS_INCLUDE_TWO_LINE_SEGMENTS_H_

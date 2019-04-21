@@ -47,9 +47,9 @@ LineSegment TwoLineSegments::getLineSegment2() const {
 
 int TwoLineSegments::signOfSquare(Point p1, Point p2, Point p3) const {
     int tmp = (p1.x - p3.x)*(p2.y - p3.y) + (p2.x - p3.x)*(p3.y - p1.y);
-    if(tmp > 0)
+    if (tmp > 0)
         return 1;
-    if(tmp < 0)
+    if (tmp < 0)
         return -1;
     return 0;
 }
@@ -64,8 +64,9 @@ bool TwoLineSegments::areIntersect() const {
     int s21 = signOfSquare(ls2_.p1, ls2_.p2, ls1_.p1);
     int s22 = signOfSquare(ls2_.p1, ls2_.p2, ls1_.p2);
 
-    if(s11 == 0 && s12 == 0 && s21 == 0 && s22 == 0)
-        return isMax(ls1_.p1.x, ls1_.p2.x, ls2_.p1.x, ls2_.p2.x) && isMax(ls1_.p1.y, ls1_.p2.y, ls2_.p1.y, ls2_.p2.y);
+    if (s11 == 0 && s12 == 0 && s21 == 0 && s22 == 0)
+        return isMax(ls1_.p1.x, ls1_.p2.x, ls2_.p1.x, ls2_.p2.x) &&
+               isMax(ls1_.p1.y, ls1_.p2.y, ls2_.p1.y, ls2_.p2.y);
 
     return (s11*s12 <= 0) && (s21*s22 <= 0);
 }
