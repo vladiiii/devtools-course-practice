@@ -73,6 +73,23 @@ TEST(StudentDataBaseTest,
 }
 
 TEST(StudentDataBaseTest,
+    Cant_Add_Mark_If_Record_Not_Exists) {
+    // Arrange
+
+    Sdb db;
+    uint mark = 5;
+    std::string first_name = "Alan", last_name = "Turing";
+
+    db.AddStudent(first_name, last_name);
+
+    last_name = "Cormen";
+
+    // Act & Assert
+
+    EXPECT_FALSE(db.AddMark(last_name, mark));
+}
+
+TEST(StudentDataBaseTest,
     Can_Get_Avg_Mark) {
     // Arrange
 
@@ -93,6 +110,31 @@ TEST(StudentDataBaseTest,
     // Act & Assert
 
     EXPECT_EQ(db.GetAvgMark(last_name), 4);
+}
+
+TEST(StudentDataBaseTest,
+    Cant_Get_Avg_Mark_If_Record_Not_Exists) {
+    // Arrange
+
+    Sdb db;
+
+    uint mark = 5;
+    std::string first_name = "Alan", last_name = "Turing";
+
+    db.AddStudent(first_name, last_name);
+    db.AddMark(last_name, mark);
+
+    mark = 3;
+    db.AddMark(last_name, mark);
+
+    mark = 4;
+    db.AddMark(last_name, mark);
+
+    last_name = "Cormen";
+
+    // Act & Assert
+
+    EXPECT_EQ(db.GetAvgMark(last_name), -1);
 }
 
 TEST(StudentDataBaseTest,
