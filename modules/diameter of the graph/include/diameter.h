@@ -12,6 +12,7 @@ class graph {
     int n;  // count of vertex
     int **dist;
  public:
+    ~graph();
     graph(const std::vector<std::vector<int>> &, int _n);
     graph(int *** dist, int _n);
     graph(const graph&);

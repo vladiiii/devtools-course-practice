@@ -1,8 +1,9 @@
 // Copyright 2019 Korobeinikov Aleksey
 
+#include "include/diameter.h"
+
 #include <queue>
 #include <iostream>
-#include "include/diameter.h"
 
 #define inf 1000000000
 
@@ -29,6 +30,10 @@ graph::graph(int ***temp, int _n) {
         }
 }
 
+graph::~graph() {
+    for (int i = 0; i < n; ++i) delete dist[i];
+    delete dist;
+}
 void graph::floid(void) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
