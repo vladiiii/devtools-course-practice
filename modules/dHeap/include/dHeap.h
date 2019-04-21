@@ -1,13 +1,16 @@
-#pragma once
+// Copyright 2019 Soluyanov Alexsey
+
 #include <vector>
+
 #include <iostream>
 
-using namespace std;
+#ifndef MODULES_DHEAP_INCLUDE_DHEAP_H_
+#define MODULES_DHEAP_INCLUDE_DHEAP_H_
 
 class dHeap {
-private:
-    unsigned int d;
-    vector<int> weight;
+ private:
+    int d;
+	std::vector<int> weight;
 
     int Parent(int node);
     int Left_child(int node);
@@ -19,17 +22,19 @@ private:
     void Decrease_weight(int node, int w);
     void Make();
 
-public:
-    dHeap(unsigned int _d = 2);
-    dHeap(unsigned int _d, vector<int> _w);
+ public:
+    explicit dHeap(int _d = 2);
+	dHeap(int _d, std::vector<int> _w);
     void Insert(int w);
     void Delete(int node);
     void Delete_min();
     void print();
     int get_d();
-    vector<int> get_weight();
+	std::vector<int> get_weight();
     int get_parent(int i);
     int get_left_child(int i);
     int get_right_child(int i);
     int get_min_child(int i);
 };
+
+#endif  // MODULES_DHEAP_INCLUDE_DHEAP_H_

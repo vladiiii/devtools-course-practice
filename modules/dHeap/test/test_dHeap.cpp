@@ -22,7 +22,7 @@ TEST(dHeapTest, Can_Create_dHeap_With_d) {
 TEST(dHeapTest, Can_Create_dHeap_With_d_and_Weight) {
 	// Arrange
 	unsigned int _d = 2;
-	vector<int> w = { 1, 2, 3 };
+	std::vector<int> w = { 1, 2, 3 };
 
 	// Act
 	dHeap my_heap = dHeap(_d, w);
@@ -34,7 +34,7 @@ TEST(dHeapTest, Can_Create_dHeap_With_d_and_Weight) {
 TEST(dHeapTest, Get_Parent) {
 	// Arrange
 	unsigned int _d = 2;
-	vector<int> w = { 3, 6, 4, 9, 8, 12, 7, 11, 9 };
+	std::vector<int> w = { 3, 6, 4, 9, 8, 12, 7, 11, 9 };
 
 	// Act
 	dHeap my_heap = dHeap(_d, w);
@@ -46,7 +46,7 @@ TEST(dHeapTest, Get_Parent) {
 TEST(dHeapTest, Get_Left_Child) {
 	// Arrange
 	unsigned int _d = 2;
-	vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
+	std::vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
 
 	// Act
 	dHeap my_heap = dHeap(_d, w);
@@ -58,7 +58,7 @@ TEST(dHeapTest, Get_Left_Child) {
 TEST(dHeapTest, Get_Right_Child) {
 	// Arrange
 	unsigned int _d = 2;
-	vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
+	std::vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
 
 	// Act
 	dHeap my_heap = dHeap(_d, w);
@@ -70,7 +70,7 @@ TEST(dHeapTest, Get_Right_Child) {
 TEST(dHeapTest, Get_Min_Child) {
 	// Arrange
 	unsigned int _d = 3;
-	vector<int> w = { 1, 2, 2, 2, 3, 4, 5 };
+	std::vector<int> w = { 1, 2, 2, 2, 3, 4, 5 };
 
 	// Act
 	dHeap my_heap = dHeap(_d, w);
