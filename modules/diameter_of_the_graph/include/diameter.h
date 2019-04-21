@@ -23,4 +23,4 @@ class graph {
     void floid(void);
     void bfs(int x);
 };
-#endif
+#endif  // MODULES_DIAMETER_OF_THE_GRAPH_INCLUDE_DIAMETER_H_
