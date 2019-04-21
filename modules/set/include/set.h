@@ -63,22 +63,26 @@ class Set {
       return false;
   }
 
-  void Intersect(Set other) {
-      for (auto item : items_) {
-          if (!other.Contains(item)) {
-              Remove(item);
+  static Set Intersect(Set &set1, Set &set2) {
+      Set<T> resSet(set1);
+      for (auto item : set1.items_) {
+          if (!set2.Contains(item)) {
+              resSet.Remove(item);
           }
       }
+      return resSet;
   }
 
-  void SymmetricDifference(Set with) {
-      for (auto item : items_) {
-          if (with.Contains(item)) {
-              Remove(item);
-              with.Remove(item);
+  static Set SymmetricDifference(Set &set1, Set &set2) {
+      Set<T> resSet(set1);
+      for (auto item : set2.items_) {
+          if (!set1.Contains(item)) {
+              resSet.Insert(item);
+          } else {
+              resSet.Remove(item);
           }
       }
-      Expand(with);
+      return resSet;
   }
 };
 

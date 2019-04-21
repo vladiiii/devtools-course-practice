@@ -137,11 +137,12 @@ TEST(SetTest, Can_Create_Symmetric_Difference) {
     mSet2.Insert(3);
 
     // Act
-    mSet1.SymmetricDifference(mSet2);
+    Set<int> res = Set<int>::SymmetricDifference(mSet1, mSet2);
 
     // Assert
-//    EXPECT_EQ(mSet1.Size(), 2);
-    SUCCEED();
+    EXPECT_EQ(res.Size(), 2);
+    EXPECT_TRUE(res.Contains(1));
+    EXPECT_TRUE(res.Contains(3));
 }
 
 TEST(SetTest, Can_Create_Intersection) {
@@ -156,10 +157,10 @@ TEST(SetTest, Can_Create_Intersection) {
     mSet2.Insert(3);
 
     // Act
-    mSet1.Intersect(mSet2);
+    Set<int> res = Set<int>::Intersect(mSet1, mSet2);
 
     // Assert
-    EXPECT_EQ(mSet1.Size(), 1);
-    EXPECT_TRUE(mSet1.Contains(2));
+    EXPECT_EQ(res.Size(), 1);
+    EXPECT_TRUE(res.Contains(2));
 }
 
