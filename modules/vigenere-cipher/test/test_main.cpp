@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Obolenskiy Arseniy
 
 #include <gtest/gtest.h>
 
