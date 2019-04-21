@@ -250,7 +250,7 @@ TEST(TrianglesTest, Correctly_Calculate_Perimeter) {
     EXPECT_EQ(length_ab + length_ac + length_bc, abc.Perimeter());
 }
 
-TEST(TrianglesTest, Get_Angel_A) {
+TEST(TrianglesTest, Get_Angle_A) {
     // Arrange
     Point a(0.0, 0.0);
     Point b(4.0, 0.0);
@@ -261,7 +261,7 @@ TEST(TrianglesTest, Get_Angel_A) {
     ASSERT_TRUE(fabs(abc.get_angle_a() - 90.0) < epsilon);
 }
 
-TEST(TrianglesTest, Get_Angel_B) {
+TEST(TrianglesTest, Get_Angle_B) {
     // Arrange
     Point a(4.0, 0.0);
     Point b(0.0, 0.0);
@@ -272,7 +272,7 @@ TEST(TrianglesTest, Get_Angel_B) {
     ASSERT_TRUE((abc.get_angle_b()- 90.0) < epsilon);
 }
 
-TEST(TrianglesTest, Get_Angel_C) {
+TEST(TrianglesTest, Get_Angle_C) {
     // Arrange
     Point a(4.0, 0.0);
     Point b(0.0, 6.0);
