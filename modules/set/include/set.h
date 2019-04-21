@@ -13,7 +13,7 @@ class Set {
   std::vector<T> items_;
 
  public:
-  typedef typename std::vector<T>::const_iterator const_iterator;
+  using const_iterator = typename std::vector<T>::const_iterator;
 
   Set() = default;
   Set(const Set& src) = default;
