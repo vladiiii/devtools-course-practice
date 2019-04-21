@@ -104,13 +104,6 @@ void dHeap::Make() {
     }
 }
 
-void dHeap::print() {
-    for (unsigned int i = 0; i < weight.size(); i++) {
-        std::cout << weight[i] << " ";
-    }
-    std::cout << std::endl;
-}
-
 int dHeap::get_d() {
     return d;
 }

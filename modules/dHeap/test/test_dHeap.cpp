@@ -116,3 +116,14 @@ TEST(dHeapTest, Delete_Min_Element) {
     // Assert
     EXPECT_EQ(res, my_heap.get_weight());
 }
+
+TEST(dHeapTest, No_Right_Child) {
+    // Arrange
+    unsigned int _d = 2;
+    std::vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
+    // Act
+    dHeap my_heap = dHeap(_d, w);
+
+    // Assert
+    EXPECT_EQ(-1, my_heap.get_right_child(4));
+}

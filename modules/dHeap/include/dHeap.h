@@ -28,7 +28,6 @@ class dHeap {
     void Insert(int w);
     void Delete(int node);
     void Delete_min();
-    void print();
     int get_d();
     std::vector<int> get_weight();
     int get_parent(int i);
