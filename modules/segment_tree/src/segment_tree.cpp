@@ -183,7 +183,8 @@ void SegmentTree::AddValue(int l_pos, int r_pos, int value) {
     std::stack<Position> s;
     CorrectNode(&root_);
     if ((left_barr_ >= l_pos) && (right_barr_ <= r_pos)) {
-        root_->value = operation_(root_->value, value, right_barr_ - left_barr_ + 1);
+        root_->value =
+            operation_(root_->value, value, right_barr_ - left_barr_ + 1);
         root_->push_value = operation_(root_->push_value, value, 1);
     } else {
         c = left_barr_ + (right_barr_ - left_barr_) / 2;
@@ -393,7 +394,8 @@ void SegmentTree::SetValue(int l_pos, int r_pos, int value) {
             CorrectNode(&t.p->left_n);
             CorrectNode(&t.p->right_n);
             t.p->left_n->value =
-                operation_(t.p->left_n->value, t.p->push_value, c - t.left + 1);
+                operation_(t.p->left_n->value,
+                    t.p->push_value, c - t.left + 1);
             t.p->left_n->push_value =
                 operation_(t.p->left_n->push_value, t.p->push_value, 1);
             t.p->right_n->value =
