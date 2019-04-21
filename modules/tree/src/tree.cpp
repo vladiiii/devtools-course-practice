@@ -1,7 +1,7 @@
 // Copyright 2019 Konnov Sergey
 
 #include "include/tree.h"
-#include <iostream>
+
 Tree::Node::Node() {
     data = 0;
     count = 0;
