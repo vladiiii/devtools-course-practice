@@ -3,11 +3,12 @@
 #include "include/diameter.h"
 
 #include <queue>
+#include <climits>
 #include <iostream>
 
 #define inf 1000000000
 
-graph::graph(const std::vector<std::vector<int>>& vv, int _n) {
+Graph::Graph(const std::vector<std::vector<int>>& vv, int _n) {
     n = _n;
     v = vv;
     dist = new int*[v.size()];
@@ -20,7 +21,7 @@ graph::graph(const std::vector<std::vector<int>>& vv, int _n) {
             dist[i][j] = -1;
 }
 
-graph::graph(int ***temp, int _n) {
+Graph::Graph(int ***temp, int _n) {
     dist = *temp;
     n = _n;
     v.resize(n);
@@ -30,11 +31,11 @@ graph::graph(int ***temp, int _n) {
         }
 }
 
-graph::~graph() {
+Graph::~Graph() {
     for (int i = 0; i < n; ++i) delete dist[i];
     delete dist;
 }
-void graph::floid(void) {
+void Graph::floid(void) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (i != j && ((dist[i][j] == 0) || (dist[i][j] == -1)))
@@ -47,7 +48,7 @@ void graph::floid(void) {
                 dist[i][j] = std::min(dist[i][j], dist[i][k] + dist[k][j]);
 }
 
-void graph::bfs(int x) {
+void Graph::bfs(int x) {
     std::queue <int> q;
     q.push(x);
     dist[x][x] = 0;
@@ -62,8 +63,7 @@ void graph::bfs(int x) {
     }
 }
 
-void graph::print_dist() {
-    // std::ostringstream cout;
+void Graph::print_dist() {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j)
             std::cout << dist[i][j] << " ";
@@ -71,7 +71,7 @@ void graph::print_dist() {
     }
 }
 
-int graph::diameter_of_tree(void) {
+int Graph::diameter_of_tree(void) {
     int v1 = 0;
     bfs(v1);
     int v2 = 0;
@@ -85,7 +85,7 @@ int graph::diameter_of_tree(void) {
     return dist[v2][ans];
 }
 
-int graph::diameter_of_graph(void) {
+int Graph::diameter_of_Graph(void) {
     floid();
     int ans = -2;
     print_dist();
@@ -96,7 +96,7 @@ int graph::diameter_of_graph(void) {
     return ans;
 }
 
-graph::graph(const graph& g) {
+Graph::Graph(const Graph& g) {
     n = g.n;
     v.resize(n);
     dist = new int*[n];
@@ -104,5 +104,5 @@ graph::graph(const graph& g) {
     for (int i = 0; i < n; ++i)
         for (int j = 0; j < n; ++j) dist[i][j] = g.dist[i][j];
     for (int i = 0; i < n; ++i)
-        for (int j = 0; j < g.v[i].size(); ++j) v[i].push_back(g.v[i][j]);
+        for (unsigned int j = 0; j < g.v[i].size(); ++j) v[i].push_back(g.v[i][j]);
 }
