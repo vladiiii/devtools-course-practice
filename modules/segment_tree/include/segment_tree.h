@@ -5,50 +5,50 @@
 
 #include <functional>
 
-class segment_tree {
+class SegmentTree {
  private:
-    struct node {
-        node* left_n;
-        node* right_n;
+    struct Node {
+        Node* left_n;
+        Node* right_n;
         int value;
         int push_value;
         bool is_changed;
-        explicit node(int _v, node* _l = nullptr, node* _r = nullptr);
+        explicit Node(int _v, Node* _l = nullptr, Node* _r = nullptr);
     };
 
-    struct position {
-        int l, r;
-        node* p;
+    struct Position {
+        int left, right;
+        Node* p;
     };
 
-    int base_elem;
-    int left_barr;
-    int right_barr;
-    std::function<int(int, int, int)> operation;
-    node* root;
+    int base_elem_;
+    int left_barr_;
+    int right_barr_;
+    std::function<int(int, int, int)> operation_;
+    Node* root_;
 
-    void correct_node(node** p);
-    bool is_correct_node(const node* const p) const;
+    void CorrectNode(Node** p);
+    bool IsCorrectNode(const Node* const p) const;
 
  public:
-    segment_tree(const int lg, const int rg, const
+    SegmentTree(const int left_barr, const int right_barr, const
         std::function<int(int, int, int)>& fu =
                 [](int a, int b, int c) { return a + b * c; },
-                    const int be = 0);
-    segment_tree(const segment_tree& st);
-    ~segment_tree();
-    segment_tree& operator=(const segment_tree& st);
+                    const int base_elem = 0);
+    SegmentTree(const SegmentTree& st);
+    ~SegmentTree();
+    SegmentTree& operator=(const SegmentTree& st);
 
-    void add_value(int pos, int value);
-    void add_value(int l_pos, int r_pos, int value);
-    void set_value(int pos, int value);
-    void set_value(int l_pos, int r_pos, int value);
-    int get_value(int pos) const;
-    int get_value(int l_pos, int r_pos) const;
+    void AddValue(int pos, int value);
+    void AddValue(int l_pos, int r_pos, int value);
+    void SetValue(int pos, int value);
+    void SetValue(int l_pos, int r_pos, int value);
+    int GetValue(int pos) const;
+    int GetValue(int l_pos, int r_pos) const;
 
-    const int get_base_elem() const;
-    const int get_left_barr() const;
-    const int get_right_barr() const;
+    const int GetBaseElem() const;
+    const int GetLeftBarr() const;
+    const int GetRightBarr() const;
 };
 
 #endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_

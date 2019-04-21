@@ -6,46 +6,47 @@
 
 #include "include/segment_tree.h"
 
-segment_tree::node::node(int _v, node* _l, node* _r): left_n(_l),
+SegmentTree::Node::Node(int _v, Node* _l, Node* _r): left_n(_l),
     right_n(_r), value(_v), push_value(_v) {
     is_changed = false;
 }
 
-segment_tree::segment_tree(const int lg, const int rg,
-    const std::function<int(int, int, int)>& fu, const int be):
-        base_elem(be), left_barr(lg), right_barr(rg), operation(fu) {
-    if (left_barr > right_barr)
+SegmentTree::SegmentTree(const int left_barr, const int right_barr,
+    const std::function<int(int, int, int)>& fu, const int base_elem):
+        base_elem_(base_elem), left_barr_(left_barr), right_barr_(right_barr),
+			operation_(fu) {
+    if (left_barr_ > right_barr_)
         throw std::runtime_error("the right barrier is lesser then the left");
-    root = nullptr;
+    root_ = nullptr;
 }
 
-segment_tree::segment_tree(const segment_tree& st): base_elem(st.base_elem),
-    left_barr(st.left_barr), right_barr(st.right_barr),
-        operation(st.operation) {
-    std::stack<node*> s;
-    root = nullptr;
-    if (is_correct_node(st.root)) {
-        s.push(st.root);
-        root = new node(st.base_elem);
-        root->value = st.root->value;
-        root->push_value = st.root->push_value;
-        s.push(root);
+SegmentTree::SegmentTree(const SegmentTree& st): base_elem_(st.base_elem_),
+    left_barr_(st.left_barr_), right_barr_(st.right_barr_),
+        operation_(st.operation_) {
+    std::stack<Node*> s;
+    root_ = nullptr;
+    if (IsCorrectNode(st.root_)) {
+        s.push(st.root_);
+        root_ = new Node(st.base_elem_);
+        root_->value = st.root_->value;
+        root_->push_value = st.root_->push_value;
+        s.push(root_);
     }
     while (!s.empty()) {
-        node* p = s.top();
+        Node* p = s.top();
         s.pop();
-        node* q = s.top();
+        Node* q = s.top();
         s.pop();
-        if (is_correct_node(q->left_n)) {
+        if (IsCorrectNode(q->left_n)) {
             s.push(q->left_n);
-            p->left_n = new node(st.base_elem);
+            p->left_n = new Node(st.base_elem_);
             p->left_n->value = q->left_n->value;
             p->left_n->push_value = q->left_n->push_value;
             s.push(p->left_n);
         }
-        if (is_correct_node(q->right_n)) {
+        if (IsCorrectNode(q->right_n)) {
             s.push(q->right_n);
-            p->right_n = new node(st.base_elem);
+            p->right_n = new Node(st.base_elem_);
             p->right_n->value = q->right_n->value;
             p->right_n->push_value = q->right_n->push_value;
             s.push(p->right_n);
@@ -53,11 +54,11 @@ segment_tree::segment_tree(const segment_tree& st): base_elem(st.base_elem),
     }
 }
 
-segment_tree::~segment_tree() {
-    std::stack<node*> s;
-    s.push(root);
+SegmentTree::~SegmentTree() {
+    std::stack<Node*> s;
+    s.push(root_);
     while (!s.empty()) {
-        node* p = s.top();
+        Node* p = s.top();
         s.pop();
         if (p != nullptr) {
             s.push(p->left_n);
@@ -67,13 +68,13 @@ segment_tree::~segment_tree() {
     }
 }
 
-segment_tree& segment_tree::operator=(const segment_tree& st) {
+SegmentTree& SegmentTree::operator=(const SegmentTree& st) {
     if (&st == this)
         return *this;
-    std::stack<node*> s;
-    s.push(root);
+    std::stack<Node*> s;
+    s.push(root_);
     while (!s.empty()) {
-        node* p = s.top();
+        Node* p = s.top();
         s.pop();
         if (p != nullptr) {
             s.push(p->left_n);
@@ -81,33 +82,33 @@ segment_tree& segment_tree::operator=(const segment_tree& st) {
             delete p;
         }
     }
-    root = nullptr;
-    base_elem = st.base_elem;
-    left_barr = st.left_barr;
-    right_barr = st.right_barr;
-    operation = st.operation;
-    if (is_correct_node(st.root)) {
-        s.push(st.root);
-        root = new node(st.base_elem);
-        root->value = st.root->value;
-        root->push_value = st.root->push_value;
-        s.push(root);
+    root_ = nullptr;
+    base_elem_ = st.base_elem_;
+    left_barr_ = st.left_barr_;
+    right_barr_ = st.right_barr_;
+    operation_ = st.operation_;
+    if (IsCorrectNode(st.root_)) {
+        s.push(st.root_);
+        root_ = new Node(st.base_elem_);
+        root_->value = st.root_->value;
+        root_->push_value = st.root_->push_value;
+        s.push(root_);
     }
     while (!s.empty()) {
-        node* p = s.top();
+        Node* p = s.top();
         s.pop();
-        node* q = s.top();
+        Node* q = s.top();
         s.pop();
-        if (is_correct_node(q->left_n)) {
+        if (IsCorrectNode(q->left_n)) {
             s.push(q->left_n);
-            p->left_n = new node(st.base_elem);
+            p->left_n = new Node(st.base_elem_);
             p->left_n->value = q->left_n->value;
             p->left_n->push_value = q->left_n->push_value;
             s.push(p->left_n);
         }
-        if (is_correct_node(q->right_n)) {
+        if (IsCorrectNode(q->right_n)) {
             s.push(q->right_n);
-            p->right_n = new node(st.base_elem);
+            p->right_n = new Node(st.base_elem_);
             p->right_n->value = q->right_n->value;
             p->right_n->push_value = q->right_n->push_value;
             s.push(p->right_n);
@@ -116,12 +117,12 @@ segment_tree& segment_tree::operator=(const segment_tree& st) {
     return *this;
 }
 
-void segment_tree::correct_node(node** p) {
+void SegmentTree::CorrectNode(Node** p) {
     if (*p == nullptr) {
-        *p = new node(base_elem);
+        *p = new Node(base_elem_);
     } else if ((*p)->is_changed) {
-        (*p)->value = base_elem;
-        (*p)->push_value = base_elem;
+        (*p)->value = base_elem_;
+        (*p)->push_value = base_elem_;
         (*p)->is_changed = false;
         if ((*p)->left_n != nullptr)
             (*p)->left_n->is_changed = true;
@@ -130,7 +131,7 @@ void segment_tree::correct_node(node** p) {
     }
 }
 
-bool segment_tree::is_correct_node(const node* const p) const {
+bool SegmentTree::IsCorrectNode(const Node* const p) const {
     if (p == nullptr)
         return false;
     if (p->is_changed)
@@ -138,126 +139,126 @@ bool segment_tree::is_correct_node(const node* const p) const {
     return true;
 }
 
-const int segment_tree::get_base_elem() const {
-    return base_elem;
+const int SegmentTree::GetBaseElem() const {
+    return base_elem_;
 }
 
-const int segment_tree::get_left_barr() const {
-    return left_barr;
+const int SegmentTree::GetLeftBarr() const {
+    return left_barr_;
 }
 
-const int segment_tree::get_right_barr() const {
-    return right_barr;
+const int SegmentTree::GetRightBarr() const {
+    return right_barr_;
 }
 
-void segment_tree::add_value(int pos, int value) {
-    if ((pos > right_barr) || (pos < left_barr))
+void SegmentTree::AddValue(int pos, int value) {
+    if ((pos > right_barr_) || (pos < left_barr_))
         throw std::runtime_error("position is out of segment");
-    int l = left_barr, r = right_barr;
-    correct_node(&root);
-    root->value = operation(root->value, value, 1);
-    node* p = root;
-    while (l < r) {
-        int c = l + (r - l) / 2;
+    int left = left_barr_, right = right_barr_;
+    CorrectNode(&root_);
+    root_->value = operation_(root_->value, value, 1);
+    Node* p = root_;
+    while (left < right) {
+        int c = left + (right - left) / 2;
         if (pos <= c) {
-            correct_node(&p->left_n);
+            CorrectNode(&p->left_n);
             p = p->left_n;
-            p->value = operation(p->value, value, 1);
-            r = c;
+            p->value = operation_(p->value, value, 1);
+            right = c;
         } else {
-            correct_node(&p->right_n);
+            CorrectNode(&p->right_n);
             p = p->right_n;
-            p->value = operation(p->value, value, 1);
-            l = c + 1;
+            p->value = operation_(p->value, value, 1);
+            left = c + 1;
         }
     }
 }
 
-void segment_tree::add_value(int l_pos, int r_pos, int value) {
-    if ((l_pos < left_barr) || (r_pos > right_barr))
+void SegmentTree::AddValue(int l_pos, int r_pos, int value) {
+    if ((l_pos < left_barr_) || (r_pos > right_barr_))
         throw std::runtime_error("barriers are out of segment");
     if (l_pos > r_pos)
         throw std::runtime_error("the right barrier is lesser then the left");
-    int c, l, r;
-    std::stack<position> s;
-    correct_node(&root);
-    if ((left_barr >= l_pos) && (right_barr <= r_pos)) {
-        root->value = operation(root->value, value, right_barr - left_barr + 1);
-        root->push_value = operation(root->push_value, value, 1);
+    int c, left, right;
+    std::stack<Position> s;
+    CorrectNode(&root_);
+    if ((left_barr_ >= l_pos) && (right_barr_ <= r_pos)) {
+        root_->value = operation_(root_->value, value, right_barr_ - left_barr_ + 1);
+        root_->push_value = operation_(root_->push_value, value, 1);
     } else {
-        c = left_barr + (right_barr - left_barr) / 2;
+        c = left_barr_ + (right_barr_ - left_barr_) / 2;
         if (l_pos <= c) {
-            l = std::max(l_pos, left_barr);
-            r = std::min(r_pos, c);
-            root->value = operation(root->value, value, r - l + 1);
-            correct_node(&root->left_n);
-            s.push({left_barr, c, root->left_n});
+            left = std::max(l_pos, left_barr_);
+            right = std::min(r_pos, c);
+            root_->value = operation_(root_->value, value, right - left + 1);
+            CorrectNode(&root_->left_n);
+            s.push({left_barr_, c, root_->left_n});
         }
         if (r_pos > c) {
-            l = std::max(l_pos, c + 1);
-            r = std::min(r_pos, right_barr);
-            root->value = operation(root->value, value, r - l + 1);
-            correct_node(&root->right_n);
-            s.push({c + 1, right_barr, root->right_n});
+            left = std::max(l_pos, c + 1);
+            right = std::min(r_pos, right_barr_);
+            root_->value = operation_(root_->value, value, right - left + 1);
+            CorrectNode(&root_->right_n);
+            s.push({c + 1, right_barr_, root_->right_n});
         }
     }
     while (!s.empty()) {
-        position t = s.top();
+        Position t = s.top();
         s.pop();
-        if ((t.l >= l_pos) && (t.r <= r_pos)) {
-            t.p->value = operation(t.p->value, value, t.r - t.l + 1);
-            t.p->push_value = operation(t.p->push_value, value, 1);
+        if ((t.left >= l_pos) && (t.right <= r_pos)) {
+            t.p->value = operation_(t.p->value, value, t.right - t.left + 1);
+            t.p->push_value = operation_(t.p->push_value, value, 1);
         } else {
-            c = t.l + (t.r - t.l) / 2;
+            c = t.left + (t.right - t.left) / 2;
             if (l_pos <= c) {
-                l = std::max(l_pos, t.l);
-                r = std::min(r_pos, c);
-                t.p->value = operation(t.p->value, value, r - l + 1);
-                correct_node(&t.p->left_n);
-                s.push({t.l, c, t.p->left_n});
+                left = std::max(l_pos, t.left);
+                right = std::min(r_pos, c);
+                t.p->value = operation_(t.p->value, value, right - left + 1);
+                CorrectNode(&t.p->left_n);
+                s.push({t.left, c, t.p->left_n});
             }
             if (r_pos > c) {
-                l = std::max(l_pos, c + 1);
-                r = std::min(r_pos, t.r);
-                t.p->value = operation(t.p->value, value, r - l + 1);
-                correct_node(&t.p->right_n);
-                s.push({c + 1, t.r, t.p->right_n});
+                left = std::max(l_pos, c + 1);
+                right = std::min(r_pos, t.right);
+                t.p->value = operation_(t.p->value, value, right - left + 1);
+                CorrectNode(&t.p->right_n);
+                s.push({c + 1, t.right, t.p->right_n});
             }
         }
     }
 }
 
-int segment_tree::get_value(int pos) const {
-    if ((pos > right_barr) || (pos < left_barr))
+int SegmentTree::GetValue(int pos) const {
+    if ((pos > right_barr_) || (pos < left_barr_))
         throw std::runtime_error("position is out of segment");
-    int l = left_barr, r = right_barr;
-    int value = base_elem;
-    if (!is_correct_node(root))
+    int left = left_barr_, right = right_barr_;
+    int value = base_elem_;
+    if (!IsCorrectNode(root_))
         return value;
-    if (left_barr == right_barr) {
-        value = operation(value, root->value, 1);
+    if (left_barr_ == right_barr_) {
+        value = operation_(value, root_->value, 1);
         return value;
     }
-    node* t = root;
-    while (l < r) {
-        int c = l + (r - l) / 2;
-        value = operation(value, t->push_value, 1);
+    Node* t = root_;
+    while (left < right) {
+        int c = left + (right - left) / 2;
+        value = operation_(value, t->push_value, 1);
         if (pos <= c) {
-            r = c;
-            if (!is_correct_node(t->left_n))
+            right = c;
+            if (!IsCorrectNode(t->left_n))
                 break;
             t = t->left_n;
-            if (l == r) {
-                value = operation(value, t->value, 1);
+            if (left == right) {
+                value = operation_(value, t->value, 1);
                 break;
             }
         } else {
-            l = c + 1;
-            if (!is_correct_node(t->right_n))
+            left = c + 1;
+            if (!IsCorrectNode(t->right_n))
                 break;
             t = t->right_n;
-            if (l == r) {
-                value = operation(value, t->value, 1);
+            if (left == right) {
+                value = operation_(value, t->value, 1);
                 break;
             }
         }
@@ -265,153 +266,153 @@ int segment_tree::get_value(int pos) const {
     return value;
 }
 
-int segment_tree::get_value(int l_pos, int r_pos) const {
-    if ((l_pos < left_barr) || (r_pos > right_barr))
+int SegmentTree::GetValue(int l_pos, int r_pos) const {
+    if ((l_pos < left_barr_) || (r_pos > right_barr_))
         throw std::runtime_error("barriers are out of segment");
     if (l_pos > r_pos)
         throw std::runtime_error("the right barrier is lesser then the left");
-    int c, value = base_elem, l, r;
-    std::stack<position> s;
-    if (!is_correct_node(root))
+    int c, value = base_elem_, left, right;
+    std::stack<Position> s;
+    if (!IsCorrectNode(root_))
         return value;
-    if ((left_barr >= l_pos) && (right_barr <= r_pos)) {
-        value = operation(value, root->value, 1);
+    if ((left_barr_ >= l_pos) && (right_barr_ <= r_pos)) {
+        value = operation_(value, root_->value, 1);
     } else {
-        c = left_barr + (right_barr - left_barr) / 2;
+        c = left_barr_ + (right_barr_ - left_barr_) / 2;
         if (l_pos <= c) {
-            l = std::max(l_pos, left_barr);
-            r = std::min(r_pos, c);
-            value = operation(value, root->push_value, r - l + 1);
-            if (is_correct_node(root->left_n))
-                s.push({left_barr, c, root->left_n});
+            left = std::max(l_pos, left_barr_);
+            right = std::min(r_pos, c);
+            value = operation_(value, root_->push_value, right - left + 1);
+            if (IsCorrectNode(root_->left_n))
+                s.push({left_barr_, c, root_->left_n});
         }
         if (r_pos > c) {
-            l = std::max(l_pos, c + 1);
-            r = std::min(r_pos, right_barr);
-            value = operation(value, root->push_value, r - l + 1);
-            if (is_correct_node(root->right_n))
-                s.push({c + 1, right_barr, root->right_n});
+            left = std::max(l_pos, c + 1);
+            right = std::min(r_pos, right_barr_);
+            value = operation_(value, root_->push_value, right - left + 1);
+            if (IsCorrectNode(root_->right_n))
+                s.push({c + 1, right_barr_, root_->right_n});
         }
     }
     while (!s.empty()) {
-        position t = s.top();
+        Position t = s.top();
         s.pop();
-        if ((t.l >= l_pos) && (t.r <= r_pos)) {
-            value = operation(value, t.p->value, 1);
+        if ((t.left >= l_pos) && (t.right <= r_pos)) {
+            value = operation_(value, t.p->value, 1);
         } else {
-            c = t.l + (t.r - t.l) / 2;
+            c = t.left + (t.right - t.left) / 2;
             if (l_pos <= c) {
-                l = std::max(l_pos, t.l);
-                r = std::min(r_pos, c);
-                value = operation(value, t.p->push_value, r - l + 1);
-                if (is_correct_node(t.p->left_n))
-                    s.push({t.l, c, t.p->left_n});
+                left = std::max(l_pos, t.left);
+                right = std::min(r_pos, c);
+                value = operation_(value, t.p->push_value, right - left + 1);
+                if (IsCorrectNode(t.p->left_n))
+                    s.push({t.left, c, t.p->left_n});
             }
             if (r_pos > c) {
-                l = std::max(l_pos, c + 1);
-                r = std::min(r_pos, t.r);
-                value = operation(value, t.p->push_value, r - l + 1);
-                if (is_correct_node(t.p->right_n))
-                    s.push({c + 1, t.r, t.p->right_n});
+                left = std::max(l_pos, c + 1);
+                right = std::min(r_pos, t.right);
+                value = operation_(value, t.p->push_value, right - left + 1);
+                if (IsCorrectNode(t.p->right_n))
+                    s.push({c + 1, t.right, t.p->right_n});
             }
         }
     }
     return value;
 }
 
-void segment_tree::set_value(int pos, int value) {
-    if ((pos > right_barr) || (pos < left_barr))
+void SegmentTree::SetValue(int pos, int value) {
+    if ((pos > right_barr_) || (pos < left_barr_))
         throw std::runtime_error("position is out of segment");
-    int l = left_barr, r = right_barr;
-    std::stack<node*> s;
-    correct_node(&root);
-    if (l == r) {
-        root->value = value;
+    int left = left_barr_, right = right_barr_;
+    std::stack<Node*> s;
+    CorrectNode(&root_);
+    if (left == right) {
+        root_->value = value;
         return;
     }
-    node* t = root;
-    s.push(root);
-    while (l < r) {
-        int c = l + (r - l) / 2;
-        correct_node(&t->left_n);
-        correct_node(&t->right_n);
+    Node* t = root_;
+    s.push(root_);
+    while (left < right) {
+        int c = left + (right - left) / 2;
+        CorrectNode(&t->left_n);
+        CorrectNode(&t->right_n);
         t->left_n->value =
-            operation(t->left_n->value, t->push_value, c - l + 1);
+            operation_(t->left_n->value, t->push_value, c - left + 1);
         t->left_n->push_value =
-            operation(t->left_n->push_value, t->push_value, 1);
+            operation_(t->left_n->push_value, t->push_value, 1);
         t->right_n->value =
-            operation(t->right_n->value, t->push_value, r - c);
+            operation_(t->right_n->value, t->push_value, right - c);
         t->right_n->push_value =
-            operation(t->right_n->push_value, t->push_value, 1);
-        t->push_value = base_elem;
+            operation_(t->right_n->push_value, t->push_value, 1);
+        t->push_value = base_elem_;
         if (pos <= c) {
             s.push(t->left_n);
             t = t->left_n;
-            r = c;
+            right = c;
         } else {
             s.push(t->right_n);
             t = t->right_n;
-            l = c + 1;
+            left = c + 1;
         }
     }
     t = s.top();
     s.pop();
-    t->value = operation(base_elem, value, 1);
-    t->push_value = operation(base_elem, value, 1);
+    t->value = operation_(base_elem_, value, 1);
+    t->push_value = operation_(base_elem_, value, 1);
     while (!s.empty()) {
         t = s.top();
         s.pop();
-        t->value = base_elem;
-        t->value = operation(t->value, t->left_n->value, 1);
-        t->value = operation(t->value, t->right_n->value, 1);
+        t->value = base_elem_;
+        t->value = operation_(t->value, t->left_n->value, 1);
+        t->value = operation_(t->value, t->right_n->value, 1);
     }
 }
 
-void segment_tree::set_value(int l_pos, int r_pos, int value) {
-    if ((l_pos < left_barr) || (r_pos > right_barr))
+void SegmentTree::SetValue(int l_pos, int r_pos, int value) {
+    if ((l_pos < left_barr_) || (r_pos > right_barr_))
         throw std::runtime_error("barriers are out of segment");
     if (l_pos > r_pos)
         throw std::runtime_error("the right barrier is lesser then the left");
     int c;
-    std::stack<position> s;
-    std::stack<node*> s2;
-    correct_node(&root);
-    s.push({left_barr, right_barr, root});
+    std::stack<Position> s;
+    std::stack<Node*> s2;
+    CorrectNode(&root_);
+    s.push({left_barr_, right_barr_, root_});
     while (!s.empty()) {
-        position t = s.top();
+        Position t = s.top();
         s.pop();
-        if ((t.l >= l_pos) && (t.r <= r_pos)) {
-            t.p->value = operation(base_elem, value, t.r - t.l + 1);
-            t.p->push_value = operation(base_elem, value, 1);
-            if (is_correct_node(t.p->left_n))
+        if ((t.left >= l_pos) && (t.right <= r_pos)) {
+            t.p->value = operation_(base_elem_, value, t.right - t.left + 1);
+            t.p->push_value = operation_(base_elem_, value, 1);
+            if (IsCorrectNode(t.p->left_n))
                 t.p->left_n->is_changed = true;
-            if (is_correct_node(t.p->right_n))
+            if (IsCorrectNode(t.p->right_n))
                 t.p->right_n->is_changed = true;
         } else {
-            c = t.l + (t.r - t.l) / 2;
-            correct_node(&t.p->left_n);
-            correct_node(&t.p->right_n);
+            c = t.left + (t.right - t.left) / 2;
+            CorrectNode(&t.p->left_n);
+            CorrectNode(&t.p->right_n);
             t.p->left_n->value =
-                operation(t.p->left_n->value, t.p->push_value, c - t.l + 1);
+                operation_(t.p->left_n->value, t.p->push_value, c - t.left + 1);
             t.p->left_n->push_value =
-                operation(t.p->left_n->push_value, t.p->push_value, 1);
+                operation_(t.p->left_n->push_value, t.p->push_value, 1);
             t.p->right_n->value =
-                operation(t.p->right_n->value, t.p->push_value, t.r - c);
+                operation_(t.p->right_n->value, t.p->push_value, t.right - c);
             t.p->right_n->push_value =
-                operation(t.p->right_n->push_value, t.p->push_value, 1);
-            t.p->push_value = base_elem;
+                operation_(t.p->right_n->push_value, t.p->push_value, 1);
+            t.p->push_value = base_elem_;
             s2.push(t.p);
             if (l_pos <= c)
-                s.push({t.l, c, t.p->left_n});
+                s.push({t.left, c, t.p->left_n});
             if (r_pos > c)
-                s.push({c + 1, t.r, t.p->right_n});
+                s.push({c + 1, t.right, t.p->right_n});
         }
     }
     while (!s2.empty()) {
-        node* t = s2.top();
+        Node* t = s2.top();
         s2.pop();
-        t->value = base_elem;
-        t->value = operation(t->value, t->left_n->value, 1);
-        t->value = operation(t->value, t->right_n->value, 1);
+        t->value = base_elem_;
+        t->value = operation_(t->value, t->left_n->value, 1);
+        t->value = operation_(t->value, t->right_n->value, 1);
     }
 }
