@@ -9,7 +9,7 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Zero_Shift) {
     std::string key = "a";
 
     // Act & Assert
-    ASSERT_EQ(message, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(message, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_1) {
@@ -26,7 +26,7 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_1) {
     }
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_5) {
@@ -43,7 +43,7 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_5) {
     }
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
@@ -60,7 +60,7 @@ TEST(VigenereCipherTest, Can_Replicate_Caesar_Cipher_With_Shift_25) {
     }
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrect_Key) {
@@ -69,7 +69,7 @@ TEST(VigenereCipherTest, Throw_An_Exception_With_Incorrect_Key) {
     std::string key = "doo1";
 
     // Act & Assert
-    ASSERT_ANY_THROW(VigenereCipher::encrypt(message, key));
+    ASSERT_ANY_THROW(VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Can_Encrypt_Word_With_Key_With_The_Same_Size) {
@@ -79,7 +79,7 @@ TEST(VigenereCipherTest, Can_Encrypt_Word_With_Key_With_The_Same_Size) {
     std::string expected = "zcfu";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Encrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
@@ -89,7 +89,7 @@ TEST(VigenereCipherTest, Encrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
     std::string expected = "Vjgeoerf Cjphfr 123_+=0";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Decrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
@@ -99,7 +99,7 @@ TEST(VigenereCipherTest, Decrypting_Ignores_Non_Alphabetic_Chars_In_Message) {
     std::string expected = "Vigenere Cipher 123_+=0";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::decrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Decrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
@@ -108,8 +108,8 @@ TEST(VigenereCipherTest, Encrypting_And_Decrypting_Gives_Original_String) {
     std::string key = "test";
 
     // Act & Assert
-    ASSERT_EQ(message, VigenereCipher::decrypt(
-                        VigenereCipher::encrypt(message, key),
+    ASSERT_EQ(message, VigenereCipher::Decrypt(
+                        VigenereCipher::Encrypt(message, key),
                         key));
 }
 
@@ -119,8 +119,8 @@ TEST(VigenereCipherTest, Handles_Empty_Key) {
     std::string key = "";
 
     // Act & Assert
-    ASSERT_EQ(message, VigenereCipher::decrypt(
-                        VigenereCipher::encrypt(message, key),
+    ASSERT_EQ(message, VigenereCipher::Decrypt(
+                        VigenereCipher::Encrypt(message, key),
                         key));
 }
 
@@ -131,7 +131,7 @@ TEST(VigenereCipherTest, Encrypting_Handles_Empty_Messages) {
     std::string expected = "";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest, Decrypting_Handles_Empty_Messages) {
@@ -141,7 +141,7 @@ TEST(VigenereCipherTest, Decrypting_Handles_Empty_Messages) {
     std::string expected = "";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::decrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Decrypt(message, key));
 }
 
 TEST(VigenereCipherTest,
@@ -152,7 +152,7 @@ TEST(VigenereCipherTest,
     std::string expected = "";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::encrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Encrypt(message, key));
 }
 
 TEST(VigenereCipherTest,
@@ -163,5 +163,5 @@ TEST(VigenereCipherTest,
     std::string expected = "";
 
     // Act & Assert
-    ASSERT_EQ(expected, VigenereCipher::decrypt(message, key));
+    ASSERT_EQ(expected, VigenereCipher::Decrypt(message, key));
 }

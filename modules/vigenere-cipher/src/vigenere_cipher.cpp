@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include "include/vigenere_cipher.h"
 
-std::string VigenereCipher::expand_key(const std::string &key, int size) {
+std::string VigenereCipher::ExpandKey(const std::string &key, int size) {
     std::string nkey;
     nkey.resize(size);
     for (unsigned i = 0; i < nkey.size(); ++i) {
@@ -14,11 +14,11 @@ std::string VigenereCipher::expand_key(const std::string &key, int size) {
     return nkey;
 }
 
-std::string VigenereCipher::encrypt(const std::string &message,
+std::string VigenereCipher::Encrypt(const std::string &message,
                                     const std::string &key) {
     if (key.size() == 0)
         return message;
-    std::string nkey = expand_key(key, message.size());
+    std::string nkey = ExpandKey(key, message.size());
     std::string result(message);
     for (unsigned i = 0; i < result.size(); ++i) {
         if (isalpha(result[i])) {
@@ -31,11 +31,11 @@ std::string VigenereCipher::encrypt(const std::string &message,
     return result;
 }
 
-std::string VigenereCipher::decrypt(const std::string &message,
+std::string VigenereCipher::Decrypt(const std::string &message,
                                     const std::string &key) {
     if (key.size() == 0)
         return message;
-    std::string nkey = expand_key(key, message.size());
+    std::string nkey = ExpandKey(key, message.size());
     std::string result(message);
     for (unsigned i = 0; i < result.size(); ++i) {
         if (isalpha(result[i])) {

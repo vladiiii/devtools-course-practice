@@ -5,11 +5,11 @@
 
 class VigenereCipher {
  private:
-    static std::string expand_key(const std::string &key, int size);
+    static std::string ExpandKey(const std::string &key, int size);
  public:
-    static std::string encrypt(const std::string &message,
+    static std::string Encrypt(const std::string &message,
                                const std::string &key);
-    static std::string decrypt(const std::string &message,
+    static std::string Decrypt(const std::string &message,
                                const std::string &key);
 };
 
