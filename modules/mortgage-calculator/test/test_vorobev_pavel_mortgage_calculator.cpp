@@ -31,3 +31,10 @@ TEST(MortgageCalculatorTest, CanReturnNotNullPayment) {
 
     EXPECT_EQ(calc.GetCalculatedMonthlyPayment(), payment);
 }
+
+TEST(MortgageCalculatorTest, ReturnsZeroPaymentIfNegative) {
+    MortgageCalculator calc;
+    double payment = calc.CalculatePayments(-1000, 100, 10, 15);
+
+    EXPECT_EQ(calc.GetCalculatedMonthlyPayment(), 0.0);
+}
