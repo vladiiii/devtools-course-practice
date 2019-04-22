@@ -7,7 +7,7 @@ TSalary::TSalary(int _Salary, int _Norm,
                  int _Vacantion) {
     if (_Salary <= 0 || _Norm <= 0 ||
         _WorkedHours < 0 || _Overtime < 0 ||
-        _Vacantion < 0 || 
+        _Vacantion < 0 ||
         _WorkedHours + _Overtime - _Vacantion < 0)
             throw - 1;
     Salary = _Salary;
@@ -19,5 +19,5 @@ TSalary::TSalary(int _Salary, int _Norm,
 
 double TSalary::Payroll() {
     double Fact = WorkedHours + Overtime - Vacantion;
-    return ((double)Salary) * Fact / ((double)Norm);
+    return static_cast<double>(Salary) * Fact / static_cast<double>(Norm);
 }
