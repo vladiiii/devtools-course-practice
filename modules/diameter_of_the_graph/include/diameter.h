@@ -8,13 +8,13 @@
 
 class Graph {
  private:
-    std::vector<std::vector<int>> v;
-    int n;  // count of vertex
-    int **dist;
+    std::vector<std::vector<int>> v_;
+    int count_;  // count of vertex
+    int **dist_;
  public:
     ~Graph();
     Graph();
-    Graph(const std::vector<std::vector<int>> & v, int _n);
+    Graph(std::vector<std::vector<int>> && v, int _n);
     Graph(int *** dist, int _n);
     Graph(const Graph& g);
     Graph& operator=(const Graph& g);

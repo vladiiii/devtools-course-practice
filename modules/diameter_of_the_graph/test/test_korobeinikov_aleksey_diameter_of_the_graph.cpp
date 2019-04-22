@@ -7,7 +7,7 @@
 #include "include/diameter.h"
 
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_diameter_of_Graph_with_equal_edges) {
     // Arrange
     int n = 8;
@@ -34,7 +34,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     EXPECT_EQ(3, ans);
 }
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_diameter_of_Graph_with_different_edges) {
     // Arrange
     int n = 8;
@@ -60,7 +60,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     EXPECT_EQ(16, ans);
 }
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_diameter_of_tree_with_equal_edges) {
     // Arrange
     int n = 8;
@@ -70,7 +70,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     v[2].push_back(5); v[3].push_back(2); v[3].push_back(4); v[4].push_back(3);
     v[5].push_back(2); v[5].push_back(6); v[6].push_back(5); v[7].push_back(5);
     v[5].push_back(7); v[2].push_back(0);
-    Graph g(v, n);
+    Graph g(std::move(v), n);
 
     // Act
     int ans = g.diameter_of_tree();
@@ -79,7 +79,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     EXPECT_EQ(4, ans);
 }
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_diameter_of_tree_with_different_edges) {
     // Arrange
     int n = 8;
@@ -104,7 +104,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     EXPECT_EQ(9, ans);
 }
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_copy_constructor) {
     // Arrange
     int n = 8;
@@ -131,7 +131,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     EXPECT_EQ(1, ans1 == ans2);
 }
 
-TEST(Korobeinikov_Aleksey_DiameterTest,
+TEST(DiameterTest,
     check_correctness_of_equality_operator) {
     // Arrange
     int n = 8;
@@ -141,7 +141,7 @@ TEST(Korobeinikov_Aleksey_DiameterTest,
     v[2].push_back(5); v[3].push_back(2); v[3].push_back(4); v[4].push_back(3);
     v[5].push_back(2); v[5].push_back(6); v[6].push_back(5); v[7].push_back(5);
     v[5].push_back(7); v[2].push_back(0);
-    Graph a(v, n);
+    Graph a(std::move(v), n);
     Graph b;
 
     // Act

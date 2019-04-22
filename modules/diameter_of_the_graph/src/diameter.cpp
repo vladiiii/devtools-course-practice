@@ -8,78 +8,77 @@
 
 #include "include/diameter.h"
 
-#define inf 1000000000
-
-Graph::Graph(const std::vector<std::vector<int>>& vv, int _n) {
-    n = _n;
-    v = vv;
-    dist = new int*[v.size()];
-    n = v.size();
-    for (int i = 0; i < n; ++i) {
-        dist[i] = new int[n];
+Graph::Graph(std::vector<std::vector<int>>&& vv, int _n) {
+    count_ = _n;
+    v_ = vv;
+    dist_ = new int*[v_.size()];
+    count_ = v_.size();
+    for (int i = 0; i < count_; ++i) {
+        dist_[i] = new int[count_];
     }
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            dist[i][j] = -1;
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j)
+            dist_[i][j] = -1;
 }
 
 Graph::Graph() {
-    n = 10;
-    dist = new int*[n];
-    for (int i = 0; i < n; ++i) {
-        dist[i] = new int[n];
+    count_ = 10;
+    dist_ = new int*[count_];
+    for (int i = 0; i < count_; ++i) {
+        dist_[i] = new int[count_];
     }
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            dist[i][j] = 0;
-    v.resize(n);
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j)
+            dist_[i][j] = 0;
+    v_.resize(count_);
 }
+
 Graph::Graph(int ***temp, int _n) {
-    dist = *temp;
-    n = _n;
-    v.resize(n);
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j) {
-            if (dist[i][j] > 0 && dist[i][j] != INT_MAX) v[i].push_back(j);
+    dist_ = *temp;
+    count_ = _n;
+    v_.resize(count_);
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j) {
+            if (dist_[i][j] > 0 && dist_[i][j] != INT_MAX) v_[i].push_back(j);
         }
 }
 
 Graph::~Graph() {
-    for (int i = 0; i < n; ++i) delete[] dist[i];
-    delete[] dist;
+    for (int i = 0; i < count_; ++i) delete[] dist_[i];
+    delete[] dist_;
 }
 void Graph::floid(void) {
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (i != j && ((dist[i][j] == 0) || (dist[i][j] == -1)))
-                dist[i][j] = inf;
+    for (int i = 0; i < count_; ++i) {
+        for (int j = 0; j < count_; ++j) {
+            if (i != j && ((dist_[i][j] == 0) || (dist_[i][j] == -1)))
+                dist_[i][j] = INT16_MAX;
         }
     }
-    for (int k = 0; k < n; ++k)
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < n; ++j)
-                dist[i][j] = std::min(dist[i][j], dist[i][k] + dist[k][j]);
+    for (int k = 0; k < count_; ++k)
+        for (int i = 0; i < count_; ++i)
+            for (int j = 0; j < count_; ++j)
+                dist_[i][j] = std::min(dist_[i][j], dist_[i][k] + dist_[k][j]);
 }
 
 void Graph::bfs(int x) {
     std::queue <int> q;
     q.push(x);
-    dist[x][x] = 0;
+    dist_[x][x] = 0;
     while (!q.empty()) {
         int t = q.front();
         q.pop();
-        for (int y : v[t])
-            if (dist[x][y] == -1) {
+        for (int y : v_[t])
+            if (dist_[x][y] == -1) {
                 q.push(y);
-                dist[x][y] = dist[x][t] + 1;
+                dist_[x][y] = dist_[x][t] + 1;
             }
     }
 }
 
 void Graph::print_dist() {
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j)
-            std::cout << dist[i][j] << " ";
+    for (int i = 0; i < count_; ++i) {
+        for (int j = 0; j < count_; ++j)
+            std::cout << dist_[i][j] << " ";
         std::cout << '\n';
     }
 }
@@ -88,43 +87,43 @@ int Graph::diameter_of_tree(void) {
     int v1 = 0;
     bfs(v1);
     int v2 = 0;
-    for (int i = 0; i < n; ++i)
-        if (dist[v1][i] > dist[v1][v2]) v2 = i;
+    for (int i = 0; i < count_; ++i)
+        if (dist_[v1][i] > dist_[v1][v2]) v2 = i;
     bfs(v2);
     int ans = 0;
-    for (int i = 0; i < n; ++i)
-        if (dist[v2][i] > dist[v2][ans]) ans = i;
+    for (int i = 0; i < count_; ++i)
+        if (dist_[v2][i] > dist_[v2][ans]) ans = i;
     print_dist();
-    return dist[v2][ans];
+    return dist_[v2][ans];
 }
 
 int Graph::diameter_of_Graph(void) {
     floid();
     int ans = -2;
     print_dist();
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j) {
-            ans = std::max(ans, dist[i][j]);
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j) {
+            ans = std::max(ans, dist_[i][j]);
         }
     return ans;
 }
 
 Graph::Graph(const Graph& g) {
-    n = g.n;
-    v.resize(n);
-    dist = new int*[n];
-    for (int i = 0; i < n; ++i) dist[i] = new int[n];
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j) dist[i][j] = g.dist[i][j];
-    for (int i = 0; i < n; ++i)
-        for (unsigned int j = 0; j < g.v[i].size(); ++j)
-            v[i].push_back(g.v[i][j]);
+    count_ = g.count_;
+    v_.resize(count_);
+    dist_ = new int*[count_];
+    for (int i = 0; i < count_; ++i) dist_[i] = new int[count_];
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j) dist_[i][j] = g.dist_[i][j];
+    for (int i = 0; i < count_; ++i)
+        for (unsigned int j = 0; j < g.v_[i].size(); ++j)
+            v_[i].push_back(g.v_[i][j]);
 }
 
 Graph& Graph::operator=(const Graph& g) {
-    n = g.n;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j) dist[i][j] = g.dist[i][j];
-    v = g.v;
+    count_ = g.count_;
+    for (int i = 0; i < count_; ++i)
+        for (int j = 0; j < count_; ++j) dist_[i][j] = g.dist_[i][j];
+    v_ = g.v_;
     return *this;
 }
