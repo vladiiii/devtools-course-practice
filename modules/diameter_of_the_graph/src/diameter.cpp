@@ -46,7 +46,6 @@ void Graph::PrintDistance() {
 int Graph::DiameterOfGraph() {
     FindShortestPath();
     int ans = -2;
-    PrintDistance();
     for (int i = 0; i < count_; ++i)
         for (int j = 0; j < count_; ++j) {
             ans = std::max(ans, v_[i][j]);
