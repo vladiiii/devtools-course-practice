@@ -6,57 +6,57 @@
 TEST(TSalary, can_create_object) {
     // Act & Assert
     ASSERT_NO_THROW(TSalary t(25000, 160, 150, 5, 5));
-} // 1
+}  // 1
 
 TEST(TSalary, cant_create_with_negative_salary) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(-25000, 160, 150, 5, 5));
-} // 2
+}  // 2
 
 TEST(TSalary, cant_create_with_zero_salary) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(0, 160, 150, 5, 5));
-} // 3
+}  // 3
 
 TEST(TSalary, cant_create_with_negative_norm) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(25000, -160, 150, 5, 5));
-} // 4
+}  // 4
 
 TEST(TSalary, cant_create_with_zero_norm) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(25000, 0, 150, 5, 5));
-} // 5
+}  // 5
 
 TEST(TSalary, cant_create_with_negative_worked_hours) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(25000, 160, -150, 5, 5));
-} // 6
+}  // 6
 
 TEST(TSalary, can_create_with_zero_worked_hours) {
     // Act & Assert
     ASSERT_NO_THROW(TSalary t(25000, 160, 0, 5, 5));
-} // 7
+}  // 7
 
 TEST(TSalary, cant_create_with_negative_overtime) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(25000, 160, 150, -5, 5));
-} // 8
+}  // 8
 
 TEST(TSalary, can_create_with_zero_overtime) {
     // Act & Assert
     ASSERT_NO_THROW(TSalary t(25000, 160, 150, 0, 5));
-} // 9
+}  // 9
 
 TEST(TSalary, cant_create_with_negative_vacantion) {
     // Act & Assert
     ASSERT_ANY_THROW(TSalary t(25000, 160, 150, 5, -5));
-} // 10
+}  // 10
 
 TEST(TSalary, can_create_with_zero_vacantion) {
     // Act & Assert
     ASSERT_NO_THROW(TSalary t(25000, 160, 150, 5, 0));
-} // 11
+}  // 11
 
 TEST(TSalary, can_calculate_payroll) {
     // Arrange
@@ -64,31 +64,31 @@ TEST(TSalary, can_calculate_payroll) {
 
     // Act & Assert
     ASSERT_NO_THROW(t.Payroll());
-} // 12
+}  // 12
 
 TEST(TSalary, calculate_payroll_right) {
-	// Arrange
-	TSalary t(25000, 160, 150, 5, 5);
+    // Arrange
+    TSalary t(25000, 160, 150, 5, 5);
 
-	// Act & Assert
-	ASSERT_DOUBLE_EQ(t.Payroll(), 23437.5);
-} // 13
+    // Act & Assert
+    ASSERT_DOUBLE_EQ(t.Payroll(), 23437.5);
+}  // 13
 
 TEST(TSalary, calculate_payroll_right_2) {
-	// Arrange
-	TSalary t(27000, 160, 150, 40, 10);
+    // Arrange
+    TSalary t(27000, 160, 150, 40, 10);
 
-	// Act & Assert
-	ASSERT_DOUBLE_EQ(t.Payroll(), 30375.0);
-} // 14
+    // Act & Assert
+    ASSERT_DOUBLE_EQ(t.Payroll(), 30375.0);
+}  // 14
 
 TEST(TSalary, calculate_payroll_right_3) {
-	// Arrange
-	TSalary t(23000, 120, 40, 50, 0);
+    // Arrange
+    TSalary t(23000, 120, 40, 50, 0);
 
-	// Act & Assert
-	ASSERT_DOUBLE_EQ(t.Payroll(), 17250.0);
-} // 15
+    // Act & Assert
+    ASSERT_DOUBLE_EQ(t.Payroll(), 17250.0);
+}  // 15
 
 TEST(TSalary, can_calculate_payroll_right_if_it_is_zero) {
     // Arrange
@@ -96,7 +96,7 @@ TEST(TSalary, can_calculate_payroll_right_if_it_is_zero) {
 
     // Act & Assert
     ASSERT_DOUBLE_EQ(t.Payroll(), 0.0);
-} // 16
+}  // 16
 
 TEST(TSalary, can_calculate_payroll_right_if_it_is_zero_2) {
     // Arrange
@@ -104,4 +104,4 @@ TEST(TSalary, can_calculate_payroll_right_if_it_is_zero_2) {
 
     // Act & Assert
     ASSERT_DOUBLE_EQ(t.Payroll(), 0.0);
-} // 17
+}  // 17
