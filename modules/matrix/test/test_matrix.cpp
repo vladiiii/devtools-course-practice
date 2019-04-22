@@ -133,30 +133,6 @@ TEST(MatrixTest, Can_Get_Const_Elem) {
     EXPECT_EQ(3, A(1, 2));
 }
 
-TEST(MatrixTest, Do_Throw_When_Get_Elem_Out_Of_Range) {
-    // Arrange
-    Matrix A = {
-            {2, 0, -1},
-            {-1, 4, 3},
-            {7, 2, 1},
-    };
-
-    // Act & Assert
-    EXPECT_THROW(A(4, 4), std::string);
-}
-
-TEST(MatrixTest, Do_Throw_When_Get_Const_Elem_Out_Of_Range) {
-    // Arrange
-    const Matrix A = {
-            {2, 0, -1},
-            {-1, 4, 3},
-            {7, 2, 1},
-    };
-
-    // Act & Assert
-    EXPECT_THROW(A(4, 4), std::string);
-}
-
 TEST(MatrixTest, Equal_Matrices_Are_Equal) {
     // Arrange
     Matrix A = {

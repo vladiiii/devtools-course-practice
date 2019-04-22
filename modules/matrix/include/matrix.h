@@ -4,28 +4,28 @@
 #define MODULES_MATRIX_INCLUDE_MATRIX_H_
 
 #include <initializer_list>
+#include <vector>
 
 class Matrix {
  private:
     int rows_;
     int cols_;
-    double **matrix_;
+    std::vector<double> matrix_;
 
  public:
+    Matrix(const Matrix &src) = default;
+    Matrix& operator=(const Matrix &src) = default;
+    ~Matrix() = default;
+
     Matrix();
-    explicit Matrix(const int rows, const int cols);
-    Matrix(std::initializer_list<std::initializer_list<double>> list);
-    Matrix(const Matrix &src);
+    explicit Matrix(int rows, int cols);
+    Matrix(const std::initializer_list<std::initializer_list<double>> &list);
 
-    ~Matrix();
-
-    const int getRows() const;
-    const int getCols() const;
+    int getRows() const;
+    int getCols() const;
 
     double& operator()(int i, int j);
     const double& operator()(int i, int j) const;
-
-    Matrix& operator=(const Matrix &src);
 
     friend Matrix operator+(const Matrix &lhs, const Matrix &rhs);
     friend Matrix operator-(const Matrix &lhs, const Matrix &rhs);
@@ -37,10 +37,10 @@ class Matrix {
 
     bool operator==(const Matrix &src) const;
 
-    Matrix Transpose();
-    Matrix Inverse();
-    double Minor(int row, int col);
-    double Det();
+    Matrix Transpose() const;
+    Matrix Inverse() const;
+    double Minor(int row, int col) const;
+    double Det() const;
 };
 
 #endif  // MODULES_MATRIX_INCLUDE_MATRIX_H_
