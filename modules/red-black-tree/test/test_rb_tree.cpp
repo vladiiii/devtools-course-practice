@@ -192,9 +192,29 @@ TEST(RedBlackTreeTest, Stack_Clears_Before_Iteration) {
 
     unsigned i = 0;
     for (tree.begin(); !tree.end(); tree.next()) {
-        tree.get_current()->value += 1 - 1;
+        Node *node = tree.get_current();
         ++i;
     }
 
     ASSERT_EQ(i, tree.get_nodes_number());
+}
+
+TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
+    std::vector<int> vec;
+
+    for (int i = -500; i <= 500; ++i)
+        vec.emplace_back(i);
+    std::random_shuffle(vec.begin(), vec.end());
+
+    RBTree tree{vec};
+
+    ASSERT_NO_THROW([&] {
+        for (tree.begin(); !tree.end(); tree.next())
+            Node *node = tree.get_current();
+
+        std::random_shuffle(vec.begin(), vec.end());
+
+        for (auto i = vec.begin(); i < vec.end(); ++i)
+            tree.remove(*i);
+    });
 }
