@@ -12,10 +12,10 @@ class TSalary {
     int Vacantion;    // hours in month
     int WorkedHours;  // hors in month
  public:
-    TSalary(int _Salary, int _Norm, 
-            int _WorkedHours, int Overtime, 
+    TSalary(int _Salary, int _Norm,
+            int _WorkedHours, int Overtime,
             int Vacantion);
     double Payroll();
 };
 
-#endif // MODULES_SALARY_INCLUDE_TSALARY_H_
+#endif  // MODULES_SALARY_INCLUDE_TSALARY_H_
