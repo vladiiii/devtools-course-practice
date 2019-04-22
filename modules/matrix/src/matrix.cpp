@@ -18,12 +18,13 @@ Matrix::Matrix(int rows, int cols) :
         matrix_(std::vector<double>(rows_ * cols_)) {
 }
 
-Matrix::Matrix(const std::initializer_list<std::initializer_list<double>> &list) :
+Matrix::Matrix(
+        const std::initializer_list<std::initializer_list<double>> &list) :
         rows_(list.size()),
         cols_(list.begin()->size()),
         matrix_(std::vector<double>(rows_ * cols_)) {
     int count = 0;
-    for (const auto &row: list) {
+    for (const auto &row : list) {
         std::move(row.begin(), row.end(), matrix_.begin() + cols_ * count);
         ++count;
     }
@@ -201,7 +202,7 @@ double Matrix::Minor(int row, int col) const {
                     offset_cols = 1;
                 }
 
-                res(i, j) = this->operator()(i + offset_rows,j + offset_cols);
+                res(i, j) = this->operator()(i + offset_rows, j + offset_cols);
             }
 
             offset_cols = 0;
