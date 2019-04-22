@@ -1,20 +1,16 @@
 // Copyright 2019 Korobeinikov Aleksey
 
 #include <queue>
-#include <climits>
+#include <limits>
 #include <algorithm>
 #include <vector>
 #include <iostream>
 
 #include "include/diameter.h"
 
-Graph::Graph(std::vector<std::vector<int>> && vv, int _n) {
-    count_ = _n;
-    v_ = vv;
-}
+Graph::Graph(matrix && vv, int _n) : count_(_n), v_(vv) {}
 
-Graph::Graph() {
-    count_ = 10;
+Graph::Graph():count_(10) {
     v_.resize(count_);
     for (int i = 0; i < count_; ++i) {
         v_[i].resize(count_);
@@ -26,7 +22,7 @@ void Graph::FindShortestPath() {
     for (int i = 0; i < count_; ++i) {
         for (int j = 0; j < count_; ++j) {
             if (i != j && ((v_[i][j] == 0) || (v_[i][j] == -1)))
-                v_[i][j] = INT16_MAX;
+                v_[i][j] = std::numeric_limits<signed int>::max()/2;
         }
     }
     for (int k = 0; k < count_; ++k)
@@ -53,8 +49,7 @@ int Graph::DiameterOfGraph() {
     return ans;
 }
 
-Graph::Graph(const Graph& g) {
-    count_ = g.count_;
+Graph::Graph(const Graph& g): count_(g.count_) {
     v_.resize(count_);
     for (int i = 0; i < count_; ++i)
         for (unsigned int j = 0; j < g.v_[i].size(); ++j)

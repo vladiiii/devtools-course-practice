@@ -5,14 +5,15 @@
 
 #include <vector>
 
+using matrix = std::vector<std::vector<int>>;
 
 class Graph {
  private:
-    std::vector<std::vector<int>> v_;
+    matrix v_;
     int count_;  // count of vertex
  public:
     Graph();
-    Graph(std::vector<std::vector<int>> && v, int _n);
+    Graph(matrix && v, int _n);
     Graph(const Graph& g);
     Graph& operator=(const Graph& g);
     int DiameterOfGraph();
