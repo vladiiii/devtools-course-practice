@@ -6,12 +6,12 @@
 class CalculatePrice {
  private:
     int basket[5];
-    double discount_calculate(const int book);
+    double DiscountCalculate(const int book);
 
  public:
     CalculatePrice(int *b, int size);
 
-    double total_sum();
+    double TotalSum();
 };
 
 #endif  // MODULES_CALCULATE_PRICE_INCLUDE_CALCULATE_PRICE_H_

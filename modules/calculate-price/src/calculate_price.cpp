@@ -8,58 +8,53 @@
 CalculatePrice::CalculatePrice(int *b, int size) {
     if (size != 5) throw std::string("Size must be determined!");
     for (int i = 0; i < 5; i++) {
-        if (b[i] < 0) throw std::string("Shopping basket mustn't be contain negative numbers");
+        if (b[i] < 0)
+            throw std::string("Mustn't be contain negative numbers");
         basket[i] = b[i];
     }
 }
 
-double CalculatePrice::discount_calculate(const int book) {
+double CalculatePrice::DiscountCalculate(const int book) {
     double sum = 0.0;
 
     switch (book) {
-        case 0: 
-            sum = 0; break;
-        case 1: 
+        case 1:
             sum = 8; break;
-        case 2: 
+        case 2:
             sum = 15.2; break;
-        case 3: 
+        case 3:
             sum = 21.6; break;
-        case 4: 
+        case 4:
             sum = 25.6; break;
-        case 5: 
+        case 5:
             sum = 30.0; break;
-        default: 
-            throw std::string("Size must be determined!");
-            break;
     }
 
     return sum;
 }
 
-double CalculatePrice::total_sum() {
-	double sum = 0.0;
+double CalculatePrice::TotalSum() {
+    double sum = 0.0;
     int shop_basket[5];
 
     for (int i = 0; i < 5; i++) {
         shop_basket[i] = basket[i];
-	}
+    }
 
     int count;
 
     for (int i = 0; i < 5; i++) {
         while (shop_basket[i] != 0) {
-		    shop_basket[i]--;
-		    count = 1;
-		    for (int j = 0; j < 5; j++)
-		        if ((shop_basket[j] > 0)&&(i != j)) {
-				    count++;
-				    shop_basket[j]--;
-			    }
-		    sum += discount_calculate(count);
-	    }
-    i++;
+            shop_basket[i]--;
+            count = 1;
+            for (int j = 0; j < 5; j++)
+                if ((shop_basket[j] > 0) && (i != j)) {
+                    count++;
+                    shop_basket[j]--;
+                }
+                sum += DiscountCalculate(count);
+        }
     }
 
-	return sum;
+    return sum;
 }
