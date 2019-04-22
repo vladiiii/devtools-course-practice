@@ -175,3 +175,23 @@ TEST(DiameterTest,
     // Assert
     EXPECT_EQ(1, ans1 == ans2);
 }
+
+TEST(DiameterTest,
+    check_correctness_of_PrintDistance) {
+    // Arrange
+    int n = 8;
+    std::vector <std::vector<int>> v;
+    v.resize(n);
+    for (int i = 0; i < n; ++i) {
+        v[i].resize(n);
+        for (int j = 0; j < n; ++j) {
+            if (i == j) v[i][j] = 0;
+            else
+                v[i][j] = -1;
+        }
+    }
+    Graph a(std::move(v), n);
+
+    // Act & Assert
+    EXPECT_NO_THROW(a.PrintDistance());
+}
