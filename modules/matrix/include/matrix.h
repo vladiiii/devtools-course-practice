@@ -13,11 +13,11 @@ class Matrix {
     std::vector<double> matrix_;
 
  public:
+    Matrix() = default;
     Matrix(const Matrix &src) = default;
     Matrix& operator=(const Matrix &src) = default;
     ~Matrix() = default;
 
-    Matrix();
     explicit Matrix(int rows, int cols);
     Matrix(const std::initializer_list<std::initializer_list<double>> &list);
 

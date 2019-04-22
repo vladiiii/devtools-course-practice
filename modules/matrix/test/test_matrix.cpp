@@ -5,15 +5,6 @@
 #include "gtest/gtest.h"
 #include "include/matrix.h"
 
-TEST(MatrixTest, Can_Create_Empty_Matrix) {
-    // Arrange & Act
-    Matrix A;
-
-    // Assert
-    EXPECT_EQ(0, A.getRows());
-    EXPECT_EQ(0, A.getCols());
-}
-
 TEST(MatrixTest, Can_Create_Matrix_Via_Explicit_Constructor) {
     // Arrange & Act
     Matrix A(2, 2);
