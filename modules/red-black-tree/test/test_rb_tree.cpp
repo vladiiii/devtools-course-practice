@@ -208,7 +208,7 @@ TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
 
     RBTree tree{vec};
 
-    ASSERT_NO_THROW([&] {
+    auto some_tree_operations = [&tree, &vec] {
         for (tree.begin(); !tree.end(); tree.next())
             Node *node = tree.get_current();
 
@@ -216,5 +216,7 @@ TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
 
         for (auto i = vec.begin(); i < vec.end(); ++i)
             tree.remove(*i);
-    });
+    };
+
+    ASSERT_NO_THROW(some_tree_operations());
 }
