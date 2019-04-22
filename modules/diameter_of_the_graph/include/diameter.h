@@ -13,7 +13,7 @@ class Graph {
     int count_;  // count of vertex
  public:
     Graph();
-    Graph(matrix && v, int _n);
+    Graph(matrix && v, int _n) noexcept;
     Graph(const Graph& g);
     Graph& operator=(const Graph& g);
     int DiameterOfGraph();

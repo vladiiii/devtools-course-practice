@@ -8,7 +8,7 @@
 
 #include "include/diameter.h"
 
-Graph::Graph(matrix && vv, int _n) : v_(vv), count_(_n) {}
+Graph::Graph(matrix && vv, int _n) noexcept : v_(std::move(vv)), count_(_n) {}
 
 Graph::Graph():count_(10) {
     v_.resize(count_);
