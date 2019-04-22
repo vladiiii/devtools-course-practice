@@ -68,6 +68,10 @@ Node* RBTree::get_current() const {
     return current;
 }
 
+unsigned RBTree::get_nodes_number() const {
+    return nodes_number;
+}
+
 bool RBTree::find(const int value) {
     current = root;
 

@@ -58,6 +58,7 @@ class RBTree {
 
     Node* get_root() const;
     Node* get_current() const;
+    unsigned get_nodes_number() const;
 
     bool find(const int value);
     void insert(Node *node);

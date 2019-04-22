@@ -3,6 +3,8 @@
 #include <gtest/gtest.h>
 
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
 #include "include/rb_tree.h"
 
@@ -42,6 +44,12 @@ TEST(RedBlackTreeNodeTest, Different_Nodes_Are_Not_Equal) {
     ASSERT_TRUE(x != y);
 }
 
+TEST(RedBlackTreeNodeTest, Can_cout_Node) {
+    Node x;
+
+    ASSERT_NO_THROW(std::cout << x << std::endl;);
+}
+
 TEST(RedBlackTreeTest, Can_Create_Tree_Default) {
     ASSERT_NO_THROW(RBTree{});
 }
@@ -56,6 +64,13 @@ TEST(RedBlackTreeTest, Can_Create_Tree_from_Vector) {
     std::vector<int> vec{0, 1, 2};
 
     ASSERT_NO_THROW(RBTree{vec});
+}
+
+TEST(RedBlackTreeTest, Copy_Constructor_Does_Not_Raise_Any_Exceptions) {
+    std::vector<int> vec{0, 1, 2};
+    RBTree tree{vec};
+
+    ASSERT_NO_THROW(RBTree{tree});
 }
 
 TEST(RedBlackTreeTest, Can_Get_Root) {
@@ -74,7 +89,14 @@ TEST(RedBlackTreeTest, Can_Get_Current) {
     ASSERT_EQ(1, tree.get_current()->value);
 }
 
-TEST(RedBlackTreeTest, Can_Find_Excisting_Item) {
+TEST(RedBlackTreeTest, Can_Get_Nodes_Number) {
+    Node *node = new Node(1);
+    RBTree tree{node};
+
+    ASSERT_EQ(static_cast<unsigned>(1), tree.get_nodes_number());
+}
+
+TEST(RedBlackTreeTest, Can_Find_Existing_Item) {
     std::vector<int> vec{-10, 35, 2};
     RBTree tree{vec};
 
@@ -101,16 +123,16 @@ TEST(RedBlackTreeTest, Can_Insert_New_Item) {
     ASSERT_NO_THROW(tree.insert(new_node));
 }
 
-TEST(RedBlackTreeTest, Can_Not_Insert_Excisting_Item) {
+TEST(RedBlackTreeTest, Can_Not_Insert_Existing_Item) {
     std::vector<int> vec{0, 1, 2};
     RBTree tree{vec};
 
-    Node *excisting_node = new Node(1);
+    Node *existing_node = new Node(1);
 
-    ASSERT_ANY_THROW(tree.insert(excisting_node));
+    ASSERT_ANY_THROW(tree.insert(existing_node));
 }
 
-TEST(RedBlackTreeTest, Can_Remove_Excisting_Item) {
+TEST(RedBlackTreeTest, Can_Remove_Existing_Item) {
     std::vector<int> vec{0, 1, 2};
     RBTree tree{vec};
 
@@ -146,4 +168,33 @@ TEST(RedBlackTreeTest, Iterator_Represents_All_Items) {
     result &= (i == vec.size());
 
     ASSERT_TRUE(result);
+}
+
+TEST(RedBlackTreeTest, Removing_All_Nodes_Clears_a_Tree) {
+    std::vector<int> vec{10, 1, 8, -6, 35, 0, -11};
+    RBTree tree{vec};
+
+    std::random_shuffle(vec.begin(), vec.end());
+
+    for (auto i = vec.begin(); i < vec.end(); ++i)
+        tree.remove(*i);
+
+    ASSERT_EQ(static_cast<unsigned>(0), tree.get_nodes_number());
+}
+
+TEST(RedBlackTreeTest, Stack_Clears_Before_Iteration) {
+    std::vector<int> vec{10, 1, 8, -6, 35, 0, -11};
+    RBTree tree{vec};
+
+    tree.begin();
+    tree.next();
+    tree.next();
+
+    unsigned i = 0;
+    for (tree.begin(); !tree.end(); tree.next()) {
+        tree.get_current()->value += 1 - 1;
+        ++i;
+    }
+
+    ASSERT_EQ(i, tree.get_nodes_number());
 }
