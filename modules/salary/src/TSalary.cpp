@@ -1,6 +1,6 @@
 // Copyright Irina Astafeva 2019
 
-#include "TSalary.h"
+#include "include/TSalary.h"
 
 TSalary::TSalary(int _Salary, int _Norm, int _WorkedHours, int _Overtime, int _Vacantion) {
     if (_Salary <= 0 || _Norm <= 0 || _WorkedHours < 0 || _Overtime < 0 || _Vacantion < 0 || _WorkedHours + _Overtime - _Vacantion < 0) throw - 1;
@@ -12,5 +12,6 @@ TSalary::TSalary(int _Salary, int _Norm, int _WorkedHours, int _Overtime, int _V
 }
 
 double TSalary::Payroll() {
-    return Salary / Norm * (WorkedHours + Overtime - Vacantion);
+	double Fact = WorkedHours + Overtime - Vacantion;
+    return ((double)Salary) * Fact / ((double)Norm);
 }

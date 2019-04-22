@@ -1,12 +1,16 @@
 set(target ${TESTS})
 
-file(GLOB srcs .cpp)
+file(GLOB srcs "*.cpp")
 set_source_files_properties(${srcs} PROPERTIES
-    LABELS ${MODULE};Test)
+    LABELS "${MODULE};Test")
+
+if(MSVC)
+    add_definitions(/D _VARIADIC_MAX=10)
+endif()
 
 add_executable(${target} ${srcs} ${hdrs})
 set_target_properties(${target} PROPERTIES
-    LABELS ${MODULE};Test)
+    LABELS "${MODULE};Test")
 
 if (UNIX)
   target_link_libraries(${target} gtest ${CMAKE_THREAD_LIBS_INIT} pthread)
@@ -18,4 +22,4 @@ add_test(
     COMMAND ${target}
 )
 set_tests_properties (${MODULE}_gtest PROPERTIES
-    LABELS ${MODULE})
+    LABELS "${MODULE}")

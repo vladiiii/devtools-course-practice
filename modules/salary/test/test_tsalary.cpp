@@ -1,7 +1,7 @@
 // Copyright Irina Astafeva 2019
 
 #include <gtest/gtest.h>
-#include "TSalary.cpp"
+#include "src/TSalary.cpp"
 
 TEST(TSalary, can_create_object) {
     // Act & Assert
@@ -74,13 +74,29 @@ TEST(TSalary, calculate_payroll_right) {
 	ASSERT_DOUBLE_EQ(t.Payroll(), 23437.5);
 } // 13
 
+TEST(TSalary, calculate_payroll_right_2) {
+	// Arrange
+	TSalary t(27000, 160, 150, 40, 10);
+
+	// Act & Assert
+	ASSERT_DOUBLE_EQ(t.Payroll(), 30375.0);
+} // 14
+
+TEST(TSalary, calculate_payroll_right_3) {
+	// Arrange
+	TSalary t(23000, 120, 40, 50, 0);
+
+	// Act & Assert
+	ASSERT_DOUBLE_EQ(t.Payroll(), 17250.0);
+} // 15
+
 TEST(TSalary, can_calculate_payroll_right_if_it_is_zero) {
     // Arrange
     TSalary t(25000, 160, 150, 5, 155);
 
     // Act & Assert
     ASSERT_DOUBLE_EQ(t.Payroll(), 0.0);
-} // 14
+} // 16
 
 TEST(TSalary, can_calculate_payroll_right_if_it_is_zero_2) {
     // Arrange
@@ -88,4 +104,4 @@ TEST(TSalary, can_calculate_payroll_right_if_it_is_zero_2) {
 
     // Act & Assert
     ASSERT_DOUBLE_EQ(t.Payroll(), 0.0);
-} // 15
+} // 17
