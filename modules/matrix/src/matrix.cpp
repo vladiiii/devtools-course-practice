@@ -7,6 +7,7 @@
 #include <functional>
 #include <iterator>
 #include <string>
+#include <vector>
 
 Matrix::Matrix() :
         rows_(0), cols_(0), matrix_(std::vector<double>(rows_ * cols_)) {
