@@ -7,7 +7,7 @@
 
 class MortgageCalculator {
  public:
-    MortgageCalculator() = default;
+    MortgageCalculator();
     MortgageCalculator(MortgageCalculator&&) = default;
 
     double CalculatePayments(int sum, int first_payment,

@@ -19,7 +19,7 @@ TEST(MortgageCalculatorTest, CanCalculateOverpayment) {
 }
 
 TEST(MortgageCalculatorTest, CanReturnMonthlyPayment) {
-    MortgageCalculator calc;
+    MortgageCalculator calc = MortgageCalculator();
     double payment = calc.GetCalculatedMonthlyPayment();
 
     EXPECT_EQ(0.0, payment);
