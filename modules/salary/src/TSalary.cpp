@@ -1,23 +1,25 @@
 // Copyright Irina Astafeva 2019
 
+#include <string>
+#include <iostream>
 #include "include/TSalary.h"
 
-TSalary::TSalary(int _Salary, int _Norm,
-                 int _WorkedHours, int _Overtime,
-                 int _Vacantion) {
-    if (_Salary <= 0 || _Norm <= 0 ||
-        _WorkedHours < 0 || _Overtime < 0 ||
-        _Vacantion < 0 ||
-        _WorkedHours + _Overtime - _Vacantion < 0)
-            throw - 1;
-    Salary = _Salary;
-    Norm = _Norm;
-    Overtime = _Overtime;
-    Vacantion = _Vacantion;
-    WorkedHours = _WorkedHours;
+TSalary::TSalary(int _salary, int _norm,
+                 int _worked_hours, int _overtime,
+                 int _vacantion) {
+    if (_salary <= 0 || _norm <= 0 ||
+        _worked_hours < 0 || _overtime < 0 ||
+        _vacantion < 0 ||
+        _worked_hours + _overtime - _vacantion < 0)
+            throw std::string("Invalid value");
+    salary_ = _salary;
+    norm_ = _norm;
+    overtime_ = _overtime;
+    vacantion_ = _vacantion;
+    worked_hours_ = _worked_hours;
 }
 
 double TSalary::Payroll() {
-    double Fact = WorkedHours + Overtime - Vacantion;
-    return static_cast<double>(Salary) * Fact / static_cast<double>(Norm);
+    double fact = worked_hours_ + overtime_ - vacantion_;
+    return static_cast<double>(salary_) * fact / static_cast<double>(norm_);
 }
