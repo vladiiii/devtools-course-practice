@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <random>
 
 #include "include/rb_tree.h"
 
@@ -174,7 +175,11 @@ TEST(RedBlackTreeTest, Removing_All_Nodes_Clears_a_Tree) {
     std::vector<int> vec{10, 1, 8, -6, 35, 0, -11};
     RBTree tree{vec};
 
-    std::random_shuffle(vec.begin(), vec.end());
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    std::default_random_engine re(0);
+    std::shuffle(vec.begin(), vec.end(), re);
 
     for (auto i = vec.begin(); i < vec.end(); ++i)
         tree.remove(*i);
@@ -204,15 +209,17 @@ TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
 
     for (int i = -500; i <= 500; ++i)
         vec.emplace_back(i);
-    std::random_shuffle(vec.begin(), vec.end());
+
+    std::default_random_engine re(0);
+    std::shuffle(vec.begin(), vec.end(), re);
 
     RBTree tree{vec};
 
-    auto some_tree_operations = [&tree, &vec] {
+    auto some_tree_operations = [&tree, &vec, &re] {
         for (tree.begin(); !tree.end(); tree.next())
             Node *node = tree.get_current();
 
-        std::random_shuffle(vec.begin(), vec.end());
+        std::shuffle(vec.begin(), vec.end(), re);
 
         for (auto i = vec.begin(); i < vec.end(); ++i)
             tree.remove(*i);
