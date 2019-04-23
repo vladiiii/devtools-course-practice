@@ -40,7 +40,7 @@ void Heap<ValueType>::swap(size_t child, size_t parent) {
 
 template <typename ValueType>
 size_t Heap<ValueType>::GetParent(size_t child) {
-    if (child % 2 == 0)
+    if (child > 0 && child % 2 == 0)
         return child / 2  - 1;
     else 
         return child / 2;  
@@ -76,6 +76,7 @@ void Heap<ValueType>::BubbleUp() {
 
 template <typename ValueType>
 ValueType Heap<ValueType>::Remove() {
+	if (vec.size() == 0) throw "Empty heap";
     size_t child = vec.size() - 1;
     swap(child, 0);  
     ValueType value = vec.back();
@@ -111,7 +112,11 @@ std::vector<ValueType> Heap<ValueType>::HeapSort(std::vector<ValueType>& unsorte
     vec.clear();
     for (auto elem : unsorted_arr)
         Insert(elem);
-    return vec;
+	std::vector<ValueType> result_vector(GetSize());
+	for (size_t index = 0; index < result_vector.size(); ++index) {
+		result_vector[index] = Remove();
+	}
+    return result_vector;
 }
 
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_
