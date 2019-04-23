@@ -394,7 +394,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Division_For_Divide_By_Zero) {
     EXPECT_ANY_THROW(a / b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Division_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Division_For_Left_Negative_And_Right_Positive) {
     // Arrange
     big_int a;
     big_int b;
