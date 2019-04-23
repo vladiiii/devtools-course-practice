@@ -4,8 +4,9 @@
 #define MODULES_BIG_INT_INCLUDE_BIG_INT_H_
 
 #include <string>
+#include <inttypes.h>
 #define BIGINT_MAX 1000000000
-#define MYINT64 long long int
+#define MYINT64 __int64
 
 class big_int {
  private:
@@ -16,10 +17,11 @@ class big_int {
 
     int realSize();
     void removingZeros();
-  public:
-    big_int(MYINT64 bi = 0, int _sizeMem = 1);
-	big_int(const big_int & bi);
-	explicit big_int(const std::string & st);
+
+ public:
+    explicit big_int(MYINT64 bi = 0, int _sizeMem = 1);
+    big_int(const big_int & bi);
+    explicit big_int(const std::string & st);
     ~big_int();
 
     big_int & operator = (const big_int & bi);
