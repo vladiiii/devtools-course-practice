@@ -1,5 +1,6 @@
 // Copyright 2019 Muravev Denis
 
+#include <string>
 #include "include/big_int.h"
 
 big_int::big_int(MYINT64 bi, int _size_mem) {
@@ -425,11 +426,11 @@ big_int big_int::operator * (big_int bi) {
     big_int res(0, len);
     res.sign = sign * bi.sign;
 
-    unsigned MYINT64 tmp;
+    MYUINT64 tmp;
     for (int i = 0; i < size; i++)
         for (int j = 0; j < bi.size; j++) {
             tmp = res.mem[i + j] +
-                (static_cast<unsigned MYINT64>(mem[i]) * bi.mem[j]);
+                (static_cast<MYUINT64>(mem[i]) * bi.mem[j]);
             res.mem[i + j + 1] += tmp / BIGINT_MAX;
             res.mem[i + j] = tmp % BIGINT_MAX;
         }
@@ -458,7 +459,7 @@ big_int big_int::operator / (big_int bi) {
 
     for (int i = k; i < size; i++)
         tmp.mem[i] = bi.mem[i - k];
-    unsigned MYINT64 l, r, c, p;
+    MYUINT64 l, r, c, p;
     while (1) {
         l = 0;
         r = BIGINT_MAX - 1;
@@ -472,14 +473,14 @@ big_int big_int::operator / (big_int bi) {
             tmp_b.size = size;
             for (int i = 0; i < size - k; i++) {
                 p = tmp_.mem[i + k] +
-                    (static_cast<unsigned MYINT64>(tmp.mem[i + k]) * c);
+                    (static_cast<MYUINT64>(tmp.mem[i + k]) * c);
                 tmp_.mem[i + k + 1] += p / BIGINT_MAX;
                 tmp_.mem[i + k] = p % BIGINT_MAX;
             }
 
             for (int i = k; i < size; i++) {
                 p = tmp_b.mem[i] +
-                    (static_cast<unsigned MYINT64>(tmp_.mem[i]) + _b.mem[i]);
+                    (static_cast<MYUINT64>(tmp_.mem[i]) + _b.mem[i]);
                 tmp_b.mem[i + 1] = p / BIGINT_MAX;
                 tmp_b.mem[i] = p % BIGINT_MAX;
             }
@@ -500,14 +501,14 @@ big_int big_int::operator / (big_int bi) {
 
         for (int i = 0; i < size - k; i++) {
             p = tmp_.mem[i + k] +
-                (static_cast<unsigned MYINT64>(tmp.mem[i + k]) * r);
+                (static_cast<MYUINT64>(tmp.mem[i + k]) * r);
             tmp_.mem[i + k + 1] += p / BIGINT_MAX;
             tmp_.mem[i + k] = p % BIGINT_MAX;
         }
 
         for (int i = k; i < size; i++) {
             p = tmp_b.mem[i] +
-                (static_cast<unsigned MYINT64>(tmp_.mem[i]) + _b.mem[i]);
+                (static_cast<MYUINT64>(tmp_.mem[i]) + _b.mem[i]);
             tmp_b.mem[i + 1] = p / BIGINT_MAX;
             tmp_b.mem[i] = p % BIGINT_MAX;
         }
