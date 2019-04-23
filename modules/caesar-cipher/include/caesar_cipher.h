@@ -13,4 +13,4 @@ class CaesarCipher {
     static std::string Shift(const std::string& message, const int& key);
 };
 
-#endif // MODULES_CAESAR_CIPHER_INCLUDE_CAESAR_CIPHER_H_
+#endif  // MODULES_CAESAR_CIPHER_INCLUDE_CAESAR_CIPHER_H_
