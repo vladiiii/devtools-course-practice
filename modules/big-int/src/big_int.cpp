@@ -26,7 +26,7 @@ big_int::big_int(long long bi, int _size_mem) {
         if (size == 2)
             mem[1] = bi / BIGINT_MAX * sign;
         if (size == 3) {
-            _int64 tmp = bi / BIGINT_MAX * sign;
+            long long tmp = bi / BIGINT_MAX * sign;
             mem[1] = tmp % BIGINT_MAX;
             mem[2] = tmp / BIGINT_MAX;
         }
@@ -46,7 +46,6 @@ big_int::big_int(const std::string & st) {
     std::string str = st;
     size_mem = str.length();
     sign = 1;
-    int i = 0;
     if (str[0] == '-') {
         sign = -1;
         size_mem--;
@@ -108,7 +107,7 @@ big_int & big_int::operator = (const long long & bi) {
     if (size == 2)
         mem[1] = bi / BIGINT_MAX * sign;
     if (size == 3) {
-        _int64 tmp = bi / BIGINT_MAX * sign;
+        long long tmp = bi / BIGINT_MAX * sign;
         mem[1] = tmp % BIGINT_MAX;
         mem[2] = tmp / BIGINT_MAX;
     }
@@ -117,10 +116,11 @@ big_int & big_int::operator = (const long long & bi) {
 
 char big_int::operator < (big_int & bi) {
     if (sign * bi.sign == -1)
-        if (sign == -1)
+        if (sign == -1) {
             return 1;
-        else
+        } else {
             return 0;
+        }
     if ((sign == -1) && (bi.sign == -1)) {
         sign = 1;
         bi.sign = 1;
@@ -135,19 +135,21 @@ char big_int::operator < (big_int & bi) {
         return 0;
     for (int i = size - 1; i >= 0; i--)
         if (mem[i] != bi.mem[i])
-            if (mem[i] < bi.mem[i])
+            if (mem[i] < bi.mem[i]) {
                 return 1;
-            else
+            } else {
                 return 0;
+            }
      return 0;
 }
 
 char big_int::operator > (big_int & bi) {
     if (sign * bi.sign == -1)
-        if (sign == -1)
+        if (sign == -1) {
             return 0;
-        else
+        } else {
             return 1;
+        }
     if ((sign == -1) && (bi.sign == -1)) {
         sign = 1;
         bi.sign = 1;
@@ -162,19 +164,21 @@ char big_int::operator > (big_int & bi) {
         return 0;
     for (int i = size - 1; i >= 0; i--)
         if (mem[i] != bi.mem[i])
-            if (mem[i] > bi.mem[i])
+            if (mem[i] > bi.mem[i]) {
                 return 1;
-            else
+            } else {
                 return 0;
+            }
     return 0;
 }
 
 char big_int::operator <= (big_int & bi) {
     if (sign * bi.sign == -1)
-        if (sign == -1)
+        if (sign == -1) {
             return 1;
-        else
+        } else {
             return 0;
+        }
     if ((sign == -1) && (bi.sign == -1)) {
         sign = 1;
         bi.sign = 1;
@@ -189,19 +193,21 @@ char big_int::operator <= (big_int & bi) {
         return 0;
     for (int i = size - 1; i >= 0; i--)
         if (mem[i] != bi.mem[i])
-            if (mem[i] < bi.mem[i])
+            if (mem[i] < bi.mem[i]) {
                 return 1;
-            else
+            } else {
                 return 0;
+            }
     return 1;
 }
 
 char big_int::operator >= (big_int & bi) {
     if (sign * bi.sign == -1)
-        if (sign == -1)
+        if (sign == -1) {
             return 0;
-        else
+        } else {
             return 1;
+        }
     if ((sign == -1) && (bi.sign == -1)) {
         sign = 1;
         bi.sign = 1;
@@ -216,10 +222,11 @@ char big_int::operator >= (big_int & bi) {
         return 0;
     for (int i = size - 1; i >= 0; i--)
         if (mem[i] != bi.mem[i])
-            if (mem[i] > bi.mem[i])
+            if (mem[i] > bi.mem[i]) {
                 return 1;
-            else
+            } else {
                 return 0;
+            }
     return 1;
 }
 
