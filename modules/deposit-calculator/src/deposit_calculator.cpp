@@ -1,4 +1,4 @@
-#include "include\deposit_calculator.h"
+#include "include/deposit_calculator.h"
 
 
 int DepositCalculator::GetInitialAmount() {
