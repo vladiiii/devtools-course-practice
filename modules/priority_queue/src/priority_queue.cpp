@@ -70,7 +70,7 @@ bool PriorityQueue::empty() {
 
 int PriorityQueue::size() {
     Link *tmp = first;
-    int count;
+    int count = 0;
     while (tmp != nullptr) {
         count++;
         tmp = tmp->next;
