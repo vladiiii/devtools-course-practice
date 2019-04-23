@@ -4,7 +4,7 @@
 #define MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_
 
 #include <vector>
-#include <algorithm
+#include <algorithm>
 
 template <typename ValueType>
 class Heap {
@@ -29,7 +29,7 @@ public:
 };
 
 template <typename ValueType>
-size_t Heap<ValueType>::GetSize(){
+size_t Heap<ValueType>::GetSize() {
     return vec.size();
 }
 
@@ -41,19 +41,18 @@ void Heap<ValueType>::swap(size_t child, size_t parent) {
 template <typename ValueType>
 size_t Heap<ValueType>::GetParent(size_t child) {
     if (child % 2 == 0)
-       return (child / 2 ) - 1;
+        return child / 2  - 1;
     else 
-       return child / 2;
-  
+        return child / 2;  
 }
 
 template <typename ValueType>
-size_t Heap<ValueType>GetLeftChild(size_t parent){
+size_t Heap<ValueType>::GetLeftChild(size_t parent) {
     return 2 * parent + 1;
 }
 
 template <typename ValueType>
-size_t Heap<ValueType>::GetRightChild(size_t parent){
+size_t Heap<ValueType>::GetRightChild(size_t parent) {
     return 2 * parent + 2;
 }
 
@@ -71,10 +70,9 @@ void Heap<ValueType>::BubbleUp() {
     while (vec[child] > vec[parent] && child >=0 && parent >= 0) {
         swap(child, parent);
         child = parent;
-        parent = getParent(child);
+        parent = GetParent(child);
     }
 }
-
 
 template <typename ValueType>
 ValueType Heap<ValueType>::Remove() {
@@ -85,7 +83,6 @@ ValueType Heap<ValueType>::Remove() {
     BubbleDown();
     return value;
 }
-
 
 template <typename ValueType>
 void Heap<ValueType>::BubbleDown() {
