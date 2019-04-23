@@ -1,5 +1,7 @@
 #include "include/deposit_calculator.h"
 
+#include <string>
+
 
 int DepositCalculator::GetInitialAmount() {
     return initial_amount_;
@@ -70,6 +72,7 @@ double DepositCalculator::Calculate() {
         sum = initial_amount_ * temp;
         break;
     default:
+		throw std::string("Wrong type");
         break;
     }
     return sum;
