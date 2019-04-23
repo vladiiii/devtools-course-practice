@@ -1,6 +1,6 @@
 // Copyright 2019 Repin Vladimir
-#ifndef CAESAR_CIPHER_H
-#define CAESAR_CIPHER_H
+#ifndef MODULES_CAESAR_CIPHER_INCLUDE_CAESAR_CIPHER_H_
+#define MODULES_CAESAR_CIPHER_INCLUDE_CAESAR_CIPHER_H_
 
 #include <string>
 
@@ -13,4 +13,4 @@ class CaesarCipher {
     static std::string Shift(const std::string& message, const int& key);
 };
 
-#endif
+#endif // MODULES_CAESAR_CIPHER_INCLUDE_CAESAR_CIPHER_H_
