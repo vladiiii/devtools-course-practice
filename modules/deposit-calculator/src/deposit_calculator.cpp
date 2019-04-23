@@ -1,3 +1,5 @@
+// Copyright 2019 Sitkin Dmitry
+
 #include "include/deposit_calculator.h"
 
 #include <string>
@@ -16,16 +18,16 @@ int DepositCalculator::GetCapitalization() {
     return capitalization_;
 }
 
-void DepositCalculator::SetInitialAmount(int initial_amount){
+void DepositCalculator::SetInitialAmount(int initial_amount) {
     initial_amount_ = initial_amount;
 }
-void DepositCalculator::SetTerm(int term){
+void DepositCalculator::SetTerm(int term) {
     term_ = term;
 }
-void DepositCalculator::SetAnnualInterest(double annual_interest){
+void DepositCalculator::SetAnnualInterest(double annual_interest) {
     annual_interest_ = annual_interest;
 }
-void DepositCalculator::SetCapitalization(int capitalization){
+void DepositCalculator::SetCapitalization(int capitalization) {
     capitalization_ = capitalization;
 }
 
@@ -72,7 +74,7 @@ double DepositCalculator::Calculate() {
         sum = initial_amount_ * temp;
         break;
     default:
-		throw std::string("Wrong type");
+        throw std::string("Wrong type");
         break;
     }
     return sum;
