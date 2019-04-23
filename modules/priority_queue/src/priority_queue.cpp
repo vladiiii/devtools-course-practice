@@ -58,3 +58,22 @@ void PriorityQueue::pop() {
     }
 }
 
+int PriorityQueue::top() {
+    if (last == nullptr)
+        throw "No elements";
+    return last->value;
+}
+
+bool PriorityQueue::empty() {
+    return first == nullptr;
+}
+
+int PriorityQueue::size() {
+    Link *tmp = first;
+    int count;
+    while (tmp != nullptr) {
+        count++;
+        tmp = tmp->next;
+    }
+    return count;
+}
