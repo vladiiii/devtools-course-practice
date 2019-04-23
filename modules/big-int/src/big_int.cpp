@@ -444,6 +444,11 @@ big_int big_int::operator / (big_int bi) {
     sign = 1;
     bi.sign = 1;
 
+    big_int zero(0);
+    if (bi == zero) {
+        throw std::string("Can't divide by zero");
+    }
+
     if ((*this) < bi) {
         big_int r(0);
         return r;

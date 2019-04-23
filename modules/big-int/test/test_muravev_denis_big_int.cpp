@@ -172,11 +172,11 @@ TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_Positive_And_Right_Negative) {
 
     // Act
     a = 1;
-    b = -1000000000;
+    b = -1;
     res = a + b;
 
     // Assert
-    EXPECT_EQ(-999999999, res.BigIntToInt());
+    EXPECT_EQ(0, res.BigIntToInt());
 }
 
 TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_Negative_And_Right_Negative) {
@@ -192,6 +192,36 @@ TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_Negative_And_Right_Negative) {
 
     // Assert
     EXPECT_EQ(-2019, res.BigIntToInt());
+}
+
+TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_Less_Right) {
+    // Arrange
+    big_int a;
+    big_int b;
+    big_int res;
+
+    // Act
+    a = 1;
+    b = -1000000000;
+    res = a + b;
+
+    // Assert
+    EXPECT_EQ(-999999999, res.BigIntToInt());
+}
+
+TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_More_Right) {
+    // Arrange
+    big_int a;
+    big_int b;
+    big_int res;
+
+    // Act
+    a = 8999999999999999999;
+    b = 1;
+    res = a + b;
+
+    // Assert
+    EXPECT_EQ(9000000000000000000, res.BigIntToInt());
 }
 
 // Operator Subtraction
@@ -257,6 +287,21 @@ TEST(Big_Int_Test,
 
     // Assert
     EXPECT_EQ(-1999, res.BigIntToInt());
+}
+
+TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_More_Right) {
+    // Arrange
+    big_int a;
+    big_int b;
+    big_int res;
+
+    // Act
+    a = 9000000000000000000;
+    b = 1;
+    res = a - b;
+
+    // Assert
+    EXPECT_EQ(8999999999999999999, res.BigIntToInt());
 }
 
 // Operator Multiplication
@@ -340,6 +385,30 @@ TEST(Big_Int_Test,
 }
 
 // Operator Division
+TEST(Big_Int_Test, Can_Call_Operator_Division_For_Divide_By_Zero) {
+    // Arrange & Act
+    big_int a(321);
+    big_int b(0);
+
+    // Assert
+    EXPECT_ANY_THROW(a / b);
+}
+
+TEST(Big_Int_Test, Can_Call_Operator_Division_For_Left_Negative_And_Right_Positive) {
+    // Arrange
+    big_int a;
+    big_int b;
+    big_int res;
+
+    // Act
+    a = -9223372036854775807;
+    b = 36854775807;
+    res = a / b;
+
+    // Assert
+    EXPECT_EQ(-250262600, res.BigIntToInt());
+}
+
 TEST(Big_Int_Test, Can_Call_Operator_Division_For_Equal_Numbers) {
     // Arrange
     big_int a;
