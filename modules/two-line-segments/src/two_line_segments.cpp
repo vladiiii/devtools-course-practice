@@ -46,7 +46,8 @@ LineSegment TwoLineSegments::getLineSegment2() const {
 }
 
 int TwoLineSegments::signOfSquare(Point p1, Point p2, Point p3) const {
-    int tmp = (p1.getX() - p3.getX())*(p2.getY() - p3.getY()) + (p2.getX() - p3.getX())*(p3.getY() - p1.getY());
+    int tmp = (p1.getX() - p3.getX())*(p2.getY() - p3.getY()) +
+              (p2.getX() - p3.getX())*(p3.getY() - p1.getY());
     if (tmp > 0)
         return 1;
     if (tmp < 0)
@@ -55,7 +56,8 @@ int TwoLineSegments::signOfSquare(Point p1, Point p2, Point p3) const {
 }
 
 bool TwoLineSegments::isMax(int a, int b, int c, int d) const {
-    return std::max(a, b) >= std::min(c, d) && std::max(c, d) >= std::min(a, b);
+    return std::max(a, b) >= std::min(c, d) &&
+           std::max(c, d) >= std::min(a, b);
 }
 
 bool TwoLineSegments::areIntersect() const {
@@ -65,8 +67,10 @@ bool TwoLineSegments::areIntersect() const {
     int s22 = signOfSquare(ls2_.p1, ls2_.p2, ls1_.p2);
 
     if (s11 == 0 && s12 == 0 && s21 == 0 && s22 == 0)
-        return isMax(ls1_.p1.getX(), ls1_.p2.getX(), ls2_.p1.getX(), ls2_.p2.getX()) &&
-               isMax(ls1_.p1.getY(), ls1_.p2.getY(), ls2_.p1.getY(), ls2_.p2.getY());
+        return isMax(ls1_.p1.getX(), ls1_.p2.getX(),
+                     ls2_.p1.getX(), ls2_.p2.getX()) &&
+               isMax(ls1_.p1.getY(), ls1_.p2.getY(),
+                     ls2_.p1.getY(), ls2_.p2.getY());
 
     return (s11*s12 <= 0) && (s21*s22 <= 0);
 }

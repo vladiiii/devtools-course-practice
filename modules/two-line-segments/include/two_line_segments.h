@@ -4,11 +4,11 @@
 #define MODULES_TWO_LINE_SEGMENTS_INCLUDE_TWO_LINE_SEGMENTS_H_
 
 struct Point {
-    private:
-        int x;
-        int y;
+ private:
+    int x;
+    int y;
 
-    public:
+ public:
     int getX() const {
         return x;
     }
