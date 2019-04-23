@@ -10,12 +10,14 @@ std::string CaesarCipher::Shift(const std::string& message, const int &key) {
     if (usedkey < 0)
         usedkey = letters_num - key;
 
-    for (int i = 0; i < shifted_message.size(); i++) {
+    for (unsigned int i = 0; i < shifted_message.size(); i++) {
         if (isalpha(shifted_message[i])) {
             if (isupper(shifted_message[i]))
-                shifted_message[i] = (shifted_message[i] - 'A' + usedkey) % letters_num + 'A';
+                shifted_message[i] = (shifted_message[i] - 'A' + usedkey)
+                % letters_num + 'A';
             else
-                shifted_message[i] = (shifted_message[i] - 'a' + usedkey) % letters_num + 'a';
+                shifted_message[i] = (shifted_message[i] - 'a' + usedkey)
+                % letters_num + 'a';
         }
     }
 
