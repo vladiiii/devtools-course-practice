@@ -78,30 +78,30 @@ TEST(RedBlackTreeTest, Can_Get_Root) {
     Node *node = new Node(1);
     RBTree tree{node};
 
-    ASSERT_EQ(1, tree.get_root()->value);
+    ASSERT_EQ(1, tree.GetRoot()->value);
 }
 
 TEST(RedBlackTreeTest, Can_Get_Current) {
     Node *node = new Node(1);
     RBTree tree{node};
 
-    tree.begin();
+    tree.Begin();
 
-    ASSERT_EQ(1, tree.get_current()->value);
+    ASSERT_EQ(1, tree.GetCurrent()->value);
 }
 
 TEST(RedBlackTreeTest, Can_Get_Nodes_Number) {
     Node *node = new Node(1);
     RBTree tree{node};
 
-    ASSERT_EQ(static_cast<unsigned>(1), tree.get_nodes_number());
+    ASSERT_EQ(static_cast<unsigned>(1), tree.GetNodesNumber());
 }
 
 TEST(RedBlackTreeTest, Can_Find_Existing_Item) {
     std::vector<int> vec{-10, 35, 2};
     RBTree tree{vec};
 
-    bool is_found = tree.find(35);
+    bool is_found = tree.Find(35);
 
     ASSERT_TRUE(is_found);
 }
@@ -110,7 +110,7 @@ TEST(RedBlackTreeTest, Can_Not_Find_Nonexistent_Item) {
     std::vector<int> vec{-10, 35, 2};
     RBTree tree{vec};
 
-    bool is_found = tree.find(0);
+    bool is_found = tree.Find(0);
 
     ASSERT_FALSE(is_found);
 }
@@ -121,7 +121,7 @@ TEST(RedBlackTreeTest, Can_Insert_New_Item) {
 
     Node *new_node = new Node(3);
 
-    ASSERT_NO_THROW(tree.insert(new_node));
+    ASSERT_NO_THROW(tree.Insert(new_node));
 }
 
 TEST(RedBlackTreeTest, Can_Not_Insert_Existing_Item) {
@@ -130,30 +130,30 @@ TEST(RedBlackTreeTest, Can_Not_Insert_Existing_Item) {
 
     Node *existing_node = new Node(1);
 
-    ASSERT_ANY_THROW(tree.insert(existing_node));
+    ASSERT_ANY_THROW(tree.Insert(existing_node));
 }
 
 TEST(RedBlackTreeTest, Can_Remove_Existing_Item) {
     std::vector<int> vec{0, 1, 2};
     RBTree tree{vec};
 
-    ASSERT_NO_THROW(tree.remove(1));
+    ASSERT_NO_THROW(tree.Remove(1));
 }
 
 TEST(RedBlackTreeTest, Can_Not_Remove_Nonexistent_Item) {
     std::vector<int> vec{0, 1, 2};
     RBTree tree{vec};
 
-    ASSERT_ANY_THROW(tree.remove(3));
+    ASSERT_ANY_THROW(tree.Remove(3));
 }
 
 TEST(RedBlackTreeTest, Begin_Sets_Current_to_Smallest_Item) {
     std::vector<int> vec{10, 1, 8};
     RBTree tree{vec};
 
-    tree.begin();
+    tree.Begin();
 
-    ASSERT_EQ(1, tree.get_current()->value);
+    ASSERT_EQ(1, tree.GetCurrent()->value);
 }
 
 TEST(RedBlackTreeTest, Iterator_Represents_All_Items) {
@@ -162,8 +162,8 @@ TEST(RedBlackTreeTest, Iterator_Represents_All_Items) {
     bool result = true;
     unsigned i = 0;
 
-    for (tree.begin(); !tree.end(); tree.next(), ++i)
-        if (vec[i] != tree.get_current()->value)
+    for (tree.Begin(); !tree.End(); tree.Next(), ++i)
+        if (vec[i] != tree.GetCurrent()->value)
             result = false;
 
     result &= (i == vec.size());
@@ -182,26 +182,26 @@ TEST(RedBlackTreeTest, Removing_All_Nodes_Clears_a_Tree) {
     std::shuffle(vec.begin(), vec.end(), re);
 
     for (auto i = vec.begin(); i < vec.end(); ++i)
-        tree.remove(*i);
+        tree.Remove(*i);
 
-    ASSERT_EQ(static_cast<unsigned>(0), tree.get_nodes_number());
+    ASSERT_EQ(static_cast<unsigned>(0), tree.GetNodesNumber());
 }
 
 TEST(RedBlackTreeTest, Stack_Clears_Before_Iteration) {
     std::vector<int> vec{10, 1, 8, -6, 35, 0, -11};
     RBTree tree{vec};
 
-    tree.begin();
-    tree.next();
-    tree.next();
+    tree.Begin();
+    tree.Next();
+    tree.Next();
 
     unsigned i = 0;
-    for (tree.begin(); !tree.end(); tree.next()) {
-        Node *node = tree.get_current();
+    for (tree.Begin(); !tree.End(); tree.Next()) {
+        Node *node = tree.GetCurrent();
         ++i;
     }
 
-    ASSERT_EQ(i, tree.get_nodes_number());
+    ASSERT_EQ(i, tree.GetNodesNumber());
 }
 
 TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
@@ -216,13 +216,13 @@ TEST(RedBlackTreeTest, Can_Operate_with_Large_Tree) {
     RBTree tree{vec};
 
     auto some_tree_operations = [&tree, &vec, &re] {
-        for (tree.begin(); !tree.end(); tree.next())
-            Node *node = tree.get_current();
+        for (tree.Begin(); !tree.End(); tree.Next())
+            Node *node = tree.GetCurrent();
 
         std::shuffle(vec.begin(), vec.end(), re);
 
         for (auto i = vec.begin(); i < vec.end(); ++i)
-            tree.remove(*i);
+            tree.Remove(*i);
     };
 
     ASSERT_NO_THROW(some_tree_operations());

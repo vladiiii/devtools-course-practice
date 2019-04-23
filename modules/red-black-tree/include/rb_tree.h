@@ -54,19 +54,19 @@ class RBTree {
     explicit RBTree(Node *node);
     explicit RBTree(const std::vector<int>& vec);
 
-    RBTree(const RBTree& tree);  // Don't use! It added because of syntax errors
+    RBTree(const RBTree& tree) = default;
 
-    Node* get_root() const;
-    Node* get_current() const;
-    unsigned get_nodes_number() const;
+    Node* GetRoot() const;
+    Node* GetCurrent() const;
+    unsigned GetNodesNumber() const;
 
-    bool find(const int value);
-    void insert(Node *node);
-    void remove(const int value);
+    bool Find(const int value);
+    void Insert(Node *node);
+    void Remove(const int value);
 
-    void begin();
-    bool end() const;
-    void next();
+    void Begin();
+    bool End() const;
+    void Next();
 };
 
 #endif  // MODULES_RED_BLACK_TREE_INCLUDE_RB_TREE_H_

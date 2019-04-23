@@ -53,26 +53,23 @@ RBTree::RBTree(const std::vector<int>& vec) :
                nodes_number(0), counter(0) {
     for (int value : vec) {
         Node *node = new Node{value};
-        insert(node);
+        Insert(node);
     }
 }
 
-RBTree::RBTree(const RBTree& tree) : NIL(new Node{}), root(NIL), current(NIL),
-                                     nodes_number(0), counter(0) {}
-
-Node* RBTree::get_root() const {
+Node* RBTree::GetRoot() const {
     return root;
 }
 
-Node* RBTree::get_current() const {
+Node* RBTree::GetCurrent() const {
     return current;
 }
 
-unsigned RBTree::get_nodes_number() const {
+unsigned RBTree::GetNodesNumber() const {
     return nodes_number;
 }
 
-bool RBTree::find(const int value) {
+bool RBTree::Find(const int value) {
     current = root;
 
     while (current != NIL) {
@@ -87,8 +84,8 @@ bool RBTree::find(const int value) {
     return false;
 }
 
-void RBTree::insert(Node *node) {
-    if (find(node->value))
+void RBTree::Insert(Node *node) {
+    if (Find(node->value))
         throw "This item is already in the tree";
 
     Node *y = NIL;
@@ -120,8 +117,8 @@ void RBTree::insert(Node *node) {
     nodes_number++;
 }
 
-void RBTree::remove(const int value) {
-    if (!find(value))
+void RBTree::Remove(const int value) {
+    if (!Find(value))
         throw "There is no that value in the tree";
 
     Node *z = current;
@@ -161,7 +158,7 @@ void RBTree::remove(const int value) {
     nodes_number--;
 }
 
-void RBTree::begin() {
+void RBTree::Begin() {
     while (!stack.empty())
         stack.pop();
 
@@ -175,11 +172,11 @@ void RBTree::begin() {
     stack.push(current);
 }
 
-bool RBTree::end() const {
+bool RBTree::End() const {
     return (counter == nodes_number);
 }
 
-void RBTree::next() {
+void RBTree::Next() {
     if (!stack.empty())
         stack.pop();
 
