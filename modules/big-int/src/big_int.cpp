@@ -2,7 +2,7 @@
 
 #include "include/big_int.h"
 
-big_int::big_int(__int64 bi, int _size_mem) {
+big_int::big_int(MYINT64 bi, int _size_mem) {
     size = 1;
     sign = 1;
 
@@ -16,8 +16,8 @@ big_int::big_int(__int64 bi, int _size_mem) {
             sign = -1;
         if ((bi >= BIGINT_MAX) || (bi <= (-1) * BIGINT_MAX)) {
             size++;
-            if ((bi >= (static_cast<__int64>(BIGINT_MAX) * BIGINT_MAX)) ||
-                (bi <= (static_cast<__int64>(BIGINT_MAX) * BIGINT_MAX * (-1))))
+            if ((bi >= (static_cast<MYINT64>(BIGINT_MAX) * BIGINT_MAX)) ||
+                (bi <= (static_cast<MYINT64>(BIGINT_MAX) * BIGINT_MAX * (-1))))
                 size++;
         }
         size_mem = size;
@@ -26,7 +26,7 @@ big_int::big_int(__int64 bi, int _size_mem) {
         if (size == 2)
             mem[1] = bi / BIGINT_MAX * sign;
         if (size == 3) {
-            __int64 tmp = bi / BIGINT_MAX * sign;
+            MYINT64 tmp = bi / BIGINT_MAX * sign;
             mem[1] = tmp % BIGINT_MAX;
             mem[2] = tmp / BIGINT_MAX;
         }
@@ -88,7 +88,7 @@ big_int & big_int::operator = (const big_int & bi) {
     return *this;
 }
 
-big_int & big_int::operator = (const __int64 & bi) {
+big_int & big_int::operator = (const MYINT64 & bi) {
     if (size_mem != 0)
         delete[] mem;
     size = 1;
@@ -98,8 +98,8 @@ big_int & big_int::operator = (const __int64 & bi) {
     }
     if ((bi >= BIGINT_MAX) || (bi <= (-1) * BIGINT_MAX)) {
         size++;
-        if ((bi >=(static_cast<__int64>(BIGINT_MAX) * BIGINT_MAX))
-            || (bi <= (static_cast<__int64>(BIGINT_MAX) * BIGINT_MAX * (-1))))
+        if ((bi >=(static_cast<MYINT64>(BIGINT_MAX) * BIGINT_MAX))
+            || (bi <= (static_cast<MYINT64>(BIGINT_MAX) * BIGINT_MAX * (-1))))
             size++;
     }
     size_mem = size;
@@ -108,7 +108,7 @@ big_int & big_int::operator = (const __int64 & bi) {
     if (size == 2)
         mem[1] = bi / BIGINT_MAX * sign;
     if (size == 3) {
-        __int64 tmp = bi / BIGINT_MAX * sign;
+        MYINT64 tmp = bi / BIGINT_MAX * sign;
         mem[1] = tmp % BIGINT_MAX;
         mem[2] = tmp / BIGINT_MAX;
     }
@@ -322,8 +322,8 @@ std::string big_int::BigIntToString() {
     return st;
 }
 
-__int64 big_int::BigIntToInt() {
-    __int64 res = 0;
+MYINT64 big_int::BigIntToInt() {
+    MYINT64 res = 0;
     for (int i = size - 1; i >= 0; i--)
         res = res * BIGINT_MAX + mem[i];
     res *= sign;
@@ -425,11 +425,11 @@ big_int big_int::operator * (big_int bi) {
     big_int res(0, len);
     res.sign = sign * bi.sign;
 
-    unsigned __int64 tmp;
+    unsigned MYINT64 tmp;
     for (int i = 0; i < size; i++)
         for (int j = 0; j < bi.size; j++) {
             tmp = res.mem[i + j] +
-                (static_cast<unsigned __int64>(mem[i]) * bi.mem[j]);
+                (static_cast<unsigned MYINT64>(mem[i]) * bi.mem[j]);
             res.mem[i + j + 1] += tmp / BIGINT_MAX;
             res.mem[i + j] = tmp % BIGINT_MAX;
         }
@@ -458,7 +458,7 @@ big_int big_int::operator / (big_int bi) {
 
     for (int i = k; i < size; i++)
         tmp.mem[i] = bi.mem[i - k];
-    unsigned __int64 l, r, c, p;
+    unsigned MYINT64 l, r, c, p;
     while (1) {
         l = 0;
         r = BIGINT_MAX - 1;
@@ -472,14 +472,14 @@ big_int big_int::operator / (big_int bi) {
             tmp_b.size = size;
             for (int i = 0; i < size - k; i++) {
                 p = tmp_.mem[i + k] +
-                    (static_cast<unsigned __int64>(tmp.mem[i + k]) * c);
+                    (static_cast<unsigned MYINT64>(tmp.mem[i + k]) * c);
                 tmp_.mem[i + k + 1] += p / BIGINT_MAX;
                 tmp_.mem[i + k] = p % BIGINT_MAX;
             }
 
             for (int i = k; i < size; i++) {
                 p = tmp_b.mem[i] +
-                    (static_cast<unsigned __int64>(tmp_.mem[i]) + _b.mem[i]);
+                    (static_cast<unsigned MYINT64>(tmp_.mem[i]) + _b.mem[i]);
                 tmp_b.mem[i + 1] = p / BIGINT_MAX;
                 tmp_b.mem[i] = p % BIGINT_MAX;
             }
@@ -500,14 +500,14 @@ big_int big_int::operator / (big_int bi) {
 
         for (int i = 0; i < size - k; i++) {
             p = tmp_.mem[i + k] +
-                (static_cast<unsigned __int64>(tmp.mem[i + k]) * r);
+                (static_cast<unsigned MYINT64>(tmp.mem[i + k]) * r);
             tmp_.mem[i + k + 1] += p / BIGINT_MAX;
             tmp_.mem[i + k] = p % BIGINT_MAX;
         }
 
         for (int i = k; i < size; i++) {
             p = tmp_b.mem[i] +
-                (static_cast<unsigned __int64>(tmp_.mem[i]) + _b.mem[i]);
+                (static_cast<unsigned MYINT64>(tmp_.mem[i]) + _b.mem[i]);
             tmp_b.mem[i + 1] = p / BIGINT_MAX;
             tmp_b.mem[i] = p % BIGINT_MAX;
         }
