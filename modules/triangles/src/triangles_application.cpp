@@ -88,7 +88,6 @@ std::string TrianglesApp::operator()(int argc, const char** argv) {
         Triangle tr(a, b, c);
 
         std::ostringstream stream;
-        
         switch (args.operation) {
         case 'p':
             stream << "A(" << args.x1 << ", " << args.y1 << ") ";

@@ -80,7 +80,8 @@ TEST_F(TrianglesAppTest, Can_Detect_Wrong_Triangle) {
 }
 
 TEST_F(TrianglesAppTest, Can_Get_Points) {
-    vector<string> args = { "-0.5", "0.0", "1.0", "0.0", "1.0", "1.0", "points" };
+    vector<string> args = { "-0.5", "0.0", "1.0", "0.0", "1.0", "1.0",
+        "points" };
 
     Act(args);
 
@@ -88,7 +89,8 @@ TEST_F(TrianglesAppTest, Can_Get_Points) {
 }
 
 TEST_F(TrianglesAppTest, Can_Get_Angles) {
-    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0", "angles" };
+    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0",
+        "angles" };
 
     Act(args);
 
@@ -96,7 +98,8 @@ TEST_F(TrianglesAppTest, Can_Get_Angles) {
 }
 
 TEST_F(TrianglesAppTest, Can_Get_Sides) {
-    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0", "sides" };
+    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0",
+        "sides" };
 
     Act(args);
 
@@ -104,7 +107,8 @@ TEST_F(TrianglesAppTest, Can_Get_Sides) {
 }
 
 TEST_F(TrianglesAppTest, Can_Get_Perimeter) {
-    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0", "perimeter" };
+    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0",
+        "perimeter" };
 
     Act(args);
 
@@ -112,7 +116,8 @@ TEST_F(TrianglesAppTest, Can_Get_Perimeter) {
 }
 
 TEST_F(TrianglesAppTest, Can_Get_Square) {
-    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0", "square" };
+    vector<string> args = { "0.0", "0.0", "1.0", "0.0", "1.0", "1.0",
+        "square" };
 
     Act(args);
 
