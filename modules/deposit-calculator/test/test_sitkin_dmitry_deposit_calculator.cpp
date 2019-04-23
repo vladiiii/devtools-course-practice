@@ -129,16 +129,13 @@ TEST(Sitkin_Dmitry_Deposit_Calculator,
 
 TEST(Sitkin_Dmitry_Deposit_Calculator,
     Cant_Calculate_With_Unknown_Capitalization) {
-    // Arrang
+    // Arrange
     DepositCalculator dc;
     dc.SetInitialAmount(100000);
     dc.SetTerm(24);
     dc.SetAnnualInterest(10);
     dc.SetCapitalization(5);
 
-    // Act
-    double result;
-
     // Assert
-    EXPECT_ANY_THROW(result = dc.Calculate());
+    EXPECT_ANY_THROW(dc.Calculate());
 }
