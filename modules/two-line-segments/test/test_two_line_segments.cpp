@@ -112,10 +112,8 @@ TEST(TwoLineSegmentsTest,
 TEST(TwoLineSegmentsTest, Can_Set_And_Get_Coorditanes_Of_First_Line_Segment) {
     // Arrange
     Point p1, p2;
-    p1.x = 5;
-    p1.y = 7;
-    p2.x = -1;
-    p2.y = -8;
+    p1.SetCoordinatesToPoint(5, 7);
+    p2.SetCoordinatesToPoint(-1, -8);
     TwoLineSegments tls;
 
     // Act
@@ -132,10 +130,8 @@ TEST(TwoLineSegmentsTest,
      Can_Set_And_Get_Coorditanes_Of_Second_Line_Segment) {
     // Arrange
     Point p1, p2;
-    p1.x = 5;
-    p1.y = 7;
-    p2.x = -3;
-    p2.y = -8;
+    p1.SetCoordinatesToPoint(5, 7);
+    p2.SetCoordinatesToPoint(-3, -8);
     TwoLineSegments tls;
 
     // Act
@@ -151,14 +147,10 @@ TEST(TwoLineSegmentsTest,
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v1) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 0;
-    p3.y = 3;
-    p4.x = 10;
-    p4.y = 3;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(0, 3);
+    p4.SetCoordinatesToPoint(10, 3);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -171,14 +163,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v1) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v2) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 2;
-    p3.y = 1;
-    p4.x = 2;
-    p4.y = 5;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(2, 1);
+    p4.SetCoordinatesToPoint(2, 5);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -191,14 +179,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v2) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v3) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 2;
-    p3.y = 0;
-    p4.x = 2;
-    p4.y = 5;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(2, 0);
+    p4.SetCoordinatesToPoint(2, 5);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -211,14 +195,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v3) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v4) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 2;
-    p3.y = -5;
-    p4.x = 2;
-    p4.y = 5;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(2, -5);
+    p4.SetCoordinatesToPoint(2, 5);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -231,14 +211,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v4) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v5) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 2;
-    p3.y = 1;
-    p4.x = 2;
-    p4.y = 1;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(2, 1);
+    p4.SetCoordinatesToPoint(2, 1);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -251,14 +227,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v5) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v6) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 0;
-    p1.y = 0;
-    p2.x = 10;
-    p2.y = 0;
-    p3.x = 5;
-    p3.y = 0;
-    p4.x = 5;
-    p4.y = 0;
+    p1.SetCoordinatesToPoint(0, 0);
+    p2.SetCoordinatesToPoint(10, 0);
+    p3.SetCoordinatesToPoint(5, 0);
+    p4.SetCoordinatesToPoint(5, 0);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -271,14 +243,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v6) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v7) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 1;
-    p1.y = 2;
-    p2.x = 1;
-    p2.y = 2;
-    p3.x = 1;
-    p3.y = 2;
-    p4.x = 1;
-    p4.y = 2;
+    p1.SetCoordinatesToPoint(1, 2);
+    p2.SetCoordinatesToPoint(1, 2);
+    p3.SetCoordinatesToPoint(1, 2);
+    p4.SetCoordinatesToPoint(1, 2);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);
@@ -291,14 +259,10 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v7) {
 TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v8) {
     // Arrange
     Point p1, p2, p3, p4;
-    p1.x = 1;
-    p1.y = 2;
-    p2.x = 1;
-    p2.y = 2;
-    p3.x = 5;
-    p3.y = 0;
-    p4.x = 5;
-    p4.y = 0;
+    p1.SetCoordinatesToPoint(1, 2);
+    p2.SetCoordinatesToPoint(1, 2);
+    p3.SetCoordinatesToPoint(5, 0);
+    p4.SetCoordinatesToPoint(5, 0);
     TwoLineSegments tls;
 
     tls.setCoordinatesToFirstLine(p1, p2);

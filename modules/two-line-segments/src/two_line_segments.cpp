@@ -12,29 +12,29 @@ TwoLineSegments::TwoLineSegments() {
 
 TwoLineSegments::TwoLineSegments(const LineSegment _ls1,
                                  const LineSegment _ls2) {
-    ls1_.p1.SetCoordinatesToPoint(_ls1.p1.x, _ls1.p1.y);
-    ls1_.p2.SetCoordinatesToPoint(_ls1.p2.x, _ls1.p2.y);
-    ls2_.p1.SetCoordinatesToPoint(_ls2.p1.x, _ls2.p1.y);
-    ls2_.p2.SetCoordinatesToPoint(_ls2.p2.x, _ls2.p2.y);
+    ls1_.p1.SetCoordinatesToPoint(_ls1.p1.getX(), _ls1.p1.getY());
+    ls1_.p2.SetCoordinatesToPoint(_ls1.p2.getX(), _ls1.p2.getY());
+    ls2_.p1.SetCoordinatesToPoint(_ls2.p1.getX(), _ls2.p1.getY());
+    ls2_.p2.SetCoordinatesToPoint(_ls2.p2.getX(), _ls2.p2.getY());
 }
 
 TwoLineSegments::TwoLineSegments(const TwoLineSegments& z) {
-    ls1_.p1.SetCoordinatesToPoint(z.ls1_.p1.x, z.ls1_.p1.y);
-    ls1_.p2.SetCoordinatesToPoint(z.ls1_.p2.x, z.ls1_.p2.y);
-    ls2_.p1.SetCoordinatesToPoint(z.ls2_.p1.x, z.ls2_.p1.y);
-    ls2_.p2.SetCoordinatesToPoint(z.ls2_.p2.x, z.ls2_.p2.y);
+    ls1_.p1.SetCoordinatesToPoint(z.ls1_.p1.getX(), z.ls1_.p1.getY());
+    ls1_.p2.SetCoordinatesToPoint(z.ls1_.p2.getX(), z.ls1_.p2.getY());
+    ls2_.p1.SetCoordinatesToPoint(z.ls2_.p1.getX(), z.ls2_.p1.getY());
+    ls2_.p2.SetCoordinatesToPoint(z.ls2_.p2.getX(), z.ls2_.p2.getY());
 }
 
 void TwoLineSegments::setCoordinatesToFirstLine(const Point _p1,
                                                 const Point _p2) {
-    ls1_.p1.SetCoordinatesToPoint(_p1.x, _p1.y);
-    ls1_.p2.SetCoordinatesToPoint(_p2.x, _p2.y);
+    ls1_.p1.SetCoordinatesToPoint(_p1.getX(), _p1.getY());
+    ls1_.p2.SetCoordinatesToPoint(_p2.getX(), _p2.getY());
 }
 
 void TwoLineSegments::setCoordinatesToSecondLine(const Point _p1,
                                                 const Point _p2) {
-    ls2_.p1.SetCoordinatesToPoint(_p1.x, _p1.y);
-    ls2_.p2.SetCoordinatesToPoint(_p2.x, _p2.y);
+    ls2_.p1.SetCoordinatesToPoint(_p1.getX(), _p1.getY());
+    ls2_.p2.SetCoordinatesToPoint(_p2.getX(), _p2.getY());
 }
 
 LineSegment TwoLineSegments::getLineSegment1() const {
@@ -46,7 +46,7 @@ LineSegment TwoLineSegments::getLineSegment2() const {
 }
 
 int TwoLineSegments::signOfSquare(Point p1, Point p2, Point p3) const {
-    int tmp = (p1.x - p3.x)*(p2.y - p3.y) + (p2.x - p3.x)*(p3.y - p1.y);
+    int tmp = (p1.getX() - p3.getX())*(p2.getY() - p3.getY()) + (p2.getX() - p3.getX())*(p3.getY() - p1.getY());
     if (tmp > 0)
         return 1;
     if (tmp < 0)
@@ -65,8 +65,8 @@ bool TwoLineSegments::areIntersect() const {
     int s22 = signOfSquare(ls2_.p1, ls2_.p2, ls1_.p2);
 
     if (s11 == 0 && s12 == 0 && s21 == 0 && s22 == 0)
-        return isMax(ls1_.p1.x, ls1_.p2.x, ls2_.p1.x, ls2_.p2.x) &&
-               isMax(ls1_.p1.y, ls1_.p2.y, ls2_.p1.y, ls2_.p2.y);
+        return isMax(ls1_.p1.getX(), ls1_.p2.getX(), ls2_.p1.getX(), ls2_.p2.getX()) &&
+               isMax(ls1_.p1.getY(), ls1_.p2.getY(), ls2_.p1.getY(), ls2_.p2.getY());
 
     return (s11*s12 <= 0) && (s21*s22 <= 0);
 }
