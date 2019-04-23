@@ -17,13 +17,13 @@ class big_int {
     void removingZeros();
  
  public:
-    big_int(long long bi = 0, int _sizeMem = 1);
+    big_int(__int64 bi = 0, int _sizeMem = 1);
     big_int(const big_int & bi);
     big_int(const std::string & st);
     ~big_int();
 
     big_int & operator = (const big_int & bi);
-    big_int & operator = (const long long & bi);
+    big_int & operator = (const __int64 & bi);
 
     big_int operator + (big_int bi);
     big_int operator - (big_int bi);
@@ -43,7 +43,7 @@ class big_int {
     int getSign();
 
     std::string BigIntToString();
-    long long BigIntToInt();
+    __int64 BigIntToInt();
 };
 
 #endif  // MODULES_BIG_INT_INCLUDE_BIG_INT_H_

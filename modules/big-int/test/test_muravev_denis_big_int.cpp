@@ -195,7 +195,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Sum_For_Left_Negative_And_Right_Negative) {
 }
 
 // Operator Subtraction
-TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Positive) {
     // Arrange
     big_int a;
     big_int b;
@@ -210,7 +211,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Pos
     EXPECT_EQ(999999999, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Subtraction_For_Left_Negative_And_Right_Positive) {
     // Arrange
     big_int a;
     big_int b;
@@ -225,7 +227,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Negative_And_Right_Pos
     EXPECT_EQ(-1000000000, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Negative) {
     // Arrange
     big_int a;
     big_int b;
@@ -240,7 +243,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Positive_And_Right_Neg
     EXPECT_EQ(1000000000, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Subtraction_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Subtraction_For_Left_Negative_And_Right_Negative) {
     // Arrange
     big_int a;
     big_int b;
@@ -271,7 +275,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Multiplication_At_Zero) {
     EXPECT_EQ(0, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Multiplication_Positive_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Multiplication_Positive_And_Right_Positive) {
     // Arrange
     big_int a;
     big_int b;
@@ -286,7 +291,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Multiplication_Positive_And_Right_Positive)
     EXPECT_EQ(10306080908060301, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Multiplication_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Multiplication_For_Left_Negative_And_Right_Positive) {
     // Arrange
     big_int a;
     big_int b;
@@ -301,7 +307,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Multiplication_For_Left_Negative_And_Right_
     EXPECT_EQ(-10306080908060301, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Multiplication_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Multiplication_For_Left_Positive_And_Right_Negative) {
     // Arrange
     big_int a;
     big_int b;
@@ -316,7 +323,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Multiplication_For_Left_Positive_And_Right_
     EXPECT_EQ(-10306080908060301, res.BigIntToInt());
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Multiplication_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Multiplication_For_Left_Negative_And_Right_Negative) {
     // Arrange
     big_int a;
     big_int b;
@@ -433,7 +441,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_For_Equal_Numbers) {
     EXPECT_EQ(0, a < b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -442,7 +451,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_For_Left_Negative_And_Right_Positive) 
     EXPECT_EQ(1, a < b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -451,7 +461,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_For_Left_Positive_And_Right_Negative) 
     EXPECT_EQ(0, a < b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
@@ -506,7 +517,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_For_Equal_Numbers) {
     EXPECT_EQ(0, a > b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -515,7 +527,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_For_Left_Negative_And_Right_Positive) 
     EXPECT_EQ(0, a > b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -524,7 +537,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_For_Left_Positive_And_Right_Negative) 
     EXPECT_EQ(1, a > b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
@@ -579,7 +593,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Equal_Numbers) {
     EXPECT_EQ(1, a <= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_Or_Equal_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -588,7 +603,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Negative_And_Right_P
     EXPECT_EQ(1, a <= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_Or_Equal_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -597,7 +613,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Positive_And_Right_N
     EXPECT_EQ(0, a <= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_Or_Equal_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
@@ -624,7 +641,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_More_Right) {
     EXPECT_EQ(0, a <= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Size_Less_Right_Size) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_Or_Equal_For_Left_Size_Less_Right_Size) {
     // Arrange & Act
     big_int a(1);
     big_int b(1000000001);
@@ -633,7 +651,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Size_Less_Right_Size
     EXPECT_EQ(1, a <= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Less_Or_Equal_For_Left_Size_More_Right_Size) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Less_Or_Equal_For_Left_Size_More_Right_Size) {
     // Arrange & Act
     big_int a(1000000001);
     big_int b(1);
@@ -652,7 +671,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Equal_Numbers) {
     EXPECT_EQ(1, a >= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_Or_Equal_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -661,7 +681,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Negative_And_Right_P
     EXPECT_EQ(0, a >= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_Or_Equal_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -670,7 +691,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Positive_And_Right_N
     EXPECT_EQ(1, a >= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_Or_Equal_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
@@ -697,7 +719,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_More_Right) {
     EXPECT_EQ(1, a >= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Size_Less_Right_Size) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_Or_Equal_For_Left_Size_Less_Right_Size) {
     // Arrange & Act
     big_int a(1);
     big_int b(1000000001);
@@ -706,7 +729,8 @@ TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Size_Less_Right_Size
     EXPECT_EQ(0, a >= b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_More_Or_Equal_For_Left_Size_More_Right_Size) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_More_Or_Equal_For_Left_Size_More_Right_Size) {
     // Arrange & Act
     big_int a(1000000001);
     big_int b(1);
@@ -725,7 +749,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Equal_Numbers) {
     EXPECT_EQ(1, a == b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Equal_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -734,7 +759,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Left_Negative_And_Right_Positive)
     EXPECT_EQ(0, a == b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Equal_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -743,7 +769,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Left_Positive_And_Right_Negative)
     EXPECT_EQ(0, a == b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Equal_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Equal_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
@@ -798,7 +825,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Equal_Numbers) {
     EXPECT_EQ(0, a != b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Left_Negative_And_Right_Positive) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Not_Equal_For_Left_Negative_And_Right_Positive) {
     // Arrange & Act
     big_int a(-1);
     big_int b(1);
@@ -807,7 +835,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Left_Negative_And_Right_Posit
     EXPECT_EQ(1, a != b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Left_Positive_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Not_Equal_For_Left_Positive_And_Right_Negative) {
     // Arrange & Act
     big_int a(1);
     big_int b(-1);
@@ -816,7 +845,8 @@ TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Left_Positive_And_Right_Negat
     EXPECT_EQ(1, a != b);
 }
 
-TEST(Big_Int_Test, Can_Call_Operator_Not_Equal_For_Left_Negative_And_Right_Negative) {
+TEST(Big_Int_Test,
+    Can_Call_Operator_Not_Equal_For_Left_Negative_And_Right_Negative) {
     // Arrange & Act
     big_int a(-2);
     big_int b(-1);
