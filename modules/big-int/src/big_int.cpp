@@ -114,7 +114,7 @@ big_int & big_int::operator = (const long long & bi) {
     return *this;
 }
 
-char big_int::operator < (big_int & bi) {
+char big_int::operator < (big_int bi) {
     if (sign * bi.sign == -1) {
         if (sign == -1) {
             return 1;
@@ -147,7 +147,7 @@ char big_int::operator < (big_int & bi) {
      return 0;
 }
 
-char big_int::operator > (big_int & bi) {
+char big_int::operator > (big_int bi) {
     if (sign * bi.sign == -1) {
         if (sign == -1) {
             return 0;
@@ -180,7 +180,7 @@ char big_int::operator > (big_int & bi) {
     return 0;
 }
 
-char big_int::operator <= (big_int & bi) {
+char big_int::operator <= (big_int bi) {
     if (sign * bi.sign == -1) {
         if (sign == -1) {
             return 1;
@@ -213,7 +213,7 @@ char big_int::operator <= (big_int & bi) {
     return 1;
 }
 
-char big_int::operator >= (big_int & bi) {
+char big_int::operator >= (big_int bi) {
     if (sign * bi.sign == -1) {
         if (sign == -1) {
             return 0;
@@ -246,7 +246,7 @@ char big_int::operator >= (big_int & bi) {
     return 1;
 }
 
-char big_int::operator == (big_int & bi) {
+char big_int::operator == (big_int bi) {
     if (sign * bi.sign == -1)
         return 0;
     if (size != bi.size)
@@ -257,7 +257,7 @@ char big_int::operator == (big_int & bi) {
     return 1;
 }
 
-char big_int::operator != (big_int & bi) {
+char big_int::operator != (big_int bi) {
     if (sign * bi.sign == -1)
         return 1;
     if (size != bi.size)
@@ -337,7 +337,7 @@ long long big_int::BigIntToInt() {
     return res;
 }
 
-big_int big_int::operator + (big_int & bi) {
+big_int big_int::operator + (big_int bi) {
     if (size < bi.size)
         return bi + (*this);
     big_int res(0, size + 1);
@@ -376,7 +376,7 @@ big_int big_int::operator + (big_int & bi) {
     return res;
 }
 
-big_int big_int::operator - (big_int & bi) {
+big_int big_int::operator - (big_int bi) {
     big_int res;
     if ((sign > 0) && (bi.sign < 0)) {
         bi.sign = 1;
@@ -427,7 +427,7 @@ big_int big_int::operator - (big_int & bi) {
     return res;
 }
 
-big_int big_int::operator * (big_int & bi) {
+big_int big_int::operator * (big_int bi) {
     int len = size + bi.size + 1;
     big_int res(0, len);
     res.sign = sign * bi.sign;
@@ -444,7 +444,7 @@ big_int big_int::operator * (big_int & bi) {
     return res;
 }
 
-big_int big_int::operator / (big_int & bi) {
+big_int big_int::operator / (big_int bi) {
     int sg1 = sign, sg2 = bi.sign;
     sign = 1;
     bi.sign = 1;
@@ -532,7 +532,7 @@ big_int big_int::operator / (big_int & bi) {
     return res;
 }
 
-big_int big_int::operator % (big_int & bi) {
+big_int big_int::operator % (big_int bi) {
     big_int res;
     res = (*this) / bi;
     res = res * bi;

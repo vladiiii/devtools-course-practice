@@ -7,15 +7,16 @@
 #define BIGINT_MAX 1000000000
 
 class big_int {
-private:
+ private:
     int size;
     int size_mem;
     char sign;
     int * mem;
 
-    int realSize ();
-    void removingZeros ();
-public:
+    int realSize();
+    void removingZeros();
+ 
+ public:
     big_int(long long bi = 0, int _sizeMem = 1);
     big_int(const big_int & bi);
     big_int(const std::string & st);
@@ -24,24 +25,24 @@ public:
     big_int & operator = (const big_int & bi);
     big_int & operator = (const long long & bi);
 
-    big_int operator + (big_int & bi);
-    big_int operator - (big_int & bi);
-    big_int operator * (big_int & bi);
-    big_int operator / (big_int & bi);
-    big_int operator % (big_int & bi);
+    big_int operator + (big_int bi);
+    big_int operator - (big_int bi);
+    big_int operator * (big_int bi);
+    big_int operator / (big_int bi);
+    big_int operator % (big_int bi);
 
-    char operator < (big_int & bi);
-    char operator > (big_int & bi);
-    char operator <= (big_int & bi);
-    char operator >= (big_int & bi);
-    char operator == (big_int & bi);
-    char operator != (big_int & bi);
+    char operator < (big_int bi);
+    char operator > (big_int bi);
+    char operator <= (big_int bi);
+    char operator >= (big_int bi);
+    char operator == (big_int bi);
+    char operator != (big_int bi);
 
     int & operator [] (int k);
-    int getSize ();
-    int getSign ();
+    int getSize();
+    int getSign();
 
-    std::string BigIntToString ();
+    std::string BigIntToString();
     long long BigIntToInt();
 };
 
