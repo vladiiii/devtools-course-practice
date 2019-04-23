@@ -26,29 +26,29 @@ std::string TreeApplication::operator()(int argc, const char** argv) {
     return out_.str();
 }
 
-long TreeApplication::ParseNumber(const char *s) {
-    long result = strtol(s, nullptr, 10);
-    if (result <= static_cast<long>(INT_MIN) ||
-        result >= static_cast<long>(INT_MAX))
+int64_t TreeApplication::ParseNumber(const char *s) {
+    int64_t result = strtol(s, nullptr, 10);
+    if (result <= static_cast<int64_t>(INT_MIN) ||
+        result >= static_cast<int64_t>(INT_MAX))
         out_ << "Number is out of bounds" << "\n";
-    return static_cast<long>(INT_MAX);
+    return static_cast<int64_t>(INT_MAX);
 }
 
 int TreeApplication::ParseOperation(const char **argv) {
     if (strcmp(*argv, "add") == 0) {
-        long value = ParseNumber(*(argv + 1));
+        int64_t value = ParseNumber(*(argv + 1));
         t_.Add(value);
         out_ << "Number " << value << " is added to the tree\n";
         return 2;
     }
     if (strcmp(*argv, "del") == 0) {
-        long value = ParseNumber(*(argv + 1));
+        int64_t value = ParseNumber(*(argv + 1));
         t_.Del(value);
         out_ << "Number " << value << " is deleted from the tree\n";
         return 2;
     }
     if (strcmp(*argv, "search") == 0) {
-        long value = ParseNumber(*(argv + 1));
+        int64_t value = ParseNumber(*(argv + 1));
         int verdict = t_.Search(value);
         if (verdict) {
             out_ << "Number " << value << " is found in the tree\n";
