@@ -4,7 +4,7 @@
 #define MODULES_BIG_INT_INCLUDE_BIG_INT_H_
 
 #include <string>
-#include <stdint.h>
+#include <cstdint>
 #define BIGINT_MAX 1000000000
 #define MYINT64 int_fast64_t
 #define MYUINT64 uint_fast64_t
