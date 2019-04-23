@@ -30,8 +30,7 @@ bool TrianglesApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 8) {
+    } else if (argc != 8) {
         help(argv[0], "ERROR: Should be 7 arguments.\n\n");
         return false;
     }
@@ -53,20 +52,15 @@ char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "points") == 0) {
         op = 'p';
-    }
-    else if (strcmp(arg, "angles") == 0) {
+    } else if (strcmp(arg, "angles") == 0) {
         op = 'a';
-    }
-    else if (strcmp(arg, "sides") == 0) {
+    } else if (strcmp(arg, "sides") == 0) {
         op = 's';
-    }
-    else if (strcmp(arg, "perimeter") == 0) {
+    } else if (strcmp(arg, "perimeter") == 0) {
         op = 'P';
-    }
-    else if (strcmp(arg, "square") == 0) {
+    } else if (strcmp(arg, "square") == 0) {
         op = 'S';
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
@@ -74,7 +68,6 @@ char parseOperation(const char* arg) {
 
 std::string TrianglesApp::operator()(int argc, const char** argv) {
     Arguments args;
-    
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
@@ -102,7 +95,7 @@ std::string TrianglesApp::operator()(int argc, const char** argv) {
             stream << "B(" << args.x2 << ", " << args.y2 << ") ";
             stream << "C(" << args.x3 << ", " << args.y3 << ")";
             break;
-        case 'a' :
+        case 'a':
             stream << "Angle A = " << tr.get_angle_a() << " ";
             stream << "Angle B = " << tr.get_angle_b() << " ";
             stream << "Angle C = " << tr.get_angle_c();
