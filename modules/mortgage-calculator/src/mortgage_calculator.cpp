@@ -1,14 +1,11 @@
 // Copyright 2019 Vorobev Pavel
 
-#include "../include/mortgage_calculator.h"
+#include "include/mortgage_calculator.h"
 
-#include <math.h>
+#include <cmath>
 #include <string>
 #include <iostream>
 
-MortgageCalculator::MortgageCalculator() {
-    monthly_payment_ = 0.0;
-}
 
 double MortgageCalculator::CalculatePayments(int sum, int first_payment,
     int credit_term, int annual_interest_rate) {

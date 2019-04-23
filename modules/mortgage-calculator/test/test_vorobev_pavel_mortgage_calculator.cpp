@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../mortgage-calculator/include/mortgage_calculator.h"
+#include "include/mortgage_calculator.h"
 
 TEST(MortgageCalculatorTest, CanCalculatePayment) {
     MortgageCalculator calc;
