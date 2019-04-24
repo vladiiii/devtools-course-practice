@@ -25,7 +25,8 @@ std::vector<payment> BondCalculator::CalculatePayments(const bond &paper,
             payments.emplace_back(payment{ coupon, paper.months.at(i), year });
         }
     }
-    payments.emplace_back(payment{paper.nominal_price, paper.months.back(), year});
+    payments.emplace_back(
+            payment{paper.nominal_price, paper.months.back(), year});
     return payments;
 }
 
@@ -67,5 +68,5 @@ double BondCalculator::CalculateRelativeIncome(const bond &paper,
     double profit = total.value - paper.price;
     double number_of_years = (total.year - current_year
             + (total.month - current_month) / 12);
-    return profit/ number_of_years ;
+    return profit/ number_of_years;
 }
