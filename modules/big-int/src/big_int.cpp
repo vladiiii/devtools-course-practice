@@ -15,12 +15,14 @@ BigInt::BigInt(int_fast64_t bi, int _size_mem) {
     } else {
         if (bi < 0)
             sign = -1;
+
         if ((bi >= NSB) || (bi <= (-1) * NSB)) {
             size++;
             if ((bi >= (static_cast<int_fast64_t>(NSB) * NSB)) ||
                 (bi <= (static_cast<int_fast64_t>(NSB) * NSB * (-1))))
                 size++;
         }
+
         size_mem = size;
         mem = new int[size_mem];
         mem[0] = bi % NSB * sign;
@@ -52,18 +54,21 @@ BigInt::BigInt(const std::string & st) {
         size_mem--;
         str.erase(0, 1);
     }
+
     int size_numb = size_mem;
     size_mem = (size_mem / 9);
     if (size_numb % 9 != 0)
         size_mem++;
     size = size_mem;
     mem = new int[size_mem];
+
     for (int i = 0; (i < size - 1) ||
         ((i < size) && (size_numb % 9 == 0)); i++) {
         mem[i] = 0;
         for (int j = 9; j > 0; j--)
             mem[i] = 10 * mem[i] + (str[size_numb - i * 9 - j] - '0');
     }
+
     if (size_numb % 9 != 0) {
         mem[size - 1] = 0;
         for (int i = 0; i < size_numb % 9; i++)
@@ -94,15 +99,18 @@ BigInt & BigInt::operator = (const int_fast64_t & bi) {
         delete[] mem;
     size = 1;
     sign = 1;
+
     if (bi < 0) {
         sign = -1;
     }
+
     if ((bi >= NSB) || (bi <= (-1) * NSB)) {
         size++;
         if ((bi >=(static_cast<int_fast64_t>(NSB) * NSB))
             || (bi <= (static_cast<int_fast64_t>(NSB) * NSB * (-1))))
             size++;
     }
+
     size_mem = size;
     mem = new int[size_mem];
     mem[0] = bi % NSB * sign;
