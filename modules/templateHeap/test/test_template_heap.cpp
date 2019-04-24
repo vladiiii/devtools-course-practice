@@ -56,12 +56,12 @@ TEST(TemplateHeapTest, Can_Insert_Element_In_Empty_Heap) {
 TEST(TemplateHeapTest, Can_Insert_Element_In_Not_Empty_Heap) {
     // Arrange
     Heap<int> heap{};
-
+    std::vector<int> test_vec = {3, 1, 2, 4, 5, 7, 6, 8, 9, 10, 22};
     // Act
-    heap.Insert(7);
-    heap.Insert(3);
+    for (auto elem : test_vec)
+        heap.Insert(elem);
     // Assert
-    EXPECT_EQ(2, heap.GetSize());
+    ASSERT_NO_THROW(heap.Remove());
 }
 
 TEST(TemplateHeapTest, Can_Not_Remove_Element_From_Empty_Heap) {
@@ -79,6 +79,17 @@ TEST(TemplateHeapTest, Can_Remove_Element_From_Not_Empty_Heap) {
 
     // Act && Assert
     EXPECT_EQ(7, heap.Remove());
+}
+
+TEST(TemplateHeapTest, Can_Insert_More_Than_Ten_Elements) {
+    // Arrange
+    Heap<int> heap{};
+    std::vector<int> test_vec = {3, 1, 2, 4, 5, 7, 6, 8, 9, 10};
+    // Act
+    for (auto elem : test_vec)
+        heap.Insert(elem);
+    // Assert
+    ASSERT_NO_THROW(heap.Insert(22));
 }
 
 TEST(TemplateHeapTest, Size_Empty_Heap_Equals_Zero) {
