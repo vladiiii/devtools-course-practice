@@ -27,17 +27,14 @@ PriorityQueue::~PriorityQueue() {
 
 void PriorityQueue::push(int prior, int val) {
     Link *element = create(prior, val);
-    if (first == nullptr)
-        first = last = element;
+    if (first == nullptr) first = last = element;
     else if (first->priority >= prior) {
         element->next = first;
         first = element;
-    }
-    else if (last->priority < prior) {
+    } else if (last->priority < prior) {
         last->next = element;
         last = element;
-    }
-    else {
+    } else {
         Link *tmp = first;
         while ( (tmp->next != nullptr) && (tmp->next->priority < prior))
             tmp = tmp->next;
@@ -52,8 +49,7 @@ void PriorityQueue::pop() {
     if (first == last) {
         delete last;
         first = last = nullptr;
-    }
-    else {
+    } else {
         Link *tmp = first;
         while (tmp->next != last)
             tmp = tmp->next;
