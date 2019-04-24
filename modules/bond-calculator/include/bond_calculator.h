@@ -4,12 +4,11 @@
 #include<cmath>
 #include<algorithm>
 
-using std::vector;
 
 struct bond {
     double price;
     double nominal_price;
-    vector<int> months;
+    std::vector<int> months;
     int year;
     double percentage;
 };
@@ -24,12 +23,12 @@ struct payment {
 #define MODULES_BOND_CALCULATOR_INCLUDE_BOND_CALCULATOR_H_
 
 
-class bond_calculator {
+class BondCalculator {
  public:
-    bond_calculator() = default;
-    bond_calculator(bond_calculator&&) = default;
+    BondCalculator() = default;
+    BondCalculator(BondCalculator&&) = default;
 
-    vector<payment> CalculatePayments(const bond &paper, int current_month,
+    std::vector<payment> CalculatePayments(const bond &paper, int current_month,
             int current_year);
 
     payment CalculateTotalIncome(const bond &paper, int current_month,

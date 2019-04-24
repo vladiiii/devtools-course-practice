@@ -5,7 +5,7 @@
 #include "include/bond_calculator.h"
 
 TEST(BondCalculatorTest, CanCalculatePayment) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(2);
     months.at(0) = 0;
     months.at(1) = 6;
@@ -17,7 +17,7 @@ TEST(BondCalculatorTest, CanCalculatePayment) {
 }
 
 TEST(BondCalculatorTest, CorrectNumberOfPayments) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(2);
     months.at(0) = 0;
     months.at(1) = 6;
@@ -29,7 +29,7 @@ TEST(BondCalculatorTest, CorrectNumberOfPayments) {
 }
 
 TEST(BondCalculatorTest, TestCorrectCouponValue) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(3);
     months.at(0) = 0;
     months.at(1) = 6;
@@ -37,13 +37,13 @@ TEST(BondCalculatorTest, TestCorrectCouponValue) {
 
     bond paper = {100, 120, months, 2022, 9.0};
     std::vector<payment> payments = calc.CalculatePayments(paper, 0, 2019);
-    for (unsigned int i = 0; i < payments.size() - 1; i++) {
+    for (size_t i = 0; i < payments.size() - 1; i++) {
         EXPECT_EQ(payments.at(i).value, 3.0);
     }
 }
 
 TEST(BondCalculatorTest, TestCorrectPercentage) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(2);
     months.at(0) = 0;
     months.at(1) = 6;
@@ -54,7 +54,7 @@ TEST(BondCalculatorTest, TestCorrectPercentage) {
 }
 
 TEST(BondCalculatorTest, TestRelativeIncome) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(2);
     months.at(0) = 1;
     months.at(1) = 10;
@@ -66,7 +66,7 @@ TEST(BondCalculatorTest, TestRelativeIncome) {
 
 
 TEST(BondCalculatorTest, TestInternalIncome) {
-    bond_calculator calc;
+    BondCalculator calc;
     std::vector<int> months(2);
     months.at(0) = 0;
     months.at(1) = 6;
