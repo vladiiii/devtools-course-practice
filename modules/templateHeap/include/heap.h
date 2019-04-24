@@ -1,19 +1,19 @@
 // Copyright 2019 Kumbrasev Pavel
 
-#ifndef MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_
-#define MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_
+#ifndef MODULES_TEMPLATEHEAP_INCLUDE_HEAP_H_
+#define MODULES_TEMPLATEHEAP_INCLUDE_HEAP_H_
 
 #include <vector>
 #include <algorithm>
 
 template <typename ValueType>
 class Heap {
-public:
+ public:
     Heap() = default;
     Heap(const Heap&) = default;
     Heap(Heap&&) = default;
 
-    std::vector<ValueType> HeapSort(std::vector<ValueType>& unsorted_arr);
+    std::vector<ValueType> HeapSort(const std::vector<ValueType>& unsort_arr);
     void Insert(ValueType);
     ValueType Remove();
     size_t GetSize();
@@ -42,8 +42,8 @@ template <typename ValueType>
 size_t Heap<ValueType>::GetParent(size_t child) {
     if (child > 0 && child % 2 == 0)
         return child / 2  - 1;
-    else 
-        return child / 2;  
+    else
+        return child / 2;
 }
 
 template <typename ValueType>
@@ -66,7 +66,7 @@ template <typename ValueType>
 void Heap<ValueType>::BubbleUp() {
     size_t child = vec.size() - 1;
     size_t parent = GetParent(child);
-  
+
     while (vec[child] > vec[parent] && child >=0 && parent >= 0) {
         swap(child, parent);
         child = parent;
@@ -76,11 +76,13 @@ void Heap<ValueType>::BubbleUp() {
 
 template <typename ValueType>
 ValueType Heap<ValueType>::Remove() {
-	if (vec.size() == 0) throw "Empty heap";
+    if (vec.size() == 0) {
+        throw "Empty heap";
+    }
     size_t child = vec.size() - 1;
-    swap(child, 0);  
+    swap(child, 0);
     ValueType value = vec.back();
-    vec.pop_back();  
+    vec.pop_back();
     BubbleDown();
     return value;
 }
@@ -102,21 +104,23 @@ void Heap<ValueType>::BubbleDown() {
         if (largest != parent) {
             swap(largest, parent);
             parent = largest;
+        } else {
+            break;
         }
-        else break;
     }
 }
 
 template <typename ValueType>
-std::vector<ValueType> Heap<ValueType>::HeapSort(std::vector<ValueType>& unsorted_arr) {
+std::vector<ValueType> Heap<ValueType>::HeapSort(const std::vector<ValueType>&
+    unsort_arr) {
     vec.clear();
-    for (auto elem : unsorted_arr)
+    for (auto elem : unsort_arr)
         Insert(elem);
-	std::vector<ValueType> result_vector(GetSize());
-	for (size_t index = 0; index < result_vector.size(); ++index) {
-		result_vector[index] = Remove();
-	}
+    std::vector<ValueType> result_vector(GetSize());
+    for (size_t index = 0; index < result_vector.size(); ++index) {
+        result_vector[index] = Remove();
+    }
     return result_vector;
 }
 
-#endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_
+#endif  // MODULES_TEMPLATEHEAP_INCLUDE_HEAP_H_

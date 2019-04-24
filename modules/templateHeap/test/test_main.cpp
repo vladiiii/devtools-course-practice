@@ -1,4 +1,5 @@
 // Copyright 2019 Kumbrasev Pavel
+
 #include "gtest/gtest.h"
 
 int main(int argc, char **argv) {
