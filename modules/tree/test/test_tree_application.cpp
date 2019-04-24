@@ -40,11 +40,11 @@ TEST_F(TreeApplicationTest, Do_Print_Help_Without_Arguments) {
     Assert("This is application for tree class");
 }
 
-TEST_F(TreeApplicationTest, Is_Checking_Number_Of_Arguments) {
+TEST_F(TreeApplicationTest, Adds_And_Searches_The_Same_Number) {
     // Arrange
     vector<string> args = {"add", "1", "search", "1"};
 
     Act(args);
 
-    Assert("(1 is found, count: 1)");
+    Assert("\\(1 is found, count: 1\\)");
 }
