@@ -24,8 +24,6 @@ std::string TreeApplication::operator()(int argc, const char** argv) {
     try {
         for (int i = 1; i < argc; ) {
             int offset = ParseOperation(argv + i);
-            if (offset == 0)
-                break;
             i += offset;
         }
         return out_.str();
@@ -35,6 +33,10 @@ std::string TreeApplication::operator()(int argc, const char** argv) {
 }
 
 int TreeApplication::ParseNumber(const char *s) {
+    int len = strlen(s);
+    for (int i = 0; i < len; ++i)
+        if (!isdigit(s[i]))
+            throw std::runtime_error(std::string(s) + " is not the number");
     int64_t result = strtol(s, nullptr, 10);
     if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
         result >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
@@ -65,7 +67,6 @@ int TreeApplication::ParseOperation(const char **argv) {
     }
     if (strcmp(*argv, "clear") == 0) {
         t_.Clear();
-        out_ << "Tree is now clear\n";
         return 1;
     }
     throw std::runtime_error(std::string("Unknown operation: ") +

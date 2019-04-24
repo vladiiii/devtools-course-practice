@@ -48,3 +48,67 @@ TEST_F(TreeApplicationTest, Adds_And_Searches_The_Same_Number) {
 
     Assert("\\(1 is found, count: 1\\)");
 }
+
+TEST_F(TreeApplicationTest, Adds_Deletes_And_Searches_The_Same_Number) {
+    // Arrange
+    vector<string> args = {"add", "1", "del", "1", "search", "1"};
+
+    Act(args);
+
+    Assert("\\(1 is not found\\)");
+}
+
+TEST_F(TreeApplicationTest, Can_Search_Twice_The_Same_Number) {
+    // Arrange
+    vector<string> args = {"add", "1", "search", "1",
+                           "del", "1", "search", "1"};
+
+    Act(args);
+
+    Assert("\\(1 is found, count: 1\\) \\(1 is not found\\)");
+}
+
+TEST_F(TreeApplicationTest, Throws_An_Error_If_Argument_Is_Not_Numeric) {
+    // Arrange
+    vector<string> args = {"add", "a"};
+
+    Act(args);
+
+    Assert("a is not the number");
+}
+
+TEST_F(TreeApplicationTest, Throws_An_Error_If_Int_Overflows) {
+    // Arrange
+    vector<string> args = {"add", "20000000000"};
+
+    Act(args);
+
+    Assert("Number is out of bounds");
+}
+
+TEST_F(TreeApplicationTest, Can_Clear_Tree) {
+    // Arrange
+    vector<string> args = {"add", "2", "search", "2", "clear", "search", "2"};
+
+    Act(args);
+
+    Assert("\\(2 is found, count: 1\\) \\(2 is not found\\)");
+}
+
+TEST_F(TreeApplicationTest, Handles_Unknown_Operation) {
+    // Arrange
+    vector<string> args = {"addd", "2", "search", "2", "clear", "search", "2"};
+
+    Act(args);
+
+    Assert("Unknown operation: addd");
+}
+
+TEST_F(TreeApplicationTest, Handles_Deleting_Element_With_Zero_Count) {
+    // Arrange
+    vector<string> args = {"del", "2", "search", "2"};
+
+    Act(args);
+
+    Assert("\\(2 is not found\\)");
+}
