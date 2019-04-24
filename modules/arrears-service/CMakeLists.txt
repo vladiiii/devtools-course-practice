@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 # Declare variables for binaries' names
 get_filename_component(DIR_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 set(MODULE      "${DIR_NAME}")
