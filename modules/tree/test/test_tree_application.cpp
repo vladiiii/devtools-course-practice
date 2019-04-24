@@ -4,14 +4,10 @@
 #include <vector>
 #include "include/tree_application.h"
 
-using ::testing::internal::RE;
-using std::vector;
-using std::string;
-
 class TreeApplicationTest : public ::testing::Test {
  protected:
-    void Act(vector<string> args_) {
-        vector<const char*> options;
+    void Act(std::vector<std::string> args_) {
+        std::vector<const char*> options;
 
         options.push_back("tree");
         for (size_t i = 0; i < args_.size(); ++i) {
@@ -24,16 +20,17 @@ class TreeApplicationTest : public ::testing::Test {
         output_ = app_(argc, argv);
     }
     void Assert(std::string expected) {
-        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+        EXPECT_TRUE(::testing::internal::RE::PartialMatch(output_,
+                        ::testing::internal::RE(expected)));
     }
  private:
     TreeApplication app_;
-    string output_;
+    std::string output_;
 };
 
 TEST_F(TreeApplicationTest, Do_Print_Help_Without_Arguments) {
     // Arrange
-    vector<string> args = {};
+    std::vector<std::string> args = {};
 
     Act(args);
 
@@ -42,7 +39,7 @@ TEST_F(TreeApplicationTest, Do_Print_Help_Without_Arguments) {
 
 TEST_F(TreeApplicationTest, Adds_And_Searches_The_Same_Number) {
     // Arrange
-    vector<string> args = {"add", "1", "search", "1"};
+    std::vector<std::string> args = {"add", "1", "search", "1"};
 
     Act(args);
 
@@ -51,7 +48,7 @@ TEST_F(TreeApplicationTest, Adds_And_Searches_The_Same_Number) {
 
 TEST_F(TreeApplicationTest, Adds_Deletes_And_Searches_The_Same_Number) {
     // Arrange
-    vector<string> args = {"add", "1", "del", "1", "search", "1"};
+    std::vector<std::string> args = {"add", "1", "del", "1", "search", "1"};
 
     Act(args);
 
@@ -60,7 +57,7 @@ TEST_F(TreeApplicationTest, Adds_Deletes_And_Searches_The_Same_Number) {
 
 TEST_F(TreeApplicationTest, Can_Search_Twice_The_Same_Number) {
     // Arrange
-    vector<string> args = {"add", "1", "search", "1",
+    std::vector<std::string> args = {"add", "1", "search", "1",
                            "del", "1", "search", "1"};
 
     Act(args);
@@ -70,7 +67,7 @@ TEST_F(TreeApplicationTest, Can_Search_Twice_The_Same_Number) {
 
 TEST_F(TreeApplicationTest, Throws_An_Error_If_Argument_Is_Not_Numeric) {
     // Arrange
-    vector<string> args = {"add", "a"};
+    std::vector<std::string> args = {"add", "a"};
 
     Act(args);
 
@@ -79,7 +76,7 @@ TEST_F(TreeApplicationTest, Throws_An_Error_If_Argument_Is_Not_Numeric) {
 
 TEST_F(TreeApplicationTest, Throws_An_Error_If_Int_Overflows) {
     // Arrange
-    vector<string> args = {"add", "20000000000"};
+    std::vector<std::string> args = {"add", "20000000000"};
 
     Act(args);
 
@@ -88,7 +85,8 @@ TEST_F(TreeApplicationTest, Throws_An_Error_If_Int_Overflows) {
 
 TEST_F(TreeApplicationTest, Can_Clear_Tree) {
     // Arrange
-    vector<string> args = {"add", "2", "search", "2", "clear", "search", "2"};
+    std::vector<std::string> args = {"add", "2", "search", "2", "clear",
+                                     "search", "2"};
 
     Act(args);
 
@@ -97,7 +95,8 @@ TEST_F(TreeApplicationTest, Can_Clear_Tree) {
 
 TEST_F(TreeApplicationTest, Handles_Unknown_Operation) {
     // Arrange
-    vector<string> args = {"addd", "2", "search", "2", "clear", "search", "2"};
+    std::vector<std::string> args = {"addd", "2", "search", "2",
+                                     "clear", "search", "2"};
 
     Act(args);
 
@@ -106,7 +105,7 @@ TEST_F(TreeApplicationTest, Handles_Unknown_Operation) {
 
 TEST_F(TreeApplicationTest, Handles_Deleting_Element_With_Zero_Count) {
     // Arrange
-    vector<string> args = {"del", "2", "search", "2"};
+    std::vector<std::string> args = {"del", "2", "search", "2"};
 
     Act(args);
 
