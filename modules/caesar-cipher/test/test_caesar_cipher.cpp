@@ -10,7 +10,7 @@ class CaesarCipherTest : public ::testing::Test {
     int zero_key = 0;
     int positive_key = 11;
     int negative_key = -13;
-    int invalid_key = 33;
+    int big_key = 37;
     std::string empty_message = "";
     std::string message = "Development";
     std::string message_positive_encrypt = "Opgpwzaxpye";
@@ -258,12 +258,14 @@ TEST_F(CaesarCipherTest,
 
 
 
-TEST_F(CaesarCipherTest, Throws_On_Encryption_With_Invalid_Key) {
+TEST_F(CaesarCipherTest, Big_Key_Encryption_Correct) {
     // Act & Assert
-    EXPECT_ANY_THROW(CaesarCipher::Encrypt(message, invalid_key));
+    EXPECT_EQ(message_positive_encrypt,
+              CaesarCipher::Encrypt(message, big_key));
 }
 
-TEST_F(CaesarCipherTest, Throws_On_Decryption_With_Invalid_Key) {
+TEST_F(CaesarCipherTest, Big_Key_Decryption_Correct) {
     // Act & Assert
-    EXPECT_ANY_THROW(CaesarCipher::Decrypt(message, invalid_key));
+    EXPECT_EQ(message,
+        CaesarCipher::Decrypt(message_positive_encrypt, big_key));
 }
