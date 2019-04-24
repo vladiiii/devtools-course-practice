@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Bykovskaya Alina
 
 #include <gtest/gtest.h>
 
