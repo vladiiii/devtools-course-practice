@@ -1,14 +1,13 @@
 // Copyright Irina Astafeva 2019
 
 #ifndef MODULES_SALARY_INCLUDE_TSALARY_H_
-
 #define MODULES_SALARY_INCLUDE_TSALARY_H_
 
 #include <string>
 #include <iostream>
 
 class TSalary {
- protected:
+ private:
     int salary_;       // in month
     int norm_;         // hours in month
     int overtime_;     // hours in month

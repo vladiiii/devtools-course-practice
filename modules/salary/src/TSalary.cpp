@@ -7,11 +7,13 @@
 TSalary::TSalary(int _salary, int _norm,
                  int _worked_hours, int _overtime,
                  int _vacantion) {
-    if (_salary <= 0 || _norm <= 0 ||
+    bool wrong_data = _salary <= 0 || _norm <= 0 ||
         _worked_hours < 0 || _overtime < 0 ||
         _vacantion < 0 ||
-        _worked_hours + _overtime - _vacantion < 0)
-            throw std::string("Invalid value");
+        _worked_hours + _overtime - _vacantion < 0;
+    if (wrong_data) {
+        throw std::string("Invalid value");
+    }
     salary_ = _salary;
     norm_ = _norm;
     overtime_ = _overtime;
