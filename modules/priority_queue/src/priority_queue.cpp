@@ -17,9 +17,8 @@ PriorityQueue::PriorityQueue() {
 }
 
 PriorityQueue::~PriorityQueue() {
-    Link *tmp;
     while (first != nullptr) {
-        tmp = first;
+        Link *tmp = first;
         first = first->next;
         delete tmp;
     }
@@ -27,8 +26,9 @@ PriorityQueue::~PriorityQueue() {
 
 void PriorityQueue::push(int prior, int val) {
     Link *element = create(prior, val);
-    if (first == nullptr) first = last = element;
-    else if (first->priority >= prior) {
+    if (first == nullptr) {
+        first = last = element;
+    } else if (first->priority >= prior) {
         element->next = first;
         first = element;
     } else if (last->priority < prior) {
