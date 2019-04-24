@@ -66,6 +66,6 @@ double BondCalculator::CalculateRelativeIncome(const bond &paper,
             CalculateTotalIncome(paper, current_month, current_year);
     double profit = total.value - paper.price;
     double number_of_years = (total.year - current_year
-            + (total.month - current_month) / 12)
+            + (total.month - current_month) / 12);
     return profit/ number_of_years ;
 }
