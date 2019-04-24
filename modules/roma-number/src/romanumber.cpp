@@ -120,6 +120,7 @@ bool RomaNumber::IsStringCorrect(std::string ro) {
     return true;
 }
 
-void RomaNumber::Print() {
-    std::cout << arabic_ << " = " << roma_ << std::endl;
+std::ostream& operator<<(std::ostream &out, const RomaNumber a) {
+    out << a.arabic_ << " = " << a.roma_ << std::endl;
+    return out;
 }

@@ -143,5 +143,5 @@ TEST(Test_Roma_Number, Can_Print) {
     RomaNumber a(6);
 
     // Act & Assert
-    ASSERT_NO_THROW(a.Print());
+    ASSERT_NO_THROW(std::cout << a);
 }

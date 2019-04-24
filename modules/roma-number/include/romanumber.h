@@ -4,6 +4,7 @@
 #define MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_H_
 
 #include <string>
+#include <iostream>
 
 class RomaNumber {
  private:
@@ -19,6 +20,7 @@ class RomaNumber {
     void ArabToRoma(int ar);
     std::string GetRoma() { return roma_; }
     int GetArabic() { return arabic_; }
-    void Print();
+    friend std::ostream& operator<<(std::ostream &out,
+        const RomaNumber a);
 };
 #endif  // MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_H_
