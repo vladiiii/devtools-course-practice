@@ -33,9 +33,13 @@ void PriorityQueue::push(int prior, int val) {
         element->next = first;
         first = element;
     }
+    else if (last->priority < prior) {
+        last->next = element;
+        last = element;
+    }
     else {
         Link *tmp = first;
-        while (tmp->next != nullptr || tmp->next->priority < prior)
+        while ( (tmp->next != nullptr) && (tmp->next->priority < prior))
             tmp = tmp->next;
         element->next = tmp->next;
         tmp->next = element;
@@ -55,6 +59,7 @@ void PriorityQueue::pop() {
             tmp = tmp->next;
         delete last;
         last = tmp;
+        last->next = nullptr;
     }
 }
 
