@@ -1,6 +1,6 @@
 // Copyright 2019 Obolenskiy Arseniy
 #include <cstring>
-#include <climits>
+#include <limits>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -17,44 +17,43 @@ std::string TreeApplication::Help(const char *appname) {
 }
 
 std::string TreeApplication::operator()(int argc, const char** argv) {
-    for (int i = 0; i < argc; ) {
-        int offset = ParseOperation(argv + i);
-        if (offset == 0)
-            break;
-        i += offset;
+    try {
+        for (int i = 1; i < argc; ) {
+            int offset = ParseOperation(argv + i);
+            if (offset == 0)
+                break;
+            i += offset;
+        }
+        return out_.str();
+    } catch (std::runtime_error &re) {
+        return re.what();
     }
-    return out_.str();
 }
 
 int64_t TreeApplication::ParseNumber(const char *s) {
     int64_t result = strtol(s, nullptr, 10);
-    if (result <= static_cast<int64_t>(INT_MIN) ||
-        result >= static_cast<int64_t>(INT_MAX))
-        out_ << "Number is out of bounds" << "\n";
-    return static_cast<int64_t>(INT_MAX);
+    if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
+        result >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
+        throw std::runtime_error("Number is out of bounds");
+    }
+    return static_cast<int64_t>(result);
 }
 
 int TreeApplication::ParseOperation(const char **argv) {
     if (strcmp(*argv, "add") == 0) {
         int64_t value = ParseNumber(*(argv + 1));
         t_.Add(value);
-        out_ << "Number " << value << " is added to the tree\n";
         return 2;
     }
     if (strcmp(*argv, "del") == 0) {
         int64_t value = ParseNumber(*(argv + 1));
         t_.Del(value);
-        out_ << "Number " << value << " is deleted from the tree\n";
         return 2;
     }
     if (strcmp(*argv, "search") == 0) {
         int64_t value = ParseNumber(*(argv + 1));
         int verdict = t_.Search(value);
-        if (verdict) {
-            out_ << "Number " << value << " is found in the tree\n";
-        } else {
-            out_ << "Number " << value << " is not found in the tree\n";
-        }
+        out_ << verdict << " ";
         return 2;
     }
     if (strcmp(*argv, "clear") == 0) {
@@ -62,6 +61,7 @@ int TreeApplication::ParseOperation(const char **argv) {
         out_ << "Tree is now clear\n";
         return 1;
     }
-    out_ << "Unknown operation: " << *argv << "\n";
+    throw std::runtime_error(std::string("Unknown operation: ") +
+                             std::string(*argv));
     return 0;
 }
