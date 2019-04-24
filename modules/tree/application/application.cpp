@@ -1,6 +1,6 @@
 // Copyright 2019 Obolenskiy Arseniy
 #include <iostream>
-#include "include/application.h"
+#include "include/tree_application.h"
 
 int main(int argc, char const *argv[]) {
     TreeApplication application;

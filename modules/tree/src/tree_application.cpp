@@ -4,10 +4,11 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
-#include "include/application.h"
+#include "include/tree_application.h"
 
 std::string TreeApplication::Help(const char *appname) {
-    return "Usage:\n"
+    return "This is application for tree class\n"
+           "Usage:\n"
            "> " + std::string(appname) + " actions that described below\n"
            "Actions:\n"
            "add <value> - add value to the tree\n"
@@ -17,6 +18,9 @@ std::string TreeApplication::Help(const char *appname) {
 }
 
 std::string TreeApplication::operator()(int argc, const char** argv) {
+    if (argc == 1) {
+        return Help(*argv);
+    }
     try {
         for (int i = 1; i < argc; ) {
             int offset = ParseOperation(argv + i);
@@ -30,30 +34,33 @@ std::string TreeApplication::operator()(int argc, const char** argv) {
     }
 }
 
-int64_t TreeApplication::ParseNumber(const char *s) {
+int TreeApplication::ParseNumber(const char *s) {
     int64_t result = strtol(s, nullptr, 10);
     if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
         result >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
         throw std::runtime_error("Number is out of bounds");
     }
-    return static_cast<int64_t>(result);
+    return static_cast<int>(result);
 }
 
 int TreeApplication::ParseOperation(const char **argv) {
     if (strcmp(*argv, "add") == 0) {
-        int64_t value = ParseNumber(*(argv + 1));
+        int value = ParseNumber(*(argv + 1));
         t_.Add(value);
         return 2;
     }
     if (strcmp(*argv, "del") == 0) {
-        int64_t value = ParseNumber(*(argv + 1));
+        int value = ParseNumber(*(argv + 1));
         t_.Del(value);
         return 2;
     }
     if (strcmp(*argv, "search") == 0) {
-        int64_t value = ParseNumber(*(argv + 1));
+        int value = ParseNumber(*(argv + 1));
         int verdict = t_.Search(value);
-        out_ << verdict << " ";
+        if (verdict)
+            out_ << "(" << value << " is found, count: " << verdict << ") ";
+        else
+            out_ << "(" << value << " is not found) ";
         return 2;
     }
     if (strcmp(*argv, "clear") == 0) {
