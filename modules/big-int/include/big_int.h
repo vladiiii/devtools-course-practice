@@ -5,11 +5,11 @@
 
 #include <string>
 #include <cstdint>
-#define BIGINT_MAX 1000000000
-#define MYINT64 int_fast64_t
-#define MYUINT64 uint_fast64_t
+#define NSB 1000000000
+// NSB - Number Systems Base
+// Using number systems with base 1 000 000 000
 
-class big_int {
+class BigInt {
  private:
     int size;
     int size_mem;
@@ -20,33 +20,33 @@ class big_int {
     void removingZeros();
 
  public:
-    explicit big_int(MYINT64 bi = 0, int _sizeMem = 1);
-    big_int(const big_int & bi);
-    explicit big_int(const std::string & st);
-    ~big_int();
+    explicit BigInt(int_fast64_t bi = 0, int _sizeMem = 1);
+    BigInt(const BigInt & bi);
+    explicit BigInt(const std::string & st);
+    ~BigInt();
 
-    big_int & operator = (const big_int & bi);
-    big_int & operator = (const MYINT64 & bi);
+    BigInt & operator = (const BigInt & bi);
+    BigInt & operator = (const int_fast64_t & bi);
 
-    big_int operator + (big_int bi);
-    big_int operator - (big_int bi);
-    big_int operator * (big_int bi);
-    big_int operator / (big_int bi);
-    big_int operator % (big_int bi);
+    BigInt operator + (BigInt bi);
+    BigInt operator - (BigInt bi);
+    BigInt operator * (BigInt bi);
+    BigInt operator / (BigInt bi);
+    BigInt operator % (BigInt bi);
 
-    char operator < (big_int bi);
-    char operator > (big_int bi);
-    char operator <= (big_int bi);
-    char operator >= (big_int bi);
-    char operator == (big_int bi);
-    char operator != (big_int bi);
+    char operator < (BigInt bi);
+    char operator > (BigInt bi);
+    char operator <= (BigInt bi);
+    char operator >= (BigInt bi);
+    char operator == (BigInt bi);
+    char operator != (BigInt bi);
 
     int & operator[] (int k);
     int getSize();
     int getSign();
 
     std::string BigIntToString();
-    MYINT64 BigIntToInt();
+    int_fast64_t BigIntToInt();
 };
 
 #endif  // MODULES_BIG_INT_INCLUDE_BIG_INT_H_
