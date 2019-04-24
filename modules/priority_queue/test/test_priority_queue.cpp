@@ -60,13 +60,16 @@ TEST(PriorityQueueTest, element_with_no_max_and_no_min_priority_push_in_queue) {
     int val2 = 2;
     int prior3 = 3;
     int val3 = 3;
+    int prior4 = 4;
+    int val4 = 4;
     // Act
     q.push(prior1, val1);
-    q.push(prior3, val3);
     q.push(prior2, val2);
+    q.push(prior4, val4);
+    q.push(prior3, val3);
     q.pop();
     // Assert
-    EXPECT_EQ(val2, q.top());
+    EXPECT_EQ(val3, q.top());
 }
 
 TEST(PriorityQueueTest, cant_pop_element_from_empty_queue) {
