@@ -2,7 +2,7 @@
 
 #include "include/priority_queue.h"
 
-Link * PriorityQueue::create(int prior, int val) {
+PriorityQueue::Link * PriorityQueue::create(int prior, int val) {
     Link *tmp = new Link;
 
     tmp->priority = prior;
