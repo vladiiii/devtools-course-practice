@@ -267,6 +267,15 @@ TEST(ComplexTest, Can_Division_And_Asiign_Complex) {
     EXPECT_EQ(expected_z, z2);
 }
 
+TEST(ComplexTest, Do_Throw_When_Division_And_Assign_By_Zero) {
+    // Arrange
+    Complex z1(0.0, 0.0);
+    Complex z2(26.0, 14.0);
+
+    // Act & Assert
+    EXPECT_THROW(z2 /= z1, std::runtime_error);
+}
+
 TEST(ComplexTest, Add_Operators_Are_Equal) {
     // Arrange
     Complex z1(15.0, 20.0);
