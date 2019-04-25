@@ -18,13 +18,13 @@ TEST(BitArrayTest, Default_Constructor_Test) {
 
 TEST(BitArrayTest, Int_Constructor_Test) {
     // Arrange
-    int bit_count = 256;
+    int bit_count = 255;
 
     // Act
     BitArray bit(bit_count);
 
     // Assert
-    EXPECT_EQ(bit.size(), 256);
+    EXPECT_EQ(bit.size(), 255);
 }
 
 TEST(BitArrayTest, Cant_Create_Negative_Size_Array) {
@@ -104,3 +104,26 @@ TEST(BitArrayTest, Assgn_Operator_Test) {
     EXPECT_EQ(bit_2.size(), bit_1.size());
 }
 
+TEST(BitArrayTest, Cant_Set_Bit_OOR) {
+    // OOR - out of range
+    // Arrange
+    int bit_count = 8;
+    BitArray bit(bit_count);
+
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(bit.SetBit(8, true));
+}
+
+TEST(BitArrayTest, Cant_Get_Bit_OOR) {
+    // OOR - out of range
+    // Arrange
+    int bit_count = 8;
+    BitArray bit(bit_count);
+
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(bit.GetBit(8));
+}
