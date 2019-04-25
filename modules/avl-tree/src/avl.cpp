@@ -65,22 +65,10 @@ CNode* CAvl::DoubleRightRotate(CNode* t) {
 }
 
 CNode* CAvl::FindMin(CNode* t) {
-    if (t == nullptr) {
-        return nullptr;
-    } else if (t->m_pLeft == nullptr) {
+    if (t->m_pLeft == nullptr) {
         return t;
     } else {
         return FindMin(t->m_pLeft);
-    }
-}
-
-CNode* CAvl::FindMax(CNode* t) {
-    if (t == nullptr) {
-        return nullptr;
-    } else if (t->m_pRight == nullptr) {
-        return t;
-    } else {
-        return FindMax(t->m_pRight);
     }
 }
 

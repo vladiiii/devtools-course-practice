@@ -21,7 +21,6 @@ class CAvl {
     CNode* DoubleLeftRotate(CNode* t);
     CNode* DoubleRightRotate(CNode* t);
     CNode* FindMin(CNode* t);
-    CNode* FindMax(CNode* t);
     CNode* Remove(const key& x, CNode* t);
     int Height(CNode* t);
     CNode* m_pRoot;

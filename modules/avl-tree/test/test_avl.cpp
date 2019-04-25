@@ -127,6 +127,32 @@ TEST(CAvlTest,
 }
 
 TEST(CAvlTest,
+    CanInsertObjectWithDLRotate) {
+    CAvl tree;
+
+    tree.Insert(4);
+    tree.Insert(5);
+    tree.Insert(7);
+    tree.Insert(9);
+    // There is double left rotation will be executed
+    tree.Insert(8);
+    EXPECT_EQ(8, tree.Find(8));
+}
+
+TEST(CAvlTest,
+    CanInsertObjectWithDRRotate) {
+    CAvl tree;
+
+    tree.Insert(5);
+    tree.Insert(6);
+    tree.Insert(3);
+    tree.Insert(1);
+    // There is double right rotation will be executed
+    tree.Insert(2);
+    EXPECT_EQ(2, tree.Find(2));
+}
+
+TEST(CAvlTest,
     CanRemoveObjectsAscending) {
     CAvl tree;
 
@@ -165,4 +191,29 @@ TEST(CAvlTest,
     key nRoot = tree.GetRoot();
     tree.Remove(nRoot);
     EXPECT_EQ(key(), tree.Find(nRoot));
+}
+
+TEST(CAvlTest,
+    CanRemoveNonexistRootChild) {
+    CAvl tree;
+    tree.Insert(0);
+    tree.Remove(0);
+    EXPECT_EQ(0, tree.Find(0));
+    EXPECT_EQ(key(), tree.Find(-1));
+}
+
+TEST(CAvlTest,
+    CanRemoveNonexistObject) {
+    CAvl tree;
+
+    for (int32_t i = 0; i != nLenght; i++) {
+        tree.Insert(i);
+    }
+
+    key nRoot = tree.GetRoot();
+    tree.Remove(-1);
+    for (int32_t i = 0; i != nLenght; i++) {
+        EXPECT_EQ(i, tree.Find(i));
+    }
+    EXPECT_EQ(key(), tree.Find(-1));
 }
