@@ -42,14 +42,11 @@ TEST(BitArrayTest, Can_Print) {
     int bit_count = 8;
     BitArray bit(bit_count);
     std::string to_exp = "";
-    int length;
 
     // Act
     to_exp = bit.print_string();
-    length = to_exp.length();
 
     // Assert
-    EXPECT_EQ(length, 8);
     EXPECT_EQ(to_exp, "00000000");
 }
 
@@ -58,16 +55,13 @@ TEST(BitArrayTest, Can_Set_Value_True) {
     int bit_count = 8;
     BitArray bit(bit_count);
     std::string to_exp = "";
-    int length;
 
     // Act
     bit.SetBit(0, true);
     bit.SetBit(2, true);
     to_exp = bit.print_string();
-    length = to_exp.length();
 
     // Assert
-    EXPECT_EQ(length, 8);
     EXPECT_EQ(to_exp, "10100000");
 }
 
@@ -76,17 +70,14 @@ TEST(BitArrayTest, Can_Set_Value_False) {
     int bit_count = 8;
     BitArray bit(bit_count);
     std::string to_exp = "";
-    int length;
 
     // Act
     bit.SetBit(0, true);
     bit.SetBit(2, true);
     bit.SetBit(0, false);
     to_exp = bit.print_string();
-    length = to_exp.length();
 
     // Assert
-    EXPECT_EQ(length, 8);
     EXPECT_EQ(to_exp, "00100000");
 }
 
