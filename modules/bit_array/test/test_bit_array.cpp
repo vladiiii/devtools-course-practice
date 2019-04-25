@@ -153,3 +153,18 @@ TEST(BitArrayTest, Can_Get_Value_False) {
     // Assert
     EXPECT_EQ(bit.GetBit(0), false);
 }
+
+TEST(BitArrayTest, Assign_Operator_Test) {
+    // OOR - out of range
+    // Arrange
+    int bit_count_1 = 8;
+    int bit_count_2 = 16;
+    BitArray bit_1(bit_count_1);
+    BitArray bit_2(bit_count_2);
+
+    // Act
+    bit_1 = bit_2;
+
+    // Assert
+    EXPECT_EQ(bit_1.print_string(), bit_2.print_string());
+}
