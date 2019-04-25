@@ -92,10 +92,10 @@ TEST(BitArrayTest, Can_Set_Value_False) {
 
 TEST(BitArrayTest, Assgn_Operator_Test) {
     // Arrange
-    int bit_count_1 = 8;
-    int bit_count_1 = 16;
-    BitArray bit_1(bit_count_1);
-    BitArray bit_2(bit_count_2);
+    int bit_count1 = 8;
+    int bit_count2 = 16;
+    BitArray bit_1(bit_count1);
+    BitArray bit_2(bit_count2);
 
     // Act
     bit_2 = bit_1;
