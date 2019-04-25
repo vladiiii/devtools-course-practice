@@ -90,3 +90,17 @@ TEST(BitArrayTest, Can_Set_Value_False) {
     EXPECT_EQ(to_exp, "00100000");
 }
 
+TEST(BitArrayTest, Assgn_Operator_Test) {
+    // Arrange
+    int bit_count_1 = 8;
+    int bit_count_1 = 16;
+    BitArray bit_1(bit_count_1);
+    BitArray bit_2(bit_count_2);
+
+    // Act
+    bit_2 = bit_1;
+
+    // Assert
+    EXPECT_EQ(bit_2.size(), bit_1.size());
+}
+
