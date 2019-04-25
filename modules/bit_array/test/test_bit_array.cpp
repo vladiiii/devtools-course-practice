@@ -168,3 +168,17 @@ TEST(BitArrayTest, Assign_Operator_Test) {
     // Assert
     EXPECT_EQ(bit_1.print_string(), bit_2.print_string());
 }
+
+TEST(BitArrayTest, Copy_Constructor_Test) {
+    // OOR - out of range
+    // Arrange
+    int bit_count = 8;
+    BitArray bit_1(bit_count);
+    
+    // Act
+    bit_1.SetBit(0, true);
+    BitArray bit_2(bit_1);
+
+    // Assert
+    EXPECT_EQ(bit_1.print_string(), bit_2.print_string());
+}
