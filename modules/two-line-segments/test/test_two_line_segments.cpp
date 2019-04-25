@@ -11,22 +11,6 @@ TEST(TwoLineSegmentsTest, Can_Create_Via_Default_Constructor) {
     ASSERT_NO_THROW(TwoLineSegments tls);
 }
 
-TEST(TwoLineSegmentsTest,
-     Can_Get_Coordinates_Of_Lines_Created_Via_Default_Constructor) {
-    // Arrange
-    TwoLineSegments tls;
-
-    // Act & Assert
-    EXPECT_EQ(0, tls.getLineSegment1().p1.getX());
-    EXPECT_EQ(0, tls.getLineSegment1().p1.getY());
-    EXPECT_EQ(0, tls.getLineSegment1().p2.getX());
-    EXPECT_EQ(0, tls.getLineSegment1().p2.getY());
-    EXPECT_EQ(0, tls.getLineSegment2().p1.getX());
-    EXPECT_EQ(0, tls.getLineSegment2().p1.getY());
-    EXPECT_EQ(0, tls.getLineSegment2().p2.getX());
-    EXPECT_EQ(0, tls.getLineSegment2().p2.getY());
-}
-
 TEST(TwoLineSegmentsTest, Can_Create_Via_Parameterized_Constructor) {
     // Arrange
     LineSegment ls1;
@@ -56,14 +40,14 @@ TEST(TwoLineSegmentsTest,
     TwoLineSegments tls(ls1, ls2);
 
     // Assert
-    EXPECT_EQ(0, tls.getLineSegment1().p1.getX());
-    EXPECT_EQ(0, tls.getLineSegment1().p1.getY());
-    EXPECT_EQ(5, tls.getLineSegment1().p2.getX());
-    EXPECT_EQ(0, tls.getLineSegment1().p2.getY());
-    EXPECT_EQ(5, tls.getLineSegment2().p1.getX());
-    EXPECT_EQ(0, tls.getLineSegment2().p1.getY());
-    EXPECT_EQ(0, tls.getLineSegment2().p2.getX());
-    EXPECT_EQ(7, tls.getLineSegment2().p2.getY());
+    EXPECT_EQ(0, tls.GetLineSegment1().p1.GetX());
+    EXPECT_EQ(0, tls.GetLineSegment1().p1.GetY());
+    EXPECT_EQ(5, tls.GetLineSegment1().p2.GetX());
+    EXPECT_EQ(0, tls.GetLineSegment1().p2.GetY());
+    EXPECT_EQ(5, tls.GetLineSegment2().p1.GetX());
+    EXPECT_EQ(0, tls.GetLineSegment2().p1.GetY());
+    EXPECT_EQ(0, tls.GetLineSegment2().p2.GetX());
+    EXPECT_EQ(7, tls.GetLineSegment2().p2.GetY());
 }
 
 TEST(TwoLineSegmentsTest, Can_Create_Via_Copy_Constructor) {
@@ -99,14 +83,14 @@ TEST(TwoLineSegmentsTest,
     TwoLineSegments tls2(tls1);
 
     // Assert
-    EXPECT_EQ(1, tls2.getLineSegment1().p1.getX());
-    EXPECT_EQ(2, tls2.getLineSegment1().p1.getY());
-    EXPECT_EQ(5, tls2.getLineSegment1().p2.getX());
-    EXPECT_EQ(6, tls2.getLineSegment1().p2.getY());
-    EXPECT_EQ(5, tls2.getLineSegment2().p1.getX());
-    EXPECT_EQ(0, tls2.getLineSegment2().p1.getY());
-    EXPECT_EQ(3, tls2.getLineSegment2().p2.getX());
-    EXPECT_EQ(7, tls2.getLineSegment2().p2.getY());
+    EXPECT_EQ(1, tls2.GetLineSegment1().p1.GetX());
+    EXPECT_EQ(2, tls2.GetLineSegment1().p1.GetY());
+    EXPECT_EQ(5, tls2.GetLineSegment1().p2.GetX());
+    EXPECT_EQ(6, tls2.GetLineSegment1().p2.GetY());
+    EXPECT_EQ(5, tls2.GetLineSegment2().p1.GetX());
+    EXPECT_EQ(0, tls2.GetLineSegment2().p1.GetY());
+    EXPECT_EQ(3, tls2.GetLineSegment2().p2.GetX());
+    EXPECT_EQ(7, tls2.GetLineSegment2().p2.GetY());
 }
 
 TEST(TwoLineSegmentsTest, Can_Set_And_Get_Coorditanes_Of_First_Line_Segment) {
@@ -117,13 +101,13 @@ TEST(TwoLineSegmentsTest, Can_Set_And_Get_Coorditanes_Of_First_Line_Segment) {
     TwoLineSegments tls;
 
     // Act
-    tls.setCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToFirstLine(p1, p2);
 
     // Assert
-    EXPECT_EQ(5, tls.getLineSegment1().p1.getX());
-    EXPECT_EQ(7, tls.getLineSegment1().p1.getY());
-    EXPECT_EQ(-1, tls.getLineSegment1().p2.getX());
-    EXPECT_EQ(-8, tls.getLineSegment1().p2.getY());
+    EXPECT_EQ(5, tls.GetLineSegment1().p1.GetX());
+    EXPECT_EQ(7, tls.GetLineSegment1().p1.GetY());
+    EXPECT_EQ(-1, tls.GetLineSegment1().p2.GetX());
+    EXPECT_EQ(-8, tls.GetLineSegment1().p2.GetY());
 }
 
 TEST(TwoLineSegmentsTest,
@@ -135,16 +119,17 @@ TEST(TwoLineSegmentsTest,
     TwoLineSegments tls;
 
     // Act
-    tls.setCoordinatesToSecondLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p1, p2);
 
     // Assert
-    EXPECT_EQ(5, tls.getLineSegment2().p1.getX());
-    EXPECT_EQ(7, tls.getLineSegment2().p1.getY());
-    EXPECT_EQ(-3, tls.getLineSegment2().p2.getX());
-    EXPECT_EQ(-8, tls.getLineSegment2().p2.getY());
+    EXPECT_EQ(5, tls.GetLineSegment2().p1.GetX());
+    EXPECT_EQ(7, tls.GetLineSegment2().p1.GetY());
+    EXPECT_EQ(-3, tls.GetLineSegment2().p2.GetX());
+    EXPECT_EQ(-8, tls.GetLineSegment2().p2.GetY());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v1) {
+TEST(TwoLineSegmentsTest,
+     Checking_Of_Intersection_When_Line_Segments_Are_Parallel) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(0, 0);
@@ -153,46 +138,15 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v1) {
     p4.SetCoordinatesToPoint(10, 3);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(0, tls.areIntersect());
+    EXPECT_EQ(0, tls.AreIntersect());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v2) {
-    // Arrange
-    Point p1, p2, p3, p4;
-    p1.SetCoordinatesToPoint(0, 0);
-    p2.SetCoordinatesToPoint(10, 0);
-    p3.SetCoordinatesToPoint(2, 1);
-    p4.SetCoordinatesToPoint(2, 5);
-    TwoLineSegments tls;
-
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
-
-    // Act & Assert
-    EXPECT_EQ(0, tls.areIntersect());
-}
-
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v3) {
-    // Arrange
-    Point p1, p2, p3, p4;
-    p1.SetCoordinatesToPoint(0, 0);
-    p2.SetCoordinatesToPoint(10, 0);
-    p3.SetCoordinatesToPoint(2, 0);
-    p4.SetCoordinatesToPoint(2, 5);
-    TwoLineSegments tls;
-
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
-
-    // Act & Assert
-    EXPECT_EQ(1, tls.areIntersect());
-}
-
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v4) {
+TEST(TwoLineSegmentsTest,
+     Checking_Of_Intersection_When_Line_Segments_Intersects) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(0, 0);
@@ -201,14 +155,15 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v4) {
     p4.SetCoordinatesToPoint(2, 5);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(1, tls.areIntersect());
+    EXPECT_EQ(1, tls.AreIntersect());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v5) {
+TEST(TwoLineSegmentsTest,
+     No_Intersection_When_Second_Line_Is_Point_And_Not_Belongs_To_First_Line) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(0, 0);
@@ -217,14 +172,15 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v5) {
     p4.SetCoordinatesToPoint(2, 1);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(0, tls.areIntersect());
+    EXPECT_EQ(0, tls.AreIntersect());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v6) {
+TEST(TwoLineSegmentsTest,
+     Intersection_When_Second_Line_Is_Point_And_Belongs_To_First_Line) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(0, 0);
@@ -233,14 +189,15 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v6) {
     p4.SetCoordinatesToPoint(5, 0);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(1, tls.areIntersect());
+    EXPECT_EQ(1, tls.AreIntersect());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v7) {
+TEST(TwoLineSegmentsTest,
+     Intersection_When_Both_Lines_Are_Points_With_Equal_Coordinates) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(1, 2);
@@ -249,14 +206,15 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v7) {
     p4.SetCoordinatesToPoint(1, 2);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(1, tls.areIntersect());
+    EXPECT_EQ(1, tls.AreIntersect());
 }
 
-TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v8) {
+TEST(TwoLineSegmentsTest,
+     No_Intersection_When_Both_Lines_Are_Points_With_Not_Equal_Coordinates) {
     // Arrange
     Point p1, p2, p3, p4;
     p1.SetCoordinatesToPoint(1, 2);
@@ -265,9 +223,9 @@ TEST(TwoLineSegmentsTest, Testing_Of_Are_Intersect_Function_v8) {
     p4.SetCoordinatesToPoint(5, 0);
     TwoLineSegments tls;
 
-    tls.setCoordinatesToFirstLine(p1, p2);
-    tls.setCoordinatesToSecondLine(p3, p4);
+    tls.SetCoordinatesToFirstLine(p1, p2);
+    tls.SetCoordinatesToSecondLine(p3, p4);
 
     // Act & Assert
-    EXPECT_EQ(0, tls.areIntersect());
+    EXPECT_EQ(0, tls.AreIntersect());
 }
