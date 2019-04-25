@@ -72,16 +72,20 @@ Complex& Complex::operator *= (const Complex &c_number) {
 }
 
 Complex& Complex::operator /= (const Complex &c_number) {
-    double copy_re = real;
-    double den = c_number.get_re() * c_number.get_re() +
-                 c_number.get_im() * c_number.get_im();
+    if (about_zero(c_number)) {
+        throw std::runtime_error("Division by zero!");
+    } else {
+        double copy_re = real;
+        double den = c_number.get_re() * c_number.get_re() +
+            c_number.get_im() * c_number.get_im();
 
-    real = (real * c_number.get_re() +
+        real = (real * c_number.get_re() +
             imaginary * c_number.get_im()) / den;
-    imaginary = (imaginary * c_number.get_re() -
-                 copy_re * c_number.get_im()) / den;
+        imaginary = (imaginary * c_number.get_re() -
+            copy_re * c_number.get_im()) / den;
 
-    return *this;
+        return *this;
+    }
 }
 
 Complex Complex::operator + (const Complex &c_number) const {
