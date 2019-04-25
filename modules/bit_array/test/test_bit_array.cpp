@@ -174,7 +174,7 @@ TEST(BitArrayTest, Copy_Constructor_Test) {
     // Arrange
     int bit_count = 8;
     BitArray bit_1(bit_count);
-    
+
     // Act
     bit_1.SetBit(0, true);
     BitArray bit_2(bit_1);
