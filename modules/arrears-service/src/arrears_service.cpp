@@ -3,7 +3,7 @@
 #include "include/arrears_service.h"
 
 #define _USE_MATH_DEFINES_
-#include <math.h>
+#include <cmath>
 #include <string>
 
 ArrearService::ArrearService() : debt(0), rate(0), yearpay(0) {
