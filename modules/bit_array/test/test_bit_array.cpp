@@ -11,7 +11,7 @@ TEST(BitArrayTest, Default_Constructor_Test) {
     BitArray bit;
 
     // Act
-    
+
     // Assert
     EXPECT_GT(bit.size(), 0);
 }
