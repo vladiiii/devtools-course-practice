@@ -9,7 +9,7 @@ class CalculatePrice {
     double DiscountCalculate(const int book);
 
  public:
-    CalculatePrice(int *b, int size);
+    CalculatePrice(int b1, int b2, int b3, int b4, int b5);
 
     double TotalSum();
 };

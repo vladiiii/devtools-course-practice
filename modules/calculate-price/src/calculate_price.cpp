@@ -5,13 +5,14 @@
 #include <stdio.h>
 #include <string>
 
-CalculatePrice::CalculatePrice(int *b, int size) {
-    if (size != 5) throw std::string("Size must be determined!");
-    for (int i = 0; i < 5; i++) {
-        if (b[i] < 0)
-            throw std::string("Mustn't be contain negative numbers");
-        basket[i] = b[i];
-    }
+CalculatePrice::CalculatePrice(int b1, int b2, int b3, int b4, int b5) {
+    if ((b1 < 0) || (b2 < 0) || (b3 < 0) || (b4 < 0) || (b5 < 0))
+        throw std::string("Mustn't be contain negative numbers");
+    basket[0] = b1;
+	basket[1] = b2;
+	basket[2] = b3;
+	basket[3] = b4;
+	basket[4] = b5;
 }
 
 double CalculatePrice::DiscountCalculate(const int book) {
@@ -42,18 +43,19 @@ double CalculatePrice::TotalSum() {
     }
 
     int count;
+    int books = shop_basket[0] + shop_basket[1] + 
+        shop_basket[2] + shop_basket[3] + shop_basket[4];
 
+    while (books) {
+    count = 0;
     for (int i = 0; i < 5; i++) {
-        while (shop_basket[i] != 0) {
+        if (shop_basket[i]) {
+            books --;
             shop_basket[i]--;
-            count = 1;
-            for (int j = 0; j < 5; j++)
-                if ((shop_basket[j] > 0) && (i != j)) {
-                    count++;
-                    shop_basket[j]--;
-                }
-                sum += DiscountCalculate(count);
+            count++;
         }
+    }
+    sum += DiscountCalculate(count);
     }
 
     return sum;
