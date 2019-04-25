@@ -104,6 +104,10 @@ std::string BitArray::print_string() {
         int byte = memory[i];
         int mask = 1;
 
+        if (i != 0) {
+            out += "    ";
+        }
+
         for (unsigned int j = 0;
              (j < (sizeof(int) * 8)) && (prented_count < bit_count); j++) {
             prented_count += 1;
@@ -115,7 +119,6 @@ std::string BitArray::print_string() {
                 out += "0";
             }
         }
-        out += "    ";
     }
     return out;
 }
