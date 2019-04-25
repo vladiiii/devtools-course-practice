@@ -17,9 +17,8 @@ PriorityQueue::PriorityQueue() {
 }
 
 PriorityQueue::~PriorityQueue() {
-    Link *tmp;
     while (first != nullptr) {
-        tmp = first;
+        Link *tmp = first;
         first = first->next;
         delete tmp;
     }
