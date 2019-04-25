@@ -37,22 +37,6 @@ TEST(BitArrayTest, Cant_Create_Negative_Size_Array) {
     EXPECT_ANY_THROW(BitArray bit(bit_count));
 }
 
-TEST(BitArrayTest, Copy_Constructor_Test) {
-    // Arrange
-    int bit_count = 512;
-    BitArray bit(bit_count);
-    int size_1 = 0;
-    int size_2 = 0;
-
-    // Act
-    BitArray copy_bit(bit);
-    size_1 = bit.size();
-    size_2 = copy_bit.size();
-
-    // Assert
-    EXPECT_EQ(size_1, size_2);
-}
-
 TEST(BitArrayTest, Can_Print) {
     // Arrange
     int bit_count = 8;
