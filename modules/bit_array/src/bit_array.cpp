@@ -11,7 +11,7 @@ BitArray::BitArray() {
 
     memory_size = bit_count / (8 * sizeof(int));
 
-    memory = static_cast<int*>(std::malloc(memory_size * sizeof(int)));
+    memory = new int[memory_size];
 
     for (int i = 0; i < memory_size; i++) {
         memory[i] = 0;
@@ -29,7 +29,7 @@ BitArray::BitArray(const int _bit_count) {
     if (bit_count % (8 * sizeof(int)) != 0)
         memory_size += 1;
 
-    memory = static_cast<int*>(malloc(memory_size * sizeof(int)));
+    memory = new int[memory_size];
 
     for (int i = 0; i < memory_size; i++) {
         memory[i] = 0;
@@ -40,7 +40,7 @@ BitArray::BitArray(const BitArray& _bit_array) {
     memory_size = _bit_array.memory_size;
     bit_count = _bit_array.bit_count;
 
-    memory = static_cast<int*>(std::malloc(memory_size * sizeof(int)));
+    memory = new int[memory_size];
 
     for (int i = 0; i < memory_size; i++) {
         memory[i] = _bit_array.memory[i];
