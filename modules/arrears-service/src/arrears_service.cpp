@@ -10,7 +10,8 @@ ArrearService::ArrearService() : debt(0), rate(0), yearpay(0) {
     capital = nullptr;
 }
 
-ArrearService::ArrearService(const double d, const double r, const double y, const int t) {
+ArrearService::ArrearService(const double d, const double r,
+                             const double y, const int t) {
     debt = d;
     rate = r;
     yearpay = y;
@@ -73,9 +74,9 @@ double ArrearService::YearPayVal(int proc, int time, double prog) {
     double val1, val2, val3;
 
     val1 = 1.0 / capital[time];
-    val2 = debt - (prog * pow((1 + proc / 100), time) - (1 + time  * (proc / 100)));
+    val2 = prog * pow((1 + proc / 100), time) - (1 + time  * (proc / 100));
     val3 = proc * proc;
-    yearP = val1 * (val2 / val3);
+    yearP = val1 * ((debt - val2) / val3);
 
     return yearP;
 }
