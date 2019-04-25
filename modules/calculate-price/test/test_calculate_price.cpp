@@ -54,18 +54,6 @@ TEST(CalculatePrice,
     EXPECT_EQ(price, b.TotalSum());
 }
 
-TEST(CalculatePrice, Total_Sum_Dont_Change_After_Calculate_Again) {
-    // Arrange
-    CalculatePrice b(5, 4, 3, 2, 1);
-    double price;
-
-    // Act
-    price = b.TotalSum();
-
-    // Assert
-    EXPECT_EQ(price, b.TotalSum());
-}
-
 TEST(CalculatePrice, Correct_Calculate_Irrespective_Of_Parts_Of_Book) {
     // Arrange
     CalculatePrice b(0, 0, 2, 1, 0);
