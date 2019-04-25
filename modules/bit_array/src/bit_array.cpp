@@ -43,7 +43,7 @@ BitArray::BitArray(const BitArray& _bit_array) {
     memory_size = _bit_array.memory_size;
     bit_count = _bit_array.bit_count;
 
-    memory = static_cast<int*>(malloc(memory_size));
+    memory = static_cast<int*>(std::malloc(memory_size * sizeof(int)));
 
     for (int i = 0; i < memory_size; i++) {
         memory[i] = _bit_array.memory[i];
@@ -103,10 +103,6 @@ std::string BitArray::print_string() {
     for (int i = 0; i < memory_size; i++) {
         int byte = memory[i];
         int mask = 1;
-
-        if (i != 0) {
-            out += "    ";
-        }
 
         for (unsigned int j = 0;
              (j < (sizeof(int) * 8)) && (prented_count < bit_count); j++) {

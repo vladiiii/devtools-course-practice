@@ -127,3 +127,29 @@ TEST(BitArrayTest, Cant_Get_Bit_OOR) {
     // Assert
     EXPECT_ANY_THROW(bit.GetBit(8));
 }
+
+TEST(BitArrayTest, Can_Get_Value_True) {
+    // OOR - out of range
+    // Arrange
+    int bit_count = 8;
+    BitArray bit(bit_count);
+
+    // Act
+    bit.SetBit(0, true);
+
+    // Assert
+    EXPECT_EQ(bit.GetBit(0), true);
+}
+
+TEST(BitArrayTest, Can_Get_Value_False) {
+    // OOR - out of range
+    // Arrange
+    int bit_count = 8;
+    BitArray bit(bit_count);
+
+    // Act
+    bit.SetBit(0, false);
+
+    // Assert
+    EXPECT_EQ(bit.GetBit(0), false);
+}
