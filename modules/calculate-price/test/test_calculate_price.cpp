@@ -1,4 +1,4 @@
-// Copyright 2017 Ryabova Alyona
+// Copyright 2019 Ryabova Alyona
 
 #include <gtest/gtest.h>
 

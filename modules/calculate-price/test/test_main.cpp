@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Ryabova Alyona
 
 #include <gtest/gtest.h>
 
