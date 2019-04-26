@@ -42,12 +42,11 @@ double CalculatePrice::TotalSum() {
         shop_basket[i] = basket[i];
     }
 
-    int count;
     int books = shop_basket[0] + shop_basket[1] +
         shop_basket[2] + shop_basket[3] + shop_basket[4];
 
     while (books) {
-    count = 0;
+    int count = 0;
     for (int i = 0; i < 5; i++) {
         if (shop_basket[i]) {
             books--;
