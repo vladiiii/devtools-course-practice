@@ -31,10 +31,10 @@ int quantity_2, double income_1, double income_2) {
 
 double ElasticityOfDemand::cross_elasticity_of_demand(int quantity_1_product_1,
 int quantity_2_product_1, double price_1_product_2, double price_2_product_2) {
-    double dq = static_cast<double>(quantity_2_product_1 - 
+    double dq = static_cast<double>(quantity_2_product_1 -
     quantity_1_product_1);
     double dp = price_2_product_2 - price_1_product_2;
 
-    return (dq / static_cast<double>(quantity_1_product_1)) / 
+    return (dq / static_cast<double>(quantity_1_product_1)) /
     (dp / price_1_product_2);
 }
