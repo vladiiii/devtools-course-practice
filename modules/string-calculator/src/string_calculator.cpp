@@ -28,8 +28,8 @@ bool StringCalculator::check()
     {
         charStack.pop();
     }
-
-    for (int i = 0; i < infix.size(); i++)
+    int sizeOfInfix = static_cast<int>(infix.size());
+    for (int i = 0; i < sizeOfInfix; i++)
     {
         switch (infix[i])
         {
@@ -50,7 +50,7 @@ bool StringCalculator::check()
             }
             case '+':
             {
-                if (i == 0 || i == infix.size() - 1)
+                if (i == 0 || i == sizeOfInfix - 1)
                     return false;
                 if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
                     infix[i - 1] == '/' || infix[i - 1] == '^')
@@ -59,7 +59,7 @@ bool StringCalculator::check()
             }
             case '-':
             {
-                if (i == 0 || i == infix.size() - 1)
+                if (i == 0 || i == sizeOfInfix - 1)
                     return false;
                 if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
                     infix[i - 1] == '/' || infix[i - 1] == '^')
@@ -68,7 +68,7 @@ bool StringCalculator::check()
             }
             case '*':
             {
-                if (i == 0 || i == infix.size() - 1)
+                if (i == 0 || i == sizeOfInfix - 1)
                     return false;
                 if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
                     infix[i - 1] == '/' || infix[i - 1] == '^')
@@ -77,7 +77,7 @@ bool StringCalculator::check()
             }
             case '/':
             {
-                if (i == 0 || i == infix.size() - 1)
+                if (i == 0 || i == sizeOfInfix - 1)
                     return false;
                 if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
                     infix[i - 1] == '/' || infix[i - 1] == '^')
@@ -86,7 +86,7 @@ bool StringCalculator::check()
             }
             case '^':
             {
-                if (i == 0 || i == infix.size() - 1)
+                if (i == 0 || i == sizeOfInfix - 1)
                     return false;
                 if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
                     infix[i - 1] == '/' || infix[i - 1] == '^')
@@ -134,6 +134,7 @@ int StringCalculator::priority(const char& el)
             return 3;
         }
     }
+    return -1;
 }
 
 void StringCalculator::to_postfix()
@@ -147,7 +148,8 @@ void StringCalculator::to_postfix()
         postfix.clear();
 
         string tmp = '(' + infix + ')';
-        for (int i = 0; i < tmp.size(); i++)
+        int sizeOfTmp = static_cast<int>(tmp.size());
+        for (int i = 0; i < sizeOfTmp; i++)
         {
             if (tmp[i] == '(')
             {
@@ -193,8 +195,8 @@ double StringCalculator::calculate()
     {
         doubleStack.pop();
     }
-
-    for (int i = 0; i < postfix.size(); i++)
+    int sizeOfPostfix = static_cast<int>(postfix.size());
+    for (int i = 0; i < sizeOfPostfix; i++)
     {
         if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || 
             postfix[i] == '/' || postfix[i] == '^')
