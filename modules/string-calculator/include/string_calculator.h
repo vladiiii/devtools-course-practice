@@ -15,6 +15,8 @@ class StringCalculator{
 
  public:
     void set_infix(const std::string str);
+    void set_postfix(const std::string str);
+    void fill_stacks(int n);
     std::string get_infix();
     std::string get_postfix();
 

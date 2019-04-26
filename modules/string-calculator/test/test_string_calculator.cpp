@@ -250,10 +250,50 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pluses) {
     ASSERT_ANY_THROW(sc.to_postfix());
 }
 
+TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Multyple) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2+*2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Pow) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2+^2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Minuses) {
     // Arrange
     StringCalculator sc;
     std::string str = "2--2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Multiple) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2*-2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Pow) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2^-2";
 
     // Act
     sc.set_infix(str);
@@ -270,10 +310,50 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Multiple) {
     ASSERT_ANY_THROW(sc.to_postfix());
 }
 
+TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Plus) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2*+2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Pow) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2*^2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Divide) {
     // Arrange
     StringCalculator sc;
     std::string str = "2//2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Plus) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2+/2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Pow) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2^/2";
 
     // Act
     sc.set_infix(str);
@@ -290,6 +370,26 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pows) {
     ASSERT_ANY_THROW(sc.to_postfix());
 }
 
+TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Plus) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2^+2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Multiple) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2^*2";
+
+    // Act
+    sc.set_infix(str);
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
 TEST(String_Calculator_Test, Correct_Priority) {
     // Arrange
     StringCalculator sc;
@@ -299,6 +399,17 @@ TEST(String_Calculator_Test, Correct_Priority) {
 
     // Assert
     EXPECT_EQ(a, 1);
+}
+
+TEST(String_Calculator_Test, Exception_In_Priority) {
+    // Arrange
+    StringCalculator sc;
+
+    // Act
+    int a = sc.priority('c');
+
+    // Assert
+    EXPECT_EQ(a, -1);
 }
 
 TEST(String_Calculator_Test, Can_Calculate_Fraction) {
@@ -319,6 +430,18 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Mismatched_Brackets) {
     // Arrange
     StringCalculator sc;
     std::string str = ")2+2(";
+
+    // Act
+    sc.set_infix(str);
+
+    // Assert
+    ASSERT_ANY_THROW(sc.to_postfix());
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_More_Open_Brackets) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "((((2+2)";
 
     // Act
     sc.set_infix(str);
@@ -367,4 +490,31 @@ TEST(String_Calculator_Test, Can_Calculate_Long_Expression_With_Brackets) {
 
     // Assert
     EXPECT_EQ(res, 6);
+}
+
+TEST(String_Calculator_Test, Can_Calculate_Not_Empty_Stacks) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "(2 + 2) * 2 - 2 ^ 3 / 4";
+
+    // Act
+    sc.fill_stacks(4);
+    sc.set_infix(str);
+    sc.to_postfix();
+    double res = sc.calculate();
+
+    // Assert
+    EXPECT_EQ(res, 6);
+}
+
+TEST(String_Calculator_Test, Can_Not_Calculate_Without_Nums) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2+";
+
+    // Act
+    sc.set_postfix(str);
+
+    // Assert
+    ASSERT_ANY_THROW(sc.calculate());
 }

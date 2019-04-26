@@ -141,9 +141,6 @@ int StringCalculator::priority(const char& el) {
 
 void StringCalculator::to_postfix() {
     if (check()) {
-        while (!charStack.empty()) {
-            charStack.pop();
-        }
         postfix.clear();
 
         std::string tmp = '(' + infix + ')';
@@ -236,4 +233,15 @@ double StringCalculator::calculate() {
         }
     }
     return doubleStack.top();
+}
+
+void StringCalculator::fill_stacks(int n) {
+    for (int i = 0; i < n; i++) {
+        charStack.push('+');
+        doubleStack.push(2.5);
+    }
+}
+
+void StringCalculator::set_postfix(const std::string str) {
+    postfix = str;
 }
