@@ -2,37 +2,30 @@
 
 #include "include/string_calculator.h"
 
-#include <iostream>
 #include <math.h>
 
-using namespace std;
+#include <iostream>
+#include <string>
 
-void StringCalculator::set_infix(const string str)
-{
+void StringCalculator::set_infix(const std::string str) {
     infix = str;
 }
 
-string StringCalculator::get_infix()
-{
+std::string StringCalculator::get_infix() {
     return infix;
 }
 
-string StringCalculator::get_postfix()
-{
+std::string StringCalculator::get_postfix() {
     return postfix;
 }
 
-bool StringCalculator::check()
-{
-    while (!charStack.empty())
-    {
+bool StringCalculator::check() {
+    while (!charStack.empty()) {
         charStack.pop();
     }
     int sizeOfInfix = static_cast<int>(infix.size());
-    for (int i = 0; i < sizeOfInfix; i++)
-    {
-        switch (infix[i])
-        {
+    for (int i = 0; i < sizeOfInfix; i++) {
+        switch (infix[i]) {
             case '(':
             {
                 charStack.push(infix[i]);
@@ -40,10 +33,9 @@ bool StringCalculator::check()
             }
             case ')':
             {
-                if (charStack.empty())
+                if (charStack.empty()) {
                     return false;
-                else
-                {
+                } else {
                     charStack.pop();
                     break;
                 }
@@ -52,8 +44,11 @@ bool StringCalculator::check()
             {
                 if (i == 0 || i == sizeOfInfix - 1)
                     return false;
-                if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
-                    infix[i - 1] == '/' || infix[i - 1] == '^')
+                if (infix[i - 1] == '-' || infix[i - 1] == '+')
+                    return false;
+                else if (infix[i - 1] == '*' || infix[i - 1] == '/')
+                    return false;
+                else if (infix[i - 1] == '^')
                     return false;
                 break;
             }
@@ -61,8 +56,11 @@ bool StringCalculator::check()
             {
                 if (i == 0 || i == sizeOfInfix - 1)
                     return false;
-                if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
-                    infix[i - 1] == '/' || infix[i - 1] == '^')
+                if (infix[i - 1] == '-' || infix[i - 1] == '+')
+                    return false;
+                else if (infix[i - 1] == '*' || infix[i - 1] == '/')
+                    return false;
+                else if (infix[i - 1] == '^')
                     return false;
                 break;
             }
@@ -70,8 +68,11 @@ bool StringCalculator::check()
             {
                 if (i == 0 || i == sizeOfInfix - 1)
                     return false;
-                if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
-                    infix[i - 1] == '/' || infix[i - 1] == '^')
+                if (infix[i - 1] == '-' || infix[i - 1] == '+')
+                    return false;
+                else if (infix[i - 1] == '*' || infix[i - 1] == '/')
+                    return false;
+                else if (infix[i - 1] == '^')
                     return false;
                 break;
             }
@@ -79,8 +80,11 @@ bool StringCalculator::check()
             {
                 if (i == 0 || i == sizeOfInfix - 1)
                     return false;
-                if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
-                    infix[i - 1] == '/' || infix[i - 1] == '^')
+                if (infix[i - 1] == '-' || infix[i - 1] == '+')
+                    return false;
+                else if (infix[i - 1] == '*' || infix[i - 1] == '/')
+                    return false;
+                else if (infix[i - 1] == '^')
                     return false;
                 break;
             }
@@ -88,27 +92,25 @@ bool StringCalculator::check()
             {
                 if (i == 0 || i == sizeOfInfix - 1)
                     return false;
-                if (infix[i - 1] == '-' || infix[i - 1] == '+' || infix[i - 1] == '*' ||
-                    infix[i - 1] == '/' || infix[i - 1] == '^')
+                if (infix[i - 1] == '-' || infix[i - 1] == '+')
+                    return false;
+                else if (infix[i - 1] == '*' || infix[i - 1] == '/')
+                    return false;
+                else if (infix[i - 1] == '^')
                     return false;
                 break;
             }
         }
     }
-    if (charStack.empty())
-    {
+    if (charStack.empty()) {
         return true;
-    }
-    else
-    {
+    } else {
         return false;
     }
 }
 
-int StringCalculator::priority(const char& el)
-{
-    switch (el)
-    {
+int StringCalculator::priority(const char& el) {
+    switch (el) {
         case '(':
         {
             return 0;
@@ -137,80 +139,62 @@ int StringCalculator::priority(const char& el)
     return -1;
 }
 
-void StringCalculator::to_postfix()
-{
-    if (check())
-    {
-        while (!charStack.empty())
-        {
+void StringCalculator::to_postfix() {
+    if (check()) {
+        while (!charStack.empty()) {
             charStack.pop();
         }
         postfix.clear();
 
-        string tmp = '(' + infix + ')';
+        std::string tmp = '(' + infix + ')';
         int sizeOfTmp = static_cast<int>(tmp.size());
-        for (int i = 0; i < sizeOfTmp; i++)
-        {
-            if (tmp[i] == '(')
-            {
+        for (int i = 0; i < sizeOfTmp; i++) {
+            if (tmp[i] == '(') {
                 charStack.push(tmp[i]);
             }
-            if ((tmp[i] >= '0' && tmp[i] <= '9') || (tmp[i] == '.'))
-            {
+            if ((tmp[i] >= '0' && tmp[i] <= '9') || (tmp[i] == '.')) {
                 postfix += tmp[i];
             }
-            if (tmp[i] == ')')
-            {
+            if (tmp[i] == ')') {
                 char el = charStack.top();
                 charStack.pop();
-                while (el != '(')
-                {
+                while (el != '(') {
                     postfix += el;
                     el = charStack.top();
                     charStack.pop();
                 }
             }
-            if ((tmp[i] == '+') || (tmp[i] == '-') || (tmp[i] == '*') || 
-                (tmp[i] == '/') || (tmp[i] == '^'))
-            {
+            if ((tmp[i] == '+') || (tmp[i] == '-') || (tmp[i] == '*') ||
+                (tmp[i] == '/') || (tmp[i] == '^')) {
                 postfix += " ";
-                while (priority(tmp[i]) <= priority(charStack.top()))
-                {
+                while (priority(tmp[i]) <= priority(charStack.top())) {
                     postfix += charStack.top();
                     charStack.pop();
                 }
                 charStack.push(tmp[i]);
             }
         }
-    }
-    else
-    {
-        throw string("Incorrect data");
+    } else {
+        throw std::string("Incorrect data");
     }
 }
 
-double StringCalculator::calculate()
-{
-    while (!doubleStack.empty())
-    {
+double StringCalculator::calculate() {
+    while (!doubleStack.empty()) {
         doubleStack.pop();
     }
     int sizeOfPostfix = static_cast<int>(postfix.size());
-    for (int i = 0; i < sizeOfPostfix; i++)
-    {
-        if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || 
-            postfix[i] == '/' || postfix[i] == '^')
-        {
+    for (int i = 0; i < sizeOfPostfix; i++) {
+        if (postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' ||
+            postfix[i] == '/' || postfix[i] == '^') {
             double res, op1, op2 = doubleStack.top();
             doubleStack.pop();
-            if (doubleStack.empty()) 
-            {
-                throw string("Error - Incorrect Data");
+            if (doubleStack.empty()) {
+                throw std::string("Error - Incorrect Data");
             }
             op1 = doubleStack.top();
             doubleStack.pop();
-            switch (postfix[i])
-            {
+            switch (postfix[i]) {
                 case '+':
                 {
                     res = op1 + op2;
@@ -228,9 +212,8 @@ double StringCalculator::calculate()
                 }
                 case '/':
                 {
-                    if(op2 == 0)
-                    {
-                        throw string("Error - division by zero");
+                    if (op2 == 0) {
+                        throw std::string("Error - division by zero");
                     }
                     res = op1 / op2;
                     break;
@@ -243,8 +226,7 @@ double StringCalculator::calculate()
             }
             doubleStack.push(res);
         }
-        if ((postfix[i] >= '0' && postfix[i] <= '9') || postfix[i] == '.')
-        {
+        if ((postfix[i] >= '0' && postfix[i] <= '9') || postfix[i] == '.') {
             char *tmp;
             double res;
             res = strtod(&postfix[i], &tmp);

@@ -7,20 +7,16 @@
 #ifndef MODULES_STRING_CALCULATOR_INCLUDE_STRING_CALCULATOR_H_
 #define MODULES_STRING_CALCULATOR_INCLUDE_STRING_CALCULATOR_H_
 
-using namespace std;
+class StringCalculator{
+ private:
+    std::string infix, postfix;
+    std::stack<char> charStack;
+    std::stack<double> doubleStack;
 
-class StringCalculator 
-{
-private:
-
-    string infix, postfix;
-    stack<char> charStack;
-    stack<double> doubleStack;
-
-public:
-    void set_infix(const string str);
-    string get_infix();
-    string get_postfix();
+ public:
+    void set_infix(const std::string str);
+    std::string get_infix();
+    std::string get_postfix();
 
     bool check();
     int priority(const char& el);
@@ -28,4 +24,4 @@ public:
     double calculate();
 };
 
-#endif // MODULES_STRING_CALCULATOR_INCLUDE_STRING_CALCULATOR_H_
+#endif  // MODULES_STRING_CALCULATOR_INCLUDE_STRING_CALCULATOR_H_
