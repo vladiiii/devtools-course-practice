@@ -28,6 +28,7 @@ bool StringCalculator::check()
     {
         charStack.pop();
     }
+
     for (int i = 0; i < infix.size(); i++)
     {
         switch (infix[i])
