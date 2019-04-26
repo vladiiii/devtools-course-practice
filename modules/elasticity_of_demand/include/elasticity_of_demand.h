@@ -1,10 +1,10 @@
 // Copyright 2019 Vdovin Eugene
 
-#ifndef MODULES_COMPLEX_NUMBER_INCLUDE_ELASTICITY_OF_DEMAND_H_
-#define MODULES_COMPLEX_NUMBER_INCLUDE_ELASTICITY_OF_DEMAND_H_
+#ifndef MODULES_ELASTICITY_OF_DEMAND_INCLUDE_ELASTICITY_OF_DEMAND_H_
+#define MODULES_ELASTICITY_OF_DEMAND_INCLUDE_ELASTICITY_OF_DEMAND_H_
 
 class ElasticityOfDemand {
-  public:
+ public:
     ElasticityOfDemand();
 
     double price_elasticity_of_demand(int quantity_1, int quantity_2,
@@ -18,4 +18,4 @@ class ElasticityOfDemand {
     double price_2_product_2);
 };
 
-#endif  // MODULES_COMPLEX_NUMBER_INCLUDE_ELASTICITY_OF_DEMAND_H_
+#endif  // MODULES_ELASTICITY_OF_DEMAND_INCLUDE_ELASTICITY_OF_DEMAND_H_
