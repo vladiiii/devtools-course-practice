@@ -23,13 +23,13 @@ double CalculatePrice::DiscountCalculate(const int book) {
         case 1:
             sum = price; break;
         case 2:
-            sum = price * 2 * 0.95; break;
+            sum = price * book * 0.95; break;
         case 3:
-            sum = price * 3 * 0.9; break;
+            sum = price * book * 0.9; break;
         case 4:
-            sum = price * 4 * 0.8; break;
+            sum = price * book * 0.8; break;
         case 5:
-            sum = price * 5 * 0.75; break;
+            sum = price * book * 0.75; break;
     }
 
     return sum;
