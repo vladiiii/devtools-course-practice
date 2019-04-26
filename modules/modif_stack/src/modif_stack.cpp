@@ -5,80 +5,63 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <utility>
+#include <algorithm>
 
-template <typename T>
-modif_stack<T>::modif_stack() {};
+ModifStack::ModifStack(std::vector<int> temp) {
+    if (temp.size() != 0) {
+        int size_temp = temp.size();
+        std::pair<int, int> tmp = std::make_pair(temp[0], temp[0]);
+        this->stack_.push_back(tmp);
 
-template <typename T>
-modif_stack<T>::modif_stack(const modif_stack<T> &src)
-{
-	for (auto i = src.stack.begin(); i != src.stack.size(); i++)
-	{
-		this->stack.push_back(src.stack[i]);
-	}
+        for (int i = 1; i < size_temp; i++) {
+            tmp = std::make_pair(temp[i], temp[i]);
+            if (temp[i] > this->stack_[i-1].second) {
+               tmp.second = this->stack_[i-1].second;
+            }
+            this->stack_.push_back(tmp);
+        }
+     }
 }
 
-template <typename T>
-modif_stack<T>::modif_stack(std::vector<T> src)
-{
-	for (auto i = src.stack.begin(); i != src.size(); i++)
-	{
-		this->stack.push_back(src[i]);
-	}
+bool ModifStack::Empty() {
+     return this->stack_.empty();
 }
 
-template <typename T>
-modif_stack<T>::~modif_stack() {};
 
-template <typename T>
-bool modif_stack<T>::empty()
-{
-	return stack.empty();
+int ModifStack::Size() {
+    return this->stack_.size();
 }
 
-template <typename T>
-int modif_stack<T>::size()
-{
-	return this->stack.size();
+
+std::pair<int, int> ModifStack::Top() {
+    std::pair<int, int> res = std::make_pair(-1, 0);
+
+    if (this->Size() != 0) {
+        res = this->stack_.back();
+    }
+    return res;
 }
 
-template <typename T>
-std::pair<T, T> modif_stack<T>::top()
-{
-	std::pair<T, T> res = std::make_pair(-1, 0);
-	if (this->size() != 0)
-	{
-		res = this->stack[this->stack.size() - 1];
-	}
-	return res;
+
+void ModifStack::Push(int number) {
+    std::pair<int, int> res = std::make_pair(number, number);
+    res.second = std::min(number, this->Top().second);
+    this->stack_.push_back(res);
 }
 
-template <typename T>
-void modif_stack<T>::push(T number)
-{
-	std::pair<T, T> res = std::make_pair(number, number);
-	res.second = std::min(number, this->top().second);
-	this->stack.push_back(res);
+
+void ModifStack::Pop() {
+    if (this->Size() != 0) {
+         this->stack_.pop_back();
+    }
 }
 
-template <typename T>
-void modif_stack<T>::pop()
-{
-	if (this->size() != 0)
-	{
-		res = this->stack.pop_back();
-	}
-}
 
-template <typename T>
-std::string modif_stack<T>::show_stack()
-{
-	std::string res = "";
-	for (auto i = 0; i < this->size(); i++)
-	{
-		res += "(";
-		res = res + this->stack[i].first + "," + this->stack[i].second + ") ";
-	}
+std::vector<std::pair<int, int>> ModifStack::ShowReverseStack() {
+    std::vector<std::pair<int, int>> res(this->stack_);
 
-	return res;
+    std::reverse(res.begin(), res.end());
+
+    return res;
 }

@@ -1,31 +1,30 @@
 // Copyright 2019 Karasev Anton
 
-#ifndef MODULES_MODIFIED_STACK_INCLUDE_MODIFIED_STACK_H_
-#define MODULES_MODIFIED_STACK_INCLUDE_MODIFIED_STACK_H_
+#ifndef MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
+#define MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
 
 #include <iostream>
 #include <vector>
 #include <string>
+#include <array>
+#include <utility>
 
-template <typename T> 
-class modif_stack
-{
-private:
-	std::vector<std::pair<T, T>> stack;
+class ModifStack {
+ private:
+    std::vector<std::pair<int, int>> stack_;
 
-public:
-	modif_stack();
-	modif_stack(const modif_stack<T> &src);
-	modif_stack(std::vector<T> src = { 1, 2, 3, 4, 5 });
-	~modif_stack();
+ public:
+    explicit ModifStack(std::vector<int> temp);
+    ModifStack(const ModifStack &src) = default;
+    ~ModifStack() = default;
 
-	bool empty();
-	int size();
+    bool Empty();
+    int Size();
 
-	std::pair<T, T> top();
-	void push(T number);
-	void pop();
-	std::string show_stack();
+    std::pair<int, int> Top();
+    void Push(int number);
+    void Pop();
+    std::vector<std::pair<int, int>> ShowReverseStack();
 };
 
-#endif //MODULES_MODIFIED_STACK_INCLUDE_MODIFIED_STACK_H_
+#endif  // MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
