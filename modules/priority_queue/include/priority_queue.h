@@ -11,15 +11,15 @@ class PriorityQueue {
         Link *next;
     };
     Link *first, *last;
-    Link *create(int prior, int val);
+    Link *Create(int prior, int val);
  public:
     PriorityQueue();
     ~PriorityQueue();
-    void push(int prior, int val);
-    void pop();
-    int top();
-    bool empty();
-    int size();
+    void Push(int prior, int val);
+    void Pop();
+    int Top();
+    bool Empty();
+    int Size();
 };
 
 #endif  // MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_

@@ -2,7 +2,7 @@
 
 #include "include/priority_queue.h"
 
-PriorityQueue::Link * PriorityQueue::create(int prior, int val) {
+PriorityQueue::Link * PriorityQueue::Create(int prior, int val) {
     Link *tmp = new Link;
 
     tmp->priority = prior;
@@ -24,9 +24,9 @@ PriorityQueue::~PriorityQueue() {
     }
 }
 
-void PriorityQueue::push(int prior, int val) {
-    Link *element = create(prior, val);
-    if (first == nullptr) {
+void PriorityQueue::Push(int prior, int val) {
+    Link *element = Create(prior, val);
+    if (Empty()) {
         first = last = element;
     } else if (first->priority >= prior) {
         element->next = first;
@@ -43,8 +43,8 @@ void PriorityQueue::push(int prior, int val) {
     }
 }
 
-void PriorityQueue::pop() {
-    if (last == nullptr)
+void PriorityQueue::Pop() {
+    if (Empty())
         throw "No elements";
     if (first == last) {
         delete last;
@@ -59,17 +59,17 @@ void PriorityQueue::pop() {
     }
 }
 
-int PriorityQueue::top() {
-    if (last == nullptr)
+int PriorityQueue::Top() {
+    if (Empty())
         throw "No elements";
     return last->value;
 }
 
-bool PriorityQueue::empty() {
+bool PriorityQueue::Empty() {
     return first == nullptr;
 }
 
-int PriorityQueue::size() {
+int PriorityQueue::Size() {
     Link *tmp = first;
     int count = 0;
     while (tmp != nullptr) {

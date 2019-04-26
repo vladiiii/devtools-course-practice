@@ -4,18 +4,18 @@
 
 #include "include/priority_queue.h"
 
-TEST(PriorityQueueTest, can_push_element_in_empty_queue) {
+TEST(PriorityQueueTest, Can_Push_Element_In_Empty_Queue) {
     // Arrange
     PriorityQueue q;
     int prior = 1;
     int val = 1;
     // Act
-    q.push(prior, val);
+    q.Push(prior, val);
     // Assert
-    EXPECT_EQ(val, q.top());
+    EXPECT_EQ(val, q.Top());
 }
 
-TEST(PriorityQueueTest, element_with_minimal_priority_push_in_bottom_queue) {
+TEST(PriorityQueueTest, Element_With_Minimal_Priority_Push_In_Bottom_Queue) {
     // Arrange
     PriorityQueue q;
     int prior1 = 1;
@@ -25,16 +25,16 @@ TEST(PriorityQueueTest, element_with_minimal_priority_push_in_bottom_queue) {
     int prior3 = 3;
     int val3 = 3;
     // Act
-    q.push(prior2, val2);
-    q.push(prior3, val3);
-    q.push(prior1, val1);
-    q.pop();
-    q.pop();
+    q.Push(prior2, val2);
+    q.Push(prior3, val3);
+    q.Push(prior1, val1);
+    q.Pop();
+    q.Pop();
     // Assert
-    EXPECT_EQ(val1, q.top());
+    EXPECT_EQ(val1, q.Top());
 }
 
-TEST(PriorityQueueTest, element_with_maximal_priority_push_in_top_queue) {
+TEST(PriorityQueueTest, Element_With_Maximal_Priority_Push_In_Top_Queue) {
     // Arrange
     PriorityQueue q;
     int prior1 = 1;
@@ -44,14 +44,14 @@ TEST(PriorityQueueTest, element_with_maximal_priority_push_in_top_queue) {
     int prior3 = 3;
     int val3 = 3;
     // Act
-    q.push(prior1, val1);
-    q.push(prior2, val2);
-    q.push(prior3, val3);
+    q.Push(prior1, val1);
+    q.Push(prior2, val2);
+    q.Push(prior3, val3);
     // Assert
-    EXPECT_EQ(val3, q.top());
+    EXPECT_EQ(val3, q.Top());
 }
 
-TEST(PriorityQueueTest, element_with_no_max_and_no_min_priority_push_in_queue) {
+TEST(PriorityQueueTest, Element_With_No_Max_And_No_Min_Priority_Push_In_Queue) {
     // Arrange
     PriorityQueue q;
     int prior1 = 1;
@@ -63,35 +63,35 @@ TEST(PriorityQueueTest, element_with_no_max_and_no_min_priority_push_in_queue) {
     int prior4 = 4;
     int val4 = 4;
     // Act
-    q.push(prior1, val1);
-    q.push(prior2, val2);
-    q.push(prior4, val4);
-    q.push(prior3, val3);
-    q.pop();
+    q.Push(prior1, val1);
+    q.Push(prior2, val2);
+    q.Push(prior4, val4);
+    q.Push(prior3, val3);
+    q.Pop();
     // Assert
-    EXPECT_EQ(val3, q.top());
+    EXPECT_EQ(val3, q.Top());
 }
 
-TEST(PriorityQueueTest, cant_pop_element_from_empty_queue) {
+TEST(PriorityQueueTest, Cant_Pop_Element_From_Empty_Queue) {
     // Arrange
     PriorityQueue q;
     // Act & Assert
-    ASSERT_ANY_THROW(q.pop());
+    ASSERT_ANY_THROW(q.Pop());
 }
 
-TEST(PriorityQueueTest, can_pop_element_from_queue_with_one_element) {
+TEST(PriorityQueueTest, Can_Pop_Element_From_Queue_With_One_Element) {
     // Arrange
     PriorityQueue q;
     int prior = 1;
     int val = 1;
     // Act
-    q.push(prior, val);
-    q.pop();
+    q.Push(prior, val);
+    q.Pop();
     // Assert
-    EXPECT_EQ(0, q.size());
+    EXPECT_EQ(0, q.Size());
 }
 
-TEST(PriorityQueueTest, can_pop_element_from_queue_with_several_elements) {
+TEST(PriorityQueueTest, Can_Pop_Element_From_Queue_With_Several_Elements) {
     // Arrange
     PriorityQueue q;
     int prior1 = 1;
@@ -101,33 +101,33 @@ TEST(PriorityQueueTest, can_pop_element_from_queue_with_several_elements) {
     int prior3 = 3;
     int val3 = 3;
     // Act
-    q.push(prior1, val1);
-    q.push(prior2, val2);
-    q.push(prior3, val3);
-    q.pop();
+    q.Push(prior1, val1);
+    q.Push(prior2, val2);
+    q.Push(prior3, val3);
+    q.Pop();
     // Assert
-    EXPECT_EQ(2, q.size());
+    EXPECT_EQ(2, q.Size());
 }
 
-TEST(PriorityQueueTest, cant_top_element_from_empty_queue) {
+TEST(PriorityQueueTest, Cant_Top_Element_From_Empty_Queue) {
     // Arrange
     PriorityQueue q;
     // Act & Assert
-    ASSERT_ANY_THROW(q.top());
+    ASSERT_ANY_THROW(q.Top());
 }
 
-TEST(PriorityQueueTest, can_top_element_from_queue_with_one_element) {
+TEST(PriorityQueueTest, Can_Top_Element_From_Queue_With_One_Element) {
     // Arrange
     PriorityQueue q;
     int prior = 1;
     int val = 1;
     // Act
-    q.push(prior, val);
+    q.Push(prior, val);
     // Assert
-    EXPECT_EQ(val, q.top());
+    EXPECT_EQ(val, q.Top());
 }
 
-TEST(PriorityQueueTest, can_top_element_from_queue_with_several_elements) {
+TEST(PriorityQueueTest, Can_Top_Element_From_Queue_With_Several_Elements) {
     // Arrange
     PriorityQueue q;
     int prior1 = 1;
@@ -137,45 +137,45 @@ TEST(PriorityQueueTest, can_top_element_from_queue_with_several_elements) {
     int prior3 = 3;
     int val3 = 3;
     // Act
-    q.push(prior1, val1);
-    q.push(prior2, val2);
-    q.push(prior3, val3);
+    q.Push(prior1, val1);
+    q.Push(prior2, val2);
+    q.Push(prior3, val3);
     // Assert
-    EXPECT_EQ(val3, q.top());
+    EXPECT_EQ(val3, q.Top());
 }
 
-TEST(PriorityQueueTest, if_queue_empty_return_true) {
+TEST(PriorityQueueTest, If_Queue_Empty_Return_True) {
     // Arrange
     PriorityQueue q;
     // Act & Assert
-    EXPECT_TRUE(q.empty());
+    EXPECT_TRUE(q.Empty());
 }
 
-TEST(PriorityQueueTest, if_queue_no_empty_return_false) {
+TEST(PriorityQueueTest, If_Queue_No_Empty_Return_False) {
     // Arrange
     PriorityQueue q;
     int prior = 1;
     int val = 1;
     // Act
-    q.push(prior, val);
+    q.Push(prior, val);
     // Assert
-    EXPECT_FALSE(q.empty());
+    EXPECT_FALSE(q.Empty());
 }
 
-TEST(PriorityQueueTest, if_queue_empty_return_0) {
+TEST(PriorityQueueTest, If_Queue_Empty_Return_0) {
     // Arrange
     PriorityQueue q;
     // Act & Assert
-    EXPECT_EQ(0, q.size());
+    EXPECT_EQ(0, q.Size());
 }
 
-TEST(PriorityQueueTest, if_queue_no_empty_return_size) {
+TEST(PriorityQueueTest, If_Queue_No_Empty_Return_Size) {
     // Arrange
     PriorityQueue q;
     int prior = 1;
     int val = 1;
     // Act
-    q.push(prior, val);
+    q.Push(prior, val);
     // Assert
-    EXPECT_EQ(1, q.size());
+    EXPECT_EQ(1, q.Size());
 }
