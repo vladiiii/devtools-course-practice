@@ -118,3 +118,39 @@ add_test(
 set_tests_properties (${prefix}_Can_Add_Negative_Numbers_Multiple_Times PROPERTIES
     PASS_REGULAR_EXPRESSION "\\(-1 is found, count: 3\\)"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Handles_Numbers_With_Two_Minuses
+    COMMAND ${APPLICATION} add -1-1
+)
+
+set_tests_properties (${prefix}_Handles_Numbers_With_Two_Minuses PROPERTIES
+    PASS_REGULAR_EXPRESSION "-1-1 is not the number"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Handles_Numbers_That_End_With_The_Letter
+    COMMAND ${APPLICATION} add -1a
+)
+
+set_tests_properties (${prefix}_Handles_Numbers_That_End_With_The_Letter PROPERTIES
+    PASS_REGULAR_EXPRESSION "-1a is not the number"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Handles_Numbers_That_End_With_The_Dash
+    COMMAND ${APPLICATION} add 1-
+)
+
+set_tests_properties (${prefix}_Handles_Numbers_That_End_With_The_Dash PROPERTIES
+    PASS_REGULAR_EXPRESSION "1- is not the number"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Handles_Dash_Instead_Of_Number
+    COMMAND ${APPLICATION} add -
+)
+
+set_tests_properties (${prefix}_Handles_Dash_Instead_Of_Number PROPERTIES
+    PASS_REGULAR_EXPRESSION "- is not the number"
+    LABELS "${MODULE}")

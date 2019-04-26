@@ -34,8 +34,10 @@ std::string TreeApplication::operator()(int argc, const char** argv) {
 
 int TreeApplication::ParseNumber(const char *s) {
     int len = strlen(s);
-    for (int i = 0; i < len; ++i)
-        if (s[i] != '-' && !isdigit(s[i]))
+    if ((s[0] != '-' && !isdigit(s[0])) || (s[0] == '-' && len == 1))
+        throw std::runtime_error(std::string(s) + " is not the number");
+    for (int i = 1; i < len; ++i)
+        if (!isdigit(s[i]))
             throw std::runtime_error(std::string(s) + " is not the number");
     int64_t result = strtol(s, nullptr, 10);
     if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
