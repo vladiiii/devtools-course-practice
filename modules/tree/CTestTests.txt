@@ -91,3 +91,30 @@ add_test(
 set_tests_properties (${prefix}_Clear_Deletes_All_Numbers_From_The_Tree PROPERTIES
     PASS_REGULAR_EXPRESSION "\\(1 is not found\\) \\(2 is not found\\) \\(3 is not found\\)"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Add_And_Search_Negative_Numbers
+    COMMAND ${APPLICATION} add -1 search -1
+)
+
+set_tests_properties (${prefix}_Can_Add_And_Search_Negative_Numbers PROPERTIES
+    PASS_REGULAR_EXPRESSION "\\(-1 is found, count: 1\\)"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Del_Negative_Numbers
+    COMMAND ${APPLICATION} add -1 del -1 search -1
+)
+
+set_tests_properties (${prefix}_Can_Del_Negative_Numbers PROPERTIES
+    PASS_REGULAR_EXPRESSION "\\(-1 is not found\\)"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Add_Negative_Numbers_Multiple_Times
+    COMMAND ${APPLICATION} add -1 add -1 add -1 search -1
+)
+
+set_tests_properties (${prefix}_Can_Add_Negative_Numbers_Multiple_Times PROPERTIES
+    PASS_REGULAR_EXPRESSION "\\(-1 is found, count: 3\\)"
+    LABELS "${MODULE}")
