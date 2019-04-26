@@ -8,10 +8,10 @@ using key = int64_t;
 key GetRandomKey(int64_t nBegin, int64_t nEnd);
 
 struct CNode {
-    key m_nData;
-    CNode* m_pLeft;
-    CNode* m_pRight;
-    int m_nHeight;
+    key data_;
+    CNode* pLeft_;
+    CNode* pRight_;
+    int height_;
 };
 class CAvl {
  private:
@@ -23,7 +23,7 @@ class CAvl {
     CNode* FindMin(CNode* t);
     CNode* Remove(const key& x, CNode* t);
     int Height(CNode* t);
-    CNode* m_pRoot;
+    CNode* pRoot_;
  public:
     CAvl();
     key Find(const key& x);
