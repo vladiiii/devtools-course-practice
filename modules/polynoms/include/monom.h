@@ -5,8 +5,6 @@
 
 #include <string>
 #include <map>
-using std::string;
-using std::map;
 
 class Monom {
  public:
@@ -14,11 +12,11 @@ class Monom {
     explicit Monom(double c);
 
     Monom(const Monom& rhs);
-    explicit Monom(double c, map<char, double> vars);
+    explicit Monom(double c, std::map<char, double> vars);
 
     Monom& operator=(const Monom& z);
 
-    string ToString();
+    std::string ToString();
 
     bool operator==(const Monom& rhs) const;
     bool operator!=(const Monom& rhs) const;
@@ -31,9 +29,8 @@ class Monom {
 
     bool EqualsVariabels(const Monom& r) const;
 
- private:
-    map<char, double> variables;
-    double coefficient;
+    std::map<char, double> variables_;
+    double coefficient_;
 
     friend class Polynom;
 };

@@ -9,6 +9,8 @@
 #include "include/monom.h"
 #include "include/polynom.h"
 
+using std::map;
+
 TEST(PolynomTest, Empty_Polynom_Equals_Test) {
     // Arrange
     Polynom p1;
@@ -93,7 +95,7 @@ TEST(PolynomTest, Can_Create_By_Summ) {
     Monom m1(coeff1, vars1);
     Monom m2(coeff2, vars2);
     Monom m3(coeff3, vars3);
-    vector<Monom> vm = { m1, m2, m3 };
+    std::vector<Monom> vm = { m1, m2, m3 };
 
     Polynom p1(m1);
     Polynom p2(m2);
