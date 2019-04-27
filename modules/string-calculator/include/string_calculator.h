@@ -1,6 +1,5 @@
 // Copyright 2019 Kruglov Yegor
 
-#pragma once
 #include <stack>
 #include <string>
 
@@ -9,9 +8,13 @@
 
 class StringCalculator{
  private:
-    std::string infix, postfix;
-    std::stack<char> charStack;
-    std::stack<double> doubleStack;
+    std::string infix_, postfix_;
+    std::stack<char> charStack_;
+    std::stack<double> doubleStack_;
+
+    bool check();
+    int priority(const char& el);
+    void to_postfix();
 
  public:
     void set_infix(const std::string str);
@@ -19,10 +22,8 @@ class StringCalculator{
     void fill_stacks(int n);
     std::string get_infix();
     std::string get_postfix();
+    int get_priority(const char& el);
 
-    bool check();
-    int priority(const char& el);
-    void to_postfix();
     double calculate();
 };
 
