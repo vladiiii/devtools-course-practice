@@ -12,7 +12,7 @@ TEST(SearchBinaryTest, SearchInNullSizeArray) {
     int key = 1;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(-1, res);
 }
@@ -25,7 +25,7 @@ TEST(SearchBinaryTest, CanSearch) {
     int key = 5;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(2, res);
 }
@@ -38,7 +38,7 @@ TEST(SearchBinaryTest, CanSearchLessThenAll) {
     int key = -10;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(-1, res);
 }
@@ -51,7 +51,7 @@ TEST(SearchBinaryTest, CanSearchMoreThenAll) {
     int key = 10;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(-1, res);
 }
@@ -64,7 +64,7 @@ TEST(SearchBinaryTest, CanSearchInMiddle) {
     int key = 3;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(1, res);
 }
@@ -77,7 +77,7 @@ TEST(SearchBinaryTest, CanSearchInRightBoard) {
     int key = 5;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(2, res);
 }
@@ -90,7 +90,7 @@ TEST(SearchBinaryTest, CanSearchMissingElement) {
     int key = 2;
     int res;
     // Act
-    res = search_engine.search(key, array, size);
+    res = search_engine.Search(key, array, size);
     // Assert
     EXPECT_EQ(-1, res);
 }
