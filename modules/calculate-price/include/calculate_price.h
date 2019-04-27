@@ -3,13 +3,16 @@
 #ifndef MODULES_CALCULATE_PRICE_INCLUDE_CALCULATE_PRICE_H_
 #define MODULES_CALCULATE_PRICE_INCLUDE_CALCULATE_PRICE_H_
 
+#include <array>
+
 class CalculatePrice {
  private:
-    int basket_[5];
+    std::array<int, 5> basket_;
     double DiscountCalculate(const int book);
 
  public:
-    CalculatePrice(int b1, int b2, int b3, int b4, int b5);
+    CalculatePrice(int first_book, int second_book,
+        int third_book, int fourth_book, int fifth_book);
 
     double TotalSum();
 };
