@@ -52,7 +52,7 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cone) {
     double radius = 2.5;
     double height = 3.0;
     // Act
-    double result = ShapesVolume::ConeVolume( radius , height);
+    double result = ShapesVolume::ConeVolume(radius , height);
     // Assert
     double exp_ans = 19.6349;
     EXPECT_NEAR(exp_ans , result , 4);
