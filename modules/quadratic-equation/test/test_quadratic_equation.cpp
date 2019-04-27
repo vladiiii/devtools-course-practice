@@ -9,12 +9,12 @@ TEST(QuadraticEquation, Cant_Create_Equation_With_Zero_Coefs) {
     EXPECT_ANY_THROW(QuadraticEquation(0.0, 0.0, 1000.0));
 }
 
-TEST(QuadraticEquation, Can_Create_Equation_With_Positive_Ñoefs) {
+TEST(QuadraticEquation, Can_Create_Equation_With_Positive_Coefs) {
     // Arrange & Act & Assert
     EXPECT_NO_THROW(QuadraticEquation(10035.0, 11020.0, 7800.0));
 }
 
-TEST(QuadraticEquation, Can_Create_Equation_With_Negative_Ñoefs) {
+TEST(QuadraticEquation, Can_Create_Equation_With_Negative_Coefs) {
     // Arrange & Act & Assert
     EXPECT_NO_THROW(QuadraticEquation(-8230.0, -2095.0, -45.0));
 }
