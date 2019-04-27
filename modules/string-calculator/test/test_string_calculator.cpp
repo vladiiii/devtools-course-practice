@@ -36,7 +36,7 @@ TEST(String_Calculator_Test, Can_Transform_To_Postfix) {
 
     // Act
     sc.set_infix(str);
-    sc.calculate();
+    sc.Calculate();
     str = sc.get_postfix();
 
     // Assert
@@ -50,7 +50,7 @@ TEST(String_Calculator_Test, Can_Add_Two_Nums) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 4);
@@ -63,7 +63,7 @@ TEST(String_Calculator_Test, Can_Subtract) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 2);
@@ -76,7 +76,7 @@ TEST(String_Calculator_Test, Can_Multiply) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 4);
@@ -89,7 +89,7 @@ TEST(String_Calculator_Test, Can_Divide) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 2);
@@ -104,7 +104,7 @@ TEST(String_Calculator_Test, Can_Not_Divide_By_Zero) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Rase_To_A_Power) {
@@ -114,7 +114,7 @@ TEST(String_Calculator_Test, Can_Rase_To_A_Power) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 4);
@@ -127,7 +127,7 @@ TEST(String_Calculator_Test, Can_Return_Num_Without_Signs) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 222);
@@ -142,7 +142,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Plus_Begin) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Plus_End) {
@@ -154,7 +154,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Plus_End) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Begin) {
@@ -166,7 +166,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Begin) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Minus_End) {
@@ -178,7 +178,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Minus_End) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Mult_Begin) {
@@ -190,7 +190,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Mult_Begin) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Mult_End) {
@@ -202,7 +202,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Mult_End) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Begin) {
@@ -214,7 +214,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Begin) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Divide_End) {
@@ -226,7 +226,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Divide_End) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Power_Begin) {
@@ -238,7 +238,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Power_Begin) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Power_End) {
@@ -250,7 +250,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Power_End) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pluses) {
@@ -262,7 +262,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pluses) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Multyple) {
@@ -274,7 +274,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Multyple) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Pow) {
@@ -286,7 +286,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Pluse_Near_Pow) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Minuses) {
@@ -298,7 +298,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Minuses) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Multiple) {
@@ -310,7 +310,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Multiple) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Pow) {
@@ -322,7 +322,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Minus_Near_Pow) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Multiple) {
@@ -334,7 +334,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Multiple) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Plus) {
@@ -346,7 +346,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Plus) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Pow) {
@@ -358,7 +358,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Multiple_Near_Pow) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Divide) {
@@ -370,7 +370,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Divide) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Plus) {
@@ -382,7 +382,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Plus) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Pow) {
@@ -394,7 +394,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Divide_Near_Pow) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pows) {
@@ -406,7 +406,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Two_Pows) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Plus) {
@@ -418,7 +418,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Plus) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Multiple) {
@@ -430,7 +430,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Pow_Near_Multiple) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Correct_Priority) {
@@ -462,7 +462,7 @@ TEST(String_Calculator_Test, Can_Calculate_Fraction) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 5);
@@ -477,7 +477,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_Mismatched_Brackets) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Not_Calculate_More_Open_Brackets) {
@@ -489,7 +489,7 @@ TEST(String_Calculator_Test, Can_Not_Calculate_More_Open_Brackets) {
     sc.set_infix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }
 
 TEST(String_Calculator_Test, Can_Calculate_With_Different_Priorities) {
@@ -499,7 +499,7 @@ TEST(String_Calculator_Test, Can_Calculate_With_Different_Priorities) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 6);
@@ -512,7 +512,7 @@ TEST(String_Calculator_Test, Can_Calculate_Long_Expression_Without_Brackets) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 8);
@@ -525,7 +525,7 @@ TEST(String_Calculator_Test, Can_Calculate_Long_Expression_With_Brackets) {
 
     // Act
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 6);
@@ -537,9 +537,9 @@ TEST(String_Calculator_Test, Can_Calculate_Not_Empty_Stacks) {
     std::string str = "(2 + 2) * 2 - 2 ^ 3 / 4";
 
     // Act
-    sc.fill_stacks(4);
+    sc.set_stacks(4);
     sc.set_infix(str);
-    double res = sc.calculate();
+    double res = sc.Calculate();
 
     // Assert
     EXPECT_EQ(res, 6);
@@ -554,5 +554,5 @@ TEST(String_Calculator_Test, Can_Not_Calculate_With_One_Num) {
     sc.set_postfix(str);
 
     // Assert
-    ASSERT_ANY_THROW(sc.calculate());
+    ASSERT_ANY_THROW(sc.Calculate());
 }

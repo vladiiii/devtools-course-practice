@@ -19,7 +19,7 @@ std::string StringCalculator::get_postfix() {
     return postfix_;
 }
 
-bool StringCalculator::check() {
+bool StringCalculator::Check() {
     while (!charStack_.empty()) {
         charStack_.pop();
     }
@@ -109,7 +109,7 @@ bool StringCalculator::check() {
     }
 }
 
-int StringCalculator::priority(const char& el) {
+int StringCalculator::Priority(const char& el) {
     switch (el) {
         case '(':
         {
@@ -140,11 +140,11 @@ int StringCalculator::priority(const char& el) {
 }
 
 int StringCalculator::get_priority(const char& el) {
-    return priority(el);
+    return Priority(el);
 }
 
-void StringCalculator::to_postfix() {
-    if (check()) {
+void StringCalculator::ToPostfix() {
+    if (Check()) {
         std::string tmp = '(' + infix_ + ')';
         int sizeOfTmp = static_cast<int>(tmp.size());
         for (int i = 0; i < sizeOfTmp; i++) {
@@ -166,7 +166,7 @@ void StringCalculator::to_postfix() {
             if ((tmp[i] == '+') || (tmp[i] == '-') || (tmp[i] == '*') ||
                 (tmp[i] == '/') || (tmp[i] == '^')) {
                 postfix_ += " ";
-                while (priority(tmp[i]) <= priority(charStack_.top())) {
+                while (Priority(tmp[i]) <= Priority(charStack_.top())) {
                     postfix_ += charStack_.top();
                     charStack_.pop();
                 }
@@ -178,11 +178,11 @@ void StringCalculator::to_postfix() {
     }
 }
 
-double StringCalculator::calculate() {
+double StringCalculator::Calculate() {
     while (!doubleStack_.empty()) {
         doubleStack_.pop();
     }
-    to_postfix();
+    ToPostfix();
     int sizeOfPostfix = static_cast<int>(postfix_.size());
     for (int i = 0; i < sizeOfPostfix; i++) {
         if (postfix_[i] == '+' || postfix_[i] == '-' || postfix_[i] == '*' ||
@@ -238,7 +238,7 @@ double StringCalculator::calculate() {
     return doubleStack_.top();
 }
 
-void StringCalculator::fill_stacks(int n) {
+void StringCalculator::set_stacks(int n) {
     for (int i = 0; i < n; i++) {
         charStack_.push('+');
         doubleStack_.push(2.5);
