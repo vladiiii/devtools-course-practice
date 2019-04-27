@@ -1,35 +1,41 @@
 // This class represents a number which is being stored in differents number systems at the same time.
+// It is necessary to indicate the base number system when you create an object (the parameter of constructor).
 // Copyright 2019 Fedotov Vlad
 
-#ifndef MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_H_
-#define MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_H_
+#ifndef MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
+#define MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
+#include <string>
+using namespace std;
 
 enum SysBase {bin, oct, hex};
 
-class NumberSystems {
+class NumberSystemsConverter {
  public:
-    NumberSystems(string input_number, SysBase input_base);
-    NumberSystems(const NumberSystems &n);
-    NumberSystems& operator=(const NumberSystems& n);
+    NumberSystemsConverter(string input_number = 0, SysBase input_base = bin);
+    NumberSystemsConverter(const NumberSystemsConverter &n);
+    NumberSystemsConverter& operator=(const NumberSystemsConverter& n);
 
-    int 
-    double getRe() const;
-    double getIm() const;
-    void setRe(const double real);
-    void setIm(const double imaginary);
+    string getNumberInBin() const;
+    string getNumberInOct() const;
+    string getNumberInHex() const;
 
-    /*NumberSystems operator + (const NumberSystems& z) const;
-    NumberSystems operator - (const NumberSystems& z) const;
-    NumberSystems operator * (const NumberSystems& z) const;
-    NumberSystems operator / (const NumberSystems& z) const;
+    /*NumberSystemsConverter operator + (const NumberSystemsConverter& z) const;
+    NumberSystemsConverter operator - (const NumberSystemsConverter& z) const;
+    NumberSystemsConverter operator * (const NumberSystemsConverter& z) const;
+    NumberSystemsConverter operator / (const NumberSystemsConverter& z) const;
     */
-    bool operator == (const NumberSystems& n) const;
-    bool operator != (const NumberSystems& n) const;
+    bool operator == (const NumberSystemsConverter& n) const;
+    bool operator != (const NumberSystemsConverter& n) const;
  private:
-    int NumberInBin;
-    int NumberInOct;
-    int NumberInHex;
-    //int NumberInDec;
+    string NumberInBin;
+    string NumberInOct;
+    string NumberInHex;
+    // string NumberInDec;
+
+    string ConvertBinToOct(const string n);
+    string ConvertBinToHex(const string n);
+    string ConvertOctToBin(const string n);
+    string ConvertHexToBin(const string n);
 };
 
-#endif // MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_H_
+#endif // MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
