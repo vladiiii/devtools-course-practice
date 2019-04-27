@@ -13,4 +13,4 @@ class ShapesVolume {
     static double TetrahedronVolume(double a);
 };
 
-#endif // MODULES_SHAPES_VOLUME_INCLUDE_SHAPES_VOLUME_H_
+#endif  // MODULES_SHAPES_VOLUME_INCLUDE_SHAPES_VOLUME_H_
