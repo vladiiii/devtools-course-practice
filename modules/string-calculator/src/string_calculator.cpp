@@ -145,8 +145,6 @@ int StringCalculator::get_priority(const char& el) {
 
 void StringCalculator::to_postfix() {
     if (check()) {
-        postfix_.clear();
-
         std::string tmp = '(' + infix_ + ')';
         int sizeOfTmp = static_cast<int>(tmp.size());
         for (int i = 0; i < sizeOfTmp; i++) {

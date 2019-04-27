@@ -544,3 +544,15 @@ TEST(String_Calculator_Test, Can_Calculate_Not_Empty_Stacks) {
     // Assert
     EXPECT_EQ(res, 6);
 }
+
+TEST(String_Calculator_Test, Can_Not_Calculate_With_One_Num) {
+    // Arrange
+    StringCalculator sc;
+    std::string str = "2+";
+
+    // Act
+    sc.set_postfix(str);
+
+    // Assert
+    ASSERT_ANY_THROW(sc.calculate());
+}
