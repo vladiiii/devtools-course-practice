@@ -10,8 +10,8 @@ CalculatePrice::CalculatePrice(int first_book, int second_book,
     if ((first_book < 0) || (second_book < 0) ||
         (third_book < 0) || (fourth_book < 0) || (fifth_book < 0))
         throw std::string("Mustn't be contain negative numbers");
-	basket_ = {first_book, second_book, third_book,
-		fourth_book, fifth_book};
+    basket_ = {{first_book, second_book, third_book,
+        fourth_book, fifth_book}};
 }
 
 double CalculatePrice::DiscountCalculate(const int book) {
@@ -39,7 +39,7 @@ double CalculatePrice::TotalSum() {
     std::array<int, 5> shop_basket;
 
     for (int i = 0; i < 5; i++) {
-		shop_basket[i] = basket_[i];
+        shop_basket[i] = basket_[i];
     }
 
     int books = 0;
