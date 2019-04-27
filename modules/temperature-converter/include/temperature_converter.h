@@ -5,22 +5,22 @@
 
 class TemperatureConverter {
  public:
-    static double CelsiusToFahrenheit(const double &celsius) {
+    static double CelsiusToFahrenheit(const double celsius) {
         return 32 + celsius * (9.0 / 5.0);
     }
-    static double FahrenheitToCelsius(const double &fahrenheit) {
+    static double FahrenheitToCelsius(const double fahrenheit) {
         return (fahrenheit - 32) * (5.0 / 9.0);
     }
-    static double CelsiusToKelvin(const double &celsius) {
+    static double CelsiusToKelvin(const double celsius) {
         return celsius + 273.15;
     }
-    static double KelvinToCelsius(const double &kelvin) {
+    static double KelvinToCelsius(const double kelvin) {
         return kelvin - 273.15;
     }
-    static double CelsiusToNewton(const double &celsius) {
+    static double CelsiusToNewton(const double celsius) {
         return celsius * 0.33;
     }
-    static double NewtonToCelsius(const double &newton) {
+    static double NewtonToCelsius(const double newton) {
         return newton / 0.33;
     }
 };
