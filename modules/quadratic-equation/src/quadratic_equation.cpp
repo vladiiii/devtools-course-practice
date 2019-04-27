@@ -12,7 +12,7 @@ double QuadraticEquation::Discriminant() const {
 QuadraticEquation::QuadraticEquation(double a, double b, double c):
     coef_a(a), coef_b(b), coef_c(c) {
     if (a == 0.0 && b == 0.0)
-        throw std::string("It is not a quadratic equation");
+        throw "It is not a quadratic equation";
 }
 
 double QuadraticEquation::GetX1() const {
@@ -20,7 +20,7 @@ double QuadraticEquation::GetX1() const {
     double d = Discriminant();
 
     if (d < 0.0)
-        throw std::string("No real solutions");
+        throw "No real solutions";
 
     if (coef_a == 0.0)
         x = -coef_c / coef_b;
@@ -34,7 +34,7 @@ double QuadraticEquation::GetX2() const {
     double d = Discriminant();
 
     if (d < 0.0)
-        throw std::string("No real solutions");
+        throw "No real solutions";
 
     if (coef_a == 0.0)
         x = -coef_c / coef_b;
@@ -45,8 +45,8 @@ double QuadraticEquation::GetX2() const {
 
 std::ostream& operator<<(std::ostream &out,
     const QuadraticEquation qe) {
-    out << qe.coef_a << std::string("*x^2 + ") <<
-        qe.coef_b << std::string("*x + ") << coef_c
-            std::string(" = 0") << endl;
+    out << qe.coef_a << "*x^2 + " <<
+        qe.coef_b << "*x + " << qe.coef_c <<
+            " = 0" << std::endl;
     return out;
 }
