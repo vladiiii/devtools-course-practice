@@ -9,32 +9,32 @@ using std::string;
 using std::map;
 
 class Monom {
-public:
-	Monom();
-	explicit Monom(double c);
+ public:
+    Monom();
+    explicit Monom(double c);
 
-	Monom(const Monom& rhs);
-	explicit Monom(double c, map<char, double> vars);
+    Monom(const Monom& rhs);
+    explicit Monom(double c, map<char, double> vars);
 
-	Monom& operator=(const Monom& z);
+    Monom& operator=(const Monom& z);
 
-	string ToString();
+    string ToString();
 
-	bool operator==(const Monom& rhs) const;
-	bool operator!=(const Monom& rhs) const;
+    bool operator==(const Monom& rhs) const;
+    bool operator!=(const Monom& rhs) const;
 
-private:
-	Monom operator+(const Monom& rhs);
-	Monom operator-(const Monom& rhs);
-	Monom operator*(const Monom& rhs);
-	Monom operator/(const Monom& rhs);
+ private:
+    Monom operator+(const Monom& rhs);
+    Monom operator-(const Monom& rhs);
+    Monom operator*(const Monom& rhs);
+    Monom operator/(const Monom& rhs);
 
-	bool EqualsVariabels(const Monom& r) const;
+    bool EqualsVariabels(const Monom& r) const;
 
-private:
-	map<char, double> variables;
-	double coefficient;
+ private:
+    map<char, double> variables;
+    double coefficient;
 
-	friend class Polynom;
+    friend class Polynom;
 };
 #endif  // MODULES_POLYNOMS_INCLUDE_MONOM_H_
