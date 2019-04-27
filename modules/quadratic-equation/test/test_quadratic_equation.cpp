@@ -45,3 +45,11 @@ TEST(QuadraticEquation, Exist_One_Real_Solution_With_Zero_Coef_A) {
     EXPECT_DOUBLE_EQ(qe.GetX1(), 20.0);
     EXPECT_DOUBLE_EQ(qe.GetX2(), 20.0);
 }
+
+TEST(QuadraticEquation, Can_Print) {
+    // Arrange
+    QuadraticEquation qe(-42.0, 42.0, 42.0);
+
+    // Act & Assert
+    EXPECT_NO_THROW(std::cout << qe);
+}
