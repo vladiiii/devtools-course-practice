@@ -1,8 +1,8 @@
 // Copyright 2019 Utkin Konstantin
 
-#include "include/quadratic_equation.h"
-
 #include <gtest/gtest.h>
+
+#include "include/quadratic_equation.h"
 
 TEST(QuadraticEquation, Cant_Create_Equation_With_Zero_Coefs) {
     // Arrange & Act & Assert
