@@ -6,11 +6,11 @@
 #include <cmath>
 
 double QuadraticEquation::Discriminant() const {
-    return coef_b * coef_b - 4 * coef_a * coef_c;
+    return coef_b_ * coef_b_ - 4 * coef_a_ * coef_c_;
 }
 
 QuadraticEquation::QuadraticEquation(double a, double b, double c):
-    coef_a(a), coef_b(b), coef_c(c) {
+    coef_a_(a), coef_b_(b), coef_c_(c) {
     if (a == 0.0 && b == 0.0)
         throw "It is not a quadratic equation";
 }
@@ -22,10 +22,10 @@ double QuadraticEquation::GetX1() const {
     if (d < 0.0)
         throw "No real solutions";
 
-    if (coef_a == 0.0)
-        x = -coef_c / coef_b;
+    if (coef_a_ == 0.0)
+        x = -coef_c_ / coef_b_;
     else
-        x = (-coef_b + sqrt(d)) / (2 * coef_a);
+        x = (-coef_b_ + sqrt(d)) / (2 * coef_a_);
     return x;
 }
 
@@ -36,17 +36,17 @@ double QuadraticEquation::GetX2() const {
     if (d < 0.0)
         throw "No real solutions";
 
-    if (coef_a == 0.0)
-        x = -coef_c / coef_b;
+    if (coef_a_ == 0.0)
+        x = -coef_c_ / coef_b_;
     else
-        x = (-coef_b - sqrt(d)) / (2 * coef_a);
+        x = (-coef_b_ - sqrt(d)) / (2 * coef_a_);
     return x;
 }
 
 std::ostream& operator<<(std::ostream &out,
     const QuadraticEquation qe) {
-    out << qe.coef_a << "*x^2 + " <<
-        qe.coef_b << "*x + " << qe.coef_c <<
+    out << qe.coef_a_ << "*x^2 + " <<
+        qe.coef_b_ << "*x + " << qe.coef_c_ <<
             " = 0" << std::endl;
     return out;
 }

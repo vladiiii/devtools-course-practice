@@ -7,9 +7,9 @@
 
 class QuadraticEquation {
  private:
-    double coef_a;
-    double coef_b;
-    double coef_c;
+    double coef_a_;
+    double coef_b_;
+    double coef_c_;
 
     double Discriminant() const;
 
