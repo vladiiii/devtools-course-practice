@@ -24,7 +24,7 @@ VigenereCipherApplication::Operation VigenereCipherApplication::ParseOperation(c
     }
 }
 
-std::string VigenereCipherApplication::operator()(int argc, char ** argv) {
+std::string VigenereCipherApplication::operator()(int argc, const char ** argv) {
     if (argc == 1)
         return Help(*argv);
     try {
@@ -32,7 +32,7 @@ std::string VigenereCipherApplication::operator()(int argc, char ** argv) {
         if (argc < 4)
             throw std::runtime_error("Too few arguments!\n");
         if (argc > 4)
-            throw std::runtime_error("Too many argements!\n");
+            throw std::runtime_error("Too many arguments!\n");
         if (oper == Operation::Encrypt) {
             return std::string(VChiph_.Encrypt(argv[2], argv[3]));
         }

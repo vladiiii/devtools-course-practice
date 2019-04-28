@@ -19,7 +19,7 @@ private:
     std::string operation_;
 public:
     VigenereCipherApplication() = default;
-    std::string operator()(int argc, char ** argv);
+    std::string operator()(int argc, const char ** argv);
 };
 
 #endif  // MODULES_VIGENERE_CIPHER_INCLUDE_VIGENERE_CIPHER_APPLICATION_H_
