@@ -8,7 +8,6 @@
 class VigenereCipherApplicationTest :
     public ::testing::Test {
  protected:
-
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
         options.push_back("VigenereCipher");
