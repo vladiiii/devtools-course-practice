@@ -103,6 +103,9 @@ std::string LCDDigits::LCDStr(const std::string& s) {
                 case '.':
                     lcdN += point[line];
                     break;
+                default: 
+                    throw "Invalid Symbol";
+                    break;
                 case default: 
                     throw "Invalid Symbol";
                     break;
