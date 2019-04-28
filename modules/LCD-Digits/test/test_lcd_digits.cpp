@@ -197,5 +197,7 @@ TEST_F(LCDDigitsTest, can_create_LCD_date_from_string) {
     EXPECT_EQ(date, LCDDigits::LCD("12.34.5678"));
 }
 
-
-
+TEST_F(LCDDigitsTest, throw_with_incrorrect_data) {
+    // Act & Assert
+    ASSERT_ANY_THROW(LCDDigits::LCD("1f"));
+}
