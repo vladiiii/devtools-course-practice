@@ -14,7 +14,7 @@ class VigenereCipherApplication {
     };
     std::string Help(const char* appname);
     Operation ParseOperation(const char* argv);
-    VigenereCipher VChiph_;
+    VigenereCipher vchiph_;
     std::string key_;
     std::string operation_;
  public:

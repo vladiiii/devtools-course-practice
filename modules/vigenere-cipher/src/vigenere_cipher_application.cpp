@@ -10,7 +10,7 @@ std::string VigenereCipherApplication::Help(const char * appname) {
         "Usage:\n"
         ">" + std::string(appname) + " actions that described below\n"
         "Actions:\n"
-        "encrypt <string> <key>- encrypt string using the Vigenere cipher\n"
+        "encrypt <string> <key> - encrypt string using the Vigenere cipher\n"
         "decrypt <string> <key> - decrypt string using the Vigenere cipher\n";
 }
 
@@ -37,9 +37,9 @@ std::string VigenereCipherApplication::operator()
         if (argc > 4)
             throw std::runtime_error("Too many arguments!\n");
         if (oper == Operation::Encrypt) {
-            return std::string(VChiph_.Encrypt(argv[2], argv[3]));
+            return std::string(vchiph_.Encrypt(argv[2], argv[3]));
         } else {
-            return std::string(VChiph_.Decrypt(argv[2], argv[3]));
+            return std::string(vchiph_.Decrypt(argv[2], argv[3]));
         }
     }
     catch (std::runtime_error &re) {

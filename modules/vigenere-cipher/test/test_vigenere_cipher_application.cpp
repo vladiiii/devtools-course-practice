@@ -8,7 +8,6 @@
 class VigenereCipherApplicationTest :
     public ::testing::Test {
  protected:
-    // virtual void SetUp() {}
 
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
