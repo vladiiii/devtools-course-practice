@@ -3,12 +3,13 @@
 #ifndef MODULES_DICTIONARY_INCLUDE_DICTIONARY_H_
 #define MODULES_DICTIONARY_INCLUDE_DICTIONARY_H_
 
+#include <utility>
 #include <string>
 using std::string;
 using std::pair;
 using Word = pair<string, int64_t>;
 
-static string pool = 
+static char pool[]
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "abcdefghijklmnopqrstuvwxyz"
 "0123456789";
