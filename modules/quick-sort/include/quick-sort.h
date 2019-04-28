@@ -5,12 +5,12 @@
 
 class QuickSort {
  public:
-    bool checkIncreasing(const int *pArr, const int size);
-    void mySort(int *pArr, int size);
+    bool CheckIncreasing(const int *pArr, const int size);
+    void MySort(int *pArr, int size);
  private:
-    void my_swap(int* a, int* b);
-    int partition(int *arr, int low, int high);
-    void boundedSort(int *arr, int low, int high);
+    void MySwap(int* a, int* b);
+    int Partition(int *arr, int low, int high);
+    void BoundedSort(int *arr, int low, int high);
 };
 
 #endif  // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
