@@ -5,7 +5,7 @@
 #include <vector>
 #include "include/vigenere_cipher_application.h"
 
-class VigenereCipherApplicationTest : 
+class VigenereCipherApplicationTest :
     public ::testing::Test {
  protected:
     // virtual void SetUp() {}
@@ -45,7 +45,7 @@ TEST_F(VigenereCipherApplicationTest, Print_Help_Without_Arguments) {
 
 TEST_F(VigenereCipherApplicationTest, Can_Encrypt_String) {
     // Arrange
-    std::vector<std::string> args = 
+    std::vector<std::string> args =
         { "encrypt", "abcdef", "coolkey" };
 
     Act(args);
@@ -55,7 +55,7 @@ TEST_F(VigenereCipherApplicationTest, Can_Encrypt_String) {
 
 TEST_F(VigenereCipherApplicationTest, Can_Decrypt_String) {
     // Arrange
-    std::vector<std::string> args = 
+    std::vector<std::string> args =
         { "decrypt", "abcdef", "coolkey" };
 
     Act(args);
@@ -63,7 +63,7 @@ TEST_F(VigenereCipherApplicationTest, Can_Decrypt_String) {
     Assert("ynosub");
 }
 
-TEST_F(VigenereCipherApplicationTest, 
+TEST_F(VigenereCipherApplicationTest,
     Throws_If_Operation_Is_Unknown) {
     // Arrange
     std::vector<std::string> args = { "crypt" };
@@ -73,7 +73,7 @@ TEST_F(VigenereCipherApplicationTest,
     Assert("Unknown operation: crypt");
 }
 
-TEST_F(VigenereCipherApplicationTest, 
+TEST_F(VigenereCipherApplicationTest,
     Throws_If_There_Are_Too_Few_Arguments) {
     // Arrange
     std::vector<std::string> args = { "encrypt" };
@@ -86,7 +86,7 @@ TEST_F(VigenereCipherApplicationTest,
 TEST_F(VigenereCipherApplicationTest, 
     Throws_If_There_Are_Too_Many_Arguments) {
     // Arrange
-    std::vector<std::string> args = 
+    std::vector<std::string> args =
         { "encrypt" , "hi", "there", "fg!"};
 
     Act(args);
