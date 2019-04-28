@@ -63,9 +63,6 @@ void BatcherSort::Sort(int l, int r) {
     int m = (l + r) / 2;
     int i;
 
-    if (r - l + 1 <= 1)
-        return;
-
     if (r - l + 1 == 2) {
         Compexch(l, r);
         return;
