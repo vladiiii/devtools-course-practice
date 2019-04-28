@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-ArrearService::ArrearService(const double d, const int i, 
+ArrearService::ArrearService(const int d, const int i, 
                              const int g, const int t) : debt(d), procent(i),
                              rate(g), time(t) {
     if (procent <= 0)
@@ -31,14 +31,12 @@ double ArrearService::ExpressPay() {
 }
 
 double ArrearService::YearPayVal(double prog) {
-    if (prog == 0)
-        throw std::string("No progression to calculate year pay");
-
     double result;
-    double val1, val2;
+    double val1, val2_1, val2;
 
     val1 = 1.0 / Fond();
-    val2 = (pow(1 + procent * 0.01, time) - (1 + time * (procent * 0.01))) / pow(procent * 0.01, 2);
+    val2_1 = pow(1 + procent * 0.01, time) - (1 + time * (procent * 0.01));
+    val2 =  val2_1 / pow(procent * 0.01, 2);
     
     result = val1 * (debt - prog * val2);
 
@@ -54,26 +52,43 @@ double ArrearService::Fond() {
 }
 
 void ArrearService::SetYearPay(double prog) {
+    if (prog == 0)
+        throw std::string("No progression to calculate year pay");
+
     yearpay = YearPayVal(prog);
 }
 
-void ArrearService::SetDebt(const double d) {
+void ArrearService::SetDebt(const int d) {
+    if (d <= 0)
+        throw std::string("No debt to serv");
+
     debt = d;
 }
 
 void ArrearService::SetProcent(const int i) {
+    if (i <= 0)
+        throw std::string("Invalid procent");
+
     procent = i;
 }
 
-void ArrearService::SetRate(const int g) {
+void ArrearService::SetRate(const int g) {        
     rate = g;
 }
 
 void ArrearService::SetTime(const int t) {
+    if (t <= 0)
+        throw std::string("No time to service");
+
     time = t;
 }
 
 void ArrearService::SetExpress() {
+    if (procent <= 0)
+        throw std::string("Invalid procent");
+    if (time <= 0)
+        throw std::string("Invalid time");
+
     express = ExpressPay();
 }
 

@@ -5,13 +5,13 @@
 
 class ArrearService {
  public:
-    ArrearService(const double d, const int i,
+    ArrearService(const int d, const int i,
                   const int g, const int t);
     ArrearService(const ArrearService& obj);
 
     void SetYearPay(double prog);
     void SetExpress();
-    void SetDebt(const double d);
+    void SetDebt(const int d);
     void SetProcent(const int i);
     void SetRate(const int g);
     void SetTime(const int t);
@@ -27,7 +27,7 @@ class ArrearService {
  private:
     double YearPayVal(double prog);
     double ExpressPay();
-    double debt;
+    int debt;
     double express;
     int procent;
     double yearpay;
