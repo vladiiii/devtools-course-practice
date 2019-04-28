@@ -1,17 +1,17 @@
 // Copyright 2019 Vikhrev Ivan
-#ifndef MODULES_LCD_DIGITS_INCLUDE_LCD_DIGITS__H_
-#define MODULES_LCD_DIGITS__INCLUDE_LCD_DIGITS__H_
+#ifndef MODULES_LCD_DIGITS_INCLUDE_LCD_DIGITS_H_
+#define MODULES_LCD_DIGITS_INCLUDE_LCD_DIGITS_H_
 
 #include <string>
 
 class LCDDigits {
-  public:
+ public:
     static std::string lcd(const int& n);
     static std::string lcd(const std::string& s);
-  private:
+ private:
     static std::string decompose(const int& n);
     static std::string lcd_str(const std::string& s);
- 
+
     /*static const std::string plus[3];
     static const std::string minus[3];
     static const std::string colon[3];
@@ -29,4 +29,4 @@ class LCDDigits {
     static const std::string nine[3];
 };
 
-#endif  // MODULES_LCD_DIGITS__INCLUDE_LCD_DIGITS__H_
+#endif  // MODULES_LCD_DIGITS_INCLUDE_LCD_DIGITS_H_

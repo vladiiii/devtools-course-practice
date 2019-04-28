@@ -1,5 +1,6 @@
 // Copyright 2019 Vikhrev Ivan
-
+#include <string>
+#include <algorithm>
 #include "include/lcd_digits.h"
 
 const std::string LCDDigits::zero[3] = {" _ ",
@@ -55,12 +56,9 @@ std::string LCDDigits::decompose(const int& n) {
 
 std::string LCDDigits::lcd_str(const std::string& s) {
     std::string lcd_n = "";
-    int j = 0;
-    int line = 0;
-    for (int line = 0; line < 3; line++) {
-        for (int i = 0; i < s.length(); i++) {
-            switch (s[i])
-            {
+    for (unsigned int line = 0; line < 3; line++) {
+        for (unsigned int i = 0; i < s.length(); i++) {
+            switch (s[i]) {
                 case '0':
                     lcd_n += zero[line];
                     break;
@@ -91,7 +89,6 @@ std::string LCDDigits::lcd_str(const std::string& s) {
                 case '9':
                     lcd_n += nine[line];
                     break;
-
             }
             lcd_n += " ";
         }
