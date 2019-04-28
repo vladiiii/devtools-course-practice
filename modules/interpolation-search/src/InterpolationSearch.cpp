@@ -2,7 +2,8 @@
 
 #include "include/InterpolationSearch.h"
 
-InterpolationSearch::InterpolationSearch(int* myPointerSortedData, unsigned mySizeSortedData) {
+InterpolationSearch::InterpolationSearch(int* myPointerSortedData,
+unsigned mySizeSortedData) {
     pointerSortedData  = myPointerSortedData;
     sizeSortedData = mySizeSortedData;
 }
@@ -28,12 +29,14 @@ int* InterpolationSearch::GetPointerData() {
     return pointerSortedData;
 }
 
-void InterpolationSearch::SetSortedData(int* myPointerSortedData, unsigned mySizeSortedData) {
+void InterpolationSearch::SetSortedData(int* myPointerSortedData,
+unsigned mySizeSortedData) {
     pointerSortedData  = myPointerSortedData;
     sizeSortedData = mySizeSortedData;
 }
 
-int64_t InterpolationSearch::Search(int toFind, unsigned myLeft, unsigned myRight) {
+int64_t InterpolationSearch::Search(int toFind, unsigned myLeft,
+unsigned myRight) {
     unsigned left = myLeft;
 
     if (myRight == 0)
@@ -41,7 +44,8 @@ int64_t InterpolationSearch::Search(int toFind, unsigned myLeft, unsigned myRigh
 
     unsigned right = myRight;
 
-    while (pointerSortedData[left] < toFind && pointerSortedData[right] > toFind) {
+    while (pointerSortedData[left] < toFind &&
+    pointerSortedData[right] > toFind) {
         unsigned mid = left + ((toFind - pointerSortedData[left]) *
         (right - left)) / (pointerSortedData[right] - pointerSortedData[left]);
 
