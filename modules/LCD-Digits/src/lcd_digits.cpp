@@ -62,60 +62,60 @@ std::string LCDDigits::decompose(const int& n) {
     return number;
 }
 
-std::string LCDDigits::lcd_str(const std::string& s) {
-    std::string lcd_n = "";
+std::string LCDDigits::lcdStr(const std::string& s) {
+    std::string lcdN = "";
     for (unsigned int line = 0; line < 3; line++) {
         for (unsigned int i = 0; i < s.length(); i++) {
             switch (s[i]) {
                 case '0':
-                    lcd_n += zero[line];
+                    lcdN += zero[line];
                     break;
                 case '1':
-                    lcd_n += one[line];
+                    lcdN += one[line];
                     break;
                 case '2':
-                    lcd_n += two[line];
+                    lcdN += two[line];
                     break;
                 case '3':
-                    lcd_n += three[line];
+                    lcdN += three[line];
                     break;
                 case '4':
-                    lcd_n += four[line];
+                    lcdN += four[line];
                     break;
                 case '5':
-                    lcd_n += five[line];
+                    lcdN += five[line];
                     break;
                 case '6':
-                    lcd_n += six[line];
+                    lcdN += six[line];
                     break;
                 case '7':
-                    lcd_n += seven[line];
+                    lcdN += seven[line];
                     break;
                 case '8':
-                    lcd_n += eight[line];
+                    lcdN += eight[line];
                     break;
                 case '9':
-                    lcd_n += nine[line];
+                    lcdN += nine[line];
                     break;
                 case ':':
-                    lcd_n += colon[line];
+                    lcdN += colon[line];
                     break;
                 case '.':
-                    lcd_n += point[line];
+                    lcdN += point[line];
                     break;
             }
-            lcd_n += " ";
+            lcdN += " ";
         }
-        lcd_n += "\n";
+        lcdN += "\n";
     }
-    return lcd_n;
+    return lcdN;
 }
 
 std::string LCDDigits::lcd(const int& n) {
     std::string number = decompose(n);
-    return lcd_str(number);
+    return lcdStr(number);
 }
 
 std::string LCDDigits::lcd(const std::string& s) {
-    return lcd_str(s);
+    return lcdStr(s);
 }
