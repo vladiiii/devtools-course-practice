@@ -9,7 +9,7 @@ using std::string;
 using std::pair;
 using Word = pair<string, int64_t>;
 
-static char pool[]
+static char pool[]=
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "abcdefghijklmnopqrstuvwxyz"
 "0123456789";
