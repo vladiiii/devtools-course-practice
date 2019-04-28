@@ -1,6 +1,7 @@
 // Copyright 2019 Konnov Sergey
 
-#include "include\vigenere_cipher_application.h"
+#include <string>
+#include "include/vigenere_cipher_application.h"
 
 std::string VigenereCipherApplication::Help(const char * appname) {
     return "This is application for Vigenere Cipher Class\n"
@@ -12,22 +13,19 @@ std::string VigenereCipherApplication::Help(const char * appname) {
 }
 
 VigenereCipherApplication::Operation 
-    VigenereCipherApplication::ParseOperation(const char * argv)
-{
+    VigenereCipherApplication::ParseOperation(const char * argv) {
     if (strcmp(argv, "encrypt") == 0) {
         return Operation::Encrypt;
-    }
-    else if (strcmp(argv, "decrypt") == 0) {
+    } else if (strcmp(argv, "decrypt") == 0) {
         return Operation::Decrypt;
-    }
-    else {
-        throw std::runtime_error("Unknown operation: " 
+    } else {
+        throw std::runtime_error("Unknown operation: "
             + std::string(argv));
     }
 }
 
 std::string VigenereCipherApplication::operator()
-                        (int argc, const char ** argv) {
+                                (int argc, const char ** argv) {
     if (argc == 1)
         return Help(*argv);
     try {
@@ -38,8 +36,7 @@ std::string VigenereCipherApplication::operator()
             throw std::runtime_error("Too many arguments!\n");
         if (oper == Operation::Encrypt) {
             return std::string(VChiph_.Encrypt(argv[2], argv[3]));
-        }
-        else {
+        } else {
             return std::string(VChiph_.Decrypt(argv[2], argv[3]));
         }
     }
@@ -47,4 +44,3 @@ std::string VigenereCipherApplication::operator()
         return re.what();
     }
 }
-
