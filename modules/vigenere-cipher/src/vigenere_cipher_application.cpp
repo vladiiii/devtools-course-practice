@@ -1,6 +1,8 @@
 // Copyright 2019 Konnov Sergey
 
+#include <cstring>
 #include <string>
+#include <stdexcept>
 #include "include/vigenere_cipher_application.h"
 
 std::string VigenereCipherApplication::Help(const char * appname) {
@@ -12,7 +14,7 @@ std::string VigenereCipherApplication::Help(const char * appname) {
         "decrypt <string> <key> - decrypt string using the Vigenere cipher\n";
 }
 
-VigenereCipherApplication::Operation 
+VigenereCipherApplication::Operation
     VigenereCipherApplication::ParseOperation(const char * argv) {
     if (strcmp(argv, "encrypt") == 0) {
         return Operation::Encrypt;
