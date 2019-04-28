@@ -6,11 +6,11 @@
 
 class LCDDigits {
  public:
-    static std::string lcd(const int& n);
-    static std::string lcd(const std::string& s);
+    static std::string LCD(const int& n);
+    static std::string LCD(const std::string& s);
  private:
-    static std::string decompose(const int& n);
-    static std::string lcdStr(const std::string& s);
+    static std::string Decompose(const int& n);
+    static std::string LCDStr(const std::string& s);
 
     static const std::string colon[3];
     static const std::string point[3];

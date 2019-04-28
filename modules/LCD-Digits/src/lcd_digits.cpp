@@ -40,8 +40,8 @@ const std::string LCDDigits::six[3] = {" _ ",
                                        "|_|"};
 
 const std::string LCDDigits::seven[3] = {" _ ",
-                                         "|  ",
-                                         "|  "};
+                                         "  |",
+                                         "  |"};
 
 const std::string LCDDigits::eight[3] = {" _ ",
                                          "|_|",
@@ -51,7 +51,7 @@ const std::string LCDDigits::nine[3] = { " _ ",
                                          "|_|",
                                          " _|"};
 
-std::string LCDDigits::decompose(const int& n) {
+std::string LCDDigits::Decompose(const int& n) {
     int num = n;
     std::string number = "";
     do {
@@ -62,7 +62,7 @@ std::string LCDDigits::decompose(const int& n) {
     return number;
 }
 
-std::string LCDDigits::lcdStr(const std::string& s) {
+std::string LCDDigits::LCDStr(const std::string& s) {
     std::string lcdN = "";
     for (unsigned int line = 0; line < 3; line++) {
         for (unsigned int i = 0; i < s.length(); i++) {
@@ -111,11 +111,11 @@ std::string LCDDigits::lcdStr(const std::string& s) {
     return lcdN;
 }
 
-std::string LCDDigits::lcd(const int& n) {
-    std::string number = decompose(n);
-    return lcdStr(number);
+std::string LCDDigits::LCD(const int& n) {
+    std::string number = Decompose(n);
+    return LCDStr(number);
 }
 
-std::string LCDDigits::lcd(const std::string& s) {
-    return lcdStr(s);
+std::string LCDDigits::LCD(const std::string& s) {
+    return LCDStr(s);
 }

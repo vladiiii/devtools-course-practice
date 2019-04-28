@@ -40,8 +40,8 @@ class LCDDigitsTest : public ::testing::Test {
                          "|_| \n";
 
       std::string seven =  " _  \n"
-                           "|   \n"
-                           "|   \n";
+                           "  | \n"
+                           "  | \n";
 
       std::string eight =  " _  \n"
                            "|_| \n"
@@ -60,141 +60,141 @@ class LCDDigitsTest : public ::testing::Test {
                          "| |_| . |_| |_| .  _|  _| \n";
 
       std::string date = "   _     _         _   _   _   _  \n"
-                         "|  _|    _| |_|   |_  |_  |   |_| \n"
-                         "| |_  .  _|   | .  _| |_| |   |_| \n";
+                         "|  _|    _| |_|   |_  |_    | |_| \n"
+                         "| |_  .  _|   | .  _| |_|   | |_| \n";
 };
 
 
 
-TEST_F(LCDDigitsTest, can_create_lcd_zero_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_zero_from_int) {
     // Act & Assert
-    EXPECT_EQ(zero, LCDDigits::lcd(0));
+    EXPECT_EQ(zero, LCDDigits::LCD(0));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_one_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_one_from_int) {
     // Act & Assert
-    EXPECT_EQ(one, LCDDigits::lcd(1));
+    EXPECT_EQ(one, LCDDigits::LCD(1));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_two_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_two_from_int) {
     // Act & Assert
-    EXPECT_EQ(two, LCDDigits::lcd(2));
+    EXPECT_EQ(two, LCDDigits::LCD(2));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_three_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_three_from_int) {
     // Act & Assert
-    EXPECT_EQ(three, LCDDigits::lcd(3));
+    EXPECT_EQ(three, LCDDigits::LCD(3));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_four_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_four_from_int) {
     // Act & Assert
-    EXPECT_EQ(four, LCDDigits::lcd(4));
+    EXPECT_EQ(four, LCDDigits::LCD(4));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_five_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_five_from_int) {
     // Act & Assert
-    EXPECT_EQ(five, LCDDigits::lcd(5));
+    EXPECT_EQ(five, LCDDigits::LCD(5));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_six_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_six_from_int) {
     // Act & Assert
-    EXPECT_EQ(six, LCDDigits::lcd(6));
+    EXPECT_EQ(six, LCDDigits::LCD(6));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_seven_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_seven_from_int) {
     // Act & Assert
-    EXPECT_EQ(seven, LCDDigits::lcd(7));
+    EXPECT_EQ(seven, LCDDigits::LCD(7));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_eight_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_eight_from_int) {
     // Act & Assert
-    EXPECT_EQ(eight, LCDDigits::lcd(8));
+    EXPECT_EQ(eight, LCDDigits::LCD(8));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_nine_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_nine_from_int) {
     // Act & Assert
-    EXPECT_EQ(nine, LCDDigits::lcd(9));
+    EXPECT_EQ(nine, LCDDigits::LCD(9));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_number_from_int) {
+TEST_F(LCDDigitsTest, can_create_LCD_number_from_int) {
     // Act & Assert
-    EXPECT_EQ(n98, LCDDigits::lcd(98));
+    EXPECT_EQ(n98, LCDDigits::LCD(98));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_point_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_point_from_string) {
     // Act & Assert
-    EXPECT_EQ(point, LCDDigits::lcd("."));
+    EXPECT_EQ(point, LCDDigits::LCD("."));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_colon_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_colon_from_string) {
     // Act & Assert
-    EXPECT_EQ(colon, LCDDigits::lcd(":"));
+    EXPECT_EQ(colon, LCDDigits::LCD(":"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_zero_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_zero_from_string) {
     // Act & Assert
-    EXPECT_EQ(zero, LCDDigits::lcd("0"));
+    EXPECT_EQ(zero, LCDDigits::LCD("0"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_one_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_one_from_string) {
     // Act & Assert
-    EXPECT_EQ(one, LCDDigits::lcd("1"));
+    EXPECT_EQ(one, LCDDigits::LCD("1"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_two_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_two_from_string) {
     // Act & Assert
-    EXPECT_EQ(two, LCDDigits::lcd("2"));
+    EXPECT_EQ(two, LCDDigits::LCD("2"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_three_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_three_from_string) {
     // Act & Assert
-    EXPECT_EQ(three, LCDDigits::lcd("3"));
+    EXPECT_EQ(three, LCDDigits::LCD("3"));
 }
 
 
-TEST_F(LCDDigitsTest, can_create_lcd_four_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_four_from_string) {
     // Act & Assert
-    EXPECT_EQ(four, LCDDigits::lcd("4"));
+    EXPECT_EQ(four, LCDDigits::LCD("4"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_five_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_five_from_string) {
     // Act & Assert
-    EXPECT_EQ(five, LCDDigits::lcd("5"));
+    EXPECT_EQ(five, LCDDigits::LCD("5"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_six_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_six_from_string) {
     // Act & Assert
-    EXPECT_EQ(six, LCDDigits::lcd("6"));
+    EXPECT_EQ(six, LCDDigits::LCD("6"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_seven_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_seven_from_string) {
     // Act & Assert
-    EXPECT_EQ(seven, LCDDigits::lcd("7"));
+    EXPECT_EQ(seven, LCDDigits::LCD("7"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_eight_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_eight_from_string) {
     // Act & Assert
-    EXPECT_EQ(eight, LCDDigits::lcd("8"));
+    EXPECT_EQ(eight, LCDDigits::LCD("8"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_nine_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_nine_from_string) {
     // Act & Assert
-    EXPECT_EQ(nine, LCDDigits::lcd("9"));
+    EXPECT_EQ(nine, LCDDigits::LCD("9"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_number_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_number_from_string) {
     // Act & Assert
-    EXPECT_EQ(n98, LCDDigits::lcd("98"));
+    EXPECT_EQ(n98, LCDDigits::LCD("98"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_time_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_time_from_string) {
     // Act & Assert
-    EXPECT_EQ(time, LCDDigits::lcd("16:00:59"));
+    EXPECT_EQ(time, LCDDigits::LCD("16:00:59"));
 }
 
-TEST_F(LCDDigitsTest, can_create_lcd_date_from_string) {
+TEST_F(LCDDigitsTest, can_create_LCD_date_from_string) {
     // Act & Assert
-    EXPECT_EQ(date, LCDDigits::lcd("12.34.5678"));
+    EXPECT_EQ(date, LCDDigits::LCD("12.34.5678"));
 }
 
 
