@@ -8,7 +8,6 @@
 ArrearService::ArrearService(const int d, const int i,
                              const int g, const int t) : debt(d), procent(i),
                              rate(g), time(t) {
-
     SetExpress();
     yearpay = debt / Fond();
 }
