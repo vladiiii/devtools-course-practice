@@ -5,20 +5,20 @@
 
 #include<string>
 
-class ItrSearch {
+class InterpolationSearch {
  protected:
-    int* ptrSortedData;
+    int* pointerSortedData;
     unsigned sizeSortedData;
     int64_t findIndex;
 
  public:
-    ItrSearch(int* myPtrSortedData, unsigned mySizeSortedData);
-    ItrSearch();
-    ~ItrSearch();
+    InterpolationSearch(int* myPointerSortedData, unsigned mySizeSortedData);
+    InterpolationSearch();
+    ~InterpolationSearch();
     int64_t GetFindIndex();
     unsigned GetSizeData();
-    int* GetPtrData();
-    void SetSortedData(int* myPtrSortedData, unsigned mySizeSortedData);
+    int* GetPointerData();
+    void SetSortedData(int* myPointerSortedData, unsigned mySizeSortedData);
     int64_t Search(int toFind, unsigned myLeft = 0, unsigned myRight = 0);
 };
 
