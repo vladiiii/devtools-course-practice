@@ -6,7 +6,7 @@
 class QuickSort {
  public:
     bool checkIncreasing(const int *pArr, const int size);
-    void sort(int *pArr, int size);
+    void mySort(int *pArr, int size);
  private:
     void my_swap(int* a, int* b);
     int partition(int *arr, int low, int high);

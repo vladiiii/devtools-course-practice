@@ -13,7 +13,7 @@ bool QuickSort::checkIncreasing(const int *pArr, const int size) {
     return true;
 }
 
-void QuickSort::sort(int *pArr, int size){
+void QuickSort::mySort(int *pArr, int size){
     boundedSort(pArr, 0, size - 1);
 }
 
