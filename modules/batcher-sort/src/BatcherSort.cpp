@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "include/BatcherSort.h"
 
-BatcherSort::BatcherSort(std::vector<int> vec) :v_(vec) {
+BatcherSort::BatcherSort(std::vector<int> vec) :v_(vec) {
     if ((!(v_.size() && !(v_.size() & (v_.size() - 1)))) && (v_.size() != 0))
         throw -1;
 }
