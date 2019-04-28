@@ -7,7 +7,7 @@
 
 class BatcherSort {
  private:
-    std::vector<int> v;
+    std::vector<int> v_;
     void Shuffle(int l, int r);
     void Compexch(int a, int b);
     void Unshuffle(int l, int r);
