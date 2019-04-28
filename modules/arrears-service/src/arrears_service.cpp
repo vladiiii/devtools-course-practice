@@ -3,14 +3,19 @@
 #include "include/arrears_service.h"
 
 #include <cmath>
+#include <iostream>
 #include <string>
 
-ArrearService::ArrearService(const double d, const double e,
-                             const int i, const int g, 
-                             const int t) : debt(d), procent(i),
+ArrearService::ArrearService(const double d, const int i, 
+                             const int g, const int t) : debt(d), procent(i),
                              rate(g), time(t) {
-    express = ExpressPay(t, i);
-    yearpay = debt / Fond(i, t);
+    if (procent <= 0)
+        throw std::string("Invalid procent");
+    if (time <= 0)
+        throw std::string("Invalid time");
+
+    SetExpress();
+    yearpay = debt / Fond();
 }
 
 ArrearService::ArrearService(const ArrearService& obj) {
@@ -21,47 +26,77 @@ ArrearService::ArrearService(const ArrearService& obj) {
     time = obj.time;
 }
 
-double ArrearService::ExpressPay(int time, int proc) {
-    if (proc <= 0)
-        throw std::string("No procent for express");
-    if (time <= 0)
-        throw std::string("No time for express");
-
-    double result;
-
-    result = debt * (pow((1 + (double)rate * 0.01), time) / Fond(proc, time));
-
-    return result;
+double ArrearService::ExpressPay() {
+    return debt * (rate * 0.01) + debt / Fond();
 }
 
-double ArrearService::YearPayVal(int proc, int time, double prog) {
-    if (proc <= 0)
-        throw std::string("No procent for year pay");
-    if (time <= 0)
-        throw std::string("No time for year pay");
+double ArrearService::YearPayVal(double prog) {
     if (prog == 0)
         throw std::string("No progression to calculate year pay");
 
     double result;
     double val1, val2;
 
-    val1 = 1 / Fond(proc, time);
-    val2 = (pow(1 + (double)proc * 0.01, time) - (1 + time * proc)) / pow(proc, 2);
+    val1 = 1.0 / Fond();
+    val2 = (pow(1 + procent * 0.01, time) - (1 + time * (procent * 0.01))) / pow(procent * 0.01, 2);
     
     result = val1 * (debt - prog * val2);
 
     return result;
 }
 
-double ArrearService::Fond(int proc, int t) {
-    if (proc <= 0)
-        throw std::string("Invalid procent");
-    if (time <= 0)
-        throw std::string("Invalid time");
-    
+double ArrearService::Fond() {
     double result;
 
-    result = (pow(1 + (double)proc * 0.01, t) - 1) / ((double)proc * 0.01);
+    result = (pow(1 + procent * 0.01, time) - 1) / (procent * 0.01);
 
     return result;
+}
+
+void ArrearService::SetYearPay(double prog) {
+    yearpay = YearPayVal(prog);
+}
+
+void ArrearService::SetDebt(const double d) {
+    debt = d;
+}
+
+void ArrearService::SetProcent(const int i) {
+    procent = i;
+}
+
+void ArrearService::SetRate(const int g) {
+    rate = g;
+}
+
+void ArrearService::SetTime(const int t) {
+    time = t;
+}
+
+void ArrearService::SetExpress() {
+    express = ExpressPay();
+}
+
+double ArrearService::GetExpress() {
+    return express;
+}
+
+double ArrearService::GetDebt() {
+    return debt;
+}
+
+double ArrearService::GetYearPay() {
+    return yearpay;
+}
+
+int ArrearService::GetProcent() {
+    return procent;
+}
+
+int ArrearService::GetTime() {
+    return time;
+}
+
+int ArrearService::GetRate() {
+    return rate;
 }
