@@ -83,7 +83,7 @@ TEST_F(VigenereCipherApplicationTest,
     Assert("Too few arguments!");
 }
 
-TEST_F(VigenereCipherApplicationTest, 
+TEST_F(VigenereCipherApplicationTest,
     Throws_If_There_Are_Too_Many_Arguments) {
     // Arrange
     std::vector<std::string> args =
