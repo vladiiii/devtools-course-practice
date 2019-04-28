@@ -17,7 +17,9 @@ double ShapesVolume::CubeVolume(double edgeLength) {
     return pow(edgeLength , 3.0);
 }
 
-double ShapesVolume::ParallelepipedVolume(double edgeLength , double edgeHeight , double edgeWidth) {
+double ShapesVolume::ParallelepipedVolume(double edgeLength ,
+                                          double edgeHeight ,
+                                          double edgeWidth) {
     return edgeLength * edgeHeight * edgeWidth;
 }
 

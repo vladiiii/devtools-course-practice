@@ -41,7 +41,9 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Parallelepiped) {
     double edgeHeight = 3.0;
     double edgeWidth = 6.0;
     // Act
-    double result = ShapesVolume::ParallelepipedVolume(edgeLength ,  edgeHeight , edgeWidth);
+    double result = ShapesVolume::ParallelepipedVolume(edgeLength ,
+                                                       edgeHeight ,
+                                                       edgeWidth);
     // Assert
     double exp_ans = 36.0;
     EXPECT_EQ(exp_ans , result);
