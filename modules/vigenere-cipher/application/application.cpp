@@ -1,0 +1,8 @@
+#include <iostream>
+#include "include\vigenere_cipher_application.h"
+int main(int argc,char** argv)
+{
+    VigenereCipherApplication application;
+    std::cout<<application(argc, argv);
+    return 0;
+}
