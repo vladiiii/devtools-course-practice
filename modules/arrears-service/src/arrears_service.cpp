@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-ArrearService::ArrearService(const int d, const int i, 
+ArrearService::ArrearService(const int d, const int i,
                              const int g, const int t) : debt(d), procent(i),
                              rate(g), time(t) {
     if (procent <= 0)
@@ -37,7 +37,7 @@ double ArrearService::YearPayVal(double prog) {
     val1 = 1.0 / Fond();
     val2_1 = pow(1 + procent * 0.01, time) - (1 + time * (procent * 0.01));
     val2 =  val2_1 / pow(procent * 0.01, 2);
-    
+
     result = val1 * (debt - prog * val2);
 
     return result;
@@ -72,7 +72,7 @@ void ArrearService::SetProcent(const int i) {
     procent = i;
 }
 
-void ArrearService::SetRate(const int g) {        
+void ArrearService::SetRate(const int g) {
     rate = g;
 }
 
