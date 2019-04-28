@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 #include <random>
+#include <string>
 
 #include "include/dictionary.h"
 
@@ -189,8 +190,7 @@ Word Dictionary::GetRoot() const {
     }
 }
 
-char GetRandomChar()
-{
+char GetRandomChar() {
     static std::random_device random_device;
     static std::mt19937 generator(random_device());
 
@@ -199,11 +199,9 @@ char GetRandomChar()
     return distribution(generator);
 }
 
-string GetRandomString(int sizeWord)
-{
+string GetRandomString(int sizeWord) {
     string tmp{};
-    for (int i = 0; i < sizeWord; i++)
-    {
+    for (int i = 0; i < sizeWord; i++) {
         tmp += GetRandomChar();
     }
     return tmp;
