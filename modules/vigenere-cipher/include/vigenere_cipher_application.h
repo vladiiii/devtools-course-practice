@@ -7,7 +7,7 @@
 #include <string>
 
 class VigenereCipherApplication {
-private:
+ private:
     enum class Operation {
         Encrypt,
         Decrypt
@@ -17,7 +17,7 @@ private:
     VigenereCipher VChiph_;
     std::string key_;
     std::string operation_;
-public:
+ public:
     VigenereCipherApplication() = default;
     std::string operator()(int argc, const char ** argv);
 };
