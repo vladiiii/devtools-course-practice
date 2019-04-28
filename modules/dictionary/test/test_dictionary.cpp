@@ -2,13 +2,14 @@
 
 #include <gtest/gtest.h>
 #include <vector>
+#include <string>
 #include "include/dictionary.h"
 
 const int32_t sizeWord = 6;
 const int nLenght = 10;
 
 TEST(DictionaryTest,
- CanCreateDefaultDictionary) {
+CanCreateDefaultDictionary) {
     Dictionary dict;
     Word root("root", 0);
     dict.Insert(root);
@@ -16,7 +17,7 @@ TEST(DictionaryTest,
 }
 
 TEST(DictionaryTest,
- CanInsertWord) {
+CanInsertWord) {
     Dictionary dict;
     Word root("root", 0);
     dict.Insert(root);
