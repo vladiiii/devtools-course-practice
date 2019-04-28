@@ -37,7 +37,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Sort_Passes_Checking) {
     int arr[3] = {3, 2, 1};
 
     // Act
-    qs.sort(arr, 3);
+    qs.mySort(arr, 3);
     bool res = qs.checkIncreasing(arr, 3);
 
     // Assert
@@ -51,7 +51,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, First_Element_Checking) {
     int arr[3] = {3, 2, 1};
 
     // Act
-    qs.sort(arr, 3);
+    qs.mySort(arr, 3);
     int must_be_one = arr[0];
 
     // Assert
