@@ -5,7 +5,7 @@
 
 ElasticityOfDemand::ElasticityOfDemand() {}
 
-double ElasticityOfDemand::price_elasticity_of_demand(int quantity_1,
+double ElasticityOfDemand::PriceElasticityOfDemand(int quantity_1,
 int quantity_2, double price_1, double price_2) {
     double dq = static_cast<double>(quantity_2 - quantity_1);
     double dp = price_2 - price_1;
@@ -21,7 +21,7 @@ int quantity_2, double price_1, double price_2) {
     }
 }
 
-double ElasticityOfDemand::income_elasticity_of_demand(int quantity_1,
+double ElasticityOfDemand::IncomeElasticityOfDemand(int quantity_1,
 int quantity_2, double income_1, double income_2) {
     double dq = static_cast<double>(quantity_2 - quantity_1);
     double di = income_2 - income_1;
@@ -29,7 +29,7 @@ int quantity_2, double income_1, double income_2) {
     return (dq / static_cast<double>(quantity_1)) / (di / income_1);
 }
 
-double ElasticityOfDemand::cross_elasticity_of_demand(int quantity_1_product_1,
+double ElasticityOfDemand::CrossElasticityOfDemand(int quantity_1_product_1,
 int quantity_2_product_1, double price_1_product_2, double price_2_product_2) {
     double dq = static_cast<double>(quantity_2_product_1 -
     quantity_1_product_1);
