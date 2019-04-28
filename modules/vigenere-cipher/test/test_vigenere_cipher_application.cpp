@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 #include <string>
 #include <vector>
-
 #include "include/vigenere_cipher_application.h"
 
 class VigenereCipherApplicationTest : public ::testing::Test {
