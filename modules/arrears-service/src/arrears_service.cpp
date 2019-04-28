@@ -3,7 +3,6 @@
 #include "include/arrears_service.h"
 
 #include <cmath>
-#include <iostream>
 #include <string>
 
 ArrearService::ArrearService(const int d, const int i,
