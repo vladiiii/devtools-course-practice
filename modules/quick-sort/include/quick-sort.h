@@ -8,9 +8,9 @@ class QuickSort {
     bool checkIncreasing(const int *pArr, const int size);
     void sort(int *pArr, int size);
  private:
-    void swap(int* a, int* b);
-    int partition (int *arr, int low, int high);
+    void my_swap(int* a, int* b);
+    int partition(int *arr, int low, int high);
     void boundedSort(int *arr, int low, int high);
 };
 
-#endif // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
+#endif  // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_

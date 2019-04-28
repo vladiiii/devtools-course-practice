@@ -17,7 +17,7 @@ void QuickSort::sort(int *pArr, int size){
     boundedSort(pArr, 0, size - 1);
 }
 
-void QuickSort::swap(int* a, int* b){
+void QuickSort::my_swap(int* a, int* b){
     int t = *a;
     *a = *b;
     *b = t;
@@ -31,10 +31,10 @@ int QuickSort::partition (int *arr, int low, int high){
         if (arr[j] <= pivot) 
         {
             i++;
-            swap(&arr[i], &arr[j]); 
+            my_swap(&arr[i], &arr[j]); 
         }
     } 
-    swap(&arr[i + 1], &arr[high]); 
+    my_swap(&arr[i + 1], &arr[high]); 
     return (i + 1); 
 }
 
