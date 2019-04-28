@@ -7,7 +7,6 @@
 #include "include/dictionary.h"
 
 using std::max;
-using std::endl;
 
 Node* Dictionary::Insert(const Word& x, Node* t) {
     if (t == nullptr) {
@@ -203,7 +202,7 @@ char GetRandomChar()
 string GetRandomString(int sizeWord)
 {
     string tmp{};
-    for (size_t i = 0; i < sizeWord; i++)
+    for (int i = 0; i < sizeWord; i++)
     {
         tmp += GetRandomChar();
     }
