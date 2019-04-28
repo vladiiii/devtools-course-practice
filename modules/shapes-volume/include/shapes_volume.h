@@ -8,9 +8,11 @@ class ShapesVolume {
     static double SphereVolume(double radius);
     static double CylinderVolume(double radius , double height);
     static double CubeVolume(double edgeLength);
-    static double ParallelepipedVolume(double edgeLength , double edgeHeight , double edgeWidth);
+    static double ParallelepipedVolume(double edgeLength ,
+                                       double edgeHeight ,
+                                       double edgeWidth);
     static double ConeVolume(double radius , double height);
-    static double TetrahedronVolume(double a);
+    static double TetrahedronVolume(double edgeLength);
 };
 
 #endif  // MODULES_SHAPES_VOLUME_INCLUDE_SHAPES_VOLUME_H_
