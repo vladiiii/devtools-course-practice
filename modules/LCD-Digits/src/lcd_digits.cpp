@@ -3,6 +3,14 @@
 #include <algorithm>
 #include "include/lcd_digits.h"
 
+const std::string LCDDigits::point[3] = { " ",
+                                          " ",
+                                          "."};
+
+const std::string LCDDigits::colon[3] = {" ",
+                                         ".",
+                                         "." };
+
 const std::string LCDDigits::zero[3] = {" _ ",
                                         "| |",
                                         "|_|"};
@@ -88,6 +96,12 @@ std::string LCDDigits::lcd_str(const std::string& s) {
                     break;
                 case '9':
                     lcd_n += nine[line];
+                    break;
+                case ':':
+                    lcd_n += colon[line];
+                    break;
+                case '.':
+                    lcd_n += point[line];
                     break;
             }
             lcd_n += " ";
