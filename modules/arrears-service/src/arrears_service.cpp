@@ -8,10 +8,6 @@
 ArrearService::ArrearService(const int d, const int i,
                              const int g, const int t) : debt(d), procent(i),
                              rate(g), time(t) {
-    if (procent <= 0)
-        throw std::string("Invalid procent");
-    if (time <= 0)
-        throw std::string("Invalid time");
 
     SetExpress();
     yearpay = debt / Fond();

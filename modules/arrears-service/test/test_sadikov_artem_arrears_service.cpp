@@ -132,12 +132,12 @@ TEST(Sadikov_Artem_ArrearServiceTest, Throw_Exepction_If_Invalid_Time) {
     ASSERT_ANY_THROW(c.SetTime(0));
 }
 
-TEST(Sadikov_Artem_ArrearServiceTest, Throw_Exepction_If_Invalid_Time_Cons) {
-    // Arrange
-    ASSERT_ANY_THROW(ArrearService c(123, 123, 4, 0));
+TEST(Sadikov_Artem_ArrearServiceTest, Throw_Exepction_If_Invalid_Proc_Exp) {
+    // Arrange & Act & Assert
+    ASSERT_ANY_THROW(ArrearService c(123, 0, 4, 5));
 }
 
-TEST(Sadikov_Artem_ArrearServiceTest, Throw_Exepction_If_Invalid_Proc_Cons) {
-    // Arrange
-    ASSERT_ANY_THROW(ArrearService c(123, 0, 123, 123));
+TEST(Sadikov_Artem_ArrearServiceTest, Throw_Exepction_If_Invalid_Time_Exp) {
+    // Arrange & Act & Assert
+    ASSERT_ANY_THROW(ArrearService c(123, 2, 4, 0));
 }
