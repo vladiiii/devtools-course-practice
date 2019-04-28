@@ -10,8 +10,8 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Sphere) {
     // Act
     double result = ShapesVolume::SphereVolume(radius);
     // Assert
-    double exp_ans = 65.4498;
-    EXPECT_NEAR(exp_ans , result , 4);
+    double exp_ans = 65.44;
+    EXPECT_NEAR(exp_ans , result , 0.01);
 }
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cylinder) {
@@ -21,8 +21,8 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cylinder) {
     // Act
     double result = ShapesVolume::CylinderVolume(radius , height);
     // Assert
-    double exp_ans = 37.6991;
-    EXPECT_NEAR(exp_ans , result , 4);
+    double exp_ans = 37.69;
+    EXPECT_NEAR(exp_ans , result , 0.01);
 }
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cube) {
@@ -54,8 +54,8 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cone) {
     // Act
     double result = ShapesVolume::ConeVolume(radius , height);
     // Assert
-    double exp_ans = 19.6349;
-    EXPECT_NEAR(exp_ans , result , 4);
+    double exp_ans = 19.63;
+    EXPECT_NEAR(exp_ans , result , 0.01);
 }
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Tetrahedron) {
@@ -64,6 +64,6 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Tetrahedron) {
     // Act
     double result = ShapesVolume::TetrahedronVolume(a);
     // Assert
-    double exp_ans = 14.7313;
-    EXPECT_NEAR(exp_ans , result , 4);
+    double exp_ans = 14.73;
+    EXPECT_NEAR(exp_ans , result , 0.01);
 }
