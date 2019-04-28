@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <array>
+#include <algorithm>
 #include <utility>
 
 class ModifStack {
@@ -16,10 +16,9 @@ class ModifStack {
  public:
     explicit ModifStack(std::vector<int> temp);
     ModifStack(const ModifStack &src) = default;
-    ~ModifStack() = default;
 
     bool Empty();
-    int Size();
+    std::size_t Size();
 
     std::pair<int, int> Top();
     void Push(int number);

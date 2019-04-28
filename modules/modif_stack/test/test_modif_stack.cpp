@@ -1,7 +1,8 @@
 // Copyright 2019 Karasev Anton
 
-#include <vector>
 #include <utility>
+#include <vector>
+#include <string>
 
 #include "gtest/gtest.h"
 
@@ -54,15 +55,9 @@ TEST(ModifStack, Can_Top_In_Empty_Stack) {
     // Arrange
     std::vector<int> x;
     ModifStack y(x);
-    int last, min;
 
-    // Act
-    last = y.Top().first;
-    min = y.Top().second;
-
-    // Assert
-    EXPECT_EQ(-1, last);
-    EXPECT_EQ(0, min);
+    // Act & Assert
+    ASSERT_ANY_THROW(y.Top());
 }
 
 TEST(ModifStack, Can_Top_In_Stack) {
@@ -125,4 +120,18 @@ TEST(ModifStack, Can_Push_In_Stack) {
 
     // Assert
     EXPECT_EQ(21, y.Top().first);
+}
+
+TEST(ModifStack, Can_Define_Empty_Stack) {
+    // Arrange
+    std::vector<int> x = {4};
+    ModifStack y(x);
+    bool valid = false;
+    y.Pop();
+
+    // Act
+    valid = y.Empty();
+
+    // Assert
+    EXPECT_TRUE(valid == true);
 }
