@@ -2,18 +2,18 @@
 
 #include "include/ItrSearch.h"
 
-ItrSearch::ItrSearch(int* myPtrData, unsigned mySizeData) {
-    ptrData  = myPtrData;
-    sizeData = mySizeData;
+ItrSearch::ItrSearch(int* myPtrSortedData, unsigned mySizeSortedData) {
+    ptrSortedData  = myPtrSortedData;
+    sizeSortedData = mySizeSortedData;
 }
 
 ItrSearch::ItrSearch() {
-    ptrData = nullptr;
-    sizeData  = 0;
+    ptrSortedData = nullptr;
+    sizeSortedData  = 0;
 }
 
 ItrSearch::~ItrSearch() {
-    ptrData = nullptr;
+    ptrSortedData = nullptr;
 }
 
 int64_t ItrSearch::GetFindIndex() {
@@ -21,33 +21,33 @@ int64_t ItrSearch::GetFindIndex() {
 }
 
 unsigned ItrSearch::GetSizeData() {
-    return sizeData;
+    return sizeSortedData;
 }
 
 int* ItrSearch::GetPtrData() {
-    return ptrData;
+    return ptrSortedData;
 }
 
-void ItrSearch::SetSortedData(int* myPtrData, unsigned mySizeData) {
-    ptrData  = myPtrData;
-    sizeData = mySizeData;
+void ItrSearch::SetSortedData(int* myPtrSortedData, unsigned mySizeSortedData) {
+    ptrSortedData  = myPtrSortedData;
+    sizeSortedData = mySizeSortedData;
 }
 
 int64_t ItrSearch::Search(int toFind, unsigned myLeft, unsigned myRight) {
     unsigned left = myLeft;
 
     if (myRight == 0)
-        myRight = sizeData - 1;
+        myRight = sizeSortedData - 1;
 
     unsigned right = myRight;
 
-    while (ptrData[left] < toFind && ptrData[right] > toFind) {
-        unsigned mid = left + ((toFind - ptrData[left]) *
-        (right - left)) / (ptrData[right] - ptrData[left]);
+    while (ptrSortedData[left] < toFind && ptrSortedData[right] > toFind) {
+        unsigned mid = left + ((toFind - ptrSortedData[left]) *
+        (right - left)) / (ptrSortedData[right] - ptrSortedData[left]);
 
-        if (ptrData[mid] < toFind) {
+        if (ptrSortedData[mid] < toFind) {
             left = mid + 1;
-        } else if (ptrData[mid] > toFind) {
+        } else if (ptrSortedData[mid] > toFind) {
             right = mid - 1;
         } else {
             findIndex = mid;
@@ -55,11 +55,11 @@ int64_t ItrSearch::Search(int toFind, unsigned myLeft, unsigned myRight) {
         }
     }
 
-    if (ptrData[left] == toFind) {
+    if (ptrSortedData[left] == toFind) {
         findIndex = left;
         return findIndex;
     }
-    if (ptrData[right] == toFind) {
+    if (ptrSortedData[right] == toFind) {
         findIndex = right;
         return findIndex;
     }
