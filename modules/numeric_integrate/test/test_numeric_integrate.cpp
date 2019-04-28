@@ -34,7 +34,7 @@ TEST(IntegrateTest, Can_set_section) {
     NumericIntegrate c(0.0, 1.0);
 
     // Act
-    c.Set_Section(4.5, 5.0);
+    c.SetSection(4.5, 5.0);
 
     // Assert
     EXPECT_EQ(4.5, c.Get_a());
