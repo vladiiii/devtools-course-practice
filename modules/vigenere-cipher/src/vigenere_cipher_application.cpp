@@ -11,7 +11,8 @@ std::string VigenereCipherApplication::Help(const char * appname) {
         "decrypt <string> <key> - decrypt string using the Vigenere cipher\n";
 }
 
-VigenereCipherApplication::Operation VigenereCipherApplication::ParseOperation(const char * argv)
+VigenereCipherApplication::Operation 
+    VigenereCipherApplication::ParseOperation(const char * argv)
 {
     if (strcmp(argv, "encrypt") == 0) {
         return Operation::Encrypt;
@@ -20,11 +21,13 @@ VigenereCipherApplication::Operation VigenereCipherApplication::ParseOperation(c
         return Operation::Decrypt;
     }
     else {
-        throw std::runtime_error("Unknown operation: " + std::string(argv));
+        throw std::runtime_error("Unknown operation: " 
+            + std::string(argv));
     }
 }
 
-std::string VigenereCipherApplication::operator()(int argc, const char ** argv) {
+std::string VigenereCipherApplication::operator()
+                        (int argc, const char ** argv) {
     if (argc == 1)
         return Help(*argv);
     try {
