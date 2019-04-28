@@ -27,9 +27,9 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cylinder) {
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cube) {
     // Arrange
-    double a = 2.0;
+    double edgeLength = 2.0;
     // Act
-    double result = ShapesVolume::CubeVolume(a);
+    double result = ShapesVolume::CubeVolume(edgeLength);
     // Assert
     double exp_ans = 8.0;
     EXPECT_EQ(exp_ans , result);
@@ -37,11 +37,11 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cube) {
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Parallelepiped) {
     // Arrange
-    double a = 2.0;
-    double b = 3.0;
-    double c = 6.0;
+    double edgeLength = 2.0;
+    double edgeHeight = 3.0;
+    double edgeWidth = 6.0;
     // Act
-    double result = ShapesVolume::ParallelepipedVolume(a ,  b ,  c);
+    double result = ShapesVolume::ParallelepipedVolume(edgeLength ,  edgeHeight , edgeWidth);
     // Assert
     double exp_ans = 36.0;
     EXPECT_EQ(exp_ans , result);
@@ -60,9 +60,9 @@ TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Cone) {
 
 TEST(Evdokimov_Artem_ShapesVolume , Can_Calculate_Volume_Of_Tetrahedron) {
     // Arrange
-    double a = 5.0;
+    double edgeLength = 5.0;
     // Act
-    double result = ShapesVolume::TetrahedronVolume(a);
+    double result = ShapesVolume::TetrahedronVolume(edgeLength);
     // Assert
     double exp_ans = 14.73;
     EXPECT_NEAR(exp_ans , result , 0.01);

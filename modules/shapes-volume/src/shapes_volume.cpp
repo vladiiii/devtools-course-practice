@@ -13,18 +13,18 @@ double ShapesVolume::CylinderVolume(double radius , double height) {
     return M_PI * pow(2 , radius) * height;
 }
 
-double ShapesVolume::CubeVolume(double a) {
-    return pow(a , 3.0);
+double ShapesVolume::CubeVolume(double edgeLength) {
+    return pow(edgeLength , 3.0);
 }
 
-double ShapesVolume::ParallelepipedVolume(double a , double b , double c) {
-    return a * b * c;
+double ShapesVolume::ParallelepipedVolume(double edgeLength , double edgeHeight , double edgeWidth) {
+    return edgeLength * edgeHeight * edgeWidth;
 }
 
 double ShapesVolume::ConeVolume(double radius , double height) {
     return 1.0 / 3.0 * M_PI * pow(radius , 2.0) * height;
 }
 
-double ShapesVolume::TetrahedronVolume(double a) {
-    return (pow(a , 3.0) * sqrt(2)) / 12.0;
+double ShapesVolume::TetrahedronVolume(double edgeLength) {
+    return (pow(edgeLength , 3.0) * sqrt(2)) / 12.0;
 }
