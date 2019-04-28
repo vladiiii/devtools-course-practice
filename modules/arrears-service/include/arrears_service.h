@@ -5,16 +5,16 @@
 
 class ArrearService {
  public:
-    ArrearService(const int d, const int i,
-                  const int g, const int t);
+    ArrearService(const int debt, const int procent,
+                  const int rate, const int time);
     ArrearService(const ArrearService& obj);
 
     void SetYearPay(double prog);
     void SetExpress();
-    void SetDebt(const int d);
-    void SetProcent(const int i);
-    void SetRate(const int g);
-    void SetTime(const int t);
+    void SetDebt(const int debt);
+    void SetProcent(const int procent);
+    void SetRate(const int rate);
+    void SetTime(const int time);
     double GetYearPay();
     double GetExpress();
     double GetDebt();
@@ -27,12 +27,12 @@ class ArrearService {
  private:
     double YearPayVal(double prog);
     double ExpressPay();
-    int debt;
-    double express;
-    int procent;
-    double yearpay;
-    int rate;
-    int time;
+    int debt_;
+    double express_;
+    int procent_;
+    double yearpay_;
+    int rate_;
+    int time_;
 };
 
 #endif  // MODULES_ARREARS_SERVICE_INCLUDE_ARREARS_SERVICE_H_
