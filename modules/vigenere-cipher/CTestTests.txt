@@ -53,7 +53,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Detect_Too_Few_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Too few Arguments!"
+    PASS_REGULAR_EXPRESSION "Too few arguments!"
     LABELS "${MODULE}")
 
 add_test(
@@ -62,5 +62,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Detect_Too_Many_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Too Many Arguments!"
+    PASS_REGULAR_EXPRESSION "Too many arguments!"
     LABELS "${MODULE}")
