@@ -35,12 +35,12 @@ const std::string LCDDigits::seven[3] = {" _ ",
                                          "|  "};
 
 const std::string LCDDigits::eight[3] = {" _ ",
-                                         "|_| ",
+                                         "|_|",
                                          "|_|"};
 
 const std::string LCDDigits::nine[3] = { " _ ",
                                          "|_|",
-                                         " _|" };
+                                         " _|"};
 
 std::string LCDDigits::decompose(const int& n) {
     int num = n;

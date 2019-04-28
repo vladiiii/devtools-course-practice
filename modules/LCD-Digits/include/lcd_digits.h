@@ -12,11 +12,11 @@ class LCDDigits {
     static std::string decompose(const int& n);
     static std::string lcd_str(const std::string& s);
  
-    static const std::string plus[3];
+    /*static const std::string plus[3];
     static const std::string minus[3];
     static const std::string colon[3];
     static const std::string point[3];
-
+*/
     static const std::string zero[3];
     static const std::string one[3];
     static const std::string two[3];
