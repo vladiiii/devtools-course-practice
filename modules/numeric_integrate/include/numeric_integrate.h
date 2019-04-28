@@ -9,14 +9,14 @@ class NumericIntegrate {
  public:
     NumericIntegrate();
     NumericIntegrate(double _a, double _b);
-    double functionValue(double x) const;
+    double FunctionValue(double x) const;
     void Set_a(double _a);
     void Set_b(double _b);
     double Get_a() const;
     double Get_b() const;
-    void Set_Section(double _a, double _b);
-    double Rectangle_Method(int n = 64);
-    double Trapezium_Method(int n = 64);
+    void SetSection(double _a, double _b);
+    double RectangleMethod(int n = 64);
+    double TrapeziumMethod(int n = 64);
 };
 
 #endif  // MODULES_NUMERIC_INTEGRATE_INCLUDE_NUMERIC_INTEGRATE_H_

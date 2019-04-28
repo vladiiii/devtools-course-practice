@@ -46,7 +46,7 @@ TEST(IntegrateTest, Use_integrate_rectangle_method_a_b_EQ) {
     NumericIntegrate c(6.7, 6.7);
 
     // Act
-    double res = c.Rectangle_Method(8);
+    double res = c.RectangleMethod(8);
 
     // Assert
     EXPECT_EQ(0.0, res);
@@ -57,7 +57,7 @@ TEST(IntegrateTest, Use_integrate_trapezium_method_a_b_EQ) {
     NumericIntegrate c(6.7, 6.7);
 
     // Act
-    double res = c.Trapezium_Method(8);
+    double res = c.TrapeziumMethod(8);
 
     // Assert
     EXPECT_EQ(0.0, res);
@@ -68,7 +68,7 @@ TEST(IntegrateTest, Use_integrate_rectangle_method_a_and_minus_a) {
     NumericIntegrate c(-2.0, 2.0);
 
     // Act
-    double res = c.Rectangle_Method(8);
+    double res = c.RectangleMethod(8);
 
     // Assert
     EXPECT_NEAR(0.0, res, 0.000001);
@@ -79,7 +79,7 @@ TEST(IntegrateTest, Use_integrate_trapezium_method_a_and_minus_a) {
     NumericIntegrate c(-2.0, 2.0);
 
     // Act
-    double res = c.Trapezium_Method(8);
+    double res = c.TrapeziumMethod(8);
 
     // Assert
     EXPECT_NEAR(0.0, res, 0.000001);
@@ -90,7 +90,7 @@ TEST(IntegrateTest, Use_integrate_rectangle_method_a_b) {
     NumericIntegrate c(0.0, 1.0);
 
     // Act
-    double res = c.Rectangle_Method(100000);
+    double res = c.RectangleMethod(100000);
 
     // Assert
     EXPECT_NEAR(2.0/3.0, res, 0.000001);
@@ -101,7 +101,7 @@ TEST(IntegrateTest, Use_integrate_trapezium_method_a_b) {
     NumericIntegrate c(0.0, 1.0);
 
     // Act
-    double res = c.Trapezium_Method(100000);
+    double res = c.TrapeziumMethod(100000);
 
     // Assert
     EXPECT_NEAR(2.0/3.0, res, 0.000001);
@@ -113,8 +113,8 @@ TEST(IntegrateTest, Use_integrate_method_a_b_and_minus_a_b) {
     NumericIntegrate c2(-8.0, -6.0);
 
     // Act
-    double res_rect = c1.Rectangle_Method() + c2.Rectangle_Method();
-    double res_trap = c1.Trapezium_Method() + c2.Trapezium_Method();
+    double res_rect = c1.RectangleMethod() + c2.RectangleMethod();
+    double res_trap = c1.TrapeziumMethod() + c2.TrapeziumMethod();
 
     // Assert
     EXPECT_NEAR(0.0, res_rect, 0.000001);
@@ -126,7 +126,7 @@ TEST(IntegrateTest, Can_set_incorrect_section) {
     NumericIntegrate c;
 
     // Act
-    c.Set_Section(6.0, 5.0);
+    c.SetSection(6.0, 5.0);
 
     // Assert
     EXPECT_EQ(5.0, c.Get_a());
