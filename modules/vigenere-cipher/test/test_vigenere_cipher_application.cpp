@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <string>
 #include <vector>
+#include <stdexcept>
 #include "include/vigenere_cipher_application.h"
 
 class VigenereCipherApplicationTest :
@@ -12,7 +13,6 @@ class VigenereCipherApplicationTest :
 
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
-
         options.push_back("VigenereCipher");
         for (size_t i = 0; i < args_.size(); ++i) {
             options.push_back(args_[i].c_str());
