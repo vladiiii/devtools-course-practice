@@ -40,7 +40,7 @@ if ((size == -1) || (size == 0)) {
        std::cout << "error";
        return array;
 } else {
-array = new int[size + 1];
+array = new int[size ];
 for (int i = a; i <= b; i++) {
         int tmp = 0;
         tmp = Check(i);

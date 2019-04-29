@@ -166,5 +166,5 @@ TEST(SimpleNumbersTest, The_сheck_Array) {
     // act
     res = check_eng.Print(a, b);
     // assert
-    ASSERT_TRUE(*res);
+    EXPECT_THAT(res, ElementsAre(3, 5, 7));
 }
