@@ -49,7 +49,8 @@ TEST(QuadraticEquation, Exist_One_Real_Solution_With_Zero_Coef_A) {
 TEST(QuadraticEquation, Can_Print) {
     // Arrange
     QuadraticEquation qe(-42.0, 42.0, 42.0);
+    std::stringstream ss;
 
     // Act & Assert
-    EXPECT_NO_THROW(std::cout << qe);
+    EXPECT_NO_THROW(ss << qe);
 }
