@@ -36,8 +36,9 @@ int* SimpleNumbers::Print(int a, int b) {
 int size = 0;
 size = SizeOfArray(a, b);
 if ((size == -1) || (size == 0)) {
+       int *array = NULL;
        std::cout << "error";
-       return NULL;
+       return array;
 } else {
 int *array = new int[size];
 for (int i = a; i <= b; i++) {
