@@ -157,15 +157,14 @@ TEST(SimpleNumbersTest, The_Right_Arraynew) {
     ASSERT_TRUE(res);
 }
 
-TEST(SimpleNumbersTest, The_сheck_Array) {
+TEST(SimpleNumbersTest, is_corrected) {
     // arrange
     SimpleNumbers check_eng;
-    int a = 3;
-    int b = 9;
-    int array[3] = {3, 5, 7};
+    int a = 9;
+    int b = 10;
     int *res;
     // act
     res = check_eng.Print(a, b);
     // assert
-    EXPECT_EQ(array, res);
+    ASSERT_FALSE(res);
 }
