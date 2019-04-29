@@ -53,7 +53,7 @@ TEST_F(VectorCalculatorTest, Is_Cheking_Num_of_Arguments) {
 
     Act(args);
 
-    Assert("ERROR: Should be 7 arguments\\..*"); 
+    Assert("ERROR: Should be 7 arguments\\..*");
 }
 
 TEST_F(VectorCalculatorTest, Can_Detect_Wtong_Num_Format) {

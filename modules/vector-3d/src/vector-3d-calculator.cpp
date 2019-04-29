@@ -72,8 +72,8 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
         args.y1 = parseDouble(argv[2]);
         args.z1 = parseDouble(argv[3]);
         args.x2 = parseDouble(argv[4]);
-	args.y2 = parseDouble(argv[5]);
-	args.z2 = parseDouble(argv[6]);
+        args.y2 = parseDouble(argv[5]);
+        args.z2 = parseDouble(argv[6]);
         args.operation = parseOperation(argv[7]);
     }
     catch(std::string& str) {
@@ -98,13 +98,13 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
         v = v1 + v2;
         stream << "X = " << v.getX() << " "
                << "Y = " << v.getY() << " "
-	       << "Z = " << v.getZ() << "\n";
+               << "Z = " << v.getZ() << "\n";
         break;
      case '-':
         v = v1 - v2;
         stream << "X = " << v.getX() << " "
                << "Y = " << v.getY() << " "
-	       << "Z = " << v.getZ() << "\n";
+               << "Z = " << v.getZ() << "\n";
         break;
      case '*':
         res = v1 * v2;
