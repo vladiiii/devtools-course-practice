@@ -68,7 +68,7 @@ Node* Dictionary::DoubleRightRotate(Node* t) {
 }
 
 Node* Dictionary::FindMin(Node* t) {
-    } if (t->left_ == nullptr) {
+    if (t->left_ == nullptr) {
         return t;
     } else {
         return FindMin(t->left_);
