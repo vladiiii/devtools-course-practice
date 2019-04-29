@@ -38,7 +38,8 @@ int *array = new int[size];
 size = SizeOfArray(a, b);
 if ((size == -1) || (size == 0)) {
        std::cout << "error";
-       return NULL;
+       array = NULL;
+       return array;
 } else {
 for (int i = a; i <= b; i++) {
         int tmp = 0;
