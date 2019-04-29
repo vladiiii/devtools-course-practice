@@ -156,3 +156,15 @@ TEST(SimpleNumbersTest, The_Right_Arraynew) {
     // assert
     ASSERT_TRUE(res);
 }
+
+TEST(SimpleNumbersTest, The_сheck_Array) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = 3;
+    int b = 9;
+    int *res;
+    // act
+    res = check_eng.Print(a, b);
+    // assert
+    ASSERT_TRUE(*res);
+}
