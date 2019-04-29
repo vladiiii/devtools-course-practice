@@ -162,9 +162,10 @@ TEST(SimpleNumbersTest, The_сheck_Array) {
     SimpleNumbers check_eng;
     int a = 3;
     int b = 9;
+    int array[3] = {3, 5, 7};
     int *res;
     // act
     res = check_eng.Print(a, b);
     // assert
-    ASSERT_THAT(res, ElementsAre(3, 5, 7));
+    EXPECT_EQ(array, res);
 }
