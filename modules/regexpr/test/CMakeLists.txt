@@ -4,10 +4,6 @@ file(GLOB srcs "*.cpp")
 set_source_files_properties(${srcs} PROPERTIES
     LABELS "${MODULE};Test")
 
-if(MSVC)
-    add_definitions(/D _VARIADIC_MAX=10)
-endif()
-
 add_executable(${target} ${srcs} ${hdrs})
 set_target_properties(${target} PROPERTIES
     LABELS "${MODULE};Test")
