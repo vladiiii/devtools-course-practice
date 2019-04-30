@@ -316,3 +316,15 @@ string NumberSystemsConverter::CutFrontZeros(const string n) {
     }
     return result;
 }
+
+/*NumberSystemsConverter NumberSystemsConverter::operator + (const NumberSystemsConverter& z) const {
+    string first_bin, second_bin, result_bin;
+    first_bin = this->getNumberInBin;
+    second_bin = z.getNumberInBin;
+
+
+
+    NumberSystemsConverter result(result_bin, BIN);
+    return result;
+}
+*/

@@ -19,18 +19,17 @@ class NumberSystemsConverter {
     string getNumberInOct() const;
     string getNumberInHex() const;
 
-    /*NumberSystemsConverter operator + (const NumberSystemsConverter& z) const;
-    NumberSystemsConverter operator - (const NumberSystemsConverter& z) const;
-    NumberSystemsConverter operator * (const NumberSystemsConverter& z) const;
-    NumberSystemsConverter operator / (const NumberSystemsConverter& z) const;
-    */
+    NumberSystemsConverter operator + (const NumberSystemsConverter& z) const;
+    //NumberSystemsConverter operator - (const NumberSystemsConverter& z) const;
+    //NumberSystemsConverter operator * (const NumberSystemsConverter& z) const;
+    //NumberSystemsConverter operator / (const NumberSystemsConverter& z) const;
+    
     bool operator == (const NumberSystemsConverter& n) const;
     bool operator != (const NumberSystemsConverter& n) const;
  private:
     string NumberInBin;
     string NumberInOct;
     string NumberInHex;
-    // string NumberInDec;
 
     string ConvertBinToOct(const string n);
     string ConvertBinToHex(const string n);
