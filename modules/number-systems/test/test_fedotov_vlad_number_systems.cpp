@@ -171,3 +171,19 @@ TEST(Fedotov_Vlad_NumberSystemsConverter, ConvertOctToBinAndHex_3) {
     EXPECT_EQ("10", conv.getNumberInOct());
     EXPECT_EQ("8", conv.getNumberInHex());
 }
+
+TEST(Fedotov_Vlad_NumberSystemsConverter, ConvertHexToBinAndOct_1) {
+    // Act & Assert
+    NumberSystemsConverter conv("ABC", HEX);
+    EXPECT_EQ("101010111100", conv.getNumberInBin());
+    EXPECT_EQ("5274", conv.getNumberInOct());
+    EXPECT_EQ("ABC", conv.getNumberInHex());
+}
+
+TEST(Fedotov_Vlad_NumberSystemsConverter, ConvertHexToBinAndOct_2) {
+    // Act & Assert
+    NumberSystemsConverter conv("000ABC", HEX);
+    EXPECT_EQ("101010111100", conv.getNumberInBin());
+    EXPECT_EQ("5274", conv.getNumberInOct());
+    EXPECT_EQ("ABC", conv.getNumberInHex());
+}

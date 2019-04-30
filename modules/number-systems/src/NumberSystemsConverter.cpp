@@ -239,7 +239,72 @@ string NumberSystemsConverter::ConvertOctToBin(const string n) {
 }
 
 string NumberSystemsConverter::ConvertHexToBin(const string n) {
-    return "0";
+    string result;
+    int str_length = n.length();
+    result = n; // copy strings
+
+    for (int it = 0; it < str_length * 4; it = it + 4) {
+        string hex_digit = result.substr(it, 1);
+        const char* char_hex_digit = hex_digit.c_str();
+        string tetrad = "-1";
+
+        switch (*char_hex_digit) {
+        case '0':
+            tetrad = "0000";
+            break;
+        case '1':
+            tetrad = "0001";
+            break;
+        case '2':
+            tetrad = "0010";
+            break;
+        case '3':
+            tetrad = "0011";
+            break;
+        case '4':
+            tetrad = "0100";
+            break;
+        case '5':
+            tetrad = "0101";
+            break;
+        case '6':
+            tetrad = "0110";
+            break;
+        case '7':
+            tetrad = "0111";
+            break;
+        case '8':
+            tetrad = "1000";
+            break;
+        case '9':
+            tetrad = "1001";
+            break;
+        case 'A':
+            tetrad = "1010";
+            break;
+        case 'B':
+            tetrad = "1011";
+            break;
+        case 'C':
+            tetrad = "1100";
+            break;
+        case 'D':
+            tetrad = "1101";
+            break;
+        case 'E':
+            tetrad = "1110";
+            break;
+        case 'F':
+            tetrad = "1111";
+            break;
+        default:
+            throw("Wrong char_hex_digit switch");
+            break;
+        }
+        result.replace(it, 1, tetrad);
+    }
+
+    return result;
 }
 
 string NumberSystemsConverter::CutFrontZeros(const string n) {
