@@ -53,4 +53,5 @@ TEST(QuadraticEquation, Can_Print) {
 
     // Act & Assert
     EXPECT_NO_THROW(ss << qe);
+    EXPECT_EQ("-42*x^2 + 42*x + 42 = 0\n", ss.str());
 }
