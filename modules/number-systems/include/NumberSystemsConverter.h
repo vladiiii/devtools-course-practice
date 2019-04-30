@@ -7,11 +7,11 @@
 #include <string>
 using namespace std;
 
-enum SysBase {bin, oct, hex};
+enum SysBase {BIN, OCT, HEX};
 
 class NumberSystemsConverter {
  public:
-    NumberSystemsConverter(string input_number = 0, SysBase input_base = bin);
+    NumberSystemsConverter(string input_number = "0", SysBase input_base = BIN);
     NumberSystemsConverter(const NumberSystemsConverter &n);
     NumberSystemsConverter& operator=(const NumberSystemsConverter& n);
 
