@@ -3,37 +3,37 @@
 NumberSystemsConverter::NumberSystemsConverter(string input_number, SysBase input_base) {
     switch(input_base) {
      case BIN:
-        NumberInBin = input_number;
-        NumberInOct = ConvertBinToOct(input_number);
-        NumberInHex = ConvertBinToHex(input_number);
+        NumberInBin = CutFrontZeros(input_number);
+        NumberInOct = CutFrontZeros(ConvertBinToOct(input_number));
+        NumberInHex = CutFrontZeros(ConvertBinToHex(input_number));
         break;
      case OCT:
-        NumberInBin = ConvertOctToBin(input_number);
-        NumberInOct = input_number;
-        NumberInHex = ConvertBinToHex(NumberInBin);
+        NumberInBin = CutFrontZeros(ConvertOctToBin(input_number));
+        NumberInOct = CutFrontZeros(input_number);
+        NumberInHex = CutFrontZeros(ConvertBinToHex(NumberInBin));
         break;
      case HEX:
-        NumberInBin = ConvertHexToBin(input_number);
-        NumberInOct = ConvertBinToOct(NumberInBin);
-        NumberInHex = ConvertBinToHex(NumberInBin);
+        NumberInBin = CutFrontZeros(ConvertHexToBin(input_number));
+        NumberInOct = CutFrontZeros(ConvertBinToOct(NumberInBin));
+        NumberInHex = CutFrontZeros(ConvertBinToHex(NumberInBin));
         break;
      default:
-        throw("The second argument must be BIN, OCT or HEX");
+        throw("The second argument must be BIN, OCT or HEX!");
         break;
     }
 }
 
 NumberSystemsConverter::NumberSystemsConverter(const NumberSystemsConverter &n) {
-    NumberInBin = n.NumberInBin;
-    NumberInOct = n.NumberInOct;
-    NumberInHex = n.NumberInHex;
+    NumberInBin = CutFrontZeros(n.NumberInBin);
+    NumberInOct = CutFrontZeros(n.NumberInOct);
+    NumberInHex = CutFrontZeros(n.NumberInHex);
 }
 
 NumberSystemsConverter& NumberSystemsConverter::operator=(const NumberSystemsConverter& n) {
     if (this != &n) {
-        NumberInBin = n.NumberInBin;
-        NumberInOct = n.NumberInOct;
-        NumberInHex = n.NumberInHex;
+        NumberInBin = CutFrontZeros(n.NumberInBin);
+        NumberInOct = CutFrontZeros(n.NumberInOct);
+        NumberInHex = CutFrontZeros(n.NumberInHex);
     }
 
     return *this;
@@ -195,9 +195,59 @@ string NumberSystemsConverter::ConvertBinToHex(const string n) {
 }
 
 string NumberSystemsConverter::ConvertOctToBin(const string n) {
-    return "0";
+    string result;
+    int str_length = n.length();
+    result = n; // copy strings
+
+    for (int it = 0; it < str_length * 3; it = it +3) {
+        int oct_digit = atoi(result.substr(it, 1).c_str());
+        string triad = "-1";
+
+        switch (oct_digit) {
+        case 0:
+            triad = "000";
+            break;
+        case 1:
+            triad = "001";
+            break;
+        case 2:
+            triad = "010";
+            break;
+        case 3:
+            triad = "011";
+            break;
+        case 4:
+            triad = "100";
+            break;
+        case 5:
+            triad = "101";
+            break;
+        case 6:
+            triad = "110";
+            break;
+        case 7:
+            triad = "111";
+            break;
+        default:
+            throw("Wrong oct_digit switch");
+            break;
+        }
+        result.replace(it, 1, triad);
+    }
+
+    return result;
 }
 
 string NumberSystemsConverter::ConvertHexToBin(const string n) {
     return "0";
+}
+
+string NumberSystemsConverter::CutFrontZeros(const string n) {
+    string result = n;
+    if (result.length() > 1) {
+        while (result.substr(0, 1) == "0") {
+            result.erase(result.begin());
+        }
+    }
+    return result;
 }

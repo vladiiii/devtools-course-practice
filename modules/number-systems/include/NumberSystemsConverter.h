@@ -36,6 +36,7 @@ class NumberSystemsConverter {
     string ConvertBinToHex(const string n);
     string ConvertOctToBin(const string n);
     string ConvertHexToBin(const string n);
+    string CutFrontZeros(const string n);
 };
 
 #endif // MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
