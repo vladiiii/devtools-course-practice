@@ -1,4 +1,5 @@
 #include "include/NumberSystemsConverter.h"
+#include <math.h>
 
 NumberSystemsConverter::NumberSystemsConverter(std::string input_number, SysBase input_base) {
     switch(input_base) {
@@ -317,14 +318,51 @@ std::string NumberSystemsConverter::CutFrontZeros(const std::string n) {
     return result;
 }
 
-/*NumberSystemsConverter NumberSystemsConverter::operator + (const NumberSystemsConverter& z) const {
+NumberSystemsConverter NumberSystemsConverter::operator + (const NumberSystemsConverter& z) const {
     std::string first_bin, second_bin, result_bin;
     first_bin = this->getNumberInBin;
     second_bin = z.getNumberInBin;
 
+    char * first_dec, second_dec, result_dec;
 
 
     NumberSystemsConverter result(result_bin, BIN);
     return result;
 }
-*/
+
+std::string ConvertBinToDec(const std::string n) {
+    std::string bin = n;
+    std::string dec;  // result string
+    int dec_sum = 0;  // sum of converted bin digits
+    int p = 0;  // power of 2
+    int cur_digit;
+    for (std::string::iterator it = bin.end() - 1; it != bin.begin() - 1; --it) {
+        if (*it == '0')  // we do this strange "if" because we need integer instead of const char *
+            cur_digit = 0;
+        else
+            cur_digit = 1;
+        dec_sum = dec_sum + cur_digit * pow(2, p);
+        p++;
+    }
+    dec = std::to_string(dec_sum);
+    return dec;
+}
+
+std::string ConvertDecToBin(const std::string n) {
+    std::string dec = n;
+    std::string bin; // result string;
+    int bin_digit;
+    char bin_digit_char;
+    int int_dec = atoi(dec.c_str());
+    while (int_dec > 0) {
+        bin_digit = int_dec % 2;
+        if (bin_digit == 0)
+            bin_digit_char = '0';
+        else
+            bin_digit_char = '1';
+        bin.std::string::insert(bin.std::string::begin(), bin_digit_char);
+        int_dec = int_dec / 2;
+    }
+
+    return bin;
+}
