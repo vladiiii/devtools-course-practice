@@ -1,41 +1,44 @@
-// This class represents a number which is being stored in differents number systems at the same time.
-// It is necessary to indicate the base number system when you create an object (the parameter of constructor).
+// This class represents a number which is being stored in differents number systems 
+//at the same time.
+// It is necessary to indicate the base number system when you create an object 
+// (the parameter of constructor).
 // Copyright 2019 Fedotov Vlad
 
-#ifndef MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
-#define MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
+#ifndef MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBERSYSTEMSCONVERTER_H_
+#define MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBERSYSTEMSCONVERTER_H_
 #include <string>
-using namespace std;
 
 enum SysBase {BIN, OCT, HEX};
 
 class NumberSystemsConverter {
  public:
-    NumberSystemsConverter(string input_number = "0", SysBase input_base = BIN);
+    NumberSystemsConverter(std::string input_number = "0", SysBase input_base = BIN);
     NumberSystemsConverter(const NumberSystemsConverter &n);
     NumberSystemsConverter& operator=(const NumberSystemsConverter& n);
 
-    string getNumberInBin() const;
-    string getNumberInOct() const;
-    string getNumberInHex() const;
+    std::string getNumberInBin() const;
+    std::string getNumberInOct() const;
+    std::string getNumberInHex() const;
 
-    NumberSystemsConverter operator + (const NumberSystemsConverter& z) const;
+    //NumberSystemsConverter operator + (const NumberSystemsConverter& z) const;
+
     //NumberSystemsConverter operator - (const NumberSystemsConverter& z) const;
     //NumberSystemsConverter operator * (const NumberSystemsConverter& z) const;
     //NumberSystemsConverter operator / (const NumberSystemsConverter& z) const;
-    
+
     bool operator == (const NumberSystemsConverter& n) const;
     bool operator != (const NumberSystemsConverter& n) const;
- private:
-    string NumberInBin;
-    string NumberInOct;
-    string NumberInHex;
 
-    string ConvertBinToOct(const string n);
-    string ConvertBinToHex(const string n);
-    string ConvertOctToBin(const string n);
-    string ConvertHexToBin(const string n);
-    string CutFrontZeros(const string n);
+ private:
+    std::string NumberInBin;
+    std::string NumberInOct;
+    std::string NumberInHex;
+
+    std::string ConvertBinToOct(const std::string n);
+    std::string ConvertBinToHex(const std::string n);
+    std::string ConvertOctToBin(const std::string n);
+    std::string ConvertHexToBin(const std::string n);
+    std::string CutFrontZeros(const std::string n);
 };
 
-#endif // MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBER_SYSTEMS_CONVERTER_H_
+#endif  // MODULES_NUMBER_SYSTEMS_INCLUDE_NUMBERSYSTEMSCONVERTER_H_

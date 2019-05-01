@@ -1,6 +1,6 @@
 #include "include/NumberSystemsConverter.h"
 
-NumberSystemsConverter::NumberSystemsConverter(string input_number, SysBase input_base) {
+NumberSystemsConverter::NumberSystemsConverter(std::string input_number, SysBase input_base) {
     switch(input_base) {
      case BIN:
         NumberInBin = CutFrontZeros(input_number);
@@ -39,15 +39,15 @@ NumberSystemsConverter& NumberSystemsConverter::operator=(const NumberSystemsCon
     return *this;
 }
 
-string NumberSystemsConverter::getNumberInBin() const {
+std::string NumberSystemsConverter::getNumberInBin() const {
     return NumberInBin;
 }
 
-string NumberSystemsConverter::getNumberInOct() const {
+std::string NumberSystemsConverter::getNumberInOct() const {
     return NumberInOct;
 }
 
-string NumberSystemsConverter::getNumberInHex() const {
+std::string NumberSystemsConverter::getNumberInHex() const {
     return NumberInHex;
 }
 
@@ -63,22 +63,22 @@ bool NumberSystemsConverter::operator != (const NumberSystemsConverter& n) const
     return !(NumberInBin == n.NumberInBin);
 }
 
-string NumberSystemsConverter::ConvertBinToOct(const string n) {
-    string result;
-    int str_length = n.length();
+std::string NumberSystemsConverter::ConvertBinToOct(const std::string n) {
+    std::string result;
+    int str_length = n.std::string::length();
     int additional_zeros = 0;
     if (str_length % 3 != 0)
         additional_zeros = 3 - str_length % 3;
-    result = n; // copy strings
-    // insert additional zeros to the beginning of the string
+    result = n;  // copy std::strings
+    // insert additional zeros to the beginning of the std::string
     for (int i = 0; i < additional_zeros; i++) {
-        result.insert(result.begin(), '0');
+        result.std::string::insert(result.std::string::begin(), '0');
     }
-    str_length = result.length();
+    str_length = result.std::string::length();
     // convert each triad to digit in oct
     for (int it = 0; it < str_length / 3; it = it + 1) {
-        string triad = result.substr(it, 3);
-        int int_triad = atoi(triad.c_str());
+        std::string triad = result.std::string::substr(it, 3);
+        int int_triad = atoi(triad.std::string::c_str());
         int digit_oct = -1;
 
         switch (int_triad) {
@@ -111,29 +111,29 @@ string NumberSystemsConverter::ConvertBinToOct(const string n) {
             break;
         }
         
-        result.replace(it, 3, to_string(digit_oct)); // replace triad with digit in oct
+        result.replace(it, 3, std::to_string(digit_oct));  // replace triad with digit in oct
     }
 
     return result;    
 }
 
-string NumberSystemsConverter::ConvertBinToHex(const string n) {
-    string result;
-    int str_length = n.length();
+std::string NumberSystemsConverter::ConvertBinToHex(const std::string n) {
+    std::string result;
+    int str_length = n.std::string::length();
     int additional_zeros = 0;
     if (str_length % 4 != 0)
         additional_zeros = 4 - str_length % 4;
-    result = n; // copy strings
-                // insert additional zeros to the beginning of the string
+    result = n;  // copy std::strings
+                 // insert additional zeros to the beginning of the std::string
     for (int i = 0; i < additional_zeros; i++) {
-        result.insert(result.begin(), '0');
+        result.std::string::insert(result.std::string::begin(), '0');
     }
-    str_length = result.length();
+    str_length = result.std::string::length();
     // convert each tetrad to digit in hex
     for (int it = 0; it < str_length / 4; it = it + 1) {
-        string tetrad = result.substr(it, 4);
-        int int_tetrad = atoi(tetrad.c_str());
-        string digit_hex = "-1";
+        std::string tetrad = result.std::string::substr(it, 4);
+        int int_tetrad = atoi(tetrad.std::string::c_str());
+        std::string digit_hex = "-1";
 
         switch (int_tetrad) {
         case 0:
@@ -194,14 +194,14 @@ string NumberSystemsConverter::ConvertBinToHex(const string n) {
     return result;
 }
 
-string NumberSystemsConverter::ConvertOctToBin(const string n) {
-    string result;
-    int str_length = n.length();
-    result = n; // copy strings
+std::string NumberSystemsConverter::ConvertOctToBin(const std::string n) {
+    std::string result;
+    int str_length = n.std::string::length();
+    result = n;  // copy std::strings
 
     for (int it = 0; it < str_length * 3; it = it +3) {
-        int oct_digit = atoi(result.substr(it, 1).c_str());
-        string triad = "-1";
+        int oct_digit = atoi(result.std::string::substr(it, 1).std::string::c_str());
+        std::string triad = "-1";
 
         switch (oct_digit) {
         case 0:
@@ -238,15 +238,15 @@ string NumberSystemsConverter::ConvertOctToBin(const string n) {
     return result;
 }
 
-string NumberSystemsConverter::ConvertHexToBin(const string n) {
-    string result;
-    int str_length = n.length();
-    result = n; // copy strings
+std::string NumberSystemsConverter::ConvertHexToBin(const std::string n) {
+    std::string result;
+    int str_length = n.std::string::length();
+    result = n;  // copy std::strings
 
     for (int it = 0; it < str_length * 4; it = it + 4) {
-        string hex_digit = result.substr(it, 1);
-        const char* char_hex_digit = hex_digit.c_str();
-        string tetrad = "-1";
+        std::string hex_digit = result.std::string::substr(it, 1);
+        const char* char_hex_digit = hex_digit.std::string::c_str();
+        std::string tetrad = "-1";
 
         switch (*char_hex_digit) {
         case '0':
@@ -307,18 +307,18 @@ string NumberSystemsConverter::ConvertHexToBin(const string n) {
     return result;
 }
 
-string NumberSystemsConverter::CutFrontZeros(const string n) {
-    string result = n;
-    if (result.length() > 1) {
-        while (result.substr(0, 1) == "0") {
-            result.erase(result.begin());
+std::string NumberSystemsConverter::CutFrontZeros(const std::string n) {
+    std::string result = n;
+    if (result.std::string::length() > 1) {
+        while (result.std::string::substr(0, 1) == "0") {
+            result.erase(result.std::string::begin());
         }
     }
     return result;
 }
 
 /*NumberSystemsConverter NumberSystemsConverter::operator + (const NumberSystemsConverter& z) const {
-    string first_bin, second_bin, result_bin;
+    std::string first_bin, second_bin, result_bin;
     first_bin = this->getNumberInBin;
     second_bin = z.getNumberInBin;
 
