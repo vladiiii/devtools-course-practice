@@ -1,24 +1,25 @@
 // Copyright 2019 Timakin Nikita
 
 #include "include/sorter.h"
-
 #include <string>
 #include <sstream>
 #include <vector>
 #include <iostream>
-
 #include "include/heap.h"
 
-std::string Sorter::help_message(const char* appname) {
+std::string Sorter::HelpMessage(const char* appname) {
     return std::string("") + "This is an application which allows you " +
            "to sort numbers in reverse order\n" +
            "Please provide arguments in the following format:\n" +
            "  $ " + appname + " num_1 num_2 ... num_n\n";
 }
 
-bool Sorter::check_arguments(int argc, const char** argv) {
-    if (argc == 1 || std::string(argv[1]) == "help") {
-        std::cout << help_message(argv[0]);
+bool Sorter::CheckArguments(int argc, const char** argv) {
+    auto no_argumnets = [&argc] { return argc == 1; };
+    auto first_arg_is_help = [&argv] { return std::string(argv[1]) == "help";};
+
+    if (no_argumnets() || first_arg_is_help()) {
+        std::cout << HelpMessage(argv[0]);
         return false;
     }
 
@@ -27,7 +28,7 @@ bool Sorter::check_arguments(int argc, const char** argv) {
             args_.emplace_back(std::stof(argv[i]));
     }
     catch (std::exception&) {
-        std::cout << "Input error\n\n" + help_message(argv[0]);
+        std::cout << "Input error\n\n" + HelpMessage(argv[0]);
         return false;
     }
 
@@ -35,13 +36,13 @@ bool Sorter::check_arguments(int argc, const char** argv) {
 }
 
 std::string Sorter::operator()(int argc, const char** argv) {
-    if (!check_arguments(argc, argv))
+    if (!CheckArguments(argc, argv))
         return "";
 
     Heap<float> heap;
     std::ostringstream result;
 
-    for (float value : heap.HeapSort(args_))
+    for (auto value : heap.HeapSort(args_))
         result << value << " ";
     result << "\n";
 

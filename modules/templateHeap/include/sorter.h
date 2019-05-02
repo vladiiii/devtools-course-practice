@@ -9,8 +9,8 @@
 class Sorter {
     std::vector<float> args_;
 
-    std::string help_message(const char* appname);
-    bool check_arguments(int argc, const char** argv);
+    std::string HelpMessage(const char* appname);
+    bool CheckArguments(int argc, const char** argv);
 
  public:
     Sorter() = default;
