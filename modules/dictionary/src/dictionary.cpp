@@ -8,6 +8,7 @@
 #include "include/dictionary.h"
 
 using std::max;
+using std::string;
 
 Node* Dictionary::Insert(const Word& x, Node* t) {
     if (t == nullptr) {

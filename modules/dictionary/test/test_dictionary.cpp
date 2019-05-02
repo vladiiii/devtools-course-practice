@@ -5,6 +5,8 @@
 #include <string>
 #include "include/dictionary.h"
 
+using std::string;
+
 const int32_t sizeWord = 6;
 const int nLenght = 10;
 

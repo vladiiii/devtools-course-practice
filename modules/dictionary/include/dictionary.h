@@ -5,12 +5,10 @@
 
 #include <utility>
 #include <string>
-using std::string;
-using std::pair;
-using Word = pair<string, int64_t>;
+using Word = std::pair<std::string, int64_t>;
 
 char GetRandomChar();
-string GetRandomString(int sizeWord);
+std::string GetRandomString(int sizeWord);
 
 struct Node {
     Word data_;
@@ -31,7 +29,7 @@ class Dictionary {
     Node* root_;
  public:
     Dictionary();
-    Word Find(const string& x);
+    Word Find(const std::string& x);
     void Insert(const Word& x);
     void Remove(const Word& x);
     Word GetRoot() const;
