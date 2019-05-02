@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <vector>
 #include <random>
+#include <string>
 
 #include "include/dictionary.h"
 
 using std::max;
-using std::endl;
 
 Node* Dictionary::Insert(const Word& x, Node* t) {
     if (t == nullptr) {
@@ -68,9 +68,7 @@ Node* Dictionary::DoubleRightRotate(Node* t) {
 }
 
 Node* Dictionary::FindMin(Node* t) {
-    if (t == nullptr) {
-        return nullptr;
-    } else if (t->left_ == nullptr) {
+    if (t->left_ == nullptr) {
         return t;
     } else {
         return FindMin(t->left_);
@@ -190,8 +188,7 @@ Word Dictionary::GetRoot() const {
     }
 }
 
-char GetRandomChar()
-{
+char GetRandomChar() {
     static std::random_device random_device;
     static std::mt19937 generator(random_device());
 
@@ -200,11 +197,9 @@ char GetRandomChar()
     return distribution(generator);
 }
 
-string GetRandomString(int sizeWord)
-{
+string GetRandomString(int sizeWord) {
     string tmp{};
-    for (size_t i = 0; i < sizeWord; i++)
-    {
+    for (int i = 0; i < sizeWord; i++) {
         tmp += GetRandomChar();
     }
     return tmp;
