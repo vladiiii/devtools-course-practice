@@ -49,11 +49,11 @@ TEST_F(VectorCalculatorTest, Do_Print_Help_Without_Arguments) {
     Assert("This is a vector-3d calculator application\\..*");
 }
 TEST_F(VectorCalculatorTest, Is_Cheking_Num_of_Arguments) {
-    vector<string> args = {"1", "2", "3", "4", "5"};
+    vector<string> args = {"1", "2"};
 
     Act(args);
 
-    Assert("ERROR: Should be 7 arguments\\..*");
+    Assert("ERROR: Incorrect num of arguments\\..*");
 }
 
 TEST_F(VectorCalculatorTest, Can_Detect_Wtong_Num_Format) {
@@ -93,5 +93,29 @@ TEST_F(VectorCalculatorTest, Can_Mult_Vectors) {
     Act(args);
 
     Assert("Result = 12");
+}
+
+TEST_F(VectorCalculatorTest, Can_Mult_Vector_and_Num) {
+    vector<string> args = {"1", "2", "3", "2", "*"};
+
+    Act(args);
+
+    Assert("X = 2 Y = 4 Z = 6");
+}
+
+TEST_F(VectorCalculatorTest, Can_Div_Vector_and_Num) {
+    vector<string> args = {"4", "10", "6", "2", "/"};
+
+    Act(args);
+
+    Assert("X = 2 Y = 5 Z = 3");
+}
+
+TEST_F(VectorCalculatorTest, Can_Find_Vectors_Norma) {
+    vector<string> args = {"1", "2", "2", "norma"};
+
+    Act(args);
+
+    Assert("Result = 3");
 }
 

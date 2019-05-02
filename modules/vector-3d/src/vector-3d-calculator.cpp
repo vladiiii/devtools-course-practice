@@ -22,15 +22,18 @@ void VectorCalculator::help(const char* appname, const char* message) {
           "<x2> <y2> <z2> <operation>\n\n" +
 
           "Where all arguments are double-precision numbers, " +
-          "and <operation> is one of '+', '-', '*'.\n";
+          "and <operation> is one of '+', '-', '*'.\n" + 
+          "or $ <x1> <y1> <z1> <operation> where operation = norma" +
+          "or $ <x1> <y1> <z1> <number> <operation> where operation" + 
+          "is one of '*', '/'.\n\n";
 }
 
 bool VectorCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 8) {
-        help(argv[0], "ERROR: Should be 7 arguments.\n\n");
+    } else if (argc != 5 && argc != 8 && argc != 6) {
+        help(argv[0], "ERROR: Incorrect num of arguments.\n\n");
         return false;
     }
     return true;
@@ -55,6 +58,10 @@ char parseOperation(const char* arg) {
         op = '-';
     } else if (strcmp(arg, "*") == 0) {
         op = '*';
+    } else if (strcmp(arg, "norma") == 0) {
+        op = 'n';
+    } else if (strcmp(arg, "/") == 0) {
+        op = '/';
     } else {
         throw std::string("Wrong operation format!");
     }
@@ -68,51 +75,94 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.x1 = parseDouble(argv[1]);
-        args.y1 = parseDouble(argv[2]);
-        args.z1 = parseDouble(argv[3]);
-        args.x2 = parseDouble(argv[4]);
-        args.y2 = parseDouble(argv[5]);
-        args.z2 = parseDouble(argv[6]);
-        args.operation = parseOperation(argv[7]);
+        if (argc == 8) {
+            args.x1 = parseDouble(argv[1]);
+            args.y1 = parseDouble(argv[2]);
+            args.z1 = parseDouble(argv[3]);
+            args.x2 = parseDouble(argv[4]);
+            args.y2 = parseDouble(argv[5]);
+            args.z2 = parseDouble(argv[6]);
+            args.operation = parseOperation(argv[7]);
+        } else if(argc == 5) {
+            args.x1 = parseDouble(argv[1]);
+            args.y1 = parseDouble(argv[2]);
+            args.z1 = parseDouble(argv[3]);
+            args.operation = parseOperation(argv[4]);
+        } else if(argc == 6) {
+            args.x1 = parseDouble(argv[1]);
+            args.y1 = parseDouble(argv[2]);
+            args.z1 = parseDouble(argv[3]);
+            args.x2 = parseDouble(argv[4]);
+            args.operation = parseOperation(argv[5]);
+        } 
     }
     catch(std::string& str) {
         return str;
     }
-
     Vector3d v1;
     Vector3d v2;
-
-    v1.setX(args.x1);
-    v1.setY(args.y1);
-    v1.setZ(args.z1);
-    v2.setX(args.x2);
-    v2.setY(args.y2);
-    v2.setZ(args.z2);
-
-    Vector3d v;
-    double res;
+    double var;
+    if (argc == 8) {
+        v1.setX(args.x1);
+        v1.setY(args.y1);
+        v1.setZ(args.z1);
+        v2.setX(args.x2);
+        v2.setY(args.y2);
+        v2.setZ(args.z2);
+    } else if(argc == 6) {
+        v1.setX(args.x1);
+        v1.setY(args.y1);
+        v1.setZ(args.z1);
+        var = args.x2;
+    } else if(argc == 5) {
+        v1.setX(args.x1);
+        v1.setY(args.y1);
+        v1.setZ(args.z1);
+    }
     std::ostringstream stream;
-    switch (args.operation) {
-     case '+':
-        v = v1 + v2;
-        stream << "X = " << v.getX() << " "
-               << "Y = " << v.getY() << " "
-               << "Z = " << v.getZ() << "\n";
-        break;
-     case '-':
-        v = v1 - v2;
-        stream << "X = " << v.getX() << " "
-               << "Y = " << v.getY() << " "
-               << "Z = " << v.getZ() << "\n";
-        break;
-     case '*':
-        res = v1 * v2;
+    if (argc == 8) {
+        Vector3d v;
+        double res;
+        switch (args.operation) {
+         case '+':
+             v = v1 + v2;
+             stream << "X = " << v.getX() << " "
+                   << "Y = " << v.getY() << " "
+                   << "Z = " << v.getZ() << "\n";
+            break;
+         case '-':
+             v = v1 - v2;
+             stream << "X = " << v.getX() << " "
+                   << "Y = " << v.getY() << " "
+                   << "Z = " << v.getZ() << "\n";
+            break;
+         case '*':
+             res = v1 * v2;
+             stream << "Result = " << res << "\n";
+            break;
+        }
+    } else if(argc == 5) {
+        double res;
+        res = v1.Norma();
         stream << "Result = " << res << "\n";
-        break;
+    } else if(argc == 6) {
+         Vector3d v;
+         switch(args.operation) {
+          case '*':
+              v = v1 * var;
+              stream << "X = " << v.getX() << " "
+                    << "Y = " << v.getY() << " "
+                    << "Z = " << v.getZ() << "\n";
+             break;
+          case '/':
+              v = v1 / var;
+              stream << "X = " << v.getX() << " "
+                    << "Y = " << v.getY() << " "
+                    << "Z = " << v.getZ() << "\n";
+             break;
+         }
     }
     message_ = stream.str();
-
     return message_;
 }
 
