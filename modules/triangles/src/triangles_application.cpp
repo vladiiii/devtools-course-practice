@@ -3,7 +3,7 @@
 #include "include/triangles.h"
 #include "include/triangles_application.h"
 
-#include <cstring>
+#include <string>
 #include <sstream>
 
 TrianglesApp::TrianglesApp() : message_() { }
