@@ -48,7 +48,7 @@ int TreeApplication::ParseNumber(const char *s) {
 }
 
 int TreeApplication::ParseOperation(const char **argv) {
-    if (strcmp(*argv, "add") == 0) {
+    if (std::strcmp(*argv, "add") == 0) {
         int value = ParseNumber(*(argv + 1));
         t_.Add(value);
         return 2;
