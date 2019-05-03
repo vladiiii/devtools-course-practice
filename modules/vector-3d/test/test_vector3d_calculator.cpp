@@ -119,3 +119,37 @@ TEST_F(VectorCalculatorTest, Can_Find_Vectors_Norma) {
     Assert("Result = 3");
 }
 
+TEST_F(VectorCalculatorTest, Can_Normalize_Vectors) {
+    vector<string> args = {"3", "0", "4", "normalize"};
+
+    Act(args);
+
+    Assert("X = 0.6 Y = 0 Z = 0.8");
+}
+
+TEST_F(VectorCalculatorTest, Can_Cross_Vectors) {
+    vector<string> args = {"6", "4", "5", "1", "2", "3", "cross"};
+
+    Act(args);
+
+    Assert("X = 2 Y = -13 Z = 8");
+}
+
+
+TEST_F(VectorCalculatorTest, Exception_Zero_Div) {
+    vector<string> args = {"1", "2", "3", "0", "/"};
+
+    Act(args);
+
+    Assert("Can't divide by zero");
+}
+
+
+TEST_F(VectorCalculatorTest, Exception_Cant_Normalize) {
+    vector<string> args = {"0", "0", "0", "normalize"};
+
+    Act(args);
+
+    Assert("Can't find norma");
+}
+

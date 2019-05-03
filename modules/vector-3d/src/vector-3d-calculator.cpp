@@ -62,6 +62,10 @@ char parseOperation(const char* arg) {
         op = 'n';
     } else if (strcmp(arg, "/") == 0) {
         op = '/';
+    } else if (strcmp(arg, "cross") == 0) {
+        op = 'c';
+    } else if (strcmp(arg, "normalize") == 0) {
+        op = 'z';
     } else {
         throw std::string("Wrong operation format!");
     }
@@ -140,11 +144,33 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
              res = v1 * v2;
              stream << "Result = " << res << "\n";
             break;
+         case 'c':
+             v = v1.Cross(v2);
+             stream << "X = " << v.getX() << " "
+                   << "Y = " << v.getY() << " "
+                   << "Z = " << v.getZ() << "\n";
+            break;
         }
     } else if (argc == 5) {
         double res;
-        res = v1.Norma();
-        stream << "Result = " << res << "\n";
+        Vector3d v;
+        switch (args.operation) {
+         case 'n':
+             res = v1.Norma();
+             stream << "Result = " << res << "\n";
+            break;
+         case 'z':
+            try {
+             v = v1.Normalize();
+             stream << "X = " << v.getX() << " "
+                   << "Y = " << v.getY() << " "
+                   << "Z = " << v.getZ() << "\n";
+            break;
+            }
+            catch(std::string& str) {
+                return str;
+            }
+        }
     } else if (argc == 6) {
          Vector3d v;
          switch (args.operation) {
@@ -155,11 +181,16 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
                     << "Z = " << v.getZ() << "\n";
              break;
           case '/':
+             try {
               v = v1 / var;
               stream << "X = " << v.getX() << " "
                     << "Y = " << v.getY() << " "
                     << "Z = " << v.getZ() << "\n";
              break;
+             }
+             catch(std::string& str) {
+                 return str;
+             }
          }
     }
     message_ = stream.str();
