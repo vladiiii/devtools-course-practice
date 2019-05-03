@@ -4,6 +4,7 @@
 #include "include/triangles_application.h"
 
 #include <string>
+#include <cstring>
 #include <sstream>
 
 TrianglesApp::TrianglesApp() : message_() { }
@@ -46,21 +47,15 @@ double parseDouble(const char* arg) {
 
 char parseOperation(const char* arg) {
     char op;
-    char points[] = "points";
-    char angles[] = "angles";
-    char sides[] = "sides";
-    char perimeter[] = "perimeter";
-    char square[] = "square";
-
-    if (strcmp(arg, points) == 0) {
+    if (strcmp(arg, "points") == 0) {
         op = 'p';
-    } else if (strcmp(arg, angles) == 0) {
+    } else if (strcmp(arg, "angles") == 0) {
         op = 'a';
-    } else if (strcmp(arg, sides) == 0) {
+    } else if (strcmp(arg, "sides") == 0) {
         op = 's';
-    } else if (strcmp(arg, perimeter) == 0) {
+    } else if (strcmp(arg, "perimeter") == 0) {
         op = 'P';
-    } else if (strcmp(arg, square) == 0) {
+    } else if (strcmp(arg, "square") == 0) {
         op = 'S';
     } else {
         throw std::string("Wrong operation format!");
