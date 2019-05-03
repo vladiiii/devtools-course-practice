@@ -1,7 +1,7 @@
 // Copyright 2019 Valiullin Damir
 
-#include <cstdlib>
-#include <cstdio>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string>
 #include <iostream>
 
