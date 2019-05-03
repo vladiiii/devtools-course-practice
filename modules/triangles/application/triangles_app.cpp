@@ -1,7 +1,5 @@
 // Copyright 2019 Valiullin Damir
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <string>
 #include <iostream>
 
