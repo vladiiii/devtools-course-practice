@@ -1,14 +1,14 @@
 // Copyright 2019 Ryabova Alyona
 
-#include "include/tsalary.h"
-#include "include/salary_application.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/TSalary.h"
+#include "include/salary_application.h"
 
 SalaryApplication::SalaryApplication() : message_("") {}
 
@@ -37,7 +37,7 @@ bool SalaryApplication::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInteger(const char* arg) {
     char* end;
-    int value = strtol (arg, &end, 10);
+    int value = strtol(arg, &end, 10);
 
     if (end[0]) {
         throw std::string("Wrong number format!");

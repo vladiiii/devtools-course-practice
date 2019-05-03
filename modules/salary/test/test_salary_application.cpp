@@ -40,9 +40,7 @@ class SalaryApplicationTest : public ::testing::Test {
 };
 
 TEST_F(SalaryApplicationTest, Do_Print_Help_Without_Arguments) {
-    //vector<string> args = {};
-
-	vector<string> args;
+    vector<string> args = {};
 
     Act(args);
 
