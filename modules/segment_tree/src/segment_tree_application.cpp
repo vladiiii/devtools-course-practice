@@ -26,13 +26,13 @@ std::string SegmentTreeApplication::Help(const char *appname) {
 
 int SegmentTreeApplication::ParseValue(const char *s) {
     char* end;
-    int value = strtol(s, &end, 10);
+    int64_t value = std::strtol(s, &end, 10);
 
     if (end[0]) {
         throw std::string("Wrong number format!");
     }
-    if (value <= std::numeric_limits<int>::min() ||
-        value >= std::numeric_limits<int>::max()) {
+    if (value <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
+        value >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
         throw std::string("Number is out of bounds!");
     }
 
@@ -40,14 +40,14 @@ int SegmentTreeApplication::ParseValue(const char *s) {
 }
 
 int SegmentTreeApplication::ParseOperation(const char **op, int k) {
-    if (strcmp(*op, "add1") == 0) {
+    if (std::strcmp(*op, "add1") == 0) {
         int index = ParseValue(*(op + 1));
         int value = ParseValue(*(op + 2));
         t_.AddValue(index, value);
         return 3;
     }
 
-    if (strcmp(*op, "add2") == 0) {
+    if (std::strcmp(*op, "add2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
         int value = ParseValue(*(op + 3));
@@ -55,14 +55,14 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
         return 4;
     }
 
-    if (strcmp(*op, "set1") == 0) {
+    if (std::strcmp(*op, "set1") == 0) {
         int index = ParseValue(*(op + 1));
         int value = ParseValue(*(op + 2));
         t_.SetValue(index, value);
         return 3;
     }
 
-    if (strcmp(*op, "set2") == 0) {
+    if (std::strcmp(*op, "set2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
         int value = ParseValue(*(op + 3));
@@ -70,14 +70,14 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
         return 4;
     }
 
-    if (strcmp(*op, "get1") == 0) {
+    if (std::strcmp(*op, "get1") == 0) {
         int index = ParseValue(*(op + 1));
         otvet_ << "Index = " << index << " Value = "
             << t_.GetValue(index) << std::endl;
         return 2;
     }
 
-    if (strcmp(*op, "get2") == 0) {
+    if (std::strcmp(*op, "get2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
         otvet_ << "Left border = " << l_ << " Right border = " << r_ <<
