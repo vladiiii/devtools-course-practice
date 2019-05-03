@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <limits>
+#include <cstring>
 #include <string>
 #include "include/segment_tree_application.h"
 
