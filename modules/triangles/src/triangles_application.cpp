@@ -46,7 +46,7 @@ double parseDouble(const char* arg) {
 
 char parseOperation(const char* arg) {
     char op;
-    if (std::strcmp(arg, "points") == 0) {
+    if (strcmp(arg, "points") == 0) {
         op = 'p';
     } else if (strcmp(arg, "angles") == 0) {
         op = 'a';
