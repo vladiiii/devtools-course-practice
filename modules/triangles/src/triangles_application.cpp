@@ -3,7 +3,7 @@
 #include "include/triangles.h"
 #include "include/triangles_application.h"
 
-#include <string>
+#include <cstring>
 #include <sstream>
 
 TrianglesApp::TrianglesApp() : message_() { }
@@ -48,13 +48,13 @@ char parseOperation(const char* arg) {
     char op;
     if (std::strcmp(arg, "points") == 0) {
         op = 'p';
-    } else if (std::strcmp(arg, "angles") == 0) {
+    } else if (strcmp(arg, "angles") == 0) {
         op = 'a';
-    } else if (std::strcmp(arg, "sides") == 0) {
+    } else if (strcmp(arg, "sides") == 0) {
         op = 's';
-    } else if (std::strcmp(arg, "perimeter") == 0) {
+    } else if (strcmp(arg, "perimeter") == 0) {
         op = 'P';
-    } else if (std::strcmp(arg, "square") == 0) {
+    } else if (strcmp(arg, "square") == 0) {
         op = 'S';
     } else {
         throw std::string("Wrong operation format!");

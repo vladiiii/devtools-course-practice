@@ -1,6 +1,6 @@
 // Copyright 2019 Valiullin Damir
 
-#include <string>
+#include <cstring>
 #include <iostream>
 
 #include "include/triangles_application.h"
