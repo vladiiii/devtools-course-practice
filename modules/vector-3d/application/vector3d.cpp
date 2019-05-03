@@ -3,13 +3,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <iostream>
 
 #include "include/vector-3d-calculator.h"
 
 int main(int argc, const char** argv) {
     VectorCalculator app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    std::cout << output << std::endl;
     return 0;
 }
 
