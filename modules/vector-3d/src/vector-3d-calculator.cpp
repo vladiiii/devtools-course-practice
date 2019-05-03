@@ -23,7 +23,8 @@ void VectorCalculator::help(const char* appname, const char* message) {
 
           "Where all arguments are double-precision numbers, " +
           "and <operation> is one of '+', '-', '*' or 'cross'.\n" +
-          "or $ <x1> <y1> <z1> <operation> where operation = norma or normalize" +
+          "or $ <x1> <y1> <z1> <operation> where operation = norma" +
+          "or normalize" +
           "or $ <x1> <y1> <z1> <number> <operation> where operation" +
           "is one of '*', '/'.\n\n";
 }
