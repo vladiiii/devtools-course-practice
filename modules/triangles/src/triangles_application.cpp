@@ -6,8 +6,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>
-#include <cstring>
-#include <cstring>
+#include <string>
 #include <sstream>
 
 TrianglesApp::TrianglesApp() : message_() { }

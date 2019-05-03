@@ -2,7 +2,7 @@
 
 #include <cstdlib>
 #include <cstdio>
-#include <cstring>
+#include <string>
 #include <iostream>
 
 #include "include/triangles_application.h"
