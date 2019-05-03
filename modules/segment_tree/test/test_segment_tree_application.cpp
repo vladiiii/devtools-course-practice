@@ -90,11 +90,12 @@ TEST_F(SegmentTreeApplicationTest,
     Can_Use_Segment_Tree_With_Min_Function) {
     // Arrange
     std::vector<std::string> args = { "1", "7", "2", "add1", "1", "8",
-        "add2", "2", "5", "7", "get2", "1", "2"};
+        "set1", "1", "7",
+        "set1", "1", "9", "add2", "2", "5", "3", "get2", "1", "2"};
 
     Act(args);
 
-    Assert("Left border = 1 Right border = 2 Value = 7");
+    Assert("Left border = 1 Right border = 2 Value = 3");
 }
 
 TEST_F(SegmentTreeApplicationTest,
