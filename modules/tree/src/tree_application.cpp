@@ -53,12 +53,12 @@ int TreeApplication::ParseOperation(const char **argv) {
         t_.Add(value);
         return 2;
     }
-    if (strcmp(*argv, "del") == 0) {
+    if (std::strcmp(*argv, "del") == 0) {
         int value = ParseNumber(*(argv + 1));
         t_.Del(value);
         return 2;
     }
-    if (strcmp(*argv, "search") == 0) {
+    if (std::strcmp(*argv, "search") == 0) {
         int value = ParseNumber(*(argv + 1));
         int verdict = t_.Search(value);
         if (verdict)
@@ -67,7 +67,7 @@ int TreeApplication::ParseOperation(const char **argv) {
             out_ << "(" << value << " is not found) ";
         return 2;
     }
-    if (strcmp(*argv, "clear") == 0) {
+    if (std::strcmp(*argv, "clear") == 0) {
         t_.Clear();
         return 1;
     }
