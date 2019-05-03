@@ -3,7 +3,7 @@
 #define MODULES_TREE_INCLUDE_TREE_APPLICATION_H_
 #include <sstream>
 #include <string>
-#include "./tree.h"
+#include "include/tree.h"
 
 class TreeApplication {
  private:
