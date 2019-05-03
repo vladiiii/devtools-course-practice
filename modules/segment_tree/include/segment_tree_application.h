@@ -9,7 +9,7 @@
 class SegmentTreeApplication {
  private:
     std::string Help(const char *appname);
-    int ParseOperation(const char **op, int count);
+    int ParseOperation(const char **op);
     int ParseValue(const char *val);
     SegmentTree t_;
     std::stringstream otvet_;

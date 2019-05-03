@@ -39,9 +39,11 @@ int SegmentTreeApplication::ParseValue(const char *s) {
     return value;
 }
 
-int SegmentTreeApplication::ParseOperation(const char **op, int k) {
+int SegmentTreeApplication::ParseOperation(const char **op) {
     if (std::strcmp(*op, "add1") == 0) {
         int index = ParseValue(*(op + 1));
+        if (index<t_.GetLeftBarr() || index>t_.GetRightBarr())
+            throw std::string("Out of borders!");
         int value = ParseValue(*(op + 2));
         t_.AddValue(index, value);
         return 3;
@@ -50,6 +52,8 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
     if (std::strcmp(*op, "add2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
+        if (l_ > r_ || r_ > t_.GetRightBarr() || l_ < t_.GetLeftBarr())
+            throw std::string("Uncorrect borders");
         int value = ParseValue(*(op + 3));
         t_.AddValue(l_, r_, value);
         return 4;
@@ -57,6 +61,8 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
 
     if (std::strcmp(*op, "set1") == 0) {
         int index = ParseValue(*(op + 1));
+        if (index<t_.GetLeftBarr() || index>t_.GetRightBarr())
+            throw std::string("Out of borders!");
         int value = ParseValue(*(op + 2));
         t_.SetValue(index, value);
         return 3;
@@ -65,6 +71,8 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
     if (std::strcmp(*op, "set2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
+        if (l_ > r_ || r_ > t_.GetRightBarr() || l_ < t_.GetLeftBarr())
+            throw std::string("Uncorrect borders");
         int value = ParseValue(*(op + 3));
         t_.SetValue(l_, r_, value);
         return 4;
@@ -72,6 +80,8 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
 
     if (std::strcmp(*op, "get1") == 0) {
         int index = ParseValue(*(op + 1));
+        if (index<t_.GetLeftBarr() || index>t_.GetRightBarr())
+            throw std::string("Out of borders!");
         otvet_ << "Index = " << index << " Value = "
             << t_.GetValue(index) << std::endl;
         return 2;
@@ -80,6 +90,8 @@ int SegmentTreeApplication::ParseOperation(const char **op, int k) {
     if (std::strcmp(*op, "get2") == 0) {
         int l_ = ParseValue(*(op + 1));
         int r_ = ParseValue(*(op + 2));
+        if (l_ > r_ || r_ > t_.GetRightBarr() || l_ < t_.GetLeftBarr())
+            throw std::string("Uncorrect borders");
         otvet_ << "Left border = " << l_ << " Right border = " << r_ <<
             " Value = " << t_.GetValue(l_, r_) << std::endl;
         return 3;
@@ -121,7 +133,7 @@ std::string SegmentTreeApplication::operator()(int argc, const char** argv) {
         }
 
         for (int i = 4; i < argc;) {
-            int ch = ParseOperation(argv + i, argc);
+            int ch = ParseOperation(argv + i);
             i += ch;
         }
     }
