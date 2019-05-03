@@ -22,9 +22,9 @@ void VectorCalculator::help(const char* appname, const char* message) {
           "<x2> <y2> <z2> <operation>\n\n" +
 
           "Where all arguments are double-precision numbers, " +
-          "and <operation> is one of '+', '-', '*'.\n" + 
+          "and <operation> is one of '+', '-', '*'.\n" +
           "or $ <x1> <y1> <z1> <operation> where operation = norma" +
-          "or $ <x1> <y1> <z1> <number> <operation> where operation" + 
+          "or $ <x1> <y1> <z1> <number> <operation> where operation" +
           "is one of '*', '/'.\n\n";
 }
 
@@ -83,18 +83,18 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
             args.y2 = parseDouble(argv[5]);
             args.z2 = parseDouble(argv[6]);
             args.operation = parseOperation(argv[7]);
-        } else if(argc == 5) {
+        } else if (argc == 5) {
             args.x1 = parseDouble(argv[1]);
             args.y1 = parseDouble(argv[2]);
             args.z1 = parseDouble(argv[3]);
             args.operation = parseOperation(argv[4]);
-        } else if(argc == 6) {
+        } else if (argc == 6) {
             args.x1 = parseDouble(argv[1]);
             args.y1 = parseDouble(argv[2]);
             args.z1 = parseDouble(argv[3]);
             args.x2 = parseDouble(argv[4]);
             args.operation = parseOperation(argv[5]);
-        } 
+        }
     }
     catch(std::string& str) {
         return str;
@@ -109,12 +109,12 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
         v2.setX(args.x2);
         v2.setY(args.y2);
         v2.setZ(args.z2);
-    } else if(argc == 6) {
+    } else if (argc == 6) {
         v1.setX(args.x1);
         v1.setY(args.y1);
         v1.setZ(args.z1);
         var = args.x2;
-    } else if(argc == 5) {
+    } else if (argc == 5) {
         v1.setX(args.x1);
         v1.setY(args.y1);
         v1.setZ(args.z1);
@@ -141,13 +141,13 @@ std::string VectorCalculator::operator()(int argc, const char** argv) {
              stream << "Result = " << res << "\n";
             break;
         }
-    } else if(argc == 5) {
+    } else if (argc == 5) {
         double res;
         res = v1.Norma();
         stream << "Result = " << res << "\n";
-    } else if(argc == 6) {
+    } else if (argc == 6) {
          Vector3d v;
-         switch(args.operation) {
+         switch (args.operation) {
           case '*':
               v = v1 * var;
               stream << "X = " << v.getX() << " "
