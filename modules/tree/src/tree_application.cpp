@@ -39,7 +39,7 @@ int TreeApplication::ParseNumber(const char *s) {
     for (int i = 1; i < len; ++i)
         if (!isdigit(s[i]))
             throw std::runtime_error(std::string(s) + " is not the number");
-    int64_t result = strtol(s, nullptr, 10);
+    int64_t result = std::strtol(s, nullptr, 10);
     if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
         result >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
         throw std::runtime_error("Number is out of bounds");
