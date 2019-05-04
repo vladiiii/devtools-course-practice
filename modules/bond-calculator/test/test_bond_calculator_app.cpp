@@ -104,7 +104,7 @@ TEST_F(CalculatorTest, Can_Calculate_All_Metrics) {
 
      Act(args);
 
-     Assert("Yearly internal income :");
+     Assert("");
 }
 
 TEST_F(CalculatorTest, Cant_Calculate_With_Wrong_Metric) {
@@ -113,5 +113,5 @@ TEST_F(CalculatorTest, Cant_Calculate_With_Wrong_Metric) {
 
      Act(args);
 
-     Assert("Yearly internal income :");
+     Assert("Wrong metric");
 }
