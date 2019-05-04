@@ -4,7 +4,6 @@
 
 #include <algorithm>
 #include <iterator>
-#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -26,7 +25,10 @@ void SetApplication::Help(const char *appname, const char *message) {
 }
 
 bool SetApplication::ValidateArguments(int argc, const char **argv) {
-    if (argc == 1 || std::string(argv[1]) == "help") {
+    bool no_arguments = argc == 1;
+    bool first_argument_is_help =
+            std::string(argv[1] != nullptr ? argv[1] : "") == "help";
+    if (no_arguments || first_argument_is_help) {
         Help(argv[0]);
         return false;
     }

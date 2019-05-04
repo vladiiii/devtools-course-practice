@@ -5,10 +5,7 @@
 
 #include "include/set.h"
 
-#include <iostream>
-#include <numeric>
 #include <string>
-#include <sstream>
 #include <vector>
 
 class SetApplication {

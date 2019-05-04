@@ -13,7 +13,7 @@ set_tests_properties (${prefix}_Can_Run PROPERTIES
 
 add_test(
     NAME ${prefix}_Can_Show_Help
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} help
 )
 set_tests_properties (${prefix}_Can_Show_Help PROPERTIES
     PASS_REGULAR_EXPRESSION "This is a set application."
