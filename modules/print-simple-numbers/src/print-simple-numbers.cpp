@@ -39,6 +39,7 @@ int *array = new int[size];
 if (size == 0) {
        array = NULL;
        std::cout << "error";
+       return array;
 } else {
 int *array = new int[size];
 for (int i = a; i <= b; i++) {
@@ -46,6 +47,7 @@ for (int i = a; i <= b; i++) {
         tmp = Check(i);
         if (tmp != 0 )
             array[i] = i;
+            return array;
         }
 }
 return array;
