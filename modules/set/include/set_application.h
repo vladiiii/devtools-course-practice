@@ -10,14 +10,14 @@
 
 class SetApplication {
  private:
-    std::vector<int> elems1;
-    std::vector<int> elems2;
+    std::vector<int> elems1_;
+    std::vector<int> elems2_;
     enum class Operation {
         Union,
         Intersection,
         Difference,
         SymmetricDifference
-    } op;
+    } op_;
     std::string message_;
 
     void Help(const char *appname, const char *message = "");

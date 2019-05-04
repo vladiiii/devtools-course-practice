@@ -48,12 +48,12 @@ bool SetApplication::ValidateArguments(int argc, const char **argv) {
         if (it_op != arguments_.end()) {
             ChooseOperation(*it_op);
             std::transform(arguments_.begin(), it_op,
-                           std::back_inserter(elems1),
+                           std::back_inserter(elems1_),
                            [](std::string &str) {
                                return std::stoi(str);
                            });
             std::transform(std::next(it_op), arguments_.end(),
-                           std::back_inserter(elems2),
+                           std::back_inserter(elems2_),
                            [](std::string &str) {
                                return std::stoi(str);
                            });
@@ -72,13 +72,13 @@ bool SetApplication::ValidateArguments(int argc, const char **argv) {
 
 void SetApplication::ChooseOperation(const std::string &str) {
     if (str == "u") {
-        op = Operation::Union;
+        op_ = Operation::Union;
     } else if (str == "i") {
-        op = Operation::Intersection;
+        op_ = Operation::Intersection;
     } else if (str == "d") {
-        op = Operation::Difference;
+        op_ = Operation::Difference;
     } else if (str == "sd") {
-        op = Operation::SymmetricDifference;
+        op_ = Operation::SymmetricDifference;
     }
 }
 
@@ -87,19 +87,19 @@ std::string SetApplication::operator()(int argc, const char **argv) {
         return message_;
     }
 
-    Set<int> set1(elems1);
-    Set<int> set2(elems2);
+    Set<int> set1(elems1_);
+    Set<int> set2(elems2_);
     Set<int> res;
 
     std::ostringstream stream;
 
-    if (op == Operation::Union) {
+    if (op_ == Operation::Union) {
         res = Set<int>::Union(set1, set2);
-    } else if (op == Operation::Intersection) {
+    } else if (op_ == Operation::Intersection) {
         res = Set<int>::Intersection(set1, set2);
-    } else if (op == Operation::Difference) {
+    } else if (op_ == Operation::Difference) {
         res = Set<int>::Difference(set1, set2);
-    } else if (op == Operation::SymmetricDifference) {
+    } else if (op_ == Operation::SymmetricDifference) {
         res = Set<int>::SymmetricDifference(set1, set2);
     }
 
