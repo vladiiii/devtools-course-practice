@@ -47,8 +47,8 @@ for (int i = a; i <= b; i++) {
         tmp = Check(i);
         if (tmp != 0 )
             array[i] = i;
-            return array;
         }
+    return array;
 }
 return array;
 delete [] array;
