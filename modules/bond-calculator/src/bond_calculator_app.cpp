@@ -71,13 +71,13 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.price      = parseDouble(argv[1]);
+        args.price         = parseDouble(argv[1]);
         args.nominal_price = parseDouble(argv[2]);
-        args.year = parseDouble(argv[3]);
+        args.year          = parseDouble(argv[3]);
         args.percentage    = parseDouble(argv[4]);
-        args.current_year = parseDouble(argv[5]);
+        args.current_year  = parseDouble(argv[5]);
         args.current_month = parseDouble(argv[6]);
-        args.metric = parseMetric(argv[7]);
+        args.metric        = parseMetric(argv[7]);
     }
     catch(std::string& str) {
         return str;
