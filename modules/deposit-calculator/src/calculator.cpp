@@ -22,11 +22,13 @@ std::string Calculator::Help(const char* appname, const char* message) {
 }
 
 bool Calculator::ValidateArgs(int argc, const char** argv) {
-    if (argc == 1) {
+    bool isNoArgsProvided = argc == 1;
+    if (isNoArgsProvided) {
         std::cout << Help(argv[0]);
         return false;
     }
-    if (argc != 5) {
+    bool isEnoughArgs = argc == 5;
+    if (!isEnoughArgs) {
         std::cout << Help(argv[0], "Please, provide exactly 4 arguments. \n");
         return false;
     }

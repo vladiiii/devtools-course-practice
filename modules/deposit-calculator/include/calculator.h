@@ -4,7 +4,6 @@
 #define MODULES_DEPOSIT_CALCULATOR_INCLUDE_CALCULATOR_H_
 
 #include <string>
-#include <vector>
 
 class Calculator {
  public:
