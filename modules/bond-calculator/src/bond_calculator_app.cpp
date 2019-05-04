@@ -19,15 +19,16 @@ void BondCalculatorApp::help(const char* appname, const char* message) {
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <price> <nominal_price> " +
-          "<months> <year> <percentage> <current_year> <current_month>\n\n";
+          "<months> <year> <percentage> <current_year> " +
+          "<current_month> <metric>\n\n";
 }
 
 bool BondCalculatorApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 7) {
-        help(argv[0], "ERROR: Should be 4 arguments.\n\n");
+    } else if (argc != 8) {
+        help(argv[0], "ERROR: Should be 7 arguments.\n\n");
         return false;
     }
     return true;
@@ -44,15 +45,22 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-double parseInt(const char* arg) {
-    char* end;
-    int value = strtod(arg, &end);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
+std::string parseMetric(const char* arg) {
+    std::string op;
+    if (strcmp(arg, "all") == 0) {
+        op = "all";
+    } else if (strcmp(arg, "total") == 0) {
+        op = "total";
+    } else if (strcmp(arg, "payments") == 0) {
+        op = "payments";
+    } else if (strcmp(arg, "relative") == 0) {
+        op = "relative";
+    } else if (strcmp(arg, "yearly") == 0) {
+        op = "yearly";
+    } else {
+        throw std::string("Wrong metric!");
     }
-
-    return value;
+    return op;
 }
 
 std::string BondCalculatorApp::operator()(int argc, const char** argv) {
@@ -64,10 +72,11 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
     try {
         args.price      = parseDouble(argv[1]);
         args.nominal_price = parseDouble(argv[2]);
-        args.year = parseInt(argv[3]);
+        args.year = parseDouble(argv[3]);
         args.percentage    = parseDouble(argv[4]);
-        args.current_year = parseInt(argv[5]);
-        args.current_month = parseInt(argv[6]);
+        args.current_year = parseDouble(argv[5]);
+        args.current_month = parseDouble(argv[6]);
+        args.metric = parseMetric(argv[7]);
     }
     catch(std::string& str) {
         return str;
@@ -83,28 +92,79 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
     bond_.percentage = args.percentage;
     bond_.months = mnths;
 
-
     std::ostringstream stream;
-    std::vector<payment> payments = bcalc.CalculatePayments(bond_, args.current_month, args.current_year);
-    payment totalIncome = bcalc.CalculateTotalIncome(bond_, args.current_month, args.current_year);
 
-    stream << "Payments : " << std::endl;
-    for (auto i : payments) {
-        stream << "\tYear : " << i.year << \
-        " Month : " << i.month << \
-        " Value : " << i.value << std::endl;
+    if (args.metric == "all") {
+        std::vector<payment> payments =
+          bcalc.CalculatePayments(bond_,
+            args.current_month,
+            args.current_year);
+        payment totalIncome =
+          bcalc.CalculateTotalIncome(bond_,
+            args.current_month,
+            args.current_year);
+
+        stream << "Payments : " << std::endl;
+        for (auto i : payments) {
+            stream << "\tYear : " << i.year << \
+            " Month : " << i.month << \
+            " Value : " << i.value << std::endl;
+        }
+
+        stream << "Relative income : " << std::endl << \
+        "\t" << \
+        bcalc.CalculateRelativeIncome(bond_,
+        args.current_month,
+        args.current_year) \
+        << std::endl;
+
+        stream << "Total Income : " << std::endl << \
+        "\tYear : " << totalIncome.year << std::endl << \
+        "\tMonth : " << totalIncome.month << std::endl << \
+        "\tValue : " << totalIncome.value << std::endl;
+
+        stream << "Yearly internal income :" << std::endl << \
+        "\t" << \
+        bcalc.CalculateYearlyInternalIncome(bond_,
+         args.current_year) \
+        << std::endl;
+    } else if (args.metric == "payments") {
+        std::vector<payment> payments =
+          bcalc.CalculatePayments(bond_,
+            args.current_month,
+            args.current_year);
+
+        stream << "Payments : " << std::endl;
+        for (auto i : payments) {
+            stream << "\tYear : " << i.year << \
+            " Month : " << i.month << \
+            " Value : " << i.value << std::endl;
+        }
+    } else if (args.metric == "relative") {
+        stream << "Relative income : " << std::endl << \
+        "\t" << \
+        bcalc.CalculateRelativeIncome(bond_,
+        args.current_month,
+        args.current_year) \
+        << std::endl;
+    } else if (args.metric == "yearly") {
+        stream << "Yearly internal income :" << std::endl << \
+        "\t" << \
+        bcalc.CalculateYearlyInternalIncome(bond_,
+         args.current_year) \
+        << std::endl;
+    } else if (args.metric == "total") {
+        payment totalIncome =
+          bcalc.CalculateTotalIncome(bond_,
+            args.current_month,
+            args.current_year);
+
+        stream << "Total income : " << std::endl << \
+        "\tYear : " << totalIncome.year << std::endl << \
+        "\tMonth : " << totalIncome.month << std::endl << \
+        "\tValue : " << totalIncome.value << std::endl;
     }
 
-    stream << "Relative income : " << std::endl << \
-    "\t" << bcalc.CalculateRelativeIncome(bond_, args.current_month, args.current_year) << std::endl;
-
-    stream << "Total Income : " << std::endl << \
-    "\tYear : " << totalIncome.year << std::endl << \
-    "\tMonth : " << totalIncome.month << std::endl << \
-    "\tValue : " << totalIncome.value << std::endl;
-
-    stream << "Yearly internal income :" << std::endl << \
-    "\t" << bcalc.CalculateYearlyInternalIncome(bond_, args.current_year) << std::endl;
     message_ = stream.str();
 
     return message_;

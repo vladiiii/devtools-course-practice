@@ -23,6 +23,7 @@ class BondCalculatorApp {
         double percentage;
         int current_year;
         int current_month;
+        std::string metric = "all";
     } Arguments;
 };
 
