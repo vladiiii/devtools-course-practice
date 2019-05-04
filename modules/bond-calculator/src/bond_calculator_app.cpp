@@ -98,12 +98,12 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
     if (args.metric == "all") {
         std::vector<payment> payments =
           bcalc.CalculatePayments(bond_,
-            args.current_month,
-            args.current_year);
+                     args.current_month,
+                     args.current_year);
         payment totalIncome =
           bcalc.CalculateTotalIncome(bond_,
-            args.current_month,
-            args.current_year);
+                        args.current_month,
+                        args.current_year);
 
         stream << "Payments : " << std::endl;
         for (auto i : payments) {
@@ -115,8 +115,8 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
         stream << "Relative income : " << std::endl <<
             "\t" <<
             bcalc.CalculateRelativeIncome(bond_,
-            args.current_month,
-            args.current_year)
+                             args.current_month,
+                             args.current_year)
             << std::endl;
 
         stream << "Total Income : " << std::endl <<
@@ -127,13 +127,13 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
         stream << "Yearly internal income :" << std::endl <<
             "\t" <<
             bcalc.CalculateYearlyInternalIncome(bond_,
-             args.current_year) \
+                                    args.current_year)
             << std::endl;
     } else if (args.metric == "payments") {
         std::vector<payment> payments =
           bcalc.CalculatePayments(bond_,
-            args.current_month,
-            args.current_year);
+                     args.current_month,
+                     args.current_year);
 
         stream << "Payments : " << std::endl;
         for (auto i : payments) {
@@ -145,20 +145,20 @@ std::string BondCalculatorApp::operator()(int argc, const char** argv) {
         stream << "Relative income : " << std::endl <<
             "\t" <<
             bcalc.CalculateRelativeIncome(bond_,
-            args.current_month,
-            args.current_year)
+                             args.current_month,
+                             args.current_year)
             << std::endl;
     } else if (args.metric == "yearly") {
         stream << "Yearly internal income :" << std::endl <<
             "\t" <<
             bcalc.CalculateYearlyInternalIncome(bond_,
-             args.current_year)
+                                    args.current_year)
             << std::endl;
     } else if (args.metric == "total") {
         payment totalIncome =
           bcalc.CalculateTotalIncome(bond_,
-            args.current_month,
-            args.current_year);
+                        args.current_month,
+                        args.current_year);
 
         stream << "Total income : " << std::endl <<
             "\tYear : " << totalIncome.year << std::endl <<
