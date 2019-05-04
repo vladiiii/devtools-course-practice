@@ -20,7 +20,7 @@ if (n < 1) {
 }
 int SimpleNumbers::SizeOfArray(int a, int b) {
 if ((b <= 1) || (a < 1) || (a >= b)) {
-       return -1;
+       return 0;
 } else {
 int size = 0;
     for (int i = a; i <= b; i++) {
@@ -32,11 +32,12 @@ int size = 0;
 return size;
     }
 }
-void SimpleNumbers::Print(int a, int b) {
+int* SimpleNumbers::Print(int a, int b) {
 int size = 0;
 size = SizeOfArray(a, b);
-if ((size == -1) || (size == 0)) {
-       int *array = NULL;
+int *array = new int[size];
+if (size == 0) {
+       array = NULL;
        std::cout << "error";
 } else {
 int *array = new int[size];
@@ -46,6 +47,7 @@ for (int i = a; i <= b; i++) {
         if (tmp != 0 )
             array[i] = i;
         }
-delete [] array;
 }
+return array;
+delete [] array;
 }

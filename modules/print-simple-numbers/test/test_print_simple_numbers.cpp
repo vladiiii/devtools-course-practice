@@ -25,7 +25,7 @@ TEST(SimpleNumbersTest, The_Right_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Left_Border_Mistake) {
@@ -37,7 +37,7 @@ TEST(SimpleNumbersTest, The_Left_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Nullleft_Border_Mistake) {
@@ -49,7 +49,7 @@ TEST(SimpleNumbersTest, The_Nullleft_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Nullright_Border_Mistake) {
@@ -61,7 +61,7 @@ TEST(SimpleNumbersTest, The_Nullright_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Big_Left_Border_Mistake) {
@@ -73,7 +73,7 @@ TEST(SimpleNumbersTest, The_Big_Left_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Null_Interval) {
@@ -85,7 +85,7 @@ TEST(SimpleNumbersTest, The_Null_Interval) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(-1, res);
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Null_Numbers) {
