@@ -54,7 +54,8 @@ TEST_F(CalculatorTest, Returns_Empty_If_Not_Four_Args) {
 }
 
 TEST_F(CalculatorTest, Returns_Empty_If_Wrong_Args) {
-    std::vector<std::string> args = { "Henlo", "it's", "hacker", "doggo!" };
+    std::vector<std::string> args = { "Henlo", "its", "hacker", "doggo",
+                                         "!", "!", "!" };
 
      Act(args);
 
@@ -88,9 +89,27 @@ TEST_F(CalculatorTest, Can_Calculate_Payments) {
      Assert("Payments :");
 }
 
-TEST_F(CalculatorTest, Yearly_internal_Income) {
+TEST_F(CalculatorTest, Can_Calculate_Yearly_internal_Income) {
     std::vector<std::string> args =
             { "100", "90", "2020", "50", "2019", "6", "yearly" };
+
+     Act(args);
+
+     Assert("Yearly internal income :");
+}
+
+TEST_F(CalculatorTest, Can_Calculate_All_Metrics) {
+    std::vector<std::string> args =
+            { "100", "90", "2020", "50", "2019", "6", "all" };
+
+     Act(args);
+
+     Assert("Yearly internal income :");
+}
+
+TEST_F(CalculatorTest, Cant_Calculate_With_Wrong_Metric) {
+    std::vector<std::string> args =
+            { "100", "90", "2020", "50", "2019", "6", "wrongmetric" };
 
      Act(args);
 
