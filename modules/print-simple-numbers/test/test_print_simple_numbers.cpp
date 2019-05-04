@@ -157,8 +157,8 @@ TEST(SimpleNumbersTest, The_Right_Arraynew) {
     ASSERT_TRUE(res);
 }
 
-TEST((SimpleNumbersTest, the_check_size_array) {
-// arrange 
+TEST(SimpleNumbersTest, the_check_size_array) {
+// arrange
 SimpleNumbers check_eng1;
 SimpleNumbers check_eng2;
 
@@ -166,12 +166,12 @@ int a = 4;
 int b1 = 7;
 int b2 = 9;
 
-int res1; 
+int res1;
 int res2;
 // act
 res1 = check_eng1.SizeOfArray(a, b1);
 res2 = check_eng2.SizeOfArray(a, b2);
 
-//assert
-EXPECT_EQ(res1, res2)
+// assert
+EXPECT_EQ(res1, res2);
 }
