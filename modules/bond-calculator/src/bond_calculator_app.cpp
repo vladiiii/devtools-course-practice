@@ -9,6 +9,7 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <vector>
 
 BondCalculatorApp::BondCalculatorApp() : message_("") {}
 
