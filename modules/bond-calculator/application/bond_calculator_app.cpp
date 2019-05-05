@@ -1,7 +1,7 @@
 // Copyright 2019 Kutovoi Vadim
 
 #include <stdlib.h>
-#include <stdio.h>
+#include <iostream>
 #include <string>
 
 #include "include/bond_calculator_app.h"
