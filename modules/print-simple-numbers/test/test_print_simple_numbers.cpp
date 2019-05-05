@@ -28,11 +28,35 @@ TEST(SimpleNumbersTest, The_Left_Border_Mistake) {
     EXPECT_EQ(0, res);
 }
 
+TEST(SimpleNumbersTest, The_negative_border_Mistake) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = -5;
+    int b = -13;
+    int res;
+    // act
+    res = check_eng.SizeOfArray(a, b);
+    // assert
+    EXPECT_EQ(0, res);
+}
+
 TEST(SimpleNumbersTest, The_Nullleft_Border_Mistake) {
     // arrange
     SimpleNumbers check_eng;
     int a = 0;
     int b = 4;
+    int res;
+    // act
+    res = check_eng.SizeOfArray(a, b);
+    // assert
+    EXPECT_EQ(0, res);
+}
+
+TEST(SimpleNumbersTest, The_Null_border_Mistake) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = 0;
+    int b = 0;
     int res;
     // act
     res = check_eng.SizeOfArray(a, b);
@@ -88,6 +112,18 @@ TEST(SimpleNumbersTest, The_Null_Numbers) {
     EXPECT_EQ(0, res);
 }
 
+TEST(SimpleNumbersTest, One_Simple_Numbers) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = 12;
+    int b = 16;
+    int res;
+    // act
+    res = check_eng.SizeOfArray(a, b);
+    // assert
+    EXPECT_EQ(1, res);
+}
+
 TEST(SimpleNumbersTest, Few_Simple_Numbers) {
     // arrange
     SimpleNumbers check_eng;
@@ -115,6 +151,17 @@ TEST(SimpleNumbersTest, The_Complex_Number) {
     // arrange
     SimpleNumbers check_eng;
     int n = 6;
+    int res;
+    // act
+    res = check_eng.Check(n);
+    // assert
+    EXPECT_EQ(0, res);
+}
+
+TEST(SimpleNumbersTest, The_null_Number) {
+    // arrange
+    SimpleNumbers check_eng;
+    int n = 0;
     int res;
     // act
     res = check_eng.Check(n);
