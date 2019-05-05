@@ -70,9 +70,9 @@ std::string RadixApp::operator()(int argc, const char** argv) {
     try {
         args.size = parseDouble(argv[1]);
         args.operation = parseOperation(argv[2]);
-        Radix rdx(args.size);
+         Radix rdx(args.size);
         std::default_random_engine generator;
-        std::uniform_int_distribution<int> distribution(INT_MIN, INT_MAX);
+        std::uniform_int_distribution<int> distribution(-100000000, 100000000);
 
         int* _array = new int[args.size];
         for (size_t i = 0; i < args.size; ++i) {
