@@ -11,8 +11,6 @@ using ::testing::internal::RE;
 
 class CalculatorTest : public ::testing::Test {
  protected:
-     // virtual void SetUp() {}
-
       void Act(std::vector<std::string> args_) {
          std::vector<const char*> options;
 
