@@ -6,7 +6,7 @@
 class SimpleNumbers {
  public:
     int Check(int num);
-    int* Print(int a, int b);
+    void Print(int a, int b);
     int SizeOfArray(int a, int b);
 };
 

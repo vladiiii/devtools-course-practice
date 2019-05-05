@@ -32,24 +32,16 @@ int size = 0;
 return size;
     }
 }
-int* SimpleNumbers::Print(int a, int b) {
-int size = 0;
-size = SizeOfArray(a, b);
-int *array = new int[size];
+void SimpleNumbers::Print(int a, int b) {
+int size = SizeOfArray(a, b);
 if (size == 0) {
-       array = NULL;
-       std::cout << "error";
-       return array;
+        std::cout << "error";
 } else {
-int *array = new int[size];
 for (int i = a; i <= b; i++) {
         int tmp = 0;
         tmp = Check(i);
         if (tmp != 0 )
-            array[i] = i;
+            std::cout << tmp << " ";
         }
-    return array;
 }
-return array;
-delete [] array;
 }

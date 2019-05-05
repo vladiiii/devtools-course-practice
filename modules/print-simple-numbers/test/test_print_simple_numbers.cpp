@@ -4,18 +4,6 @@
 
 #include "include/print-simple-numbers.h"
 
-TEST(SimpleNumbersTest, The_Right_Array) {
-    // arrange
-    SimpleNumbers check_eng;
-    int a = 3;
-    int b = 4;
-    int *res;
-    // act
-    res = check_eng.Print(a, b);
-    // assert
-    ASSERT_TRUE(res);
-}
-
 TEST(SimpleNumbersTest, The_Right_Border_Mistake) {
     // arrange
     SimpleNumbers check_eng;
@@ -143,18 +131,6 @@ TEST(SimpleNumbersTest, The_Simple_Number) {
     res = check_eng.Check(n);
     // assert
     EXPECT_EQ(7, res);
-}
-
-TEST(SimpleNumbersTest, The_Right_Arraynew) {
-    // arrange
-    SimpleNumbers check_eng;
-    int a = 3;
-    int b = 5;
-    int *res;
-    // act
-    res = check_eng.Print(a, b);
-    // assert
-    ASSERT_TRUE(res);
 }
 
 TEST(SimpleNumbersTest, the_check_size_array) {
