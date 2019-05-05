@@ -166,7 +166,7 @@ TEST(SimpleNumbersTest, The_null_Number) {
     // act
     res = check_eng.Check(n);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Simple_Number) {
