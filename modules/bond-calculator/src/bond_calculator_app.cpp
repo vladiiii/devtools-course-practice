@@ -13,7 +13,7 @@
 
 BondCalculatorApp::BondCalculatorApp() : message_("") {}
 
-void BondCalculatorApp::help(const char* appname, const char* message) {
+void BondCalculatorApp::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
           "This is a bond calculator application.\n\n" +
@@ -24,18 +24,18 @@ void BondCalculatorApp::help(const char* appname, const char* message) {
           "<current_month> <metric>\n\n";
 }
 
-bool BondCalculatorApp::validateNumberOfArguments(int argc, const char** argv) {
+bool BondCalculatorApp::ValidateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
+        Help(argv[0]);
         return false;
     } else if (argc != 8) {
-        help(argv[0], "ERROR: Should be 7 arguments.\n\n");
+        Help(argv[0], "ERROR: Should be 7 arguments.\n\n");
         return false;
     }
     return true;
 }
 
-double parseDouble(const char* arg) {
+double ParseDouble(const char* arg) {
     char* end;
     double value = strtod(arg, &end);
 
@@ -46,7 +46,7 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-std::string parseMetric(const char* arg) {
+std::string ParseMetric(const char* arg) {
     std::string op;
     if (strcmp(arg, "all") == 0) {
         op = "all";
@@ -67,17 +67,17 @@ std::string parseMetric(const char* arg) {
 std::string BondCalculatorApp::operator()(int argc, const char** argv) {
     Arguments args;
 
-    if (!validateNumberOfArguments(argc, argv)) {
+    if (!ValidateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-        args.price         = parseDouble(argv[1]);
-        args.nominal_price = parseDouble(argv[2]);
-        args.year          = parseDouble(argv[3]);
-        args.percentage    = parseDouble(argv[4]);
-        args.current_year  = parseDouble(argv[5]);
-        args.current_month = parseDouble(argv[6]);
-        args.metric        = parseMetric(argv[7]);
+        args.price         = ParseDouble(argv[1]);
+        args.nominal_price = ParseDouble(argv[2]);
+        args.year          = ParseDouble(argv[3]);
+        args.percentage    = ParseDouble(argv[4]);
+        args.current_year  = ParseDouble(argv[5]);
+        args.current_month = ParseDouble(argv[6]);
+        args.metric        = ParseMetric(argv[7]);
     }
     catch(std::string& str) {
         return str;
