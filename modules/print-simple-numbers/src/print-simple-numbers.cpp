@@ -27,9 +27,10 @@ int size = 0;
     for (int i = a; i <= b; i++) {
         int tmp = 0;
         tmp = Check(i);
-        if (tmp !=0)
+        if (tmp != 0) {
             std::cout << tmp << " ";
             size = size + 1;
+            }
         }
 return size;
     }
