@@ -75,7 +75,7 @@ std::string RadixApp::operator()(int argc, const char** argv) {
         std::uniform_int_distribution<int> distribution(INT_MIN, INT_MAX);
 
         int* _array = new int[args.size];
-        for (int i = 0; i < args.size; ++i) {
+        for (size_t i = 0; i < args.size; ++i) {
             _array[i] = distribution(generator);
         }
 
