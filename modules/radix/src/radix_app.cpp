@@ -97,8 +97,8 @@ std::string RadixApp::operator()(int argc, const char** argv) {
             stream << "The amount of occupied memory = " << rdx.HowMuchMem();
             break;
         }
-
         message_ = stream.str();
+        delete[] _array;
         return message_;
     }
     catch (std::string & str) {
