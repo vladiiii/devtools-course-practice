@@ -40,6 +40,18 @@ TEST(SimpleNumbersTest, The_negative_border_Mistake) {
     EXPECT_EQ(0, res);
 }
 
+TEST(SimpleNumbersTest, The_check_big_array) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = 6;
+    int b = 20;
+    int res;
+    // act
+    res = check_eng.SizeOfArray(a, b);
+    // assert
+    EXPECT_EQ(5, res);
+}
+
 TEST(SimpleNumbersTest, The_Nullleft_Border_Mistake) {
     // arrange
     SimpleNumbers check_eng;
@@ -93,6 +105,18 @@ TEST(SimpleNumbersTest, The_Null_Interval) {
     SimpleNumbers check_eng;
     int a = 5;
     int b = 5;
+    int res;
+    // act
+    res = check_eng.SizeOfArray(a, b);
+    // assert
+    EXPECT_EQ(0, res);
+}
+
+TEST(SimpleNumbersTest, The_first_Interval) {
+    // arrange
+    SimpleNumbers check_eng;
+    int a = 0;
+    int b = 1;
     int res;
     // act
     res = check_eng.SizeOfArray(a, b);
@@ -167,6 +191,17 @@ TEST(SimpleNumbersTest, The_null_Number) {
     res = check_eng.Check(n);
     // assert
     EXPECT_EQ(-1, res);
+}
+
+TEST(SimpleNumbersTest, The_first_Number) {
+    // arrange
+    SimpleNumbers check_eng;
+    int n = 1;
+    int res;
+    // act
+    res = check_eng.Check(n);
+    // assert
+    EXPECT_EQ(0, res);
 }
 
 TEST(SimpleNumbersTest, The_Simple_Number) {
