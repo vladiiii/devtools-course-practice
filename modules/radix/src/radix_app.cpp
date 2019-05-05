@@ -7,6 +7,7 @@
 #include <cstring>
 #include <sstream>
 #include <ctime>
+#include <random>
 
 RadixApp::RadixApp() : message_() { }
 
@@ -30,8 +31,7 @@ bool RadixApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 3) {
+    } else if (argc != 3) {
         help(argv[0], "ERROR: Should be 2 arguments.\n\n");
         return false;
     }
@@ -53,11 +53,9 @@ char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "RadixSort") == 0) {
         op = 's';
-    }
-    else if (strcmp(arg, "HowMuchMem") == 0) {
+    } else if (strcmp(arg, "HowMuchMem") == 0) {
         op = 'm';
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
@@ -73,10 +71,12 @@ std::string RadixApp::operator()(int argc, const char** argv) {
         args.size = parseDouble(argv[1]);
         args.operation = parseOperation(argv[2]);
         Radix rdx(args.size);
+        std::default_random_engine generator;
+        std::uniform_int_distribution<int> distribution(INT_MIN, INT_MAX);
 
         int* _array = new int[args.size];
         for (int i = 0; i < args.size; ++i) {
-            _array[i] = rand();
+            _array[i] = distribution(generator);
         }
 
         clock_t t1, t2;
@@ -90,7 +90,7 @@ std::string RadixApp::operator()(int argc, const char** argv) {
             t2 = clock();
             time_result = (t2 - t1 + .0) / CLOCKS_PER_SEC;
 
-            stream << "Array of size " << args.size << " sorted by RadixSort. \n";
+            stream << "Array size " << args.size << " sorted by RadixSort.\n";
             stream << "Time spent on sorting : " << time_result;
             break;
         case 'm':

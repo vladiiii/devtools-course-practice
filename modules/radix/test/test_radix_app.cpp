@@ -81,5 +81,5 @@ TEST_F(RadixAppTest, Can_Radix_Sort) {
 
     Act(args);
 
-    Assert("Array of size 1000000 sorted by RadixSort.");
+    Assert("Array size 1000000 sorted by RadixSort.");
 }
