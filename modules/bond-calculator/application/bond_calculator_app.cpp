@@ -8,7 +8,6 @@
 
 int main(int argc, const char** argv) {
     BondCalculatorApp app;
-    std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    std::cout << app(argc, argv) << std::endl;
     return 0;
 }
