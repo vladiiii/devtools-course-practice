@@ -20,6 +20,7 @@ if (n < 1) {
 }
 int SimpleNumbers::SizeOfArray(int a, int b) {
 if ((b <= 1) || (a < 1) || (a >= b)) {
+       std::cout << "error";
        return 0;
 } else {
 int size = 0;
@@ -27,21 +28,10 @@ int size = 0;
         int tmp = 0;
         tmp = Check(i);
         if (tmp !=0)
+            std::cout << tmp << " ";
             size = size + 1;
         }
 return size;
     }
 }
-void SimpleNumbers::Print(int a, int b) {
-int size = SizeOfArray(a, b);
-if (size == 0) {
-        std::cout << "error";
-} else {
-for (int i = a; i <= b; i++) {
-        int tmp = 0;
-        tmp = Check(i);
-        if (tmp != 0 )
-            std::cout << tmp << " ";
-        }
-}
-}
+
