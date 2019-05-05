@@ -151,3 +151,22 @@ res2 = check_eng2.SizeOfArray(a, b2);
 // assert
 EXPECT_EQ(res1, res2);
 }
+
+TEST(SimpleNumbersTest, the_check_null_size) {
+// arrange
+SimpleNumbers check_eng1;
+SimpleNumbers check_eng2;
+
+int a = 14;
+int b1 = 15;
+int b2 = 16;
+
+int res1;
+int res2;
+// act
+res1 = check_eng1.SizeOfArray(a, b1);
+res2 = check_eng2.SizeOfArray(a, b2);
+
+// assert
+EXPECT_EQ(res1, res2);
+}
