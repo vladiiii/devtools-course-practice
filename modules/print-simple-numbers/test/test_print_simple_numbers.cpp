@@ -13,7 +13,7 @@ TEST(SimpleNumbersTest, The_Right_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Left_Border_Mistake) {
@@ -25,7 +25,7 @@ TEST(SimpleNumbersTest, The_Left_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_negative_border_Mistake) {
@@ -37,7 +37,7 @@ TEST(SimpleNumbersTest, The_negative_border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_check_big_array) {
@@ -61,7 +61,7 @@ TEST(SimpleNumbersTest, The_Nullleft_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Null_border_Mistake) {
@@ -73,7 +73,7 @@ TEST(SimpleNumbersTest, The_Null_border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Nullright_Border_Mistake) {
@@ -85,7 +85,7 @@ TEST(SimpleNumbersTest, The_Nullright_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Big_Left_Border_Mistake) {
@@ -97,7 +97,7 @@ TEST(SimpleNumbersTest, The_Big_Left_Border_Mistake) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Null_Interval) {
@@ -109,7 +109,7 @@ TEST(SimpleNumbersTest, The_Null_Interval) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_first_Interval) {
@@ -121,7 +121,7 @@ TEST(SimpleNumbersTest, The_first_Interval) {
     // act
     res = check_eng.SizeOfArray(a, b);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Null_Numbers) {
@@ -201,7 +201,7 @@ TEST(SimpleNumbersTest, The_first_Number) {
     // act
     res = check_eng.Check(n);
     // assert
-    EXPECT_EQ(0, res);
+    EXPECT_EQ(-1, res);
 }
 
 TEST(SimpleNumbersTest, The_Simple_Number) {
