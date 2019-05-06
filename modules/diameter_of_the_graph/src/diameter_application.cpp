@@ -3,6 +3,7 @@
 #include <cstring>
 #include <string>
 #include <stdexcept>
+#include <limits>
 #include "include/diameter_application.h"
 
 std::string DiameterApplication::operator()(int argc, const char** argv) {
@@ -39,58 +40,40 @@ std::string DiameterApplication::operator()(int argc, const char** argv) {
     int i = 3;
     while (i < argc) {
         if (strcmp(argv[i], "add") == 0) {
-            int x, y;
+            int x[2];
             if (i + 2 >= argc)
                 return "Error: add has too few arguments";
-            try {
-                x = CastNumber(argv[i + 1]);
+            for (int j = 0; j < 2; ++j) {
+                try {
+                    x[j] = CastNumber(argv[i + j + 1]);
+                }
+                catch(const std::runtime_error& re) {
+                    return "Error with argument " +
+                        std::to_string(i + j + 1) + ": " + re.what();
+                }
+                if (static_cast<unsigned>(x[j]) >= m.size())
+                    return "Error with argument " +
+                        std::to_string(i + j + 1) + ": out of range";
             }
-            catch(const std::runtime_error& re) {
-                return "Error with argument " +
-                    std::to_string(i + 1) + ": " + re.what();
-            }
-            if (static_cast<unsigned>(x) >= m.size())
-                return "Error with argument " +
-                    std::to_string(i + 1) + ": out of range";
-            try {
-                y = CastNumber(argv[i + 2]);
-            }
-            catch(const std::runtime_error& re) {
-                return "Error with argument " +
-                    std::to_string(i + 2) + ": " + re.what();
-            }
-            if (static_cast<unsigned>(y) >= m.size())
-                return "Error with argument " +
-                    std::to_string(i + 2) + ": out of range";
-            m[x][y] = 1;
-            m[y][x] = 1;
+            m[x[0]][x[1]] = m[x[1]][x[0]] = 1;
             i += 3;
         } else if (strcmp(argv[i], "del") == 0) {
-            int x, y;
+            int x[2];
             if (i + 2 >= argc)
                 return "Error: del has too few arguments";
-            try {
-                x = CastNumber(argv[i + 1]);
+            for (int j = 0; j < 2; ++j) {
+                try {
+                    x[j] = CastNumber(argv[i + j + 1]);
+                }
+                catch(const std::runtime_error& re) {
+                    return "Error with argument " +
+                        std::to_string(i + j + 1) + ": " + re.what();
+                }
+                if (static_cast<unsigned>(x[j]) >= m.size())
+                    return "Error with argument " +
+                        std::to_string(i + j + 1) + ": out of range";
             }
-            catch(const std::runtime_error& re) {
-                return "Error with argument " +
-                    std::to_string(i + 1) + ": " + re.what();
-            }
-            if (static_cast<unsigned>(x) >= m.size())
-                return "Error with argument " +
-                    std::to_string(i + 1) + ": out of range";
-            try {
-                y = CastNumber(argv[i + 2]);
-            }
-            catch(const std::runtime_error& re) {
-                return "Error with argument " +
-                    std::to_string(i + 2) + ": " + re.what();
-            }
-            if (static_cast<unsigned>(y) >= m.size())
-                return "Error with argument " +
-                    std::to_string(i + 2) + ": out of range";
-            m[x][y] = 0;
-            m[y][x] = 0;
+            m[x[0]][x[1]] = m[x[1]][x[0]] = 0;
             i += 3;
         } else if (strcmp(argv[i], "help") == 0) {
             return "Incorrect usage of command \"help\"";
@@ -103,7 +86,7 @@ std::string DiameterApplication::operator()(int argc, const char** argv) {
 
     Graph gr(std::move(m), static_cast<int>(m.size()));
     int diam = gr.DiameterOfGraph();
-    if (diam == 1073741823)
+    if (diam == std::numeric_limits<int>::max() / 2)
         return "Error: disconnected graph";
     if (diam == -2)
         return "Error: graph has no vertexes";
