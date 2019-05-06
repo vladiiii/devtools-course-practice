@@ -48,11 +48,11 @@ set_tests_properties (${prefix}_Throw_Error_When_Border_Is_Not_A_Number PROPERTI
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Throw_Error_When_Uncorrect_Use_Function_On_Segment
+    NAME ${prefix}_Throw_Error_When_Incorrect_Use_Function_On_Segment
     COMMAND ${APPLICATION} 1 4 5 get1 2
 )
 
-set_tests_properties (${prefix}_Throw_Error_When_Uncorrect_Use_Function_On_Segment PROPERTIES
+set_tests_properties (${prefix}_Throw_Error_When_Incorrect_Use_Function_On_Segment PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number of function!"
     LABELS "${MODULE}")
 
@@ -66,20 +66,20 @@ set_tests_properties (${prefix}_Correct_Getting_After_Setting_On_Segment PROPERT
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Throw_Error_When_Uncorrect_Use_Operation
+    NAME ${prefix}_Throw_Error_When_Incorrect_Use_Operation
     COMMAND ${APPLICATION} 1 4 1 sat1 2 3
 )
 
-set_tests_properties (${prefix}_Throw_Error_When_Uncorrect_Use_Operation PROPERTIES
+set_tests_properties (${prefix}_Throw_Error_When_Incorrect_Use_Operation PROPERTIES
     PASS_REGULAR_EXPRESSION "Unknown operation: sat1"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Throw_Error_When_Try_To_Use_Operation_With_Uncorrect_Borders
+    NAME ${prefix}_Throw_Error_When_Try_To_Use_Operation_With_Incorrect_Borders
     COMMAND ${APPLICATION} 1 4 1 add1 5 3
 )
 
-set_tests_properties (${prefix}_Throw_Error_When_Try_To_Use_Operation_With_Uncorrect_Borders PROPERTIES
+set_tests_properties (${prefix}_Throw_Error_When_Try_To_Use_Operation_With_Incorrect_Borders PROPERTIES
     PASS_REGULAR_EXPRESSION "Out of borders!"
     LABELS "${MODULE}")
 

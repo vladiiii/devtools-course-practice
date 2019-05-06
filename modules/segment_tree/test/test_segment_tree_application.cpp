@@ -153,17 +153,17 @@ TEST_F(SegmentTreeApplicationTest,
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Adding_On_Segment_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Adding_On_Segment_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "add2", "1", "2", "7" };
 
     Act(args);
 
-    Assert("Uncorrect borders");
+    Assert("Incorrect borders");
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Adding_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Adding_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "add1", "1", "7" };
 
@@ -173,17 +173,17 @@ TEST_F(SegmentTreeApplicationTest,
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Setting_On_Segment_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Setting_On_Segment_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "set2", "-3", "2", "7" };
 
     Act(args);
 
-    Assert("Uncorrect borders");
+    Assert("Incorrect borders");
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Setting_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Setting_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "set1", "1", "7" };
 
@@ -193,17 +193,17 @@ TEST_F(SegmentTreeApplicationTest,
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Getting_On_Segment_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Getting_On_Segment_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "get2", "-6", "-2" };
 
     Act(args);
 
-    Assert("Uncorrect borders");
+    Assert("Incorrect borders");
 }
 
 TEST_F(SegmentTreeApplicationTest,
-    Throw_Error_When_Try_Use_Getting_With_Uncorrect_Borders) {
+    Throw_Error_When_Try_Use_Getting_With_Incorrect_Borders) {
     // Arrange
     std::vector<std::string> args = { "-5", "0", "1", "get1", "1" };
 

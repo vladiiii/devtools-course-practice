@@ -12,7 +12,7 @@ class SegmentTreeApplication {
     int ParseOperation(const char **op);
     int ParseValue(const char *val);
     SegmentTree t_;
-    std::stringstream otvet_;
+    std::stringstream answer_;
  public:
     SegmentTreeApplication() :t_(SegmentTree(0, 0)) {}
     std::string operator()(int argc, const char** argv);
