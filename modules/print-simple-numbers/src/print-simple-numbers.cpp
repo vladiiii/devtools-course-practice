@@ -14,7 +14,6 @@ if (n <= 1) {
         return n;
         }
     }
-}
 int SimpleNumbers::SizeOfArray(int a, int b) {
 if ((b <= 1) || (a < 1) || (a >= b)) {
         return -1;
@@ -24,7 +23,6 @@ int size = 0;
         int tmp = 0;
         tmp = Check(i);
         if (tmp != 0) {
-            std::cout << tmp << " ";
             size = size + 1;
             }
         }
