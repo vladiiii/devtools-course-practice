@@ -116,30 +116,26 @@ std::string SegmentTreeApplication::operator()(int argc, const char** argv) {
             throw std::string("Wrong borders. Left must be less than right");
         int fun = ParseValue(argv[3]);
         switch (fun) {
-          case 1: {
+          case 1:
             t_ = SegmentTree(left, right);
             break;
-          }
-          case 2: {
+          case 2:
             t_ = SegmentTree(left, right, [](int a, int b, int c)->int {
                 if (a < b)
                     return a;
                 return b;
             }, std::numeric_limits<int>::max());
             break;
-          }
-          case 3: {
+          case 3:
             t_ = SegmentTree(left, right, [](int a, int b, int c)->int {
                 if (a > b)
                     return a;
                 return b;
             }, std::numeric_limits<int>::min());
             break;
-          }
-        default: {
+        default:
             throw std::string("Wrong number of function!");
             break;
-          }
         }
 
         for (int i = 4; i < argc;) {
