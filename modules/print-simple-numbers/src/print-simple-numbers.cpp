@@ -1,7 +1,5 @@
 // Copyright 2019 by Zolotareva Olesya
 
-#include <iostream>
-
 #include "include/print-simple-numbers.h"
 
 int SimpleNumbers::Check(int n) {
