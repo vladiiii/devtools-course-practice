@@ -103,23 +103,20 @@ std::string DiameterApplication::HelpInfo() {
 }
 
 int DiameterApplication::CastNumber(const char* num) {
-    std::string max_str("50");
-    unsigned len = 0;
-    while (num[len] != '\0') {
-        if (!isdigit(num[len]))
+    unsigned i = 0;
+    int x;
+    while (num[i] != '\0') {
+        if (!isdigit(num[i]))
             throw std::runtime_error("not a number");
-        ++len;
+        ++i;
     }
-    if (len > max_str.size()) {
+    try {
+        x = std::stoi(num);
+    }
+    catch (std::out_of_range& err) {
         throw std::runtime_error("too big number");
-    } else if (len == max_str.size()) {
-        for (unsigned i = 0; i < len; ++i) {
-            if (num[i] < max_str[i]) {
-                break;
-            } else if (num[i] > max_str[i]) {
-                throw std::runtime_error("too big number");
-            }
-        }
     }
-    return atoi(num);
+    if (x > 50)
+        throw std::runtime_error("too big number");
+    return x;
 }
