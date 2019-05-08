@@ -10,9 +10,7 @@
 #include <string>
 #include <sstream>
 
-ComplexApplication::ComplexApplication() : message_("") {}
-
-void ComplexApplication::Info(const char* appname, const char* message) {
+void ComplexApplication::Help(const char* appname, const char* message) {
     message_ = std::string(message) +
         "This is a complex number calculator application. \n\n" +
         "Please, provide arguments in the following format: \n\n "
@@ -25,10 +23,10 @@ void ComplexApplication::Info(const char* appname, const char* message) {
 
 bool ComplexApplication::CheckArguments(int argc, const char** argv) {
     if (argc == 1) {
-        Info(argv[0]);
+        Help(argv[0]);
         return false;
     } else if (argc != 6) {
-        Info(argv[0], "ERROR: Should be 5 arguments.\n\n");
+        Help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
     }
     return true;

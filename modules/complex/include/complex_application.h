@@ -7,11 +7,11 @@
 
 class ComplexApplication {
  public:
-    ComplexApplication();
+    ComplexApplication() = default;
     std::string operator()(int argc, const char** argv);
 
  private:
-    void Info(const char* appname, const char* message = "");
+    void Help(const char* appname, const char* message = "");
     bool CheckArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
