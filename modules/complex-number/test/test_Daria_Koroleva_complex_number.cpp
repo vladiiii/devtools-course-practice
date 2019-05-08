@@ -4,7 +4,7 @@
 #include <limits>
 #include "include/complex_number.h"
 
-TEST(Koroleva_Daria_ComplexNumberTest, Constructor_Complexnumber_Is_OK) 
+TEST(Koroleva_Daria_ComplexNumberTest, constructor_complexnumber_is_OK) 
 {
 	// Arrange
 	ComplexNumber a(1., 143.);
@@ -52,5 +52,4 @@ TEST(Koroleva_Daria_ComplexNumberTest, can_multiply_three_complex)
 	// Assert
 	EXPECT_EQ(-8064, res.getRe());
 	EXPECT_EQ(-1152, res.getIm());
-
 }
