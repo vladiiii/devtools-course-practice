@@ -7,8 +7,6 @@
 #include <cstring>
 #include <sstream>
 
-RegExprApplication::RegExprApplication() : message_() { }
-
 void RegExprApplication::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
