@@ -14,10 +14,8 @@ void RegExprApplication::Help(const char* appname, const char* message) {
         std::string(message) +
         "This is a regular expression application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
-
         " $ " + appname + " <seq> " +
         "<str>" +
-
         "Where <seq> is regular expression\n"
         "<str> is search string.\n";
 }

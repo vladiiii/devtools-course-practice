@@ -16,7 +16,7 @@ class RegExprApplication {
     } Arguments;
 
  public:
-    RegExprApplication();
+    RegExprApplication() = default;
 
     std::string operator()(int argc, const char **argv);
 };
