@@ -9,9 +9,9 @@ class AreaOfPolygon {
  private:
     std::vector<std::vector<int>> points_;
  public:
-    AreaOfPolygon(std::vector<std::vector<int>> p = { {} });
+    explicit AreaOfPolygon(std::vector<std::vector<int>> p = { {} });
     ~AreaOfPolygon();
-	double Area();
+    double Area();
     void SetPoint(int n, std::vector<int> p);
 };
 #endif  // MODULES_THE_AREA_OF_POLYGON_INCLUDE_THE_AREA_OF_POLYGON_H_
