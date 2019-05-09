@@ -15,7 +15,7 @@ AreaOfPolygon::~AreaOfPolygon() {
 
 double AreaOfPolygon::Area() {
     int sum = 0;
-    usigned int i = 0;
+    unsigned int i = 0;
     for (i; i < points_.size() - 1; i++) {
         sum += abs((points_[i][0] + points_[i + 1][0]) *
                    (points_[i + 1][1] - points_[i][1]));
