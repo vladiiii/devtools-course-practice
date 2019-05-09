@@ -18,7 +18,7 @@ TEST(Test_Area_Of_Polygon, Can_Calculate_Area) {
 
 TEST(Test_Area_Of_Polygon, Can_Set_Point) {
     // Arrange
-    AreaOfPolygon p({ {0, 0}, {-1, 1}, {0,1}, {0, 0} });
+    AreaOfPolygon p({ {0, 0}, {-1, 1}, {0, 1}, {0, 0} });
 
     // Act
     p.SetPoint(0, { -1, 0 });
