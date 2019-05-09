@@ -7,16 +7,16 @@
 AreaOfPolygon::AreaOfPolygon(std::vector<std::vector<int>> p):points_(p) {}
 
 AreaOfPolygon::~AreaOfPolygon() {
-    unsigned int i = 0;
-    for (i; i < points_.size(); i++)
+    unsigned int i;
+    for (i = 0; i < points_.size(); i++)
         points_[i].clear();
     points_.clear();
 }
 
 double AreaOfPolygon::Area() {
     int sum = 0;
-    unsigned int i = 0;
-    for (i; i < points_.size() - 1; i++) {
+    unsigned int i;
+    for (i = 0; i < points_.size() - 1; i++) {
         sum += abs((points_[i][0] + points_[i + 1][0]) *
                    (points_[i + 1][1] - points_[i][1]));
     }
