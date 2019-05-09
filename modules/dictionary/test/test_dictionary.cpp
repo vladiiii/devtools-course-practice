@@ -216,3 +216,32 @@ TEST(DictionaryTest,
     }
     EXPECT_EQ(Word(), dict.Find("Poebasfaaluepldsas"));
 }
+
+TEST(DictionaryTest,
+	CanAddExistWord) {
+	Dictionary dict;
+	dict.Insert(Word(std::to_string(0), 0));
+
+	for (int32_t i = 1; i != nLenght; i++) {
+		dict.Insert(Word(std::to_string(0), 0));
+		EXPECT_EQ(Word(std::to_string(0), 0), dict.Find(std::to_string(0)));
+		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
+	}
+}
+
+TEST(DictionaryTest,
+	CanChangeValExistWord) {
+	Dictionary dict;
+	dict.Insert(Word(std::to_string(0), 0));
+	dict.Insert(Word(std::to_string(0), 2));
+
+	/*for (int32_t i = 1; i != nLenght; i++) {
+		dict.Insert(Word(std::to_string(0), i));
+		EXPECT_EQ(Word(std::to_string(0), 0), dict.Find(std::to_string(0)));
+		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
+	}
+	for (int32_t i = 1; i != nLenght; i++) {
+		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
+	}*/
+	EXPECT_EQ(Word("0", 2), dict.Find("0"));
+}
