@@ -100,15 +100,15 @@ RomaNumber::RomaNumber(int ar) {
     ArabToRoma(ar);
 }
 
-RomaNumber::RomaNumber(std::string ro) {
-    if (!IsStringCorrect(ro))
+RomaNumber::RomaNumber(char* ro) {
+    if (!IsRomaStringCorrect(ro))
         throw "Wrong string";
     else
         RomaToArab(ro);
 }
 
-bool RomaNumber::IsStringCorrect(std::string ro) {
-    int n = ro.length();
+bool RomaNumber::IsRomaStringCorrect(const char* ro) const {
+    int n = strlen(ro);
     for (int i = 0; i < n; ++i) {
         bool flag = (ro[i] == 'I' || ro[i] == 'V' ||
             ro[i] == 'X' || ro[i] == 'L' ||
@@ -118,6 +118,20 @@ bool RomaNumber::IsStringCorrect(std::string ro) {
             return false;
     }
     return true;
+}
+
+bool RomaNumber::IsArabStringCorrect(const char* ar) const {
+	int n = strlen(ar);
+	for (int i = 0; i < n; ++i) {
+		bool flag = (ar[i] == '0' || ar[i] == '1' ||
+			ar[i] == '2' || ar[i] == '3' ||
+			ar[i] == '4' || ar[i] == '5' ||
+			ar[i] == '6' || ar[i] == '7' ||
+			ar[i] == '8' || ar[i] == '9');
+		if (!flag)
+			return false;
+	}
+	return true;
 }
 
 std::ostream& operator<<(std::ostream &out, const RomaNumber a) {

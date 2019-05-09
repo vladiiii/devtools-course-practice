@@ -10,12 +10,13 @@ class RomaNumber {
  private:
     std::string roma_;
     int arabic_;
-    bool IsStringCorrect(std::string);
     std::string RomaConvert(int, int);
  public:
     RomaNumber() : roma_(""), arabic_(0) { }
-    explicit RomaNumber(std::string);
+    explicit RomaNumber(char*);
     explicit RomaNumber(int ar);
+	bool IsRomaStringCorrect(const char*) const;
+	bool IsArabStringCorrect(const char*) const;
     void RomaToArab(std::string);
     void ArabToRoma(int ar);
     std::string GetRoma() { return roma_; }

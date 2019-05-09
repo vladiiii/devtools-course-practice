@@ -1,0 +1,20 @@
+// Copyright 2019 Pinaev Danil
+
+#ifndef MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_CONVERTER_H_
+#define MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_CONVERTER_H_
+
+#include <string>
+
+class RomaNumberConverter {
+public:
+	RomaNumberConverter();
+	std::string operator()(int argc, const char** argv);
+
+private:
+	void help(const char* message = "");
+	bool validateNumberOfArguments(int argc, const char** argv);
+	std::string message_;
+	std::string value_;
+};
+
+#endif  // MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_CONVERTER_H_
