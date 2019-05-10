@@ -78,3 +78,28 @@ TEST_F(LCDDigitsApplicationTest, Printing_Single_Symbol_Is_Correct) {
            "| \n"
            "| \n\n");
 }
+
+TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Symbols_Is_Correct) {
+    // Arrange
+    std::vector<std::string> args = { "06:59" };
+
+    Act(args);
+
+    Assert(" _   _     _   _  \n"
+           "| | |_  . |_  |_| \n"
+           "|_| |_| .  _|  _| \n\n");
+}
+
+TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Strings_Is_Correct) {
+    // Arrange
+    std::vector<std::string> args = { "59", "2.3" };
+
+    Act(args);
+
+    Assert(" _   _  \n"
+           "|_  |_| \n"
+           " _|  _| \n\n"
+           " _     _  \n"
+           " _|    _| \n"
+           "|_  .  _| \n\n");
+}
