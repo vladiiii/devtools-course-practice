@@ -1,6 +1,5 @@
 // Copyright 2019 Kondrina Tatyana
 
-#include <string>
 #include <iostream>
 #include <vector>
 #include "include/the_area_of_polygon.h"
