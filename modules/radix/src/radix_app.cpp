@@ -15,6 +15,7 @@ void RadixApp::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a radix application.\n\n" +
+
         "Please provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <size of array> " +
