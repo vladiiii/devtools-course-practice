@@ -6,11 +6,11 @@
 #include <string>
 
 class LCDDigitsApplication {
-public:
+ public:
     LCDDigitsApplication() = default;
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void Help(const char* appname);
     std::string message_;
 };
