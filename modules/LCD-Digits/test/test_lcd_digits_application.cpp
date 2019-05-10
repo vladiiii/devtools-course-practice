@@ -71,7 +71,7 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Multiple_Invalid_Strings) {
 TEST_F(LCDDigitsApplicationTest, Printing_Single_Symbol_Is_Correct) {
     // Arrange
     std::vector<std::string> args = { "1" };
-    
+
     Act(args);
 
     Assert("  \n"
