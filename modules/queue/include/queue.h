@@ -10,19 +10,19 @@ class Queue {
     int tail_;
     int head_;
     int * pq_;
-	int size_;
-	int count_;
+    int size_;
+    int count_;
 
-	int GetNextIndex(int index) const;
+    int GetNextIndex(int index) const;
 
  public:
     Queue(int s);
-	Queue(const Queue &q);
-	~Queue();
+    Queue(const Queue &q);
+    ~Queue();
 
-	void Put(int val);
-	int Get();
-	int TopElem() const;
-	int GetCount() const;
+    void Put(int val);
+    int Get();
+    int TopElem() const;
+    int GetCount() const;
 };
 #endif  // MODULES_QUEUE_INCLUDE_QUEUE_H_
