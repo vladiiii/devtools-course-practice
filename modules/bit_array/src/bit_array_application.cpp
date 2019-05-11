@@ -78,9 +78,6 @@ std::string BitArrayApplication::operator()(int argc, const char** argv) {
             if (args.data[i] == '1') {
                 bit.SetBit(i, true);
             }
-    } else {
-        Help(argv[0], "Wrong operation format!");
-        return message_;
     }
     bool mode = false;
     if (args.operation == 'a') {
