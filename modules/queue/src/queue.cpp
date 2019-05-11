@@ -26,7 +26,7 @@ Queue::~Queue() {
 	delete[]pq_;
 }
 
-void Queue::Put(int &val){
+void Queue::Put(int val){
 	if (count_ == size_)
 		throw "No space";
 	tail_ = GetNextIndex(tail_);
@@ -43,7 +43,10 @@ int Queue::Get() {
 }
 
 int Queue::TopElem() const {
-	return pq_[tail_];
+	if (count_ == 0)
+		throw "Queue is empty";
+	int tempInd = GetNextIndex(head_);
+	return pq_[tempInd];
 }
 
 int Queue::GetCount() const {

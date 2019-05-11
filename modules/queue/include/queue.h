@@ -20,7 +20,7 @@ class Queue {
 	Queue(const Queue &q);
 	~Queue();
 
-	void Put(int &val);
+	void Put(int val);
 	int Get();
 	int TopElem() const;
 	int GetCount() const;
