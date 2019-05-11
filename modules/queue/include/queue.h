@@ -13,7 +13,7 @@ class Queue {
 	int size_;
 	int count_;
 
-	int GetNextIndex(int ind) const;
+	int GetNextIndex(int index) const;
 
  public:
     Queue(int s);
