@@ -50,7 +50,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2 64 6
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Method_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong Method format!"
+    PASS_REGULAR_EXPRESSION "Wrong method format!"
     LABELS "${MODULE}")
 
 add_test(
