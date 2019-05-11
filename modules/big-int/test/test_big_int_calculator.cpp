@@ -1,4 +1,4 @@
-//Copyright 2019 Volkov Pavel
+// Copyright 2019 Volkov Pavel
 
 
 #include <gtest/gtest.h>
