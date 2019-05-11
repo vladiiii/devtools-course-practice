@@ -62,17 +62,19 @@ TEST(Queue, Cant_Get_Element_In_Empty_Queue) {
 }
 
 TEST(Queue, Get_Element_Is_Correct) {
-    // Arrange
-    Queue q(5);
+	// Arrange
+	Queue q(3);
 
-    // Act
-    q.Put(1);
-    q.Put(2);
+	// Act
+	q.Put(1);
+	q.Put(2);
+	q.Put(3);
+	q.Get();
+	q.Put(4);
 
-    // Assert
-    EXPECT_EQ(q.Get(), 1);
+	// Assert
+	EXPECT_EQ(q.Get(), 2);
 }
-
 
 
 TEST(Queue, Top_Element_Is_Different_After_Get) {
@@ -99,6 +101,14 @@ TEST(Queue, Top_Elem_Function_Doesnt_Delete_Top_Element) {
 
     // Assert
     EXPECT_EQ(2, q.TopElem());
+}
+
+TEST(Queue, Cant_Call_Top_Elem_In_Empty_Queue) {
+	// Arrange
+	Queue q(3);
+
+	// Act & Assert
+	EXPECT_ANY_THROW(q.TopElem());
 }
 
 TEST(Queue, Get_Count_Is_Correct) {
