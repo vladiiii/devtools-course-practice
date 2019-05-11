@@ -1,3 +1,6 @@
+//Copyright 2019 Volkov Pavel
+
+
 #include <gtest/gtest.h>
 
 #include <string>
