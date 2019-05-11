@@ -39,7 +39,7 @@ bool BigIntCalculator::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 std::string parseCorrectInt(const char* arg) {
-    std::string value = "";
+    std::string value;
 
     unsigned int iterator = 0;
 
