@@ -9,8 +9,6 @@
 Range::Range(const char *str) {
     int size = strlen(str) - 1;
 
-    if (str == NULL)
-        throw std::string("No Interval");
     if (str[0] != '[')
         if (str[0] != '(')
             throw std::string("No format");
