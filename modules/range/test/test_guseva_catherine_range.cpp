@@ -117,7 +117,7 @@ TEST(Guseva_Catherine_RangeTest, Can_Set_Second) {
 
 TEST(Guseva_Catherine_RangeTest, Exepction_Empty_Parametr) {
     // Arrange & Act & Assert
-    ASSERT_ANY_THROW(Range r(""));
+    ASSERT_ANY_THROW(Range r(NULL));
 }
 
 TEST(Guseva_Catherine_RangeTest, Exepction_Wrong_First_Bracket) {
