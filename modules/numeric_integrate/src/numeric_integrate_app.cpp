@@ -27,7 +27,8 @@ void NumericIntegrateApp::Help(const char* appname, const char* message) {
           "2 - Trapezium\n";
 }
 
-bool NumericIntegrateApp::ValidateNumberOfArguments(int argc, const char** argv) {
+bool NumericIntegrateApp::ValidateNumberOfArguments(int argc,
+                                                    const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
