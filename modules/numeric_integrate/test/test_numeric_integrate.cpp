@@ -1,4 +1,4 @@
-// Copyright 2019 Yakovlev Pavel
+// Copyright 2019 Vdovin Eugene
 
 #include <gtest/gtest.h>
 
