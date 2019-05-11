@@ -26,12 +26,12 @@ Queue::~Queue() {
     delete[]pq_;
 }
 
-void Queue::Put(int val){
+void Queue::Put(int val) {
     if (count_ == size_)
         throw "No space";
     tail_ = GetNextIndex(tail_);
     pq_[tail_] = val;
-    count_++;            
+    count_++;
 }
 
 int Queue::Get() {
