@@ -49,8 +49,7 @@ std::string parseCorrectInt(const char* arg) {
         throw std::string("Wrong number format, zero length!");
     }
 
-    if (value[0] == '-')
-    {
+    if (value[0] == '-') {
         iterator++;
     }
 
@@ -92,7 +91,7 @@ std::string BigIntCalculator::operator()(int argc, const char** argv) {
     try {
         args.operand_1 = parseCorrectInt(argv[1]);
         args.operand_2 = parseCorrectInt(argv[2]);
-        args.operation    = parseOperation(argv[3]);
+        args.operation = parseOperation(argv[3]);
     }
     catch (std::string& str) {
         return str;
