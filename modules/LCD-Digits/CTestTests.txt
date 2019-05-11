@@ -51,7 +51,7 @@ set_tests_properties (${prefix}_Printing_Single_Symbol_Is_Correct PROPERTIES
 
 add_test(
     NAME ${prefix}_Printing_Multiple_Symbols_Is_Correct
-    COMMAND ${APPLICATION} 1
+    COMMAND ${APPLICATION} 06:59
 )
 
 set_tests_properties (${prefix}_Printing_Multiple_Symbols_Is_Correct PROPERTIES
@@ -62,7 +62,7 @@ set_tests_properties (${prefix}_Printing_Multiple_Symbols_Is_Correct PROPERTIES
 
 add_test(
     NAME ${prefix}_Printing_Multiple_Strings_Is_Correct
-    COMMAND ${APPLICATION} 1
+    COMMAND ${APPLICATION} 59 2.3
 )
 
 set_tests_properties (${prefix}_Printing_Multiple_Strings_Is_Correct PROPERTIES
