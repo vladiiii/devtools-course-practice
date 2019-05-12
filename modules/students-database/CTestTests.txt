@@ -17,5 +17,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a student database application"
+    PASS_REGULAR_EXPRESSION "This is a Student database application"
     LABELS "${MODULE}")
