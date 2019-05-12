@@ -92,9 +92,10 @@ int DHeap::Delete_min() {
 }
 
 void DHeap::Delete(int node) {
-    int del;
+    int del = 0;
     Decrease_weight(node, INT16_MAX);
     del = Delete_min();
+	del++;
 }
 
 void DHeap::Decrease_weight(int node, int w) {
