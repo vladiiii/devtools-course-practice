@@ -11,12 +11,10 @@
 #include <sstream>
 #include <vector>
 
-SdbApp::SdbApp() : message_("") {}
 
 std::string SdbApp::Help(const char* appname) {
     return  std::string("This is a Student database application.\n\n") +
             "Please provide arguments in the following format:\n\n" +
-
             "  $ " + appname + " <operation> <arguments>\n\n" +
             "It Could be: \ntotal \ngood \nbad \naverage $(lastname)\n" +
             "remove $(lastname) \nadd $(firstname) $(lastname) \n" +
@@ -55,9 +53,7 @@ std::string SdbApp::operator()(int argc, const char** argv) {
         return Help(argv[0]);
     } else if (argc == 2) {
         operation = ParseOperation(argv[1]);
-        if (operation == "GET_HELP") {
-            return Help(argv[0]);
-        } else if (operation == "GET_GOOD_STUDENTS") {
+        if (operation == "GET_GOOD_STUDENTS") {
             stream << "Number of good students: "
             << database_.GetNumberOfGoodStudents() << std::endl;
         } else if (operation == "GET_BAD_STUDENTS") {
@@ -66,40 +62,26 @@ std::string SdbApp::operator()(int argc, const char** argv) {
         } else if (operation == "GET_NUMBER_STUDENTS") {
             stream << "Number of students: "
             << database_.GetNumberOfStudents() << std::endl;
+        } else {
+            throw "Number of arguments and operation is incompatible";
         }
     } else if (argc == 3) {
         operation = ParseOperation(argv[1]);
         if (operation == "GET_AVG_MARK") {
-            int mark = database_.GetAvgMark(argv[2]);
-            if (mark != -1) {
-                stream << "Average mark: " << mark
-                       << std::endl;
-            } else {
-                stream << "Student " << argv[2] << " not found"
-                       << std::endl;
-            }
-
+            float mark = database_.GetAvgMark(argv[2]);
+            stream << "Average mark: " << mark
+                   << std::endl;
         } else if (operation == "REMOVE_STUDENT") {
-            if (database_.RemoveStudent(argv[2])) {
+            database_.RemoveStudent(argv[2]);
                 stream << "Student " << argv[2] << " removed"
                        << std::endl;
-            } else {
-                stream << "Student " << argv[2] << " not found"
-                       << std::endl;
-            }
         } else {
             throw "Number of arguments and operation is incompatible";
         }
     } else if (argc == 4) {
         operation = ParseOperation(argv[1]);
         if (operation == "ADD_STUDENT") {
-            if (database_.AddStudent(argv[2], argv[3])) {
-                stream << "Student " << argv[3] << " added"
-                       << std::endl;
-            } else {
-                stream << "Student " << argv[3] << " was not added"
-                       << std::endl;
-            }
+           stream << "Student " << argv[3] << " added";
         } else {
             throw "Number of arguments and operation is incompatible";
         }

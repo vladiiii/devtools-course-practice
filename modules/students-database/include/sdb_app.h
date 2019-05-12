@@ -7,7 +7,7 @@
 
 class SdbApp {
  public:
-    SdbApp();
+    SdbApp() = default;
     std::string operator()(int argc, const char** argv);
     std::string Help(const char* appname);
 

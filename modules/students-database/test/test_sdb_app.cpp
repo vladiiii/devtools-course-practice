@@ -62,7 +62,7 @@ TEST_F(SdbTest, Removes_Student) {
 
     Act(args);
 
-    Assert("Student Kudrin not found");
+    Assert("Student Kudrin removed");
 }
 
 TEST_F(SdbTest, Average_Mark_For_Student) {
@@ -70,7 +70,7 @@ TEST_F(SdbTest, Average_Mark_For_Student) {
 
     Act(args);
 
-    Assert("Student Kudrin not found");
+    Assert("Average mark: -1");
 }
 
 TEST_F(SdbTest, Adds_Student) {
@@ -96,8 +96,13 @@ TEST_F(SdbTest, Invalid_Metric) {
 }
 
 TEST_F(SdbTest, Incompatible_Number_Of_Args_And_Operation) {
-    std::vector<std::string> args = {"good", "boi"};
-
+    std::vector<std::string> args = {"add"};
+    Expect_Throw(args);
+    args = {"good", "boi"};
+    Expect_Throw(args);
+    args = {"bad", "boi", "girl"};
+    Expect_Throw(args);
+    args = {"good", "boi", "1", "2"};
     Expect_Throw(args);
 }
 

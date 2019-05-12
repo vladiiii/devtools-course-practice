@@ -8,13 +8,7 @@
 
 int main(int argc, const char** argv) {
     SdbApp app;
-    try {
-        std::cout << app(argc, argv) << std::endl;
-    } catch (std::string& str) {
-        std::cout << "Error: " << str << std::endl
-        << app.Help(argv[0]) << std::endl;
-    }
-
+    std::cout << app(argc, argv) << std::endl;
 
     return 0;
 }
