@@ -3,12 +3,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
+#include <iostream>
 
 #include "include/big_int_calculator.h"
 
 int main(int argc, const char** argv) {
     BigIntCalculator app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    std::cout << output << "\n";
     return 0;
 }

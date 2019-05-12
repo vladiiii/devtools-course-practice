@@ -7,7 +7,7 @@
 
 class BigIntCalculator {
  public:
-    BigIntCalculator() = default;
+    BigIntCalculator();
     std::string operator()(int argc, const char** argv);
 
  private:
