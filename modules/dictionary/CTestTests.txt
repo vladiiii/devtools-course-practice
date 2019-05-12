@@ -57,21 +57,21 @@ add_test(
     COMMAND ${APPLICATION} a 0 b -3 c -2 -smin
 )
 set_tests_properties (${prefix}_can_Find_Min_Item PROPERTIES
-    PASS_REGULAR_EXPRESSION "a 7"
+    PASS_REGULAR_EXPRESSION "a 0"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Find_Max_Item
-    COMMAND ${APPLICATION} a 0 b -3 c -2 -smax
+    COMMAND ${APPLICATION} a 0 b -3 c 2 -smax
 )
 set_tests_properties (${prefix}_can_Find_Max_Item PROPERTIES
-    PASS_REGULAR_EXPRESSION "c -2"
+    PASS_REGULAR_EXPRESSION "c 2"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Find_Item
     COMMAND ${APPLICATION} a 0 b -3 c -2 -s b
 )
-set_tests_properties (${prefix}_can_Find_Max_Item PROPERTIES
+set_tests_properties (${prefix}_can_Find_Item PROPERTIES
     PASS_REGULAR_EXPRESSION "b -3"
     LABELS "${MODULE}")
