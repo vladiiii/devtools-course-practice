@@ -44,9 +44,10 @@ std::string Calculator::operator()(int argc, const char** argv) {
         return "";
     MortgageCalculator calc;
     std::string monthly_payment_ =
-        std::to_string(calc.CalculatePayments(std::stoi(argv[1]),
+        std::to_string(static_cast<int>(calc.CalculatePayments(
+            std::stoi(argv[1]),
             std::stoi(argv[2]),
             std::stoi(argv[3]),
-            std::stoi(argv[4])));
+            std::stoi(argv[4]))));
     return monthly_payment_;
 }
