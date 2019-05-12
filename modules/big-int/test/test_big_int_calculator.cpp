@@ -74,7 +74,8 @@ TEST_F(BigIntCalculatorTest, Can_Detect_Wrong_Number_Format_zero_length) {
 }
 
 TEST_F(BigIntCalculatorTest, Can_Add_Big_Int) {
-    vector<string> args = {"2000000000000000000000004", "9000000000000000000000007", "+"};
+    vector<string> args = {"2000000000000000000000004",
+                          "9000000000000000000000007", "+"};
 
     Act(args);
 
@@ -82,7 +83,8 @@ TEST_F(BigIntCalculatorTest, Can_Add_Big_Int) {
 }
 
 TEST_F(BigIntCalculatorTest, Can_Diff_Big_Int) {
-    vector<string> args = {"2000000000000000000000004", "2000000000000000000000005", "-"};
+    vector<string> args = {"2000000000000000000000004",
+                           "2000000000000000000000005", "-"};
 
     Act(args);
 
