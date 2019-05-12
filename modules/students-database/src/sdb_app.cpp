@@ -13,27 +13,16 @@
 
 SdbApp::SdbApp() : message_("") {}
 
-void SdbApp::Help(const char* appname, const char* message) {
-    message_ =
-            std::string(message) +
-            "This is a Student database application.\n\n" +
-            "Please provide arguments in the following format:\n\n"+
+std::string SdbApp::Help(const char* appname) {
+    return  std::string("This is a Student database application.\n\n") +
+            "Please provide arguments in the following format:\n\n" +
 
-            "  $ " + appname + " <price> <nominal_price> " +
-            "<months> <year> <percentage> <current_year> " +
-            "<current_month> <metric>\n\n";
+            "  $ " + appname + " <operation> <arguments>\n\n" +
+            "It Could be: \ntotal \ngood \nbad \naverage $(lastname)\n" +
+            "remove $(lastname) \nadd $(firstname) $(lastname) \n" +
+            "mark $(lastname) $(subject) $(value)";
 }
 
-bool SdbApp::ValidateNumberOfArguments(int argc, const char** argv) {
-    if (argc == 1) {
-        Help(argv[0]);
-        return false;
-    } else if (argc != 8) {
-        Help(argv[0], "ERROR: Should be 7 arguments.\n\n");
-        return false;
-    }
-    return true;
-}
 
 int ParseInteger (const char* arg) {
     int tmp = atoi(arg);
@@ -68,127 +57,77 @@ std::string ParseOperation(const char* arg) {
 }
 
 std::string SdbApp::operator()(int argc, const char** argv) {
-    Arguments args;
     Sdb database_;
-    if (argc == 2) {
-        std::string operation = ParseOperation(argv[1]);
-        if (operation == "GET_GOOD_STUDENTS") {
-            database_.GetNumberOfGoodStudents();
+    std::string operation = "";
+    std::ostringstream stream;
+
+    if (argc == 1){
+        return Help(argv[0]);
+    } else if (argc == 2) {
+        operation = ParseOperation(argv[1]);
+        if (operation == "GET_HELP") {
+            return Help(argv[0]);
+        } else if (operation == "GET_GOOD_STUDENTS") {
+            stream << "Number of good students: "
+            << database_.GetNumberOfGoodStudents() << std::endl;
         } else if (operation == "GET_BAD_STUDENTS") {
-            database_.GetNumberOfBadStudents();
-        } else if (operation == "GET_TOTAL_STUDENTS") {
-            database_.GetNumberOfStudents();
+            stream << "Number of bad students: "
+            << database_.GetNumberOfBadStudents() << std::endl;
+        } else if (operation == "GET_NUMBER_STUDENTS") {
+            stream << "Number of students: "
+            << database_.GetNumberOfStudents() << std::endl;
         } else {
-            throw "Number of arguments and " +
-                  "operation is incompatible";
+            throw "Number of arguments and operation is incompatible";
         }
     } else if (argc == 3) {
-
+        operation = ParseOperation(argv[1]);
+        if (operation == "GET_AVG_MARK") {
+            stream << "Average mark: " << database_.GetAvgMark(argv[2])
+                   << std::endl;
+        } else if (operation == "REMOVE_STUDENT") {
+            if (database_.RemoveStudent(argv[2])) {
+                stream << "Student " << argv[2] << " removed"
+                       << std::endl;
+            } else {
+                stream << "Student " << argv[2] << " not found"
+                       << std::endl;
+            }
+        } else {
+            throw "Number of arguments and operation is incompatible";
+        }
+    } else if (argc == 4) {
+        operation = ParseOperation(argv[1]);
+        if (operation == "ADD_STUDENT") {
+            if (database_.AddStudent(argv[2],argv[3])) {
+                stream << "Student " << argv[3] << " added"
+                       << std::endl;
+            } else {
+                stream << "Student " << argv[3] << " was not added"
+                       << std::endl;
+            }
+        } else {
+            throw "Number of arguments and operation is incompatible";
+        }
+    } else if (argc == 5) {
+        operation = ParseOperation(argv[1]);
+        if (operation == "ADD_MARK") {
+            char* pEnd;
+            if (database_.AddMark(argv[2], argv[3],
+                    std::strtol(argv[4], &pEnd, 10))) {
+                stream << "Mark " << argv[4] << " was added to "
+                << argv[1] << std::endl;
+            } else {
+                stream << "Mark " << argv[4] << " was not added"
+                << std::endl;
+            }
+        } else {
+            throw "Number of arguments and operation is incompatible";
+        }
+    } else {
+        throw "Number of arguments is invalid";
     }
 
-        try {
-        args.fname = (argv[1]);
-        args.lname = (argv[2]);
-        args.mark  = ParseInteger(argv[3]);
-    } catch(std::string& str) {
-        return str;
-    }
+    message_ = stream.str();
 
     return message_;
 }
-//
-//    if (!ValidateNumberOfArguments(argc, argv)) {
-//        return message_;
-//    }
-//
-//    catch(std::string& str) {
-//        return str;
-//    }
-
-//    BondCalculator bcalc;
-//    bond bond_;
-//    std::vector<int> mnths = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-//
-//    bond_.price = args.price;
-//    bond_.nominal_price = args.nominal_price;
-//    bond_.year = args.year;
-//    bond_.percentage = args.percentage;
-//    bond_.months = mnths;
-
-//    std::ostringstream stream;
-
-//    if (args.metric == "all") {
-//        std::vector<payment> payments =
-//                bcalc.CalculatePayments(bond_,
-//                                        args.current_month,
-//                                        args.current_year);
-//        payment totalIncome =
-//                bcalc.CalculateTotalIncome(bond_,
-//                                           args.current_month,
-//                                           args.current_year);
-
-//        stream << "Payments : " << std::endl;
-//        for (auto i : payments) {
-//            stream << "\tYear : " << i.year <<
-//                   " Month : " << i.month <<
-//                   " Value : " << i.value << std::endl;
-//        }
-//
-//        stream << "Relative income : " << std::endl <<
-//               "\t" <<
-//               bcalc.CalculateRelativeIncome(bond_,
-//                                             args.current_month,
-//                                             args.current_year)
-//               << std::endl;
-//
-//        stream << "Total Income : " << std::endl <<
-//               "\tYear : " << totalIncome.year << std::endl <<
-//               "\tMonth : " << totalIncome.month << std::endl <<
-//               "\tValue : " << totalIncome.value << std::endl;
-//
-//        stream << "Yearly internal income :" << std::endl <<
-//               "\t" <<
-//               bcalc.CalculateYearlyInternalIncome(bond_,
-//                                                   args.current_year)
-//               << std::endl;
-//    } else if (args.metric == "payments") {
-//        std::vector<payment> payments =
-//                bcalc.CalculatePayments(bond_,
-//                                        args.current_month,
-//                                        args.current_year);
-//
-//        stream << "Payments : " << std::endl;
-//        for (auto i : payments) {
-//            stream << "\tYear : " << i.year <<
-//                   " Month : " << i.month <<
-//                   " Value : " << i.value << std::endl;
-//        }
-//    } else if (args.metric == "relative") {
-//        stream << "Relative income : " << std::endl <<
-//               "\t" <<
-//               bcalc.CalculateRelativeIncome(bond_,
-//                                             args.current_month,
-//                                             args.current_year)
-//               << std::endl;
-//    } else if (args.metric == "yearly") {
-//        stream << "Yearly internal income :" << std::endl <<
-//               "\t" <<
-//               bcalc.CalculateYearlyInternalIncome(bond_,
-//                                                   args.current_year)
-//               << std::endl;
-//    } else if (args.metric == "total") {
-//        payment totalIncome =
-//                bcalc.CalculateTotalIncome(bond_,
-//                                           args.current_month,
-//                                           args.current_year);
-//
-//        stream << "Total income : " << std::endl <<
-//               "\tYear : " << totalIncome.year << std::endl <<
-//               "\tMonth : " << totalIncome.month << std::endl <<
-//               "\tValue : " << totalIncome.value << std::endl;
-//    }
-//
-//    message_ = stream.str();
-
-//    return message_;
-

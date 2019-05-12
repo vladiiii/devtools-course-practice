@@ -8,16 +8,10 @@ class SdbApp {
         public:
         SdbApp();
         std::string operator()(int argc, const char** argv);
+        std::string Help(const char* appname);
 
         private:
-        void Help(const char* appname, const char* message = "");
-        bool ValidateNumberOfArguments(int argc, const char** argv);
         std::string message_;
-        typedef struct {
-            std::string fname;
-            std::string lname;
-            unsigned int mark;
-        } Arguments;
 
 };
 
