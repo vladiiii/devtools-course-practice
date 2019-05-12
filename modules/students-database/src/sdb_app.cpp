@@ -24,18 +24,8 @@ std::string SdbApp::Help(const char* appname) {
 }
 
 
-int ParseInteger (const char* arg) {
-    int tmp = atoi(arg);
-
-    if (tmp < 0) {
-        throw std::string("Wrong number format!");
-    }
-
-    return tmp;
-}
-
 std::string ParseOperation(const char* arg) {
-    std::string op;
+    std::string op = "";
     if (strcmp(arg, "total") == 0) {
         op = "GET_NUMBER_STUDENTS";
     } else if (strcmp(arg, "good") == 0) {
@@ -51,7 +41,7 @@ std::string ParseOperation(const char* arg) {
     } else if (strcmp(arg, "average") == 0) {
         op = "GET_AVG_MARK";
     } else {
-        throw std::string("Wrong metric!");
+        throw std::string("Unsupported operation!");
     }
     return op;
 }
@@ -76,14 +66,19 @@ std::string SdbApp::operator()(int argc, const char** argv) {
         } else if (operation == "GET_NUMBER_STUDENTS") {
             stream << "Number of students: "
             << database_.GetNumberOfStudents() << std::endl;
-        } else {
-            throw "Number of arguments and operation is incompatible";
         }
     } else if (argc == 3) {
         operation = ParseOperation(argv[1]);
         if (operation == "GET_AVG_MARK") {
-            stream << "Average mark: " << database_.GetAvgMark(argv[2])
-                   << std::endl;
+            int mark = database_.GetAvgMark(argv[2]);
+            if (mark != -1){
+                stream << "Average mark: " << mark
+                       << std::endl;
+            } else {
+                stream << "Student " << argv[2] << " not found"
+                       << std::endl;
+            }
+
         } else if (operation == "REMOVE_STUDENT") {
             if (database_.RemoveStudent(argv[2])) {
                 stream << "Student " << argv[2] << " removed"
@@ -131,3 +126,4 @@ std::string SdbApp::operator()(int argc, const char** argv) {
 
     return message_;
 }
+
