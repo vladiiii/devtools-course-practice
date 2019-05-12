@@ -3,9 +3,8 @@
 #ifndef MODULES_ELASTICITY_OF_DEMAND_INCLUDE_DEMAND_APP_H_
 #define MODULES_ELASTICITY_OF_DEMAND_INCLUDE_DEMAND_APP_H_
 
-#include "include/elasticity_of_demand.h"
-
 #include <string>
+#include "include/elasticity_of_demand.h"
 
 class DemandApp {
  public:
