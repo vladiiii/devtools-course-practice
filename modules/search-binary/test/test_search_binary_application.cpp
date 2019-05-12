@@ -59,7 +59,8 @@ TEST_F(SearchBinaryApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
     Assert("ERROR: Size must be >= 1.*");
 }
 
-TEST_F(SearchBinaryApplicationTest, Is_Check_Entered_Size_And_Size_Of_Entered_Array) {
+TEST_F(SearchBinaryApplicationTest,
+    Is_Check_Entered_Size_And_Size_Of_Entered_Array) {
     std::vector<std::string> args = {"3", "2", "1", "2"};
 
     Act(args);

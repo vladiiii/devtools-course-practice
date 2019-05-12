@@ -34,7 +34,7 @@ int ParseInt(const char* arg) {
     return value;
 }
 
-bool SearchBinaryApplication::ValidateNumberOfArguments(int argc, 
+bool SearchBinaryApplication::ValidateNumberOfArguments(int argc,
                                                         const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
@@ -49,7 +49,7 @@ bool SearchBinaryApplication::ValidateNumberOfArguments(int argc,
         }
         if (argc != size + 3) {
             Help(argv[0],
-			"ERROR: Check count of arguments and size of entered array.\n\n");
+            "ERROR: Check count of arguments and size of entered array.\n\n");
             return false;
         }
     }
