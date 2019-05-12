@@ -46,7 +46,7 @@ TEST_F(DHeapAppTest, Can_Print_Help_Without_Arguments) {
 
     Act(args);
 
-    Assert("This is dHeap application.\\..*");
+    Assert("This is dHeap application\\..*");
 }
 
 TEST_F(DHeapAppTest, Can_Detect_Wrong_Number_Format) {
