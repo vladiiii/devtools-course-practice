@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Volkov Pavel
 
 #ifndef MODULES_BIG_INT_INCLUDE_BIG_INT_CALCULATOR_H_
 #define MODULES_BIG_INT_INCLUDE_BIG_INT_CALCULATOR_H_

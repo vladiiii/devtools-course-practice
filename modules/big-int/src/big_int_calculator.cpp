@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2019 Volkov Pavel
 
 #include "include/big_int.h"
 #include "include/big_int_calculator.h"
@@ -16,14 +16,14 @@ BigIntCalculator::BigIntCalculator() : message_("") {}
 
 void BigIntCalculator::help(const char* appname, const char* message) {
     message_ =
-        std::string(message) + "BIIIIIIG IIIIINT" +
-          "This is a complex number calculator application.\n\n" +
+        std::string(message) +
+          "This is a big int number calculator application.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
-          "  $ " + appname + " <z1_real> <z1_imaginary> " +
-          "<z2_real> <z2_imaginary> <operation>\n\n" +
+          "  $ " + appname + " <big_int> <big_int> " +
+          "<operation>\n\n" +
 
-          "Where all arguments are double-precision numbers, " +
+          "Where all arguments are very long integer numbers, " +
           "and <operation> is one of '+', '-', '*', '/'.\n";
 }
 
@@ -39,7 +39,7 @@ bool BigIntCalculator::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 std::string parseCorrectInt(const char* arg) {
-    std::string value = "";
+    std::string value;
 
     unsigned int iterator = 0;
 
@@ -59,7 +59,6 @@ std::string parseCorrectInt(const char* arg) {
         }
         iterator++;
     }
-
 
     return value;
 }
@@ -86,7 +85,6 @@ std::string BigIntCalculator::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
-
 
     try {
         args.operand_1 = parseCorrectInt(argv[1]);
