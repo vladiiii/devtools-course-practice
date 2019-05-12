@@ -16,6 +16,7 @@ bool InterpolationSearchApplication::read_file() {
         }
         res = true;
     }
+    file.close();
     return res;
 }
 
