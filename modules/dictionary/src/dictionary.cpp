@@ -78,6 +78,14 @@ Node* Dictionary::FindMin(Node* t) {
     }
 }
 
+Node * Dictionary::FindMax(Node * t) {
+    if (t->right_ == nullptr) {
+        return t;
+    } else {
+        return FindMax(t->right_);
+    }
+}
+
 Node* Dictionary::Remove(const Word& x, Node* t) {
     Node* temp;
 
@@ -134,8 +142,7 @@ Node* Dictionary::Remove(const Word& x, Node* t) {
             //
             return SingleRightRotate(t);
         }
-    }
-    else if (Height(t->right_) - Height(t->left_) == 2) {
+    } else if (Height(t->right_) - Height(t->left_) == 2) {
         //
         // If right Node is deleted, left case
         //
@@ -190,6 +197,16 @@ Word Dictionary::GetRoot() const {
     } else {
         return Word();
     }
+}
+
+Word Dictionary::FindMin() {
+    Node* t = FindMin(root_);
+    return t->data_;
+}
+
+Word Dictionary::FindMax() {
+    Node* t = FindMax(root_);
+    return t->data_;
 }
 
 char GetRandomChar() {

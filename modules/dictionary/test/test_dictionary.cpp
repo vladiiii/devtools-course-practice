@@ -218,30 +218,39 @@ TEST(DictionaryTest,
 }
 
 TEST(DictionaryTest,
-	CanAddExistWord) {
-	Dictionary dict;
-	dict.Insert(Word(std::to_string(0), 0));
+    CanAddExistWord) {
+    Dictionary dict;
+    dict.Insert(Word(std::to_string(0), 0));
 
-	for (int32_t i = 1; i != nLenght; i++) {
-		dict.Insert(Word(std::to_string(0), 0));
-		EXPECT_EQ(Word(std::to_string(0), 0), dict.Find(std::to_string(0)));
-		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
-	}
+    for (int32_t i = 1; i != nLenght; i++) {
+        dict.Insert(Word(std::to_string(0), 0));
+        EXPECT_EQ(Word(std::to_string(0), 0), dict.Find(std::to_string(0)));
+        EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
+    }
 }
 
 TEST(DictionaryTest,
-	CanChangeValExistWord) {
-	Dictionary dict;
-	dict.Insert(Word(std::to_string(0), 0));
-	dict.Insert(Word(std::to_string(0), 2));
+    CanChangeValExistWord) {
+    Dictionary dict;
+    dict.Insert(Word(std::to_string(0), 0));
+    dict.Insert(Word(std::to_string(0), 2));
+    EXPECT_EQ(Word("0", 2), dict.Find("0"));
+}
 
-	/*for (int32_t i = 1; i != nLenght; i++) {
-		dict.Insert(Word(std::to_string(0), i));
-		EXPECT_EQ(Word(std::to_string(0), 0), dict.Find(std::to_string(0)));
-		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
-	}
-	for (int32_t i = 1; i != nLenght; i++) {
-		EXPECT_EQ(Word(), dict.Find(std::to_string(i)));
-	}*/
-	EXPECT_EQ(Word("0", 2), dict.Find("0"));
+TEST(DictionaryTest,
+    CanFoundMaxElement) {
+    Dictionary dict;
+    for (char i = 0; i != INT8_MAX; i++) {
+        dict.Insert(Word(std::string(1, i), i));
+    }
+    EXPECT_EQ(Word(std::string(1, INT8_MAX-1), INT8_MAX - 1), dict.FindMax());
+}
+
+TEST(DictionaryTest,
+    CanFoundMinElement) {
+    Dictionary dict;
+    for (char i = 0; i != INT8_MAX; i++) {
+        dict.Insert(Word(std::string(1, i), i));
+    }
+    EXPECT_EQ(Word(std::string(1, 0), 0), dict.FindMin());
 }
