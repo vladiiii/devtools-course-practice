@@ -2,8 +2,8 @@
 
 #include <string>
 
-#ifndef DEVTOOLS_SDB_APP_H
-#define DEVTOOLS_SDB_APP_H
+#ifndef MODULES_STUDENTS_DATABASE_INCLUDE_SDB_APP_H_
+#define MODULES_STUDENTS_DATABASE_INCLUDE_SDB_APP_H_
 
 class SdbApp {
  public:
