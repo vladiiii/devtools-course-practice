@@ -18,7 +18,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Print_Help_Mesasge_With_Empty_Arguments_Line PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a demo app for demonstrating interpolation search.\\..*"
+    PASS_REGULAR_EXPRESSION "This is a demo app for demonstrating interpolation search.\n"
     LABELS "${MODULE}")
 
 add_test(
@@ -27,7 +27,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Print_Error_Message_When_Cant_Open_File PROPERTIES
-    PASS_REGULAR_EXPRESSION "Can't open file\\..*"
+    PASS_REGULAR_EXPRESSION "Can't open file\n"
     LABELS "${MODULE}")
 
 add_test(
@@ -36,7 +36,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Print_Index_When_Find_Number PROPERTIES
-    PASS_REGULAR_EXPRESSION "Index of required number is 1\\..*"
+    PASS_REGULAR_EXPRESSION "Index of required number is 1\n"
     LABELS "${MODULE}")
 
 add_test(
@@ -45,5 +45,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Print_Message_When_Cant_Find_Number PROPERTIES
-    PASS_REGULAR_EXPRESSION "Required number isn't found\\..*"
+    PASS_REGULAR_EXPRESSION "Required number isn't found\n"
     LABELS "${MODULE}")
