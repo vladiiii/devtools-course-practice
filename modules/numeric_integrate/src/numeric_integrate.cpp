@@ -1,4 +1,4 @@
-// Copyright 2019 Vdovin Eugene
+// Copyright 2019 Yakovlev Pavel
 
 #include <cmath>
 
