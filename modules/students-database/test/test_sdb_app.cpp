@@ -10,7 +10,7 @@
 using ::testing::internal::RE;
 
 class SdbTest : public ::testing::Test {
-protected:
+ protected:
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
 
@@ -44,7 +44,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     SdbApp app_;
     std::string output_;
 };
@@ -102,7 +102,7 @@ TEST_F(SdbTest, Incompatible_Number_Of_Args_And_Operation) {
 }
 
 TEST_F(SdbTest, Invalid_Number_Of_Args) {
-    std::vector<std::string> args = {"good", "boi", "1", "2","3"};
+    std::vector<std::string> args = {"good", "boi", "1", "2", "3"};
 
     Expect_Throw(args);
 }

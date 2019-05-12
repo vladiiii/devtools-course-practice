@@ -51,7 +51,7 @@ std::string SdbApp::operator()(int argc, const char** argv) {
     std::string operation = "";
     std::ostringstream stream;
 
-    if (argc == 1){
+    if (argc == 1) {
         return Help(argv[0]);
     } else if (argc == 2) {
         operation = ParseOperation(argv[1]);
@@ -71,7 +71,7 @@ std::string SdbApp::operator()(int argc, const char** argv) {
         operation = ParseOperation(argv[1]);
         if (operation == "GET_AVG_MARK") {
             int mark = database_.GetAvgMark(argv[2]);
-            if (mark != -1){
+            if (mark != -1) {
                 stream << "Average mark: " << mark
                        << std::endl;
             } else {
@@ -93,7 +93,7 @@ std::string SdbApp::operator()(int argc, const char** argv) {
     } else if (argc == 4) {
         operation = ParseOperation(argv[1]);
         if (operation == "ADD_STUDENT") {
-            if (database_.AddStudent(argv[2],argv[3])) {
+            if (database_.AddStudent(argv[2], argv[3])) {
                 stream << "Student " << argv[3] << " added"
                        << std::endl;
             } else {
