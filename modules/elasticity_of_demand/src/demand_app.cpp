@@ -4,8 +4,9 @@
 #include "include/demand_app.h"
 
 #include <stdio.h>
-#include <cstdlib>
 #include <stdint.h>
+#include <string.h>
+#include <cstdlib>
 #include <string>
 #include <sstream>
 

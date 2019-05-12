@@ -6,7 +6,6 @@
 #include "include/elasticity_of_demand.h"
 
 #include <string>
-#include <cstdlib>
 
 class DemandApp {
  public:
