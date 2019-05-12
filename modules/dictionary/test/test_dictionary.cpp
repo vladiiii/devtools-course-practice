@@ -8,7 +8,7 @@
 using std::string;
 
 const int32_t sizeWord = 6;
-const int nLenght = 10;
+const int nLenght = 10000;
 
 TEST(DictionaryTest,
 CanCreateDefaultDictionary) {
