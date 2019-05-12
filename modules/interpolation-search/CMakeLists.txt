@@ -13,5 +13,7 @@ add_subdirectory(src)
 add_subdirectory(test)
 add_subdirectory(application)
 
-
+# Add file with test data
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/test/test_data.txt
+DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/test)
 
