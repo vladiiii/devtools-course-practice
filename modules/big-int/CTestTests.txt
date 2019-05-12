@@ -36,7 +36,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_2
     COMMAND ${APPLICATION} - ip +
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_2 PROPERTIES
@@ -90,3 +90,4 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Divide_By_Zero PROPERTIES
     PASS_REGULAR_EXPRESSION "Can't divide by zero"
     LABELS "${MODULE}")
+
