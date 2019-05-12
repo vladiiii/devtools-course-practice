@@ -127,3 +127,11 @@ TEST_F(SalaryApplicationTest, Can_Calculate_Salary) {
     Assert("23437.5");
 }
 
+TEST_F(SalaryApplicationTest, Can_Detect_Wrong_Overflow) {
+    std::vector<std::string> args = {"25000", "160",
+        "7234345435636634", "5", "5"};
+
+     Act(args);
+
+     Assert("Number is out of bounds");
+}
