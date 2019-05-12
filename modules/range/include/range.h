@@ -4,6 +4,7 @@
 #define MODULES_RANGE_INCLUDE_RANGE_H_
 
 #include <array>
+#include <string>
 
 class Range {
  private:
