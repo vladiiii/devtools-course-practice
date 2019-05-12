@@ -89,14 +89,10 @@ std::string SdbApp::operator()(int argc, const char** argv) {
         operation = ParseOperation(argv[1]);
         if (operation == "ADD_MARK") {
             char* pEnd;
-            if (database_.AddMark(argv[2], argv[3],
-                    std::strtol(argv[4], &pEnd, 10))) {
+            database_.AddMark(argv[2], argv[3],
+                    std::strtol(argv[4], &pEnd, 10));
                 stream << "Mark " << argv[4] << " was added to "
-                << argv[1] << std::endl;
-            } else {
-                stream << "Mark " << argv[4] << " was not added"
-                << std::endl;
-            }
+                << argv[2] << std::endl;
         } else {
             throw "Number of arguments and operation is incompatible";
         }

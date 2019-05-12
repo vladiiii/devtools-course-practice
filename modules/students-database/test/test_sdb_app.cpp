@@ -86,7 +86,7 @@ TEST_F(SdbTest, Marks_Student) {
 
     Act(args);
 
-    Assert("Mark 5 was not added");
+    Assert("Mark 5 was added to Kudrin");
 }
 
 TEST_F(SdbTest, Invalid_Metric) {
