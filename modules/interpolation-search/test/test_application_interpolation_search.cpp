@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
-#icnlude <string>
+#include <string>
 #include "include/InterpolationSearchApplication.h"
 
 class InterpolationSearchApplicationTest
