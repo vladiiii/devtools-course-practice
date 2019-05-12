@@ -4,7 +4,7 @@
 #include <limits>
 #include "include/complex_number.h"
 
-TEST(Koroleva_Daria_ComplexNumberTest, Can_Create_Complex_With_CopyConstructor) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Create_Complex_By_CopyConstructor) {
     // Arrange
     ComplexNumber a(1., 143.);
     // Act
