@@ -26,10 +26,10 @@ class RomaNumberConverterTest :
         output_ = app_(argc, argv);
     }
 
-	void Assert(std::string expected) {
-		EXPECT_TRUE(::testing::internal::RE::PartialMatch(output_,
-			::testing::internal::RE(expected)));
-	}
+    void Assert(std::string expected) {
+        EXPECT_TRUE(::testing::internal::RE::PartialMatch(output_,
+            ::testing::internal::RE(expected)));
+    }
 
  private:
     RomaNumberConverter app_;
@@ -46,37 +46,37 @@ TEST_F(RomaNumberConverterTest, Print_Help_Without_Arguments) {
 }
 
 TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Lines_Count) {
-	// Arrange
-	std::vector<std::string> args = { "CCCXXIV", "V" };
+    // Arrange
+    std::vector<std::string> args = { "CCCXXIV", "V" };
 
-	Act(args);
+    Act(args);
 
-	Assert("This is application for roma number converter.");
+    Assert("This is application for roma number converter.");
 }
 
 TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Value) {
-	// Arrange
-	std::vector<std::string> args = { "-1" };
+    // Arrange
+    std::vector<std::string> args = { "-1" };
 
-	Act(args);
+    Act(args);
 
-	Assert("This is application for roma number converter.");
+    Assert("This is application for roma number converter.");
 }
 
 TEST_F(RomaNumberConverterTest, Can_Convert_Arabic_To_Roma) {
-	// Arrange
-	std::vector<std::string> args = {"324"};
+    // Arrange
+    std::vector<std::string> args = {"324"};
 
-	Act(args);
+    Act(args);
 
-	Assert("CCCXXIV");
+    Assert("CCCXXIV");
 }
 
 TEST_F(RomaNumberConverterTest, Can_Convert_Roma_To_Arabic) {
-	// Arrange
-	std::vector<std::string> args = { "CCCXXIV" };
+    // Arrange
+    std::vector<std::string> args = { "CCCXXIV" };
 
-	Act(args);
+    Act(args);
 
-	Assert("324");
+    Assert("324");
 }

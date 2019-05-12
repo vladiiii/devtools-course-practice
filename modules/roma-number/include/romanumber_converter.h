@@ -8,15 +8,15 @@
 
 class RomaNumberConverter {
 public:
-	RomaNumberConverter();
-	std::string operator()(int argc, const char** argv);
+    RomaNumberConverter();
+    std::string operator()(int argc, const char** argv);
 
 private:
-	std::string Help(const char* appname);
-	bool validateNumberOfArguments(int argc, const char** argv);
-	RomaNumber converter_;
-	std::string message_;
-	std::string value_;
+    std::string Help(const char* appname);
+    bool validateNumberOfArguments(int argc, const char** argv);
+    RomaNumber converter_;
+    std::string message_;
+    std::string value_;
 };
 
 #endif  // MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_CONVERTER_H_

@@ -121,17 +121,17 @@ bool RomaNumber::IsRomaStringCorrect(const char* ro) const {
 }
 
 bool RomaNumber::IsArabStringCorrect(const char* ar) const {
-	int n = strlen(ar);
-	for (int i = 0; i < n; i++) {
-		bool flag = (ar[i] == '0' || ar[i] == '1' ||
-			ar[i] == '2' || ar[i] == '3' ||
-			ar[i] == '4' || ar[i] == '5' ||
-			ar[i] == '6' || ar[i] == '7' ||
-			ar[i] == '8' || ar[i] == '9');
-		if (!flag)
-			return false;
-	}
-	return true;
+    int n = strlen(ar);
+    for (int i = 0; i < n; i++) {
+        bool flag = (ar[i] == '0' || ar[i] == '1' ||
+            ar[i] == '2' || ar[i] == '3' ||
+            ar[i] == '4' || ar[i] == '5' ||
+            ar[i] == '6' || ar[i] == '7' ||
+            ar[i] == '8' || ar[i] == '9');
+        if (!flag)
+            return false;
+    }
+    return true;
 }
 
 std::ostream& operator<<(std::ostream &out, const RomaNumber a) {

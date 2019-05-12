@@ -15,8 +15,8 @@ class RomaNumber {
     RomaNumber() : roma_(""), arabic_(0) { }
     explicit RomaNumber(char*);
     explicit RomaNumber(int ar);
-	bool IsRomaStringCorrect(const char*) const;
-	bool IsArabStringCorrect(const char*) const;
+    bool IsRomaStringCorrect(const char*) const;
+    bool IsArabStringCorrect(const char*) const;
     void RomaToArab(std::string);
     void ArabToRoma(int ar);
     std::string GetRoma() { return roma_; }
