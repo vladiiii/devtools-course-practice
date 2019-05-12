@@ -87,9 +87,9 @@ std::string DHeapApp::operator()(int argc, const char** argv) {
         for (int i = 0; i < k; ++i) {
              v.push_back(dh.Delete_min());
         }
-        stream << "Weight = ";
+        stream << "Weight =";
         for (int i = 0; i < dh.get_size(); ++i) {
-            stream << v[i] << " ";
+            stream << " " << v[i];
         }
         break;
      case 'M':

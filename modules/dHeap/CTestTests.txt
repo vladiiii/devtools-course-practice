@@ -41,7 +41,7 @@ add_test(
     COMMAND ${APPLICATION} 2 4 1 4 2 3 sort
 )
 set_tests_properties (${prefix}_can_Sort_DHeap PROPERTIES
-    PASS_REGULAR_EXPRESSION "Weight = 1 2 3 4 "
+    PASS_REGULAR_EXPRESSION "Weight = 1 2 3 4"
     LABELS "${MODULE}")
 
 add_test(
