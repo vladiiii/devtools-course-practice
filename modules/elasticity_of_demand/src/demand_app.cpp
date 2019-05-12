@@ -1,14 +1,14 @@
 // Copyright 2019 Yakovlev Pavel
 
-#include "include/elasticity_of_demand.h"
-#include "include/demand_app.h"
-
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <cstdlib>
 #include <string>
 #include <sstream>
+
+#include "include/elasticity_of_demand.h"
+#include "include/demand_app.h"
 
 DemandApp::DemandApp() : message_("") {}
 

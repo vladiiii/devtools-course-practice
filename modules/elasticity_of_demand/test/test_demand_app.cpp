@@ -84,7 +84,8 @@ TEST_F(DemandAppTest, Can_Use_Price_Elasticity_Of_Demand) {
 }
 
 TEST_F(DemandAppTest, Can_Use_Income_Elasticity_Of_Demand) {
-    std::vector<std::string> args = {"1", "2", "100", "102", "10000", "10200", "i"};
+    std::vector<std::string> args = {"1", "2", "100", "102",
+        "10000", "10200", "i"};
 
     Act(args);
 
