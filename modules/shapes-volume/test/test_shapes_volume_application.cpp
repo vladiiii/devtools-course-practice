@@ -46,8 +46,57 @@ TEST_F(ShapesVolumeApplicationTest, Do_Print_Help_Without_Arguments) {
     Assert("ShapesVolume class application:");
 }
 
-TEST_F(ShapesVolumeApplicationTest, Is_Checking_Number_Of_Arguments) {
+TEST_F(ShapesVolumeApplicationTest, Do_Print_Help_With_Arguments) {
+    // Arrange
+    std::vector<std::string> args = {"help"};
+
+    Act(args);
+
+    Assert("ShapesVolume class application:");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Tetrahedron) {
     vector<string> args = {"calc", "tetr"};
+
+    Act(args);
+
+    Assert("too few arguments");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Parallelepiped) {
+    vector<string> args = {"calc", "paral"};
+
+    Act(args);
+
+    Assert("too few arguments");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Cone) {
+    vector<string> args = {"calc", "cone"};
+
+    Act(args);
+
+    Assert("too few arguments");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Cylinder) {
+    vector<string> args = {"calc", "cylinder"};
+
+    Act(args);
+
+    Assert("too few arguments");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Cube) {
+    vector<string> args = {"calc", "cube"};
+
+    Act(args);
+
+    Assert("too few arguments");
+}
+
+TEST_F(ShapesVolumeApplicationTest, Check_Number_Of_Arguments_Sphere) {
+    vector<string> args = {"calc", "sphere"};
 
     Act(args);
 

@@ -21,10 +21,65 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
+    NAME ${prefix}_can_Print_Help_With_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_With_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ShapesVolume class application:"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
     COMMAND ${APPLICATION} calc tetr
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Parallelepiped
+    COMMAND ${APPLICATION} calc paral
+)
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Parallelepiped PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Cone
+    COMMAND ${APPLICATION} calc cone
+)
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cone PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Cylinder
+    COMMAND ${APPLICATION} calc cylinder
+)
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cylinder PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Cube
+    COMMAND ${APPLICATION} calc cube
+)
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cube PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Sphere
+    COMMAND ${APPLICATION} calc sphere
+)
+
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Sphere PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
