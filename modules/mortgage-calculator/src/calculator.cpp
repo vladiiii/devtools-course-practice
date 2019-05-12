@@ -43,7 +43,6 @@ std::string Calculator::operator()(int argc, const char** argv) {
     if (!ValidateArgs(argc, argv))
         return "";
     MortgageCalculator calc;
-    char* end;
     std::string monthly_payment_ =
         std::to_string(calc.CalculatePayments(std::stoi(argv[1]),
             std::stoi(argv[2]),
