@@ -9,17 +9,17 @@
 
 class CaesarCipherApplication {
  protected:
-  bool ReadFile(std::string myFileInName);
-  void WriteFile(std::string myFileOutName);
-  std::string fileText;
-  CaesarCipher cipher;
+  bool ReadFile(std::string in_filename);
+  void WriteFile(std::string out_filename);
+  std::string filetext_;
+  CaesarCipher cipher_;
 
  public:
   std::string operator()(int argc, const char** argv);
   std::string GetHelpMessage();
-  std::string DecryptFile(std::string myFileInName, std::string myFileOutName,
+  std::string DecryptFile(std::string in_filename, std::string out_filename,
                           int key);
-  std::string EncryptFile(std::string myFileInName, std::string myFileOutName,
+  std::string EncryptFile(std::string in_filename, std::string out_filename,
                           int key);
 };
 

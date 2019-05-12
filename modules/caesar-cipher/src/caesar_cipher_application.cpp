@@ -5,26 +5,26 @@
 
 std::string CaesarCipherApplication::operator()(int argc, const char** argv) {
   std::string result = "";
-  std::string myFileInName = "";
-  std::string myFileOutName = "";
-  std::string myOperation = "";
+  std::string in_filename = "";
+  std::string out_filename = "";
+  std::string operation = "";
 
   if (argc > 4) {
     int key = 0;
-    myFileInName = argv[1];
-    myFileOutName = argv[2];
+    in_filename = argv[1];
+    out_filename = argv[2];
     key = atoi(argv[3]);
-    myOperation = argv[4];
+    operation = argv[4];
 
-    if (myOperation == "EN") {
-      result = EncryptFile(myFileInName, myFileOutName, key);
+    if (operation == "EN") {
+      result = EncryptFile(in_filename, out_filename, key);
     }
 
-    if (myOperation == "DE") {
-      result = DecryptFile(myFileInName, myFileOutName, key);
+    if (operation == "DE") {
+      result = DecryptFile(in_filename, out_filename, key);
     }
 
-    if (myOperation != "DE" && myOperation != "EN") {
+    if (operation != "DE" && operation != "EN") {
       result = GetHelpMessage();
     }
 
@@ -40,54 +40,54 @@ std::string CaesarCipherApplication::operator()(int argc, const char** argv) {
 }
 
 std::string CaesarCipherApplication::GetHelpMessage() {
-  std::string helpMessage;
-  helpMessage =
+  std::string help_message;
+  help_message =
       "\nThis application encrypts/decrypts the contents of the file.\n";
-  helpMessage += "Please provide arguments in the following format:\n";
-  helpMessage += "1: File name(string) for operation;\n";
-  helpMessage += "2: File name(string) to save the result;\n";
-  helpMessage += "3: The key(int) to encrypt/decrypt operations;\n";
-  helpMessage += "4: The operation(string): EN to Encrypt or DE to Decrypt;\n";
-  return helpMessage;
+  help_message += "Please provide arguments in the following format:\n";
+  help_message += "1: File name(string) for operation;\n";
+  help_message += "2: File name(string) to save the result;\n";
+  help_message += "3: The key(int) to encrypt/decrypt operations;\n";
+  help_message += "4: The operation(string): EN to Encrypt or DE to Decrypt;\n";
+  return help_message;
 }
 
-std::string CaesarCipherApplication::DecryptFile(std::string myFileInName,
-                                                 std::string myFileOutName,
+std::string CaesarCipherApplication::DecryptFile(std::string in_filename,
+                                                 std::string out_filename,
                                                  int key) {
-  fileText = "";
-  if (ReadFile(myFileInName)) {
-    fileText = cipher.Decrypt(fileText, key);
-    WriteFile(myFileOutName);
+  filetext_ = "";
+  if (ReadFile(in_filename)) {
+    filetext_ = cipher_.Decrypt(filetext_, key);
+    WriteFile(out_filename);
   }
-  return fileText;
+  return filetext_;
 }
 
-std::string CaesarCipherApplication::EncryptFile(std::string myFileInName,
-                                                 std::string myFileOutName,
+std::string CaesarCipherApplication::EncryptFile(std::string in_filename,
+                                                 std::string out_filename,
                                                  int key) {
-  fileText = "";
-  if (ReadFile(myFileInName)) {
-    fileText = cipher.Encrypt(fileText, key);
-    WriteFile(myFileOutName);
+  filetext_ = "";
+  if (ReadFile(in_filename)) {
+    filetext_ = cipher_.Encrypt(filetext_, key);
+    WriteFile(out_filename);
   }
-  return fileText;
+  return filetext_;
 }
 
-bool CaesarCipherApplication::ReadFile(std::string myFileInName) {
-  std::ifstream fileIn(myFileInName);
-  if (!fileIn.is_open()) {
+bool CaesarCipherApplication::ReadFile(std::string in_filename) {
+  std::ifstream in_file(in_filename);
+  if (!in_file.is_open()) {
     return false;
   } else {
-    fileText.assign((std::istreambuf_iterator<char>(fileIn.rdbuf())),
+    filetext_.assign((std::istreambuf_iterator<char>(in_file.rdbuf())),
                     std::istreambuf_iterator<char>());
-    fileIn.close();
+    in_file.close();
   }
   return true;
 }
 
-void CaesarCipherApplication::WriteFile(std::string myFileOutName) {
-  std::ofstream fileOut(myFileOutName);
-  fileOut << fileText;
-  fileOut.close();
+void CaesarCipherApplication::WriteFile(std::string out_filename) {
+  std::ofstream out_file(out_filename);
+  out_file << filetext_;
+  out_file.close();
 }
 
