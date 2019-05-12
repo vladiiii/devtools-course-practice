@@ -1,6 +1,8 @@
 // Copyright 2019 Vikhrev Ivan
 
 #include <gtest/gtest.h>
+#include <vector>
+#icnlude <string>
 #include "include/InterpolationSearchApplication.h"
 
 class InterpolationSearchApplicationTest
