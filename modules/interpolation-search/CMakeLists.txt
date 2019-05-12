@@ -17,3 +17,8 @@ add_subdirectory(application)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/test/test_data.txt
 DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/test)
 
+#############################################
+##### Testing
+#############################################
+
+include("CTestTests.txt")

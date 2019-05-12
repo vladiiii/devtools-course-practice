@@ -46,7 +46,7 @@ TEST_F(InterpolationSearchApplicationTest,
 TEST_F(InterpolationSearchApplicationTest,
            print_error_message_when_cant_open_file) {
     // Arrange
-    std::vector<std::string> args = {"dadsd", "14", "1"};
+    std::vector<std::string> args = {"wrong_path.txt", "14", "1"};
     std::string output = "Can't open file\n";
     // Act
     Act(args);
@@ -59,6 +59,17 @@ TEST_F(InterpolationSearchApplicationTest,
     // Arrange
     std::vector<std::string> args = { "test_data.txt", "14", "1" };
     std::string output = "Index of required number is 1\n";
+    // Act
+    Act(args);
+    // Assert
+    Assert(output);
+}
+
+TEST_F(InterpolationSearchApplicationTest,
+    print_message_when_cant_find_number) {
+    // Arrange
+    std::vector<std::string> args = { "test_data.txt", "14", "5" };
+    std::string output = "Required number isn't found\n";
     // Act
     Act(args);
     // Assert
