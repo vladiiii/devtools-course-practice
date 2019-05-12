@@ -36,7 +36,7 @@ bool BitArrayApplication::ValidateArguments(int argc, const char** argv) {
     return true;
 }
 
-char parseOperation(const char* arg) {
+char ParseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "c") == 0) {
         op = 'c';
@@ -59,9 +59,9 @@ std::string BitArrayApplication::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.type_data = parseOperation(argv[1]);
+        args.type_data = ParseOperation(argv[1]);
         args.data = argv[2];
-        args.operation = parseOperation(argv[3]);
+        args.operation = ParseOperation(argv[3]);
         for (int i = 4; i < argc; i++)
             args.set_value.push_back(atoi(argv[i]));
     }
