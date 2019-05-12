@@ -4,7 +4,7 @@
 #include <limits>
 #include "include/complex_number.h"
 
-TEST(Koroleva_Daria_ComplexNumberTest, Can_Create_Equal_ComplexNumber_With_CopyConstructor) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Create_Complex_With_CopyConstructor) {
     // Arrange
     ComplexNumber a(1., 143.);
     // Act
@@ -32,7 +32,7 @@ TEST(Koroleva_Daria_ComplexNumberTest, Cant_Divide_By_Zero) {
     ASSERT_ANY_THROW(a / b);
 }
 
-TEST(Koroleva_Daria_ComplexNumberTest, Can_Correctly_Multiply_Three_ComplexNumbers) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Multiply_Three_ComplexNumbers) {
     // Arrange
     ComplexNumber a(-32., 24.);
     ComplexNumber b(0., -12.);
