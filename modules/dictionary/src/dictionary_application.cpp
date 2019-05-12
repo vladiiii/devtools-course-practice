@@ -3,6 +3,8 @@
 #include "include/dictionary_application.h"
 #include <algorithm>
 #include <iterator>
+#include <string>
+#include <cstring>
 
 std::string DicitonaryApplication::operator()(int argc, const char ** argv) {
     if (ValidateArguments(argc, argv)) {
@@ -64,7 +66,7 @@ bool DicitonaryApplication::ValidateArguments(
         return false;
     }
     const char* itOp = nullptr;
-    size_t indexOperation = 0;
+    int indexOperation = 0;
     for (; indexOperation != argc; indexOperation++) {
         if (strcmp(argv[indexOperation], "-s") == 0
         || strcmp(argv[indexOperation], "-smin") == 0
@@ -74,7 +76,7 @@ bool DicitonaryApplication::ValidateArguments(
         }
     }
     if (itOp) {
-        size_t i = 1;
+        int i = 1;
         while (i < indexOperation) {
             try {
                 dict_.Insert(Word(argv[i], std::stoi(argv[i + 1])));
