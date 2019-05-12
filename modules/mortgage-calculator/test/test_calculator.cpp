@@ -66,5 +66,5 @@ TEST_F(CalculatorTest, Can_Calculate_Final_Amount) {
 
     Act(args);
 
-    Assert("879.000000");
+    Assert("879");
 }
