@@ -4,7 +4,7 @@
 #include <limits>
 #include "include/complex_number.h"
 
-TEST(Koroleva_Daria_ComplexNumberTest, constructor_complexnumber_is_OK) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Create_Equal_ComplexNumber_With_CopyConstructor) {
     // Arrange
     ComplexNumber a(1., 143.);
     // Act
@@ -13,7 +13,7 @@ TEST(Koroleva_Daria_ComplexNumberTest, constructor_complexnumber_is_OK) {
     EXPECT_EQ(a, b);
 }
 
-TEST(Koroleva_Daria_ComplexNumberTest, can_divide_by_small_number) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Divide_By_Small_Number) {
     // Arrange
     const double eps = std::numeric_limits<double>::epsilon();
     ComplexNumber a(-32., 143.);
@@ -23,7 +23,7 @@ TEST(Koroleva_Daria_ComplexNumberTest, can_divide_by_small_number) {
     ASSERT_NO_THROW(a/b);
 }
 
-TEST(Koroleva_Daria_ComplexNumberTest, cant_divide_by_zero) {
+TEST(Koroleva_Daria_ComplexNumberTest, Cant_Divide_By_Zero) {
     // Arrange
     ComplexNumber a(-32., 24.);
     ComplexNumber b(0., 0.);
@@ -32,7 +32,7 @@ TEST(Koroleva_Daria_ComplexNumberTest, cant_divide_by_zero) {
     ASSERT_ANY_THROW(a / b);
 }
 
-TEST(Koroleva_Daria_ComplexNumberTest, can_correctly_multiply_three_complex_) {
+TEST(Koroleva_Daria_ComplexNumberTest, Can_Correctly_Multiply_Three_ComplexNumbers) {
     // Arrange
     ComplexNumber a(-32., 24.);
     ComplexNumber b(0., -12.);
