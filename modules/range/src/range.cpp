@@ -6,8 +6,8 @@
 #include <cstring>
 #include <string>
 
-Range::Range(const char *str) {
-    int size = strlen(str) - 1;
+Range::Range(std::string str) {
+    int size = strlen(str.c_str()) - 1;
 
     if (str[0] != '[')
         if (str[0] != '(')
@@ -73,7 +73,7 @@ void Range::GetAllPoints() {
     std::cout << "}" << std::endl;
 }
 
-bool Range::ContainsRange(const char *str) {
+bool Range::ContainsRange(std::string str) {
     Range tmp(str);
 
     if (tmp.interval_[1] >= interval_[1] && tmp.interval_[2] <= interval_[2])
@@ -86,7 +86,7 @@ void Range::EndPoints() {
     std::cout << "{" << interval_[1] << ", " << interval_[2] << "}";
 }
 
-bool Range::OverlapsRange(const char *str) {
+bool Range::OverlapsRange(std::string str) {
     Range tmp(str);
 
     if (tmp.interval_[1] > interval_[2] || tmp.interval_[2] < interval_[1])

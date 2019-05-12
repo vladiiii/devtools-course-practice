@@ -3,19 +3,21 @@
 #ifndef MODULES_RANGE_INCLUDE_RANGE_H_
 #define MODULES_RANGE_INCLUDE_RANGE_H_
 
+#include <array>
+
 class Range {
  private:
-     int interval_[4];
+     std::array<int, 4> interval_;
 
  public:
-     explicit Range(const char *str);
+     explicit Range(std::string str);
      Range(const Range& obj);
 
      bool IntegerRangeContains(int* arr, int size);
      void GetAllPoints();
-     bool ContainsRange(const char *str);
+     bool ContainsRange(std::string str);
      void EndPoints();
-     bool OverlapsRange(const char *str);
+     bool OverlapsRange(std::string str);
 
      bool operator==(const Range obj) const;
      bool operator!=(const Range obj) const;
