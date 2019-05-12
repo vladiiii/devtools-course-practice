@@ -34,7 +34,8 @@ int ParseInt(const char* arg) {
     return value;
 }
 
-bool SearchBinaryApplication::ValidateNumberOfArguments(int argc, const char** argv) {
+bool SearchBinaryApplication::ValidateNumberOfArguments(int argc, 
+                                                        const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
@@ -47,15 +48,15 @@ bool SearchBinaryApplication::ValidateNumberOfArguments(int argc, const char** a
             return false;
         }
         if (argc != size + 3) {
-            Help(argv[0], "ERROR: Check count of arguments and size of entered array.\n\n");
+            Help(argv[0],
+			"ERROR: Check count of arguments and size of entered array.\n\n");
             return false;
-        }   
+        }
     }
     try {
         item = ParseInt(argv[2]);
     }
-    catch(std::string& str)
-    {
+    catch(std::string& str) {
         Help(argv[0], "Wrong number format in item!");
         return false;
     }
@@ -72,36 +73,34 @@ bool CheckSort(const int size, const int* array) {
         return true;
     else
         return false;
-
 }
 
 std::string SearchBinaryApplication::operator()(int argc, const char** argv) {
     std::ostringstream stream;
-    
+
     if (!ValidateNumberOfArguments(argc, argv)) {
         return message_;
     }
-    
+
     if (size < 1) {
         message_ = "ERROR: Size must be >= 1";
         return message_;
     }
-        
+
     array = new int[size];
-    
-    try {  
+
+    try {
         for (int i = 0; i < size; i++) {
             array[i] = ParseInt(argv[i + 3]);
         }
-    }
-    catch(std::string& str) {
+    } catch(std::string& str) {
         delete[] array;
         return str;
     }
-    
+
     if (CheckSort(size, array)) {
         double result;
-		SearchBinary sb;
+        SearchBinary sb;
         result = sb.Search(item, array, size);
         if (result == -1) {
             stream << "Item not found";
