@@ -76,7 +76,6 @@ bool CheckSort(const int size, const int* array) {
 }
 
 std::string SearchBinaryApplication::operator()(int argc, const char** argv) {
-    double result;
     std::ostringstream stream;
     
     if (!ValidateNumberOfArguments(argc, argv)) {
@@ -101,7 +100,8 @@ std::string SearchBinaryApplication::operator()(int argc, const char** argv) {
     }
     
     if (CheckSort(size, array)) {
-        SearchBinary sb;
+        double result;
+		SearchBinary sb;
         result = sb.Search(item, array, size);
         if (result == -1) {
             stream << "Item not found";
