@@ -9,25 +9,25 @@
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <conio.h>
 
 RomaNumberConverter::RomaNumberConverter() : message_("") {}
 
-void RomaNumberConverter::help(const char* message) {
-	message_ =
-		std::string(message) +
-		"This is a roma number converter application.\n\n" +
-		"Please provide arguments in the following format:\n\n" +
-
-		"  $ " + " <roma_number> or <araqbic number> " +
-
-		"Where argument is ineger number or roma number \n";
+std::string RomaNumberConverter::Help(const char* appname) {
+	return "This is application for roma number converter.\n"
+		"Usage:\n"
+		"Enter positive integer arabic or roma number.\n";
 }
 
-bool RomaNumberConverter::validateNumberOfArguments(int argc, const char** argv) {
-	if (argc != 1) {
-		help("ERROR: Should be 1 argument.\n\n");
+
+bool RomaNumberConverter::validateNumberOfArguments(int argc, const char** argv) {//
+	if (argc != 2) {
 		return false;
 	}
+	
+	if (!(converter_.IsArabStringCorrect(argv[1]) ||
+		converter_.IsRomaStringCorrect(argv[1])))
+		return false;
 
 	return true;
 }
@@ -41,7 +41,7 @@ std::string RomaNumberConverter::operator()(int argc, const char** argv) {
 	std::ostringstream stream;
 
 	if (!validateNumberOfArguments(argc, argv)) {
-		return message_;
+		return Help("");
 	}
 
 	if (converter.IsArabStringCorrect(argv[1])) {
@@ -53,8 +53,7 @@ std::string RomaNumberConverter::operator()(int argc, const char** argv) {
 		}
 		stream << "Roma number is " << converter.GetRoma() << std::endl;
 	}
-
-	if (converter.IsRomaStringCorrect(argv[1])) {
+    else if (converter.IsRomaStringCorrect(argv[1])) {
 		try {
 			converter.RomaToArab(std::string(argv[1]));
 		}

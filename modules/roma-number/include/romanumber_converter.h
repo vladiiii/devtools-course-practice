@@ -4,6 +4,7 @@
 #define MODULES_ROMA_NUMBER_INCLUDE_ROMANUMBER_CONVERTER_H_
 
 #include <string>
+#include "include/romanumber.h"
 
 class RomaNumberConverter {
 public:
@@ -11,8 +12,9 @@ public:
 	std::string operator()(int argc, const char** argv);
 
 private:
-	void help(const char* message = "");
+	std::string Help(const char* appname);
 	bool validateNumberOfArguments(int argc, const char** argv);
+	RomaNumber converter_;
 	std::string message_;
 	std::string value_;
 };
