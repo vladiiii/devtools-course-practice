@@ -70,7 +70,7 @@ TEST_F(DHeapAppTest, Can_Sort_DHeap) {
 
     Act(args);
 
-    Assert("Weight = 1 2 3 4");
+    Assert("Weight = 1 2 3 4 ");
 }
 
 TEST_F(DHeapAppTest, Can_Find_Minimum_In_DHeap) {
