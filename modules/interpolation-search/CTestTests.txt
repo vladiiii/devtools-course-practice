@@ -11,3 +11,39 @@ add_test(
 
 set_tests_properties (${prefix}_Can_Run PROPERTIES
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Print_Help_Mesasge_With_Empty_Arguments_Line
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_Can_Print_Help_Mesasge_With_Empty_Arguments_Line PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a demo app for demonstrating interpolation search.\\..*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Print_Error_Mesasge_When_Cant_Open_File
+    COMMAND ${APPLICATION} path.txt 14 1
+)
+
+set_tests_properties (${prefix}_Can_Print_Error_Mesasge_When_Cant_Open_File PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't open file\\..*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Print_Index_When_Find_Number
+    COMMAND ${APPLICATION} test_data.txt 14 1
+)
+
+set_tests_properties (${prefix}_Can_Print_Index_When_Find_Number PROPERTIES
+    PASS_REGULAR_EXPRESSION "Index of required number is 1\\..*"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Print_Index_When_Find_Number
+    COMMAND ${APPLICATION} test_data.txt 14 5
+)
+
+set_tests_properties (${prefix}_Can_Print_Index_When_Find_Number PROPERTIES
+    PASS_REGULAR_EXPRESSION "Required number isn't found\\..*"
+    LABELS "${MODULE}")

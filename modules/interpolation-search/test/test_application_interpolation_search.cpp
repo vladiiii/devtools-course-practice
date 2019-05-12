@@ -28,7 +28,7 @@ class InterpolationSearchApplicationTest
 
 
 TEST_F(InterpolationSearchApplicationTest,
-         print_help_mesasge_with_empty_input) {
+         print_help_mesasge_with_empty_arguments) {
     // Arrange
     std::vector<std::string> args = {};
     std::string output =
@@ -46,7 +46,7 @@ TEST_F(InterpolationSearchApplicationTest,
 TEST_F(InterpolationSearchApplicationTest,
            print_error_message_when_cant_open_file) {
     // Arrange
-    std::vector<std::string> args = {"wrong_path.txt", "14", "1"};
+    std::vector<std::string> args = {"path.txt", "14", "1"};
     std::string output = "Can't open file\n";
     // Act
     Act(args);
