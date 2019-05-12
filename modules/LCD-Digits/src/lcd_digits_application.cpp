@@ -23,12 +23,11 @@ std::string LCDDigitsApplication::operator()(int argc, const char** argv) {
                 message_ = "";
                 Help(argv[0]);
                 message_ = str + message_;
-                return message_;
+                break;
             }
         }
     } else {
         Help(argv[0]);
-        return message_;
     }
     return message_;
 }
