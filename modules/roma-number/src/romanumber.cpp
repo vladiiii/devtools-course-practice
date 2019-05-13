@@ -108,7 +108,7 @@ RomaNumber::RomaNumber(std::string ro) {
 }
 
 bool RomaNumber::IsRomaStringCorrect(const std::string ro) const {
-	for (int i = 0; ro[i] != '\0'; ++i) {
+    for (int i = 0; ro[i] != '\0'; ++i) {
         bool flag = (ro[i] == 'I' || ro[i] == 'V' ||
             ro[i] == 'X' || ro[i] == 'L' ||
             ro[i] == 'C' || ro[i] == 'D' ||
@@ -120,7 +120,7 @@ bool RomaNumber::IsRomaStringCorrect(const std::string ro) const {
 }
 
 bool RomaNumber::IsArabStringCorrect(const std::string ar) const {
-	for (int i = 0; ar[i] != '\0'; i++) {
+    for (int i = 0; ar[i] != '\0'; i++) {
         bool flag = (ar[i] == '0' || ar[i] == '1' ||
             ar[i] == '2' || ar[i] == '3' ||
             ar[i] == '4' || ar[i] == '5' ||
