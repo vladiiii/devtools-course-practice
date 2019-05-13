@@ -7,11 +7,11 @@
 #include "include/romanumber.h"
 
 class RomaNumberConverter {
-public: 
+ public:
     RomaNumberConverter();
     std::string operator()(int argc, const char** argv);
 
-private: 
+ private:
     std::string Help(const char* appname);
     bool validateNumberOfArguments(int argc, const char** argv);
     RomaNumber converter_;
