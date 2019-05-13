@@ -52,7 +52,7 @@ std::string RomaNumber::RomaConvert(int n, int rank) {
 }
 
 void RomaNumber::ArabToRoma(int ar) {
-    if (ar < 1 || ar > 3999)
+    if (ar < 0 || ar > 3999)
         throw "Wrong number";
     arabic_ = ar;
     roma_ = "";
