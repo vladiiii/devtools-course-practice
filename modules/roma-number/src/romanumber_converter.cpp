@@ -19,11 +19,12 @@ std::string RomaNumberConverter::Help(const char* appname) {
 }
 
 
-bool RomaNumberConverter::validateNumberOfArguments(int argc, const char** argv) {//
+bool RomaNumberConverter::validateNumberOfArguments(int argc,
+	                                         const char** argv) {
     if (argc != 2) {
         return false;
     }
-    
+
     if (!(converter_.IsArabStringCorrect(argv[1]) ||
         converter_.IsRomaStringCorrect(argv[1])))
         return false;
@@ -51,8 +52,7 @@ std::string RomaNumberConverter::operator()(int argc, const char** argv) {
             return str;
         }
         stream << "Roma number is " << converter.GetRoma() << std::endl;
-    }
-    else if (converter.IsRomaStringCorrect(argv[1])) {
+    } else if (converter.IsRomaStringCorrect(argv[1])) {
         try {
             converter.RomaToArab(std::string(argv[1]));
         }
