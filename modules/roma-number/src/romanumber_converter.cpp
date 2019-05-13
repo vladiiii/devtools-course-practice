@@ -20,7 +20,7 @@ std::string RomaNumberConverter::Help(const char* appname) {
 
 
 bool RomaNumberConverter::validateNumberOfArguments(int argc,
-	                                         const char** argv) {
+                                             const char** argv) {
     if (argc != 2) {
         return false;
     }
