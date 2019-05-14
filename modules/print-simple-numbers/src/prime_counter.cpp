@@ -15,7 +15,7 @@ PrimeCounter::PrimeCounter() : message_("") {}
 void PrimeCounter::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-          "This is a simple printer of prime numbersn.\n\n" +
+          "This is a simple printer of prime numbers.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <left_boundary> " +
@@ -43,7 +43,7 @@ int parseInt(const char* arg) {
     iss >> number;
 
     if (number < 0) {
-        throw std::string("Wrong number format");
+        throw std::string("Wrong number format.");
     }
 
     return number;
