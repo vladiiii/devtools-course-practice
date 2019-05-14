@@ -20,4 +20,4 @@ class PrimeCounter {
     } Arguments;
 };
 
-#endif  // MODULES_PRIME_PRINTER_INCLUDE_PRIME_PRINTER_H_
+#endif  // MODULES_PRINT_SIMPLE_NUMBERS_INCLUDE_PRIME_COUNTER_H_
