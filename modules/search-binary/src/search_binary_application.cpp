@@ -17,10 +17,8 @@ void SearchBinaryApplication::Help(const char* appname, const char* message) {
         std::string(message) +
           "This is a binary search application.\n" +
           "Please provide arguments in the following format:\n\n"+
-
           "  $ " + appname + " <size of array> " +
           "<item> " + "<array>\n\n" +
-
           "Warning!" +
           " All arguments are integers. The array must be sorted.\n";
 }
