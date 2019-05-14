@@ -43,7 +43,7 @@ int parseInt(const char* arg) {
     iss >> number;
 
     if (number < 0) {
-        throw std::string("Wrong number format.");
+        throw std::string("Wrong number format!");
     }
 
     return number;
