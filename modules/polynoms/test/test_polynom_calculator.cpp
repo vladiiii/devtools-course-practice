@@ -8,6 +8,7 @@
 
 #include "include/monom.h"
 #include "include/polynom.h"
+#include "include\polynoms_calculator.h"
 
 using std::map;
 
@@ -495,7 +496,6 @@ TEST(PolynomTest, Add_Different_Monom) {
     EXPECT_EQ(p, p1);
 }
 
-
 TEST(PolynomTest, Add_Same_Monom) {
     // Arrange
     map<char, double> vars1{
@@ -518,3 +518,78 @@ TEST(PolynomTest, Add_Same_Monom) {
     // Assert
     EXPECT_EQ(p_res, p1);
 }
+
+TEST(PolynomTest, Calculator_Check_Summ) {
+    // Arrange
+    PolynomsCalculator calc;
+    std::string p = "(2x^1) + (2y^1) + (-3z^1)";
+    std::string arg1 = "2.0x";
+    std::string arg2 = "2.0y-3z";
+
+    // Act
+    std::string res = calc.calculate(arg1,arg2,std::string("+"));
+
+    // Assert
+    EXPECT_EQ(res, p);
+}
+
+TEST(PolynomTest, Calculator_Check_Subt) {
+    // Arrange
+    PolynomsCalculator calc;
+    std::string p = "(1t^1x^3) + (-7s^2z^1)";
+    std::string arg1 = "2.0x^3t-4zs^2";
+    std::string arg2 = "x^3t+3zs^2";
+
+    // Act
+    std::string res = calc.calculate(arg1, arg2, std::string("-"));
+
+    // Assert
+    EXPECT_EQ(res, p);
+}
+
+TEST(PolynomTest, Calculator_Check_Multiplication) {
+    // Arrange
+    PolynomsCalculator calc;
+    std::string p = "(9x^2y^1) + (-9x^2z^1)";
+    std::string arg1 = "3.0x^2";
+    std::string arg2 = "3.0y-3z";
+
+    // Act
+    std::string res = calc.calculate(arg1, arg2, std::string("*"));
+
+    // Assert
+    EXPECT_EQ(p,res);
+}
+
+TEST(PolynomTest, Check_Brackets_Operator_Correct) {
+    // Arrange
+    PolynomsCalculator calc;
+    std::string p = "(9x^2y^1) + (-9x^2z^1)";
+    std::vector<const char*> v;
+    v.push_back("3.0x^2");
+    v.push_back("3.0y-3.0z");
+    v.push_back("*");
+   
+    // Act
+    std::string res = calc(3,&v.front());
+
+    // Assert
+    EXPECT_EQ(p, res);
+}
+
+TEST(PolynomTest, Check_Brackets_Operator_Incorrect) {
+    // Arrange
+    PolynomsCalculator calc;
+    std::string p = "Incorrect input.";
+    std::vector<const char*> v;
+    v.push_back("3.0x^2%^*");
+    v.push_back("3.0y-3.0z");
+    v.push_back("*");
+
+    // Act
+    std::string res = calc(3, &v.front());
+
+    // Assert
+    EXPECT_EQ(p, res);
+}
+
