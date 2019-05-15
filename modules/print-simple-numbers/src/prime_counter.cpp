@@ -22,8 +22,8 @@ void PrimeCounter::help(const char* appname, const char* message) {
           "<right_boundary>\n\n" +
 
           "Where all arguments are integer numbers, \n"
-		  
-		  "but it rather robust to parse double parameter\n";
+
+          "but it rather robust to parse double parameter\n";
 }
 
 bool PrimeCounter::validateNumberOfArguments(int argc, const char** argv) {
@@ -39,7 +39,7 @@ bool PrimeCounter::validateNumberOfArguments(int argc, const char** argv) {
 
 int parseInt(const char* arg) {
     int number;
-    std::istringstream iss (arg);
+    std::istringstream iss(arg);
     iss >> number;
 
     if (number < 0) {
@@ -64,14 +64,14 @@ std::string PrimeCounter::operator()(int argc, const char** argv) {
     }
 
     SimpleNumbers check_eng;
-    
-	int res = check_eng.SizeOfArray(args.left_boundary, args.right_boundary);
-	
+
+    int res = check_eng.SizeOfArray(args.left_boundary, args.right_boundary);
+
     std::ostringstream stream;
-	
-	stream << "Count of prime numbers between " << args.left_boundary << " and  "
+
+    stream << "Count of prime numbers between " << args.left_boundary << " and  "
                << args.right_boundary << " equal " << res;
-    
+
     message_ = stream.str();
 
     return message_;
