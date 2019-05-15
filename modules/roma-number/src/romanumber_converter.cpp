@@ -45,23 +45,19 @@ std::string RomaNumberConverter::operator()(int argc, const char** argv) {
     }
 
     if (converter.IsArabStringCorrect(argv[1])) {
-        try {
-            converter.ArabToRoma(atoi(argv[1]));
-        }
-        catch (std::string& str) {
-            return str;
-        }
+        
+	    converter.ArabToRoma(atoi(argv[1]));
+        
         stream << "Roma number is " << converter.GetRoma() << std::endl;
-    } else if (converter.IsRomaStringCorrect(argv[1])) {
-        try {
-            converter.RomaToArab(std::string(argv[1]));
-        }
-        catch (std::string& str) {
-            return str;
-        }
+    } 
+	else if (converter.IsRomaStringCorrect(argv[1])) {
+        
+        converter.RomaToArab(std::string(argv[1]));
+        
         stream << "Arabic number is " << converter.GetArabic() << std::endl;
     }
-    message_ = stream.str();
+    
+	message_ = stream.str();
 
     return message_;
 }
