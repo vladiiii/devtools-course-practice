@@ -7,7 +7,7 @@ Queue::Queue(int s) {
         throw "Queue size < 1";
     tail_ = -1;
     head_ = -1;
-    pq_ = new int[s];
+    pq_.resize(s);
     size_ = s;
     count_ = 0;
 }
@@ -17,20 +17,14 @@ Queue::Queue(const Queue &q) {
     head_ = q.head_;
     size_ = q.size_;
     count_ = q.count_;
-    pq_ = new int[size_];
-    for (int i = 0; i < size_; i++)
-        pq_[i] = q.pq_[i];
-}
-
-Queue::~Queue() {
-    delete[]pq_;
+    pq_ = q.pq_;
 }
 
 void Queue::Put(int val) {
     if (count_ == size_)
         throw "No space";
     tail_ = GetNextIndex(tail_);
-    pq_[tail_] = val;
+    pq_.at(tail_) = val;
     count_++;
 }
 

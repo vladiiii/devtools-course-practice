@@ -4,12 +4,13 @@
 #define MODULES_QUEUE_INCLUDE_QUEUE_H_
 
 #include <iostream>
+#include <vector>
 
 class Queue {
  private:
     int tail_;
     int head_;
-    int * pq_;
+    std::vector<int> pq_;
     int size_;
     int count_;
 
@@ -18,7 +19,6 @@ class Queue {
  public:
     explicit  Queue(int s);
     Queue(const Queue &q);
-    ~Queue();
 
     void Put(int val);
     int Get();
