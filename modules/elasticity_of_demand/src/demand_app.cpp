@@ -99,7 +99,6 @@ std::string DemandApp::operator()(int argc, const char** argv) {
 
     ElasticityOfDemand obj;
 
-    double res;
     std::ostringstream stream;
     switch (args.operation) {
      case 1:
