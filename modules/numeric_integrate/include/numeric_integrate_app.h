@@ -18,7 +18,7 @@ class NumericIntegrateApp {
         double a;
         double b;
         int n;
-        int method;
+        std::string method;
     } Arguments;
 };
 

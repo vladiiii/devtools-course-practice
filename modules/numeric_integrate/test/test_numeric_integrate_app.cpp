@@ -52,7 +52,7 @@ TEST_F(NumericIntegrateAppTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Number_Format_1) {
-    std::vector<std::string> args = {"1", "pi", "64", "1"};
+    std::vector<std::string> args = {"1", "pi", "64", "rectangle"};
 
     Act(args);
 
@@ -60,7 +60,7 @@ TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Number_Format_1) {
 }
 
 TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Number_Format_2) {
-    std::vector<std::string> args = {"1", "2", "pi", "1"};
+    std::vector<std::string> args = {"1", "2", "pi", "rectangle"};
 
     Act(args);
 
@@ -68,7 +68,7 @@ TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Number_Format_2) {
 }
 
 TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Method_Format) {
-    std::vector<std::string> args = {"1", "2", "64", "6"};
+    std::vector<std::string> args = {"1", "2", "64", "com"};
 
     Act(args);
 
@@ -76,7 +76,7 @@ TEST_F(NumericIntegrateAppTest, Can_Detect_Wrong_Method_Format) {
 }
 
 TEST_F(NumericIntegrateAppTest, Can_Use_Rectangle_Method) {
-    std::vector<std::string> args = {"1", "2", "5", "1"};
+    std::vector<std::string> args = {"1", "2", "5", "rectangle"};
 
     Act(args);
 
@@ -84,7 +84,7 @@ TEST_F(NumericIntegrateAppTest, Can_Use_Rectangle_Method) {
 }
 
 TEST_F(NumericIntegrateAppTest, Can_Use_Trapezium_Method) {
-    std::vector<std::string> args = {"1", "2", "5", "2"};
+    std::vector<std::string> args = {"1", "2", "5", "trapezium"};
 
     Act(args);
 

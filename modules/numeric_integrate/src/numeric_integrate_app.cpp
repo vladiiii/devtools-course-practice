@@ -16,15 +16,17 @@ void NumericIntegrateApp::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
           "This is a numeric integrate application.\n\n" +
+          "The application numeric integrate in two ways: " +
+          "rectangle and trapezium.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <a> <b> " +
           "<n> <method>\n\n" +
 
           "Where all arguments are double-precision numbers and integers, " +
-          "where <method> :\n" +
-          "1 - Rectangle\n" +
-          "2 - Trapezium\n";
+          "and string type <method> :\n" +
+          "rectangle - Rectangle numeric integrate\n" +
+          "trapezium - Trapezium numeric integrate\n";
 }
 
 bool NumericIntegrateApp::ValidateNumberOfArguments(int argc,
@@ -62,11 +64,11 @@ int ParseInt(const char* arg) {
 }
 
 int ParseMethod(const char* arg) {
-    int m;
-    if (strcmp(arg, "1") == 0) {
-        m = 1;
-    } else if (strcmp(arg, "2") == 0) {
-        m = 2;
+    std::string m;
+    if (strcmp(arg, "rectangle") == 0) {
+        m = "rectangle";
+    } else if (strcmp(arg, "trapezium") == 0) {
+        m = "trapezium";
     } else {
         throw std::string("Wrong method format!");
     }
