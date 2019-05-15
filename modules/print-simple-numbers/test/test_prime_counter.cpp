@@ -6,11 +6,6 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
-
-
 
 using ::testing::internal::RE;
 using std::vector;
