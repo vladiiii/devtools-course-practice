@@ -99,8 +99,6 @@ add_test(
     COMMAND ${APPLICATION} ::..
 )
 
-set_tests_properties (${prefix}_Throws_On_Single_Invalid_String_With_Symbols PROPERTIES
-    PASS_REGULAR_EXPRESSION "        \n
-                             . .     \n
-                             . . . . \n\n"
+set_tests_properties (${prefix}_Printing_Without_Digits_Is_Correct PROPERTIES
+    PASS_REGULAR_EXPRESSION "        \n. .     \n. . . . \n\n"
     LABELS "${MODULE}")
