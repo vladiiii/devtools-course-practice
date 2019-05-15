@@ -6,20 +6,21 @@
 #include <string>
 #include <vector>
 
+#include "include/fibonacci_heap.h"
+
 class FibonacciHeapApplication {
  public:
     FibonacciHeapApplication();
     std::string operator()(int argc, const char** argv);
-    
+
  private:
-    void help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
+    void Help(const char* appname, const char* message = "");
+    bool valNumOfArg(int argc, const char** argv);
     std::string message_;
     typedef struct {
         std::vector<int> weights_;
         char operation_;
     } Arguments;
 };
-};
 
-#endif  // MODULES_DHEAP_INCLUDE_DHEAP_APPLICATION_H_
+#endif  // MODULES_FIBONACCI_HEAP_INCLUDE_FIBONACCI_HEAP_APPLICATION_H__

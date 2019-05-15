@@ -81,7 +81,7 @@ TEST_F(FibonacciHeapApplicationTest, Can_Find_Min_In_Heap) {
 
 TEST_F(FibonacciHeapApplicationTest, Can_Find_Elem_For_Key_In_Heap) {
     // Arrange
-    std::vector<std::string> args = {"find", "1", "1", "3"};
+    std::vector<std::string> args = {"find", "1", "1", "2"};
 
     // Act
     Act(args);

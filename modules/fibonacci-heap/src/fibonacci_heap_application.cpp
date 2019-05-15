@@ -12,21 +12,20 @@
 
 FibonacciHeapApplication::FibonacciHeapApplication() : message_("") {}
 
-void FibonacciHeapApplication::help(const char* appname, const char* message) {
+void FibonacciHeapApplication::Help(const char* appname, const char* message) {
     message_ =
-        std::string(message) +
-          "This is a fibonacci heap application.\n\n" +
-          "Please provide arguments in the following format:\n\n"+
-
-          "  $ " + appname + "<operation> <find_elem> <val1> ...\n\n" +
-
-          "Where all arguments are int numbers, " +
-          "and <operation> is one of 'min', 'find', 'merge', and find_elem - number for operation find.\n";
+    std::string(message) +
+    "This is a fibonacci heap application.\n\n" +
+    "Please provide arguments in the following format:\n\n"+
+    "  $ " + appname + "<operation> <find_elem> <val1> ...\n\n" +
+    "Where all arguments are int numbers, " +
+    "and <operation> is one of 'min', 'find', 'merge',"
+    + "find_el - number in operation find.\n";
 }
 
-bool FibonacciHeapApplication::validateNumberOfArguments(int argc, const char** argv) {
+bool FibonacciHeapApplication::valNumOfArg(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
+        Help(argv[0]);
         return false;
     } else if (argc < 4) {
         Help(argv[0], "ERROR: There must be at least 4 arguments.\n\n");
@@ -51,16 +50,18 @@ char ParseOperation(const char* arg) {
 
 std::string FibonacciHeapApplication::operator()(int argc, const char** argv) {
     Arguments args;
-    int find_el;
+    int find_el, size_v = 0;
 
-    if (!validateNumberOfArguments(argc, argv)) {
+    if (!valNumOfArg(argc, argv)) {
         return this->message_;
     }
     try {
         args.operation_ = ParseOperation(argv[1]);
-        find_elem = argv[2];
-        for (int i = 3; i < argc; i++)
+        find_el = atoi(argv[2]);
+        for (int i = 3; i < argc; i++) {
             args.weights_.push_back(atoi(argv[i]));
+            size_v++;
+        }
     }
     catch(std::string& str) {
         return str;
@@ -68,30 +69,30 @@ std::string FibonacciHeapApplication::operator()(int argc, const char** argv) {
 
     FibonacciHeap h1, h2;
     Node *tmp = nullptr;
-    
+
     std::ostringstream stream;
-    
+
     switch (args.operation_) {
      case 'm':
-        for (int i = 0; i < args.weights_.size(); ++i) {
+        for (int i = 0; i < size_v; ++i) {
              h1.Insert(args.weights_[i]);
         }
-        stream << "Min = " << h.GetMinimum();
+        stream << "Min = " << h1.GetMinimum();
         break;
      case 'f':
-         for (int i = 0; i < args.weights_.size(); ++i) {
+         for (int i = 0; i < size_v; ++i) {
              h1.Insert(args.weights_[i]);
         }
-        tmp = h.Find(find_elem);
+        tmp = h1.Find(find_el);
         if (tmp != nullptr) {
-        stream << find_elem << "is found in heap";
+        stream << find_el << " is found in heap";
         } else {
-        stream << find_elem << "not found in heap";
+        stream << find_el << " not found in heap";
         }
         break;
      case 'M':
-        for (int i = 0; i < args.weights_.size(); ++i) {
-             h2.Insert(args.weights_[i]);
+        for (int i = 0; i < size_v; ++i) {
+             h1.Insert(args.weights_[i]);
         }
         h1.Merge(h2);
         if (!h1.IsEmpty()) {
