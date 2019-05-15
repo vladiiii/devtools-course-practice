@@ -103,19 +103,17 @@ std::string DemandApp::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     switch (args.operation) {
      case 1:
-        res = obj.PriceElasticityOfDemand(args.quantity1,
+        stream << "Result = " << obj.PriceElasticityOfDemand(args.quantity1,
             args.quantity2, args.price1, args.price2);
-        stream << "Result = " << res;
         break;
      case 2:
-        res = obj.IncomeElasticityOfDemand(args.quantity1,
+        stream << "Result = " << obj.IncomeElasticityOfDemand(args.quantity1,
             args.quantity2, args.income1, args.income2);
-        stream << "Result = " << res;
         break;
      case 3:
-        res = obj.CrossElasticityOfDemand(args.quantity1,
+        stream << "Result = " << obj.CrossElasticityOfDemand(args.quantity1,
             args.quantity2, args.price1, args.price2);
-        stream << "Result = " << res;
+        break;
     }
 
     message_ = stream.str();
