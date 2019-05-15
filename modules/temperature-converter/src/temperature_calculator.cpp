@@ -77,8 +77,8 @@ std::string TemperatureCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.value      = parseDouble(argv[1]);
-        args.operation    = parseOperation(argv[2]);
+        args.value = parseDouble(argv[1]);
+        args.operation = parseOperation(argv[2]);
     }
     catch(std::string& str) {
         return str;
