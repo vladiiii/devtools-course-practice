@@ -1,11 +1,11 @@
 // Copyright 2019 Gaydaychuk Yuri
 
-#include "include/prime_counter.h"
-
 #include <gtest/gtest.h>
 
 #include <string>
 #include <vector>
+
+#include "include/prime_counter.h"
 
 using ::testing::internal::RE;
 using std::vector;
