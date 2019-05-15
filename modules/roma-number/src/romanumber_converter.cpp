@@ -32,10 +32,6 @@ bool RomaNumberConverter::validateNumberOfArguments(int argc,
     return true;
 }
 
-std::string parseRoma(const char* arg) { return std::string(arg); }
-
-int parseArab(const char* arg) { return atoi(arg); }
-
 std::string RomaNumberConverter::operator()(int argc, const char** argv) {
     RomaNumber converter;
     std::ostringstream stream;
@@ -45,18 +41,17 @@ std::string RomaNumberConverter::operator()(int argc, const char** argv) {
     }
 
     if (converter.IsArabStringCorrect(argv[1])) {
-        
-	    converter.ArabToRoma(atoi(argv[1]));
+
+        converter.ArabToRoma(atoi(argv[1]));
         
         stream << "Roma number is " << converter.GetRoma() << std::endl;
-    } 
-	else if (converter.IsRomaStringCorrect(argv[1])) {
-        
+    }else if (converter.IsRomaStringCorrect(argv[1])) {
+
         converter.RomaToArab(std::string(argv[1]));
-        
+
         stream << "Arabic number is " << converter.GetArabic() << std::endl;
     }
-    
+
 	message_ = stream.str();
 
     return message_;
