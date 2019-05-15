@@ -1,11 +1,11 @@
 // Copyright 2019 Malkin Danil
 
-#include "include\polynoms_calculator.h"
-
 #include <iostream>
 
-int main(int argc, const char** argv){
-    PolynomsCalculator cal;
-    std::cout << cal(argc,&argv[1]);
+#include "include/polynoms_calculator.h"
+
+int main(int argc, const char** argv) {
+    PolynomsCalculator calc;
+    std::cout << calc(argc, argv);
     return 0;
 }
