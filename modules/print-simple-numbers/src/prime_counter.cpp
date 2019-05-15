@@ -1,14 +1,14 @@
 // Copyright 2019 Gaydaychuk Yuri
 
-#include "include/print-simple-numbers.h"
-#include "include/prime_counter.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/print-simple-numbers.h"
+#include "include/prime_counter.h"
 
 PrimeCounter::PrimeCounter() : message_("") {}
 
