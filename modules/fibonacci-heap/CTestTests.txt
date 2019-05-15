@@ -61,9 +61,9 @@ set_tests_properties (${prefix}_Can_Not_Find_Elem_For_Key_In_Heap PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Can_Not_Find_Elem_For_Key_In_Heap
+    NAME ${prefix}_Can_Merge_In_Heap
     COMMAND ${APPLICATION} merge 1 1 2
 )
-set_tests_properties (${prefix}_Can_Not_Find_Elem_For_Key_In_Heap PROPERTIES
+set_tests_properties (${prefix}_Can_Merge_In_Heap PROPERTIES
     PASS_REGULAR_EXPRESSION "Merge successfully"
     LABELS "${MODULE}")

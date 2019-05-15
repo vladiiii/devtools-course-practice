@@ -101,7 +101,7 @@ TEST_F(FibonacciHeapApplicationTest, Can_Not_Find_Elem_For_Key_In_Heap) {
     Assert("1 not found in heap");
 }
 
-TEST_F(FibonacciHeapApplicationTest, Can_Not_Find_Elem_For_Key_In_Heap) {
+TEST_F(FibonacciHeapApplicationTest, Can_Merge_In_Heap) {
     // Arrange
     std::vector<std::string> args = {"merge", "1", "1", "2"};
 
