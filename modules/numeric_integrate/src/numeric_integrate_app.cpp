@@ -23,10 +23,13 @@ void NumericIntegrateApp::Help(const char* appname, const char* message) {
           "  $ " + appname + " <a> <b> " +
           "<n> <method>\n\n" +
 
-          "Where all arguments are double-precision numbers and integers, " +
-          "and string type <method> :\n" +
+          "a and b - the border of integration,\n" +
+          "n - number of partitions.\n" +
+          "method - method numeric integrate, where\n" +
           "rectangle - Rectangle numeric integrate\n" +
           "trapezium - Trapezium numeric integrate\n";
+
+          "Where all arguments are double-precision numbers and integers\n";
 }
 
 bool NumericIntegrateApp::ValidateNumberOfArguments(int argc,
@@ -64,11 +67,11 @@ int ParseInt(const char* arg) {
 }
 
 int ParseMethod(const char* arg) {
-    std::string m;
+    int m;
     if (strcmp(arg, "rectangle") == 0) {
-        m = "rectangle";
+        m = 1;
     } else if (strcmp(arg, "trapezium") == 0) {
-        m = "trapezium";
+        m = 2;
     } else {
         throw std::string("Wrong method format!");
     }
