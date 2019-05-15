@@ -69,7 +69,8 @@ std::string PrimeCounter::operator()(int argc, const char** argv) {
 
     std::ostringstream stream;
 
-    stream << "Count of prime numbers between " << args.left_boundary << " and  "
+    stream << "Count of prime numbers between "
+	           << args.left_boundary << " and  "
                << args.right_boundary << " equal " << res;
 
     message_ = stream.str();

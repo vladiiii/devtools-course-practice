@@ -1,5 +1,7 @@
 // Copyright 2019 Gaydaychuk Yuri
 
+#include "include/prime_counter.h"
+
 #include <gtest/gtest.h>
 
 #include <string>
@@ -8,7 +10,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include/prime_counter.h"
+
 
 using ::testing::internal::RE;
 using std::vector;
