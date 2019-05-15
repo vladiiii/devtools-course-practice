@@ -21,11 +21,11 @@ set_tests_properties (${prefix}_Can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Throws_On_Single_Invalid_String
+    NAME ${prefix}_Throws_On_Single_Invalid_String_With_Letters
     COMMAND ${APPLICATION} 12.AB:2019
 )
 
-set_tests_properties (${prefix}_Throws_On_Single_Invalid_String PROPERTIES
+set_tests_properties (${prefix}_Throws_On_Single_Invalid_String_With_Letters PROPERTIES
     PASS_REGULAR_EXPRESSION "Invalid Symbol"
     LABELS "${MODULE}")
 
@@ -72,4 +72,35 @@ set_tests_properties (${prefix}_Printing_Multiple_Strings_Is_Correct PROPERTIES
                               _     _  \n
                               _|    _| \n
                              |_  .  _| \n\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Printing_All_Available_Symbols_Is_Correct
+    COMMAND ${APPLICATION} 0123456789.:
+)
+
+set_tests_properties (${prefix}_Printing_All_Available_Symbols_Is_Correct PROPERTIES
+    PASS_REGULAR_EXPRESSION " _     _   _       _   _   _   _   _      \n
+                             | | |  _|  _| |_| |_  |_    | |_| |_|   . \n
+                             |_| | |_   _|   |  _| |_|   | |_|  _| . . \n\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Throws_On_Single_Invalid_String_With_Symbols
+    COMMAND ${APPLICATION} 06%^59
+)
+
+set_tests_properties (${prefix}_Throws_On_Single_Invalid_String_With_Symbols PROPERTIES
+    PASS_REGULAR_EXPRESSION "Invalid Symbol"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Printing_Without_Digits_Is_Correct
+    COMMAND ${APPLICATION} ::..
+)
+
+set_tests_properties (${prefix}_Throws_On_Single_Invalid_String_With_Symbols PROPERTIES
+    PASS_REGULAR_EXPRESSION "        \n
+                             . .     \n
+                             . . . . \n\n"
     LABELS "${MODULE}")

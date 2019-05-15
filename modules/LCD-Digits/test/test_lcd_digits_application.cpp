@@ -42,7 +42,7 @@ TEST_F(LCDDigitsApplicationTest, Can_Print_Help_Without_Arguments) {
         "Where str_i is string consisiting of digits, '.', ':'.\n");
 }
 
-TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String) {
+TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Letters) {
     // Arrange
     std::vector<std::string> args = {"12.AB:2019"};
 
@@ -53,6 +53,19 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String) {
            "Please provide arguments in the following format:\n\n"
            "  $ LCD-Digits.exe <str_1> <str_2> ... <str_n>\n"
            "Where str_i is string consisiting of digits, '.', ':'.\n");
+}
+
+TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Symbols) {
+    // Arrange
+    std::vector<std::string> args = { "06%^59" };
+
+    Act(args);
+
+    Assert("Invalid Symbol\n"
+        "This application prints multiple strings in LCD format.\n\n"
+        "Please provide arguments in the following format:\n\n"
+        "  $ LCD-Digits.exe <str_1> <str_2> ... <str_n>\n"
+        "Where str_i is string consisiting of digits, '.', ':'.\n");
 }
 
 TEST_F(LCDDigitsApplicationTest, Throws_On_Multiple_Invalid_Strings) {
@@ -66,6 +79,17 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Multiple_Invalid_Strings) {
         "Please provide arguments in the following format:\n\n"
         "  $ LCD-Digits.exe <str_1> <str_2> ... <str_n>\n"
         "Where str_i is string consisiting of digits, '.', ':'.\n");
+}
+
+TEST_F(LCDDigitsApplicationTest, Printing_All_Available_Symbols_Is_Correct) {
+    // Arrange
+    std::vector<std::string> args = { "0123456789.:" };
+
+    Act(args);
+
+    Assert(" _     _   _       _   _   _   _   _      \n"
+           "| | |  _|  _| |_| |_  |_    | |_| |_|   . \n"
+           "|_| | |_   _|   |  _| |_|   | |_|  _| . . \n\n");
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_Single_Symbol_Is_Correct) {
@@ -102,4 +126,15 @@ TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Strings_Is_Correct) {
            " _     _  \n"
            " _|    _| \n"
            "|_  .  _| \n\n");
+}
+
+TEST_F(LCDDigitsApplicationTest, Printing_Without_Digits_Is_Correct) {
+    // Arrange
+    std::vector<std::string> args = { "::.." };
+
+    Act(args);
+
+    Assert("        \n"
+           ". .     \n"
+           ". . . . \n\n");
 }
