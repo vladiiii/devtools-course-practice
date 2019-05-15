@@ -59,3 +59,20 @@ TEST_F(PrimeCounterTest, Five_Primes) {
 
     Assert("Count of prime numbers between 2 and  11 equal 5");
 }
+
+TEST_F(PrimeCounterTest, Six_Primes) {
+    vector<string> args = {"2", "13"};
+
+    Act(args);
+
+    Assert("Count of prime numbers between 2 and  13 equal 6");
+}
+
+TEST_F(PrimeCounterTest, Eight_Primes) {
+    vector<string> args = {"2", "20"};
+
+    Act(args);
+
+    Assert("Count of prime numbers between 2 and  20 equal 8");
+}
+

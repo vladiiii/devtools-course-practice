@@ -28,3 +28,11 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Should be 2 arguments."
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_eight_numbers
+    COMMAND ${APPLICATION} 2 20
+)
+set_tests_properties (${prefix}_eight_numbers PROPERTIES
+    PASS_REGULAR_EXPRESSION "Count of prime numbers between 2 and  20 equal 8"
+    LABELS "${MODULE}")
+
