@@ -27,7 +27,7 @@ void NumericIntegrateApp::Help(const char* appname, const char* message) {
           "n - number of partitions.\n" +
           "method - method numeric integrate, where\n" +
           "rectangle - Rectangle numeric integrate\n" +
-          "trapezium - Trapezium numeric integrate\n";
+          "trapezium - Trapezium numeric integrate\n\n" +
 
           "Where all arguments are double-precision numbers and integers\n";
 }
