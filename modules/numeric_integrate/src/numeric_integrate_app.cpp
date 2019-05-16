@@ -16,8 +16,10 @@ void NumericIntegrateApp::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
           "This is a numeric integrate application.\n\n" +
-          "The application numeric integrate in two ways: " +
-          "rectangle and trapezium.\n\n" +
+          "The application numeric integrate function:\n" +
+          "if x < 0 then f(x) = -sqrt(-x)\n" +
+          "if x >= 0 then f(x) = sqrt(x)\n" +
+          "in two ways: rectangle and trapezium.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <a> <b> " +
