@@ -128,7 +128,8 @@ TEST_F(StringCalculatorAppTest, Can_Rase_To_A_Power) {
 }
 
 TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
-    vector<string> args = { "(3+3)" };
+	string str = "(3+3)";
+    vector<string> args = { str };
 
     Act(args);
 
@@ -144,17 +145,17 @@ TEST_F(StringCalculatorAppTest, Can_Do_Several_Operations) {
 }
 
 TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Mismatched_Brackets) {
-    vector<string> args = { ")2+2(" };
+	vector<string> args = { ")2+2(" };
 
-    Act(args);
+	Act(args);
 
-    Assert("ERROR: Incorrect data");
+	Assert("ERROR: Incorrect data");
 }
 
 TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Wrong_Num_Of_Brackets) {
-    vector<string> args = { "(((2+2)/3)" };
+	vector<string> args = { "(((2+2)/3)" };
 
-    Act(args);
+	Act(args);
 
-    Assert("ERROR: Incorrect data");
+	Assert("ERROR: Incorrect data");
 }
