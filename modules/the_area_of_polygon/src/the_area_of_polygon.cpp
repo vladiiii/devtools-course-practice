@@ -1,7 +1,7 @@
 // Copyright 2019 Kondrina Tatyana
 
 #include <vector>
-#include <stdio.h>
+#include <math.h>
 #include "include/the_area_of_polygon.h"
 
 AreaOfPolygon::AreaOfPolygon(std::vector<std::vector<int>> p):points_(p) {}
