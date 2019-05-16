@@ -1,7 +1,6 @@
 // Copyright 2019 Andronov Maxim
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 

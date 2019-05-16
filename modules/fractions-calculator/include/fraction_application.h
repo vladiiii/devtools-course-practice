@@ -19,7 +19,7 @@ class FractionCalculator {
     } Arguments;
 
  public:
-    FractionCalculator();
+    FractionCalculator() = default;
     std::string operator()(int argc, const char** argv);
 };
 

@@ -9,17 +9,13 @@
 #include <vector>
 #include <sstream>
 
-FractionCalculator::FractionCalculator() : message_("") {}
-
 void FractionCalculator::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a fraction calculator application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
-
         "  $ " + appname + " <f1_num> <f1_den> " +
         "<f2_num> <f2_den> <operation>\n\n" +
-
         "Where all arguments are integer numbers, " +
         "and <operation> is one of '+', '-', '*', '/'.\n";
 }
