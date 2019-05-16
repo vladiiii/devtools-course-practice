@@ -15,6 +15,11 @@ class DemandApp {
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
+    enum {
+        PRICE_DEMAND = 1,
+        INCOME_DEMAND = 2,
+        CROSS_DEMAND = 3
+    };
     typedef struct {
         double price1, price2;
         int quantity1, quantity2;

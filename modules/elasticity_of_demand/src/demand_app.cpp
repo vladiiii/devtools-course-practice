@@ -10,6 +10,12 @@
 #include "include/elasticity_of_demand.h"
 #include "include/demand_app.h"
 
+enum {
+        PRICE_DEMAND = 1,
+        INCOME_DEMAND = 2,
+        CROSS_DEMAND = 3
+    };
+
 DemandApp::DemandApp() : message_("") {}
 
 void DemandApp::help(const char* appname, const char* message) {
@@ -67,11 +73,11 @@ int ParseInt(const char* arg) {
 int ParseOperation(const char* arg) {
     int op;
     if (strcmp(arg, "p") == 0) {
-        op = 1;
+        op = PRICE_DEMAND;
     } else if (strcmp(arg, "i") == 0) {
-        op = 2;
+        op = INCOME_DEMAND;
     } else if (strcmp(arg, "c") == 0) {
-        op = 3;
+        op = CROSS_DEMAND;
     } else {
         throw std::string("Wrong operation format!");
     }
@@ -101,15 +107,15 @@ std::string DemandApp::operator()(int argc, const char** argv) {
 
     std::ostringstream stream;
     switch (args.operation) {
-     case 1:
+     case PRICE_DEMAND:
         stream << "Result = " << obj.PriceElasticityOfDemand(args.quantity1,
             args.quantity2, args.price1, args.price2);
         break;
-     case 2:
+     case INCOME_DEMAND:
         stream << "Result = " << obj.IncomeElasticityOfDemand(args.quantity1,
             args.quantity2, args.income1, args.income2);
         break;
-     case 3:
+     case CROSS_DEMAND:
         stream << "Result = " << obj.CrossElasticityOfDemand(args.quantity1,
             args.quantity2, args.price1, args.price2);
         break;
