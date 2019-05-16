@@ -15,8 +15,7 @@ using std::vector;
 using std::string;
 
 class StringCalculatorAppTest : public ::testing::Test {
-protected:
-
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -35,7 +34,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     StringCalculatorApp app_;
     string output_;
 };
@@ -49,7 +48,7 @@ TEST_F(StringCalculatorAppTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(StringCalculatorAppTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = { "1+1","2+1"};
+    vector<string> args = { "1+1", "2+1"};
 
     Act(args);
 

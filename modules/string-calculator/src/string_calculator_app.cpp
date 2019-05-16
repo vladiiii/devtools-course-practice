@@ -61,7 +61,7 @@ std::string StringCalculatorApp::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
-    
+
     stream << "Result = " << res << "\n";
 
     message_ = stream.str();
