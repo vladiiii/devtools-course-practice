@@ -136,12 +136,12 @@ TEST_F(StringCalculatorAppTest, Can_Do_Several_Operations) {
 }
 
 TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
-    string str = "(1+1+1)";
+    string str = "(1+1+1+1)";
     vector<string> args = { str };
 
     Act(args);
 
-    Assert("Result = 3");
+    Assert("Result = 4");
 }
 
 TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Mismatched_Brackets) {
