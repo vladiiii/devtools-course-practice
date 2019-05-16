@@ -79,7 +79,7 @@ std::string DHeapApp::operator()(int argc, const char** argv) {
 
     DHeap dh(args.d_, args.weight_);
     int max = 0;
-    k = dh.get_size();
+    int k = dh.get_size();
     std::ostringstream stream;
     switch (args.operation) {
      case 's':
