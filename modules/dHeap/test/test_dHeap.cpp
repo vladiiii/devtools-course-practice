@@ -108,8 +108,8 @@ TEST(DHeapTest, Delete_Min_Element) {
     // Arrange
     unsigned int _d = 2;
     std::vector<int> w = { 1, 4, 3, 5 };
-	int min;
-	DHeap my_heap = DHeap(_d, w);
+    int min;
+    DHeap my_heap = DHeap(_d, w);
     // Act
     min = my_heap.Delete_min();
 
@@ -129,14 +129,14 @@ TEST(DHeapTest, No_Right_Child) {
 }
 
 TEST(DHeapTest, Get_Size) {
-	// Arrange
-	unsigned int _d = 2;
-	std::vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
-	DHeap my_heap = DHeap(_d, w);
-	int size;
-	// Act
-	size = my_heap.get_size();
+    // Arrange
+    unsigned int _d = 2;
+    std::vector<int> w = { 5, 6, 7, 4, 8, 11, 12, 9 };
+    DHeap my_heap = DHeap(_d, w);
+    int size;
+    // Act
+    size = my_heap.get_size();
 
-	// Assert
-	EXPECT_EQ(8, size);
+    // Assert
+    EXPECT_EQ(8, size);
 }

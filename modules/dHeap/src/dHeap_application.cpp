@@ -78,22 +78,17 @@ std::string DHeapApp::operator()(int argc, const char** argv) {
     }
 
     DHeap dh(args.d_, args.weight_);
-    int k = dh.get_size();
     int max = 0;
-    std::vector<int> v;
     std::ostringstream stream;
     switch (args.operation) {
      case 's':
-        for (int i = 0; i < k; ++i) {
-             v.push_back(dh.Delete_min());
-        }
         stream << "Weight =";
-        for (int i = 0; i < k; ++i) {
-            stream << " " << v[i];
+        for (int i = 0; i < dh.get_size(); ++i) {
+            stream << " " << dh.Delete_min();
         }
         break;
      case 'M':
-         for (int i = 0; i < k; ++i) {
+         for (int i = 0; i < dh.get_size(); ++i) {
              max = dh.Delete_min();
          }
         stream << "Max = " << max;
