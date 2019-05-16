@@ -153,7 +153,8 @@ TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
 }
 
 TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Wrong_Num_Of_Brackets) {
-    vector<string> args = { "(((2+2)/3)" };
+    string str = "(((2+2)/3)";
+    vector<string> args = { str };
 
     Act(args);
 
