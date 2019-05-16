@@ -110,7 +110,7 @@ set_tests_properties (${prefix}_can_Do_Several_Operations PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Not_Calculate_Mismatched_Brackets
-    COMMAND ${APPLICATION} )2+2(
+    COMMAND ${APPLICATION} 3*)2+2(
 )
 set_tests_properties (${prefix}_can_Not_Calculate_Mismatched_Brackets PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Incorrect data"
