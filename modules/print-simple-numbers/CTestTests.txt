@@ -44,3 +44,11 @@ set_tests_properties (${prefix}_eight_numbers PROPERTIES
     PASS_REGULAR_EXPRESSION "Count of prime numbers between 2 and  20 equal 8"
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_no_primes
+    COMMAND ${APPLICATION} 1 1
+)
+set_tests_properties (${prefix}_no_primes
+    PASS_REGULAR_EXPRESSION "No prime numbers in selected interval."
+    LABELS "${MODULE}")
+

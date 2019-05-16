@@ -84,3 +84,11 @@ TEST_F(PrimeCounterTest, Eight_Primes) {
     Assert("Count of prime numbers between 2 and  20 equal 8");
 }
 
+TEST_F(PrimeCounterTest, No_Primes) {
+    vector<string> args = {"1", "1"};
+
+    Act(args);
+
+    Assert("No prime numbers in selected interval.");
+}
+
