@@ -31,7 +31,6 @@ class LCDDigitsApplicationTest
 };
 
 TEST_F(LCDDigitsApplicationTest, Can_Print_Help_Without_Arguments) {
-    // Arrange
     std::vector<std::string> args = {};
 
     Act(args);
@@ -43,7 +42,6 @@ TEST_F(LCDDigitsApplicationTest, Can_Print_Help_Without_Arguments) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Letters) {
-    // Arrange
     std::vector<std::string> args = {"12.AB:2019"};
 
     Act(args);
@@ -56,7 +54,6 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Letters) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Symbols) {
-    // Arrange
     std::vector<std::string> args = { "06%^59" };
 
     Act(args);
@@ -69,7 +66,6 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Single_Invalid_String_With_Symbols) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Throws_On_Multiple_Invalid_Strings) {
-    // Arrange
     std::vector<std::string> args = { "12", "ABC", "15:30", "db&"};
 
     Act(args);
@@ -82,7 +78,6 @@ TEST_F(LCDDigitsApplicationTest, Throws_On_Multiple_Invalid_Strings) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_All_Available_Symbols_Is_Correct) {
-    // Arrange
     std::vector<std::string> args = { "0123456789.:" };
 
     Act(args);
@@ -93,7 +88,6 @@ TEST_F(LCDDigitsApplicationTest, Printing_All_Available_Symbols_Is_Correct) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_Single_Symbol_Is_Correct) {
-    // Arrange
     std::vector<std::string> args = { "1" };
 
     Act(args);
@@ -104,7 +98,6 @@ TEST_F(LCDDigitsApplicationTest, Printing_Single_Symbol_Is_Correct) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Symbols_Is_Correct) {
-    // Arrange
     std::vector<std::string> args = { "06:59" };
 
     Act(args);
@@ -115,7 +108,6 @@ TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Symbols_Is_Correct) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Strings_Is_Correct) {
-    // Arrange
     std::vector<std::string> args = { "59", "2.3" };
 
     Act(args);
@@ -129,7 +121,6 @@ TEST_F(LCDDigitsApplicationTest, Printing_Multiple_Strings_Is_Correct) {
 }
 
 TEST_F(LCDDigitsApplicationTest, Printing_Without_Digits_Is_Correct) {
-    // Arrange
     std::vector<std::string> args = { "::.." };
 
     Act(args);
