@@ -38,15 +38,14 @@ bool PrimeCounter::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 int parseInt(const char* arg) {
-    int number;
-    std::istringstream iss(arg);
-    iss >> number;
+    char* end;
+    int value = strtol(arg, &end, 10);
 
-    if (number < 0) {
+    if (end[0]) {
         throw std::string("Wrong number format!");
     }
 
-    return number;
+    return value;
 }
 
 std::string PrimeCounter::operator()(int argc, const char** argv) {
