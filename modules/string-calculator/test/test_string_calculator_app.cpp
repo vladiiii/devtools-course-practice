@@ -136,7 +136,7 @@ TEST_F(StringCalculatorAppTest, Can_Do_Several_Operations) {
 }
 
 TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
-    string str = "(3+3)";
+    string str = "(1+1)";
     vector<string> args = { str };
 
     Act(args);
