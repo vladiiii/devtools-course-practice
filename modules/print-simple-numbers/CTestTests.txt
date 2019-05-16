@@ -48,7 +48,7 @@ add_test(
     NAME ${prefix}_no_primes
     COMMAND ${APPLICATION} 1 1
 )
-set_tests_properties (${prefix}_no_primes
+set_tests_properties (${prefix}_no_primes PROPERTIES
     PASS_REGULAR_EXPRESSION "No prime numbers in selected interval."
     LABELS "${MODULE}")
 
