@@ -52,6 +52,14 @@ TEST_F(PrimeCounterTest, Is_Checking_Number_Of_Arguments) {
     Assert("ERROR: Should be 2 arguments\\..*");
 }
 
+TEST_F(PrimeCounterTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = {"e", "pi"};
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
 TEST_F(PrimeCounterTest, Five_Primes) {
     vector<string> args = {"2", "11"};
 
