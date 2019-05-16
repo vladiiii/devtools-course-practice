@@ -135,6 +135,14 @@ TEST_F(StringCalculatorAppTest, Can_Do_Several_Operations) {
     Assert("Result = 6");
 }
 
+TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Mismatched_Brackets) {
+    vector<string> args = { ")2+2(" };
+
+    Act(args);
+
+    Assert("ERROR: Incorrect data");
+}
+
 TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
     string str = "(1+1+1+1)";
     vector<string> args = { str };
@@ -142,14 +150,6 @@ TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
     Act(args);
 
     Assert("Result = 4");
-}
-
-TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Mismatched_Brackets) {
-    vector<string> args = { ")2+2(" };
-
-    Act(args);
-
-    Assert("ERROR: Incorrect data");
 }
 
 TEST_F(StringCalculatorAppTest, Can_Not_Calculate_Wrong_Num_Of_Brackets) {
