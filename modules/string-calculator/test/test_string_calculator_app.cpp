@@ -127,17 +127,8 @@ TEST_F(StringCalculatorAppTest, Can_Rase_To_A_Power) {
     Assert("Result = 9");
 }
 
-TEST_F(StringCalculatorAppTest, Can_Use_Brackets) {
-    string str = "(3+3)";
-    vector<string> args = { str };
-
-    Act(args);
-
-    Assert("Result = 6");
-}
-
 TEST_F(StringCalculatorAppTest, Can_Do_Several_Operations) {
-    vector<string> args = { "(2+2)*2-2^3/4" };
+    vector<string> args = { "4*2-2^3/4" };
 
     Act(args);
 
