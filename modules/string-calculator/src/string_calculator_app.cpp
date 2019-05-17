@@ -41,12 +41,8 @@ std::string StringCalculatorApp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
-    try {
-        expression_ = argv[1];
-    }
-    catch (std::string& str) {
-        return str;
-    }
+
+    expression_ = argv[1];
 
     StringCalculator sc;
 
