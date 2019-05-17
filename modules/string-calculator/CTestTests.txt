@@ -93,16 +93,8 @@ set_tests_properties (${prefix}_can_Rase_To_A_Power PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Use_Brackets
-    COMMAND ${APPLICATION} (3+3)
-)
-set_tests_properties (${prefix}_can_Use_Brackets PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result = 6"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_can_Do_Several_Operations
-    COMMAND ${APPLICATION} (2+2)*2-2^3/4
+    COMMAND ${APPLICATION} 4*2-2^3/4
 )
 set_tests_properties (${prefix}_can_Do_Several_Operations PROPERTIES
     PASS_REGULAR_EXPRESSION "Result = 6"
