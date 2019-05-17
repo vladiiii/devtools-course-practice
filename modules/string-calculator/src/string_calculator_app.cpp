@@ -3,10 +3,10 @@
 #include "include/string_calculator.h"
 #include "include/string_calculator_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstring>
 #include <string>
 #include <sstream>
 
