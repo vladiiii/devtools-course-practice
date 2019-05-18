@@ -10,6 +10,6 @@
 int main(int argc, const char** argv) {
     RomaNumberConverter app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+	std::cout << output.c_str() << std::endl;
     return 0;
 }
