@@ -52,3 +52,10 @@ set_tests_properties (${prefix}_no_primes PROPERTIES
     PASS_REGULAR_EXPRESSION "No prime numbers in selected interval."
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_no_primes_in_negative_interval
+    COMMAND ${APPLICATION} 20 1
+)
+set_tests_properties (${prefix}_no_primes_in_negative_interval PROPERTIES
+    PASS_REGULAR_EXPRESSION "No prime numbers in selected interval."
+    LABELS "${MODULE}")

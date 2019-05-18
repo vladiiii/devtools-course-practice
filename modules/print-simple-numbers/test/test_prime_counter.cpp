@@ -92,3 +92,11 @@ TEST_F(PrimeCounterTest, No_Primes) {
     Assert("No prime numbers in selected interval.");
 }
 
+TEST_F(PrimeCounterTest, No_Primes_In_Negative_Interval) {
+    vector<string> args = {"22", "1"};
+
+    Act(args);
+
+    Assert("No prime numbers in selected interval.");
+}
+
