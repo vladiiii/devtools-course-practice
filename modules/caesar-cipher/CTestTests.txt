@@ -56,4 +56,31 @@ set_tests_properties (${prefix}_Can_Decrypt_File PROPERTIES
     PASS_REGULAR_EXPRESSION "Through the darkness of future past,\n"
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_Can_Encrypt_File_With_Negative_Key
+    COMMAND ${APPLICATION} Decrypt.txt Encrypt.txt -4 EN
+)
+
+set_tests_properties (${prefix}_Can_Encrypt_File_With_Negative_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "Through the darkness of future past,\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Encrypt_File_With_Zero_Key
+    COMMAND ${APPLICATION} Encrypt.txt Encrypt.txt 0 EN
+)
+
+set_tests_properties (${prefix}_Can_Encrypt_File_With_Negative_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "Through the darkness of future past,\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Decrypt_File_With_Zero_Key
+    COMMAND ${APPLICATION} Decrypt.txt Decrypt.txt 0 DE
+)
+
+set_tests_properties (${prefix}_Can_Encrypt_File_With_Negative_Key PROPERTIES
+    PASS_REGULAR_EXPRESSION "Xlvsykl xli hevoriww sj jyxyvi tewx,\n"
+    LABELS "${MODULE}")
+
 
