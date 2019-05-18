@@ -8,7 +8,8 @@
 
 class RomaNumberConverter {
  public:
-    RomaNumberConverter();
+
+	RomaNumberConverter() : message_("") {}
     std::string operator()(int argc, const char** argv);
 
  private:

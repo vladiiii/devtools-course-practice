@@ -1,7 +1,6 @@
 // Copyright 2019 Pinaev Danil
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -37,7 +36,6 @@ class RomaNumberConverterTest :
 };
 
 TEST_F(RomaNumberConverterTest, Print_Help_Without_Arguments) {
-    // Arrange
     std::vector<std::string> args = {};
 
     Act(args);
@@ -46,7 +44,6 @@ TEST_F(RomaNumberConverterTest, Print_Help_Without_Arguments) {
 }
 
 TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Lines_Count) {
-    // Arrange
     std::vector<std::string> args = { "CCCXXIV", "V" };
 
     Act(args);
@@ -55,7 +52,6 @@ TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Lines_Count) {
 }
 
 TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Value) {
-    // Arrange
     std::vector<std::string> args = { "-1" };
 
     Act(args);
@@ -64,7 +60,6 @@ TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Value) {
 }
 
 TEST_F(RomaNumberConverterTest, Can_Convert_Arabic_To_Roma) {
-    // Arrange
     std::vector<std::string> args = {"324"};
 
     Act(args);
@@ -73,7 +68,6 @@ TEST_F(RomaNumberConverterTest, Can_Convert_Arabic_To_Roma) {
 }
 
 TEST_F(RomaNumberConverterTest, Can_Convert_Roma_To_Arabic) {
-    // Arrange
     std::vector<std::string> args = { "CCCXXIV" };
 
     Act(args);
