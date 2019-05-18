@@ -2,6 +2,8 @@
 #include "include/NumberSystemsConverter.h"
 #include <math.h>
 #include <string>
+#include <sstream>
+#include <bitset>
 
 NumberSystemsConverter::NumberSystemsConverter(std::string input_number,
                                                SysBase input_base) {
@@ -247,7 +249,7 @@ std::string NumberSystemsConverter::ConvertOctToBin(const std::string n) {
 }
 
 std::string NumberSystemsConverter::ConvertHexToBin(const std::string n) {
-    std::string result;
+    /*std::string result;
     int str_length = n.std::string::length();
     result = n;  // copy std::strings
 
@@ -312,6 +314,17 @@ std::string NumberSystemsConverter::ConvertHexToBin(const std::string n) {
         result.replace(it, 1, tetrad);
     }
 
+    return result;
+    */
+
+    std::string result;
+    std::stringstream ss;
+    ss << std::hex << n;
+    unsigned k;
+    ss >> k;
+    std::bitset<32> b(k);
+    result = b.to_string();
+    result = CutFrontZeros(result);
     return result;
 }
 
