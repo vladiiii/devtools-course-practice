@@ -101,7 +101,7 @@ TEST_F(CaesarCipherApplicationTest, Can_Decrypt_File) {
 
 TEST_F(CaesarCipherApplicationTest, Can_Encrypt_File_With_Negative_Key) {
     // Arrange
-    std::vector<std::string> args = {"Decrypt.txt", "Encrypt.txt", "-4", "DE"};
+    std::vector<std::string> args = {"Decrypt.txt", "Encrypt.txt", "-4", "EN"};
 
     Act(args);
 
