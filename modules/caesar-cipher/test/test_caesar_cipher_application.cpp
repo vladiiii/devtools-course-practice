@@ -48,7 +48,7 @@ TEST_F(CaesarCipherApplicationTest, Throws_On_Invalid_FileName) {
 
     Act(args);
 
-  Assert(
+    Assert(
       "\nThis application encrypts/decrypts the contents of the file.\n"
       "Please provide arguments in the following format:\n"
       "1: File name(string) for operation;\n"
@@ -64,7 +64,7 @@ TEST_F(CaesarCipherApplicationTest, Throws_On_Invalid_Operation) {
 
     Act(args);
 
-  Assert(
+    Assert(
       "\nThis application encrypts/decrypts the contents of the file.\n"
       "Please provide arguments in the following format:\n"
       "1: File name(string) for operation;\n"
@@ -98,3 +98,43 @@ TEST_F(CaesarCipherApplicationTest, Can_Decrypt_File) {
         "one chance out between two worlds,\n"
         "fire walk with me.\n");
 }
+
+TEST_F(CaesarCipherApplicationTest, Can_Encrypt_File_With_Negative_Key) {
+    // Arrange
+    std::vector<std::string> args = {"Decrypt.txt", "Encrypt.txt", "-4", "DE"};
+
+    Act(args);
+
+    Assert(
+        "Through the darkness of future past,\n"
+        "the magician longs to see,\n"
+        "one chance out between two worlds,\n"
+        "fire walk with me.\n");
+}
+
+TEST_F(CaesarCipherApplicationTest, Can_Encrypt_File_With_Zero_Key) {
+    // Arrange
+    std::vector<std::string> args = {"Encrypt.txt", "Encrypt.txt", "0", "EN"};
+
+    Act(args);
+
+    Assert(
+        "Through the darkness of future past,\n"
+        "the magician longs to see,\n"
+        "one chance out between two worlds,\n"
+        "fire walk with me.\n");
+}
+
+TEST_F(CaesarCipherApplicationTest, Can_Decrypt_File_With_Zero_Key) {
+    // Arrange
+    std::vector<std::string> args = {"Decrypt.txt", "Decrypt.txt", "0", "DE"};
+
+    Act(args);
+
+Assert(
+        "Xlvsykl xli hevoriww sj jyxyvi tewx,\n"
+        "xli qekmgmer psrkw xs wii,\n"
+        "sri glergi syx fixaiir xas asvphw,\n"
+        "jmvi aepo amxl qi.\n");
+}
+
