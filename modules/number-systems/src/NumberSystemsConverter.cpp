@@ -249,7 +249,7 @@ std::string NumberSystemsConverter::ConvertOctToBin(const std::string n) {
 }
 
 std::string NumberSystemsConverter::ConvertHexToBin(const std::string n) {
-    /*std::string result;
+    std::string result;
     int str_length = n.std::string::length();
     result = n;  // copy std::strings
 
@@ -315,17 +315,16 @@ std::string NumberSystemsConverter::ConvertHexToBin(const std::string n) {
     }
 
     return result;
-    */
-
-    std::string result;
+    /*std::string result;
     std::stringstream ss;
     ss << std::hex << n;
     unsigned k;
     ss >> k;
-    std::bitset<32> b(k);
+    std::bitset<2048> b(k);
     result = b.to_string();
     result = CutFrontZeros(result);
     return result;
+    */
 }
 
 std::string NumberSystemsConverter::CutFrontZeros(const std::string n) {
