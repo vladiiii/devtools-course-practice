@@ -14,14 +14,14 @@ class NumericIntegrateAppTest : public ::testing::Test {
       void Act(std::vector<std::string> args_) {
          std::vector<const char*> options;
 
-          options.push_back("appname");
+         options.push_back("appname");
          for (size_t i = 0; i < args_.size(); ++i) {
              options.push_back(args_[i].c_str());
          }
 
-          const char** argv = &options.front();
+         const char** argv = &options.front();
          int argc = static_cast<int>(args_.size()) + 1;
-          output_ = app_(argc, argv);
+         output_ = app_(argc, argv);
          std::cout << std::endl << output_ << std::endl;
      }
 
