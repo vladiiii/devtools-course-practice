@@ -70,11 +70,10 @@ std::string PrimeCounter::operator()(int argc, const char** argv) {
 
     if (res == -1) {
         stream << "No prime numbers in selected interval.";
-    }
-    else {
+    } else {
         stream << "Count of prime numbers between "
-    	   << args.left_boundary << " and  "
-    	   << args.right_boundary << " equal " << res;
+           << args.left_boundary << " and  "
+           << args.right_boundary << " equal " << res;
     }
 
     message_ = stream.str();
