@@ -3,10 +3,10 @@
 #include "include/priority_queue.h"
 #include "include/priority-queue-application.h"
 
+#include <stdlib.h>
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <stdlib.h>
 
 void PriorityApp::Help(const char* appname, const char* message) {
     message_ =
