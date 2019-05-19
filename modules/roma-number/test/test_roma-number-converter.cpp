@@ -52,7 +52,7 @@ TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Lines_Count) {
 }
 
 TEST_F(RomaNumberConverterTest, Print_Help_With_Wrong_Value) {
-    std::vector<std::string> args = { "-1" };
+    std::vector<std::string> args = { "@#fd" };
 
     Act(args);
 
