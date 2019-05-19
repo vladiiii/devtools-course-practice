@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <sstream>
 #include <stdlib.h>
 
 void PriorityApp::Help(const char* appname, const char* message) {
@@ -24,13 +23,17 @@ void PriorityApp::Help(const char* appname, const char* message) {
 std::string PriorityApp::operator()(int argc, const char **argv) {
     if (!ValidateNumberOfArguments(argc, argv)) {
         Help(*argv);
-        throw std::string("Wrong number of arguments.");
+        return message_;
     }
     for (int i = 1; i < argc; ) {
-            int offset = ParseOperation(argv + i);
-            i += offset;
+        int offset = ParseOperation(argv + i);
+        if (offset == 0) {
+            message_ = "Wrong arguments!";
+            break;
+        }
+        i += offset;
     }
-    return "success";
+    return message_;
 }
 
 bool PriorityApp::ValidateNumberOfArguments(int argc, const char** argv) {
@@ -43,16 +46,18 @@ bool PriorityApp::ValidateNumberOfArguments(int argc, const char** argv) {
 
 int PriorityApp::ParseOperation(const char** argv) {
     if (std::strcmp(*argv, "push") == 0) {
-        q.Push(std::atoi(*(argv + 1)), std::atoi(*(argv + 2)));
+        int p = std::atoi(*(argv + 1));
+        int v = std::atoi(*(argv + 2));
+        q.Push(p, v);
         return 3;
     }
-    if (std::strcmp(*argv, "pop")) {
+    if (std::strcmp(*argv, "pop") == 0) {
         q.Pop();
         return 1;
     }
-    if (std::strcmp(*argv, "top")) {
-        std::cout << std::string("top element: ") << q.Top() << std::endl;
+    if (std::strcmp(*argv, "top") == 0) {
+        message_ = "top element: " + std::to_string(q.Top());
         return 1;
     }
-    throw std::string("Unknown operator ") + std::string(*argv);
+    return 0;
 }
