@@ -30,7 +30,7 @@ class InterpolationSearchApplicationTest
 
 
 TEST_F(InterpolationSearchApplicationTest,
-         print_help_mesasge_with_empty_arguments) {
+         print_help_message_with_empty_arguments) {
     // Arrange
     std::vector<std::string> args = {};
     std::string output =

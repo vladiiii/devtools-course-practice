@@ -47,3 +47,21 @@ add_test(
 set_tests_properties (${prefix}_Can_Print_Message_When_Cant_Find_Number PROPERTIES
     PASS_REGULAR_EXPRESSION "Required number isn't found\n"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Work_With_More_Then_Two_Arguments
+    COMMAND ${APPLICATION} test/test_data.txt 14 123 5
+)
+
+set_tests_properties (${prefix}_Work_With_More_Then_Two_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Index of required number is 4\n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Work_With_Less_Size_Of_Data
+    COMMAND ${APPLICATION} test/test_data.txt 10 194
+)
+
+set_tests_properties (${prefix}_Work_With_Less_Size_Of_Data
+    PASS_REGULAR_EXPRESSION "Index of required number is 7\n"
+    LABELS "${MODULE}")
