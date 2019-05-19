@@ -31,7 +31,7 @@ TEST(Shemetov_Philipp_ComplexNumberTest, Multiply_By_Zero) {
 }
 
 TEST(Shemetov_Philipp_ComplexNumberTest, 
-False_Comparing_Different_Complex_Numbers) {
+    False_Comparing_Different_Complex_Numbers) {
     // Arrange
     ComplexNumber z1(10.0, 0.0);
     ComplexNumber z2(10.0, 0.0);
