@@ -4,9 +4,9 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
+// #include <algorithm>
+// #include <functional>
+// #include <iterator>
 
 #include "include/two_line_segments_app.h"
 
@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class TwoLineSegmentsAppTest : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     TwoLineSegmentsApp app_;
     string output_;
 };
@@ -46,7 +46,7 @@ TEST_F(TwoLineSegmentsAppTest, Do_Print_Help_Without_Arguments) {
 
     Act(args);
 
-    Assert("\nThis application determines whether two line segments\\..*");
+    Assert("This application determines whether\\..*");
 }
 
 TEST_F(TwoLineSegmentsAppTest, Is_Checking_Number_Of_Arguments) {
@@ -58,9 +58,25 @@ TEST_F(TwoLineSegmentsAppTest, Is_Checking_Number_Of_Arguments) {
 }
 
 TEST_F(TwoLineSegmentsAppTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "1", "pi", "2", "4", "5" };
+    vector<string> args = { "1", "pi", "2", "4", "5", "5", "6", "7" };
 
     Act(args);
 
     Assert("Wrong number format!.*");
+}
+
+TEST_F(TwoLineSegmentsAppTest, Do_Intersecting_Segments_Intersect) {
+    vector<string> args = { "1", "1", "4", "1", "2", "-1", "2", "3"};
+
+    Act(args);
+
+    Assert("These two line segments intersect!.*");
+}
+
+TEST_F(TwoLineSegmentsAppTest, Intersecting_Segments_DO_NOT_Intersect) {
+    vector<string> args = { "1", "1", "4", "1", "1", "2", "4", "2" };
+
+    Act(args);
+
+    Assert("These two line segments DON'T intersect\\..*");
 }

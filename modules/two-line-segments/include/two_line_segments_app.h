@@ -8,7 +8,7 @@
 
 class TwoLineSegmentsApp {
  private:
-    std::string Help(const char* appname, const char* message="");
+    void Help(const char* appname, const char* message = "");
     bool ValidateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {

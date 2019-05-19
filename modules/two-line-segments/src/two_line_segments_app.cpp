@@ -1,25 +1,34 @@
 // Copyright 2019 Fedotov Vlad
 
+#include "include/two_line_segments.h"
 #include "include/two_line_segments_app.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <sstream>
+#include <string>
 
 TwoLineSegmentsApp::TwoLineSegmentsApp() : message_("") {}
 
-std::string TwoLineSegmentsApp::Help(const char* appname, const char* message) {
-    return
+void TwoLineSegmentsApp::Help(const char* appname,
+                                     const char* message) {
+    message_ =
     std::string(message) +
-    "\nThis application determines whether two line segments intersect or not.\n"
-    "Please provide arguments in the following format:\n"
-    "$" + std::string(appname) + " <x0> <y0> <x1> <y1> <x2> <y2> <x3> <y3>\n"
-    "where x0, y0, x1, y1 are the coordinates of the first line segment,\n"
+    "This application determines whether.\n\n" +
+    "two line segments intersect or not.\n" +
+    "Please provide arguments in the following format:\n" +
+    "$" + std::string(appname) + " <x0> <y0> <x1> <y1> <x2> <y2> <x3> <y3>\n" +
+    "where x0, y0, x1, y1 are the coordinates of the first line segment,\n" +
     "x2, y2, x3, y3 - of the second.\n";
 }
 
-bool TwoLineSegmentsApp::ValidateNumberOfArguments(int argc, const char** argv) {
+bool TwoLineSegmentsApp::ValidateNumberOfArguments(int argc,
+                                                   const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    }
-    else if (argc != 9) {
+    } else if (argc != 9) {
         Help(argv[0], "ERROR: Should be 8 arguments.\n\n");
         return false;
     }
@@ -71,11 +80,13 @@ std::string TwoLineSegmentsApp::operator()(int argc, const char** argv) {
     tls.SetCoordinatesToFirstLine(p0, p1);
     tls.SetCoordinatesToSecondLine(p2, p3);
 
+    std::ostringstream stream;
+
     if (tls.AreIntersect())
-        message_ = "These two line segments intersect!\n";
+        stream << "These two line segments intersect!\n";
     else
-        message_ = "These two line segments DON'T intersect.";
-    //message_ = message_.str();
+        stream << "These two line segments DON'T intersect.";
+    message_ = stream.str();
 
     return message_;
 }
