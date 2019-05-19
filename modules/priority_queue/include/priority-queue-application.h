@@ -1,6 +1,7 @@
 // Copyright 2019 Bykovskaya Alina
 #ifndef MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_APPLICATION_H_
 #define MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_APPLICATION_H_
+
 #include <string>
 #include "include/priority_queue.h"
 
