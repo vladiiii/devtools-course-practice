@@ -18,7 +18,6 @@ std::string RomaNumberConverter::Help(const char* appname) {
         "Enter positive integer arabic or roma number.\n";
 }
 
-
 bool RomaNumberConverter::validateNumberOfArguments(int argc,
                                              const char** argv) {
     if (argc != 2) {
