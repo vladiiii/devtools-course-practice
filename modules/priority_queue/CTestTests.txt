@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_Can_Push_Pop_And_Top_Right_Order PROPERTIES
 
 add_test(
     NAME ${prefix}_Cant_Work_With_Wrong_Args
-    COMMAND ${APPLICATION} push 1 2 push 2 3 pop top
+    COMMAND ${APPLICATION} pu 1 2 push 2 3 pop
 )
 set_tests_properties (${prefix}_Cant_Work_With_Wrong_Args PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong arguments!"
