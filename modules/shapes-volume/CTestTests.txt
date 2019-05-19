@@ -33,53 +33,23 @@ add_test(
     NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
     COMMAND ${APPLICATION} calc tetr
 )
-
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Parallelepiped
-    COMMAND ${APPLICATION} calc paral
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
+    COMMAND ${APPLICATION} calc tetr
 )
-
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Parallelepiped PROPERTIES
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Cone
-    COMMAND ${APPLICATION} calc cone
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
+    COMMAND ${APPLICATION} calc tetr
 )
-
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cone PROPERTIES
-    PASS_REGULAR_EXPRESSION "too few arguments"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Cylinder
-    COMMAND ${APPLICATION} calc cylinder
-)
-
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cylinder PROPERTIES
-    PASS_REGULAR_EXPRESSION "too few arguments"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Cube
-    COMMAND ${APPLICATION} calc cube
-)
-
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Cube PROPERTIES
-    PASS_REGULAR_EXPRESSION "too few arguments"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Sphere
-    COMMAND ${APPLICATION} calc sphere
-)
-
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Sphere PROPERTIES
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
@@ -108,7 +78,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Command PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can__Calculate_Cube_Volume
+    NAME ${prefix}_can_Calculate_Cube_Volume
     COMMAND ${APPLICATION} calc cube 2
 )
 set_tests_properties (${prefix}_can_Calculate_Cube_Volume PROPERTIES
@@ -116,7 +86,7 @@ set_tests_properties (${prefix}_can_Calculate_Cube_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can__Calculate_Cone_Volume
+    NAME ${prefix}_can_Calculate_Cone_Volume
     COMMAND ${APPLICATION} calc cone 3 2
 )
 set_tests_properties (${prefix}_can_Calculate_Cone_Volume PROPERTIES
@@ -124,7 +94,7 @@ set_tests_properties (${prefix}_can_Calculate_Cone_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can__Calculate_Sphere_Volume
+    NAME ${prefix}_can_Calculate_Sphere_Volume
     COMMAND ${APPLICATION} calc sphere 4
 )
 set_tests_properties (${prefix}_can_Calculate_Sphere_Volume PROPERTIES
@@ -132,7 +102,7 @@ set_tests_properties (${prefix}_can_Calculate_Sphere_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can__Calculate_Parallelipiped_Volume
+    NAME ${prefix}_can_Calculate_Parallelipiped_Volume
     COMMAND ${APPLICATION} calc paral 4 2 2
 )
 set_tests_properties (${prefix}_can_Calculate_Parallelipiped_Volume PROPERTIES
@@ -140,7 +110,7 @@ set_tests_properties (${prefix}_can_Calculate_Parallelipiped_Volume PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can__Calculate_Tetrahedron_Volume
+    NAME ${prefix}_can_Calculate_Tetrahedron_Volume
     COMMAND ${APPLICATION} calc tetr 12
 )
 set_tests_properties (${prefix}_can_Calculate_Tetrahedron_Volume PROPERTIES

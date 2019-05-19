@@ -38,7 +38,6 @@ class ShapesVolumeApplicationTest :public::testing::Test {
 };
 
 TEST_F(ShapesVolumeApplicationTest, Do_Print_Help_Without_Arguments) {
-    // Arrange
     std::vector<std::string> args = {};
 
     Act(args);
@@ -47,7 +46,6 @@ TEST_F(ShapesVolumeApplicationTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(ShapesVolumeApplicationTest, Do_Print_Help_With_Arguments) {
-    // Arrange
     std::vector<std::string> args = {"help"};
 
     Act(args);
