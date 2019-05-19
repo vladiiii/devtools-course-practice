@@ -62,6 +62,6 @@ add_test(
     COMMAND ${APPLICATION} test/test_data.txt 10 194
 )
 
-set_tests_properties (${prefix}_Work_With_Less_Size_Of_Data
+set_tests_properties (${prefix}_Work_With_Less_Size_Of_Data PROPERTIES
     PASS_REGULAR_EXPRESSION "Index of required number is 7\n"
     LABELS "${MODULE}")
