@@ -28,27 +28,19 @@ set_tests_properties (${prefix}_Print_Help_With_Wrong_Lines_Count PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Print_Help_With_Wrong_Value
+    NAME ${prefix}_Print_Help_With_Wrong_Value_1
     COMMAND ${APPLICATION} Ddf
 )
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value PROPERTIES
+set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "This is application for roma number converter."
     LABELS "${MODULE}")
+
 
 add_test(
     NAME ${prefix}_Print_Help_With_Wrong_Value_2
-    COMMAND ${APPLICATION} Ddf
-)
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_2 PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is application for roma number converter."
-    LABELS "${MODULE}")
-
-
-add_test(
-    NAME ${prefix}_Print_Help_With_Wrong_Value_1
     COMMAND ${APPLICATION} -1
 )
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_1 PROPERTIES
+set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "This is application for roma number converter."
     LABELS "${MODULE}")
 
