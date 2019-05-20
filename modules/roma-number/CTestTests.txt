@@ -53,7 +53,7 @@ add_test(
     COMMAND ${APPLICATION} 324
 )
 
-set_tests_properties (${prefix}}_Can_Convert_Arabic_To_Roma PROPERTIES
+set_tests_properties (${prefix}_Can_Convert_Arabic_To_Roma PROPERTIES
     PASS_REGULAR_EXPRESSION "CCCXXIV"
     LABELS "${MODULE}")
 
