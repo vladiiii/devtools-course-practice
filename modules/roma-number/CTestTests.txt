@@ -28,19 +28,19 @@ set_tests_properties (${prefix}_Print_Help_With_Wrong_Lines_Count PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_Print_Help_With_Wrong_Value_1
+    NAME ${prefix}_Print_Help_With_Wrong_Value
     COMMAND ${APPLICATION} Ddf
 )
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_1 PROPERTIES
+set_tests_properties (${prefix}_Print_Help_With_Wrong_Value PROPERTIES
     PASS_REGULAR_EXPRESSION "This is application for roma number converter."
     LABELS "${MODULE}")
 
 
 add_test(
-    NAME ${prefix}_Print_Help_With_Wrong_Value_2
+    NAME ${prefix}_Print_Help_With_Wrong_Value_1
     COMMAND ${APPLICATION} -1
 )
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_2 PROPERTIES
+set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "This is application for roma number converter."
     LABELS "${MODULE}")
 
@@ -55,9 +55,9 @@ set_tests_properties (${prefix}}_Can_Convert_Arabic_To_Roma PROPERTIES
 
 
 add_test(
-    NAME ${prefix}Can_Convert_Roma_To_Arabic
+    NAME ${prefix}_Can_Convert_Roma_To_Arabic
     COMMAND ${APPLICATION} CCCXXIV
 )
-set_tests_properties (${prefix}Can_Convert_Roma_To_Arabic PROPERTIES
+set_tests_properties (${prefix}_Can_Convert_Roma_To_Arabic PROPERTIES
     PASS_REGULAR_EXPRESSION "324"
     LABELS "${MODULE}")
