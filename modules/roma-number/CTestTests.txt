@@ -46,10 +46,10 @@ set_tests_properties (${prefix}_Print_Help_With_Wrong_Value_2 PROPERTIES
 
 
 add_test(
-    NAME ${prefix}Can_Convert_Arabic_To_Roma
+    NAME ${prefix}_Can_Convert_Arabic_To_Roma
     COMMAND ${APPLICATION} 324
 )
-set_tests_properties (${prefix}_Print_Help_With_Wrong_Value PROPERTIES
+set_tests_properties (${prefix}}_Can_Convert_Arabic_To_Roma PROPERTIES
     PASS_REGULAR_EXPRESSION "CCCXXIV"
     LABELS "${MODULE}")
 
