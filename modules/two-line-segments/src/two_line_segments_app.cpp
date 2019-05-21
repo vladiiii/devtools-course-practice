@@ -12,7 +12,7 @@
 TwoLineSegmentsApp::TwoLineSegmentsApp() : message_("") {}
 
 void TwoLineSegmentsApp::Help(const char* appname,
-                                     const char* message) {
+                              const char* message) {
     message_ =
     std::string(message) +
     "This application determines whether.\n\n" +
