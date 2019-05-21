@@ -3,9 +3,9 @@
 #include "include/two_line_segments.h"
 #include "include/two_line_segments_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
 #include <sstream>
 #include <string>
 

@@ -4,9 +4,6 @@
 
 #include <string>
 #include <vector>
-// #include <algorithm>
-// #include <functional>
-// #include <iterator>
 
 #include "include/two_line_segments_app.h"
 
@@ -16,7 +13,6 @@ using std::string;
 
 class TwoLineSegmentsAppTest : public ::testing::Test {
  protected:
-    // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
         vector<const char*> options;
