@@ -8,7 +8,7 @@
 
 class RomaNumberConverter {
  public:
-    RomaNumberConverter();
+    RomaNumberConverter() = default;
     std::string operator()(int argc, const char** argv);
 
  private:
