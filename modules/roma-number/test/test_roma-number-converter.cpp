@@ -3,9 +3,6 @@
 #include <gtest/gtest.h>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <functional>
-#include <iterator>
 
 #include "include/romanumber_converter.h"
 

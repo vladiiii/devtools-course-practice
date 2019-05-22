@@ -3,14 +3,12 @@
 #include "include/romanumber.h"
 #include "include/romanumber_converter.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio>
+#include <stdlib>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
-
-RomaNumberConverter::RomaNumberConverter() : message_("") {}
 
 std::string RomaNumberConverter::Help(const char* appname) {
     return "This is application for roma number converter.\n"

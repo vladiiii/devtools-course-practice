@@ -1,7 +1,7 @@
 // Copyright 2019 Pinaev Danil
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <stdlib>
+#include <stdio>
 #include <string>
 #include <iostream>
 
