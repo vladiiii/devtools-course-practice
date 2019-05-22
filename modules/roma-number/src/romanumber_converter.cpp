@@ -3,8 +3,8 @@
 #include "include/romanumber.h"
 #include "include/romanumber_converter.h"
 
-#include <stdio>
-#include <stdlib>
+#include <cstdio>
+#include <cstdlib>
 #include <stdint.h>
 #include <string.h>
 #include <string>
