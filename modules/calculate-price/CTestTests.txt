@@ -18,7 +18,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a application for class calculate price"
+    PASS_REGULAR_EXPRESSION "This is application for class calculate price"
     LABELS "${MODULE}")
 
 add_test(
@@ -53,7 +53,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2 7234345435636634 1 1
 )
 
-set_tests_properties (${prefix}_can_Detect_Negative_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Overflow PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Number is out of bounds"
     LABELS "${MODULE}")
 
