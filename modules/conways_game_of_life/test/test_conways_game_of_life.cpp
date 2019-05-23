@@ -32,7 +32,7 @@ TEST(Conways_life, Can_Get_Heigth) {
 	Conways_life z(5, 6);
 
 	// Act
-	int h = z.getW();
+	int h = z.geth();
 
 	// Assert
 	EXPECT_EQ(6, h);
