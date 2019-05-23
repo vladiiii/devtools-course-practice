@@ -4,6 +4,7 @@
 #define MODULES_CALCULATE_PRICE_INCLUDE_CALCULATE_PRICE_APPLICATION_H_
 
 #include <string>
+#include <vector>
 
 class CalculatePriceApplication {
  public:
@@ -14,13 +15,7 @@ class CalculatePriceApplication {
     bool ValidateNambersOfArguments(int argc, const char ** argv);
     bool IsArgumentsInteger(const char ** argv);
     std::string message_;
-    typedef struct {
-        int book_1;
-        int book_2;
-        int book_3;
-        int book_4;
-        int book_5;
-    } Arguments;
+    std::vector <int> books;
 };
 
 #endif  // MODULES_CALCULATE_PRICE_INCLUDE_CALCULATE_PRICE_APPLICATION_H_

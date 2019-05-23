@@ -3,10 +3,6 @@
 #include "include/calculate_price.h"
 #include "include/calculate_price_application.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <sstream>
 #include <limits>
@@ -14,7 +10,6 @@
 
 std::string CalculatePriceApplication::operator()(int argc,
         const char ** argv) {
-    Arguments args;
     char * e;
     std::ostringstream stream;
 
@@ -25,15 +20,13 @@ std::string CalculatePriceApplication::operator()(int argc,
         return message_;
     }
 
-    args.book_1 = strtol(argv[1], &e, 10);
-    args.book_2 = strtol(argv[2], &e, 10);
-    args.book_3 = strtol(argv[3], &e, 10);
-    args.book_4 = strtol(argv[4], &e, 10);
-    args.book_5 = strtol(argv[5], &e, 10);
+    for (int i = 1; i < 6; i++) {
+        books.push_back(strtol(argv[i], &e, 10));
+    }
 
     try {
-        CalculatePrice price(args.book_1, args.book_2, args.book_3,
-                             args.book_4, args.book_5);
+        CalculatePrice price(books[0], books[1], books[2],
+                             books[3], books[4]);
 
         double sum = price.TotalSum();
         stream << "Total Sum = " << sum;
