@@ -16,6 +16,7 @@ std::string CalculatePriceApplication::operator()(int argc,
     if (!ValidateNambersOfArguments(argc, argv)) {
         return message_;
     }
+
     if (!IsArgumentsInteger(argv)) {
         return message_;
     }
