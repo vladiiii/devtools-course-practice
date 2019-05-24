@@ -13,7 +13,6 @@ using std::string;
 
 class TwoLineSegmentsAppTest : public ::testing::Test {
  protected:
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
