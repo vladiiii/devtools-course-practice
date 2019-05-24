@@ -9,8 +9,6 @@
 #include <sstream>
 #include <string>
 
-TwoLineSegmentsApp::TwoLineSegmentsApp() : message_("") {}
-
 void TwoLineSegmentsApp::Help(const char* appname,
                               const char* message) {
     message_ =
