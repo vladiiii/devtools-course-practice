@@ -40,34 +40,38 @@ class TemperatureCalculatorTest : public ::testing::Test {
 };
 
 TEST_F(TemperatureCalculatorTest, Can_Print_Help_Without_Arguments) {
+    // Arrange
     vector<string> args = {};
-
+    // Act
     Act(args);
-
+    // Assert
     Assert("This is a temperature calculator application\\..*");
 }
 
 TEST_F(TemperatureCalculatorTest, Can_Check_Number_Of_Arguments) {
+    // Arrange
     vector<string> args = {"273.0"};
-
+    // Act
     Act(args);
-
+    // Assert
     Assert("ERROR: Should be 2 arguments\\..*");
 }
 
 TEST_F(TemperatureCalculatorTest, Can_Detect_Wrong_Number_Format) {
+    // Arrange
     vector<string> args = {"five", "CelsiusToKelvin"};
-
+    // Act
     Act(args);
-
+    // Assert
     Assert("Wrong number format!.*");
 }
 
 TEST_F(TemperatureCalculatorTest, Can_Detect_Wrong_Operation_Format) {
+    // Arrange
     vector<string> args = {"1.5", "Operation"};
-
+    // Act
     Act(args);
-
+    // Assert
     Assert("Wrong operation format!");
 }
 
