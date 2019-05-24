@@ -22,7 +22,7 @@ class TwoLineSegmentsApp {
         double y3;
     } Arguments;
  public:
-    TwoLineSegmentsApp();
+    TwoLineSegmentsApp() = default;
     std::string operator()(int argc, const char ** argv);
 };
 
