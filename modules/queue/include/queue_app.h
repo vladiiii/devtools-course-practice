@@ -7,13 +7,13 @@
 #include "include/queue.h"
 
 class QueueApplication {
-  private:
+ private:
     std::string message_;
     Queue que;
     void Help(const char* appname, const char* message = "");
     bool ValidateNumberOfArguments(int argc, const char** argv);
     int ParseOperation(const char** s);
-  public:
+ public:
     QueueApplication() = default;
     std::string operator()(int argc, const char** argv);
 };

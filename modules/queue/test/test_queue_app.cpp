@@ -11,7 +11,7 @@ using std::vector;
 using std::string;
 
 class QueueApplicationTest : public ::testing::Test {
-  protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -29,7 +29,7 @@ class QueueApplicationTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-  private:
+ private:
     QueueApplication app_;
     string output_;
 };
