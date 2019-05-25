@@ -134,11 +134,11 @@ TEST_F(ShapesAreaApplicationTest, Can_Calculate_Cube_Area) {
 }
 
 TEST_F(ShapesAreaApplicationTest, Can_Calculate_Cone_Area) {
-    vector<string> args = {"calc", "cone", "3", "2"};
+    vector<string> args = {"calc", "cone", "2", "2"};
 
     Act(args);
 
-    Assert("area = 31.*");
+    Assert("area = 25.*");
 }
 
 TEST_F(ShapesAreaApplicationTest, Can_Calculate_Sphere_Area) {

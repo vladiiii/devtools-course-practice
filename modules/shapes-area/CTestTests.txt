@@ -87,10 +87,10 @@ set_tests_properties (${prefix}_can_Calculate_Cube_Area PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Calculate_Cone_Area
-    COMMAND ${APPLICATION} calc cone 3 2
+    COMMAND ${APPLICATION} calc cone 2 2
 )
 set_tests_properties (${prefix}_can_Calculate_Cone_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 31"
+    PASS_REGULAR_EXPRESSION "area = 25"
     LABELS "${MODULE}")
 
 add_test(
@@ -99,6 +99,14 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Calculate_Sphere_Area PROPERTIES
     PASS_REGULAR_EXPRESSION "area = 201"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Cylinder_Area
+    COMMAND ${APPLICATION} calc cylinder 2 2
+)
+set_tests_properties (${prefix}_can_Calculate_Cylinder_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 50"
     LABELS "${MODULE}")
 
 add_test(
