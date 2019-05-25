@@ -1,7 +1,10 @@
 // Copyright 2019 Utkin Konstantin
 
 #include <iostream>
+#include "include/queue_app.h"
 
 int main(int argc, const char** argv) {
-    std::cout << "Hello world!" << std::endl;
+    QueueApplication app;
+    std::cout << app(argc, argv);
+    return 0;
 }

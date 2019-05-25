@@ -25,16 +25,16 @@ bool QueueApplication::ValidateNumberOfArguments(int argc, const char** argv) {
 }
 
 int QueueApplication::ParseOperation(const char** s) {
-    if (std::strcmp(s[0], "put")) {
+    if (std::strcmp(s[0], "put") == 0) {
         int value = std::atoi(s[1]);
         que.Put(value);
         return 2;
     }
-    if (std::strcmp(s[0], "get")) {
-        que.Get();
+    if (std::strcmp(s[0], "get") == 0) {
+        message_ = "Gotten element = " + std::to_string(que.Get());
         return 1;
     }
-    if (std::strcmp(s[0], "top")) {
+    if (std::strcmp(s[0], "top") == 0) {
         message_ = "The top element = " + std::to_string(que.TopElem());
         return 1;
     }
@@ -52,6 +52,7 @@ std::string QueueApplication::operator()(int argc, const char** argv) {
             message_ = "Argument error";
             break;
         }
-        i += inc + 1;
+        i += inc;
     }
+    return message_;
 }
