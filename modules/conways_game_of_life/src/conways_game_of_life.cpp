@@ -28,12 +28,14 @@ void Conways_life::putStart(const int wi, const int hi) {
 }
 int Conways_life::getH() { return sizeh; }
 int Conways_life::getW() { return sizew; }
-char Conways_life::getPoint(const int wi, const int hi) { return field[hi*sizew + wi]; }
+char Conways_life::getPoint(const int wi, const int hi) {
+    return field[hi*sizew + wi];
+}
 void Conways_life::redraw() {
     for (int i = 0; i < sizeh; i++) {
         for (int j = 0; j < sizew; j++) {
             if (check[i*sizew + j]) field[i*sizew + j] = '+';
-            else 
+            else
                 field[i*sizew + j] = '.';
 
             check[i*sizew + j] = false;
@@ -57,9 +59,9 @@ bool Conways_life::aliveNextStep(const int wi, const int hi) {
             check[hi*sizew + wi] = true;
     }
     if (field[hi*sizew + wi] == '+') {
-        if (alive_neigh == 2 || alive_neigh == 3)
+        if (alive_neigh == 2 || alive_neigh == 3) {
             check[hi*sizew + wi] = true;
-        else {
+        } else {
             check[hi*sizew + wi] = false;
             res = false;
         }
