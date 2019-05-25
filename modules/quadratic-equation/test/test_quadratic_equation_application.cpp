@@ -9,7 +9,7 @@
 
 class QuadraticEquationApplicationTest :
     public ::testing::Test {
-protected:
+ protected:
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
         options.push_back("appname");
@@ -28,7 +28,7 @@ protected:
             ::testing::internal::RE(expected)));
     }
 
-private:
+ private:
     QuadraticEquationApplication app_;
     std::string output_;
 };
@@ -41,7 +41,8 @@ TEST_F(QuadraticEquationApplicationTest, Prints_Help_With_No_Arguments) {
     Assert("This is a quadratic equation calculator application.");
 }
 
-TEST_F(QuadraticEquationApplicationTest, Prints_Error_With_Wrong_Number_Of_Arguments) {
+TEST_F(QuadraticEquationApplicationTest, 
+Prints_Error_With_Wrong_Number_Of_Arguments) {
     std::vector<std::string> args = { "0", "0" };
 
     Act(args);
@@ -57,7 +58,8 @@ TEST_F(QuadraticEquationApplicationTest, Prints_Error_With_No_Solutions) {
     Assert("No real solutions");
 }
 
-TEST_F(QuadraticEquationApplicationTest, Prints_Error_With_Non_Quadratic_Equation) {
+TEST_F(QuadraticEquationApplicationTest, 
+Prints_Error_With_Non_Quadratic_Equation) {
     std::vector<std::string> args = { "0", "0", "1" };
 
     Act(args);
