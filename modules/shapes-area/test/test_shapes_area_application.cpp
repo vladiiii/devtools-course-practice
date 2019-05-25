@@ -138,7 +138,7 @@ TEST_F(ShapesAreaApplicationTest, Can_Calculate_Cone_Area) {
 
     Act(args);
 
-    Assert("area = 31.*");
+    Assert("area = 18.*");
 }
 
 TEST_F(ShapesAreaApplicationTest, Can_Calculate_Sphere_Area) {
@@ -154,7 +154,7 @@ TEST_F(ShapesAreaApplicationTest, Can_Calculate_Cylinder_Area) {
 
     Act(args);
 
-    Assert("area = 25.*");
+    Assert("area = 50.*");
 }
 
 TEST_F(ShapesAreaApplicationTest, Can_Calculate_Parallelipiped_Area) {
