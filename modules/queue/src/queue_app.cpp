@@ -1,8 +1,10 @@
 // Copyright 2019 Utkin Konstantin
 
-#include "include/queue_app.h"
-
 #include <string>
+#include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include "include/queue_app.h"
 
 void QueueApplication::Help(const char* appname, const char* message) {
     message_ = std::string(message) +

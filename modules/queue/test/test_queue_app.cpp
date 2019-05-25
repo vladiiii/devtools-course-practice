@@ -1,6 +1,8 @@
 // Copyright 2019 Utkin Konstantin
 
 #include <gtest/gtest.h>
+#include <string>
+#include <vector>
 
 #include "include/queue_app.h"
 
