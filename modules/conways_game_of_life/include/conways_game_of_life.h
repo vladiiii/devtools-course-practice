@@ -9,7 +9,7 @@ class Conways_life {
     char* field;
     bool* check;
 
-    void checkNextStep(); 
+    void checkNextStep();
     void redraw();
 
  public:
@@ -21,7 +21,7 @@ class Conways_life {
 
     int countNeighbors(const int wi, const int hi);
     void stepNextField();
-    bool isSystemAlive(); 
+    bool isSystemAlive();
     bool aliveNextStep(const int wi, const int hi);
 
     void Start();

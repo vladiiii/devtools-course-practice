@@ -43,7 +43,7 @@ void Conways_life::redraw() {
 void Conways_life::checkNextStep() {
     for (int i = 0; i < sizew; i++) {
         for (int j = 0; j < sizeh; j++) {
-            bool ch = aliveNextStep(i, j);
+            aliveNextStep(i, j);
         }
     }
 }
