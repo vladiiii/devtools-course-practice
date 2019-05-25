@@ -3,7 +3,7 @@
 #ifndef MODULES_SHAPES_AREA_INCLUDE_SHAPES_AREA_APPLICATION_H_
 #define MODULES_SHAPES_AREA_INCLUDE_SHAPES_AREA_APPLICATION_H_
 #include <string>
-#include "include/shapes_Area.h"
+#include "include/shapes_area.h"
 
 class ShapesAreaApplication {
  private:
