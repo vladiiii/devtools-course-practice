@@ -3,12 +3,11 @@
 #ifndef MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_APPLICATION_H_
 #define MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_APPLICATION_H_
 
-#include <string>
 #include <include/quadratic_equation.h>
 
+#include <string>
 class QuadraticEquationApplication {
-
-public:
+ public:
      QuadraticEquationApplication() = default;
      std::string operator()(int argc, const char** argv);
 
