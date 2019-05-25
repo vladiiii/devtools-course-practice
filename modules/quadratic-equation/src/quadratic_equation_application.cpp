@@ -10,7 +10,8 @@
 #include <string>
 #include <sstream>
 
-std::string QuadraticEquationApplication::operator()(int argc, const char** argv) {
+std::string QuadraticEquationApplication::operator()
+(int argc, const char** argv) {
     QuadraticEquationApplication app;
     std::ostringstream stream;
 
@@ -32,14 +33,15 @@ std::string QuadraticEquationApplication::operator()(int argc, const char** argv
         message_ = stream.str();
         return message_;
     }
-    catch (const char* s){
+    catch (const char* s) {
         stream << s;
         message_ = stream.str();
         return message_;
-    }    
+    }
 }
 
-void QuadraticEquationApplication::Help(const char* appname, const char* message) {
+void QuadraticEquationApplication::Help
+(const char* appname, const char* message) {
     message_ = std::string(message) +
         "This is a quadratic equation calculator application. \n\n" +
         "Please, provide arguments in the following format: \n\n "
@@ -50,8 +52,7 @@ bool QuadraticEquationApplication::CheckArguments(int argc, const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    }
-    else if (argc != 4) {
+    } else if (argc != 4) {
         Help(argv[0], "ERROR: Should be 3 arguments.\n\n");
         return false;
     }
