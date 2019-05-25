@@ -138,7 +138,7 @@ TEST_F(ShapesAreaApplicationTest, Can_Calculate_Cone_Area) {
 
     Act(args);
 
-    Assert("area = 18.*");
+    Assert("area = 31.*");
 }
 
 TEST_F(ShapesAreaApplicationTest, Can_Calculate_Sphere_Area) {
