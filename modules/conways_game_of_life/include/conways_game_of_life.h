@@ -9,17 +9,20 @@ class Conways_life {
     char* field;
     bool* check;
 
-    int countNeighbors(const int wi, const int hi);
-    void checkNextStep();
-    void aliveNextStep(const int wi, const int hi);
+    void checkNextStep(); 
     void redraw();
-    bool isSystemAlive();
 
  public:
     Conways_life(const int w, const int h);
     int getW();
     int getH();
+    char getPoint(const int wi, const int hi);
     void putStart(const int wi, const int hi);
+
+    int countNeighbors(const int wi, const int hi);
+    void stepNextField();
+    bool isSystemAlive(); 
+    bool aliveNextStep(const int wi, const int hi);
 
     void Start();
 };

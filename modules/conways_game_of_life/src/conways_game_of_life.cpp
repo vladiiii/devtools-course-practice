@@ -1,7 +1,6 @@
 // Copyright 2019 Logvinenko Alexandra
 
 #include "include/conways_game_of_life.h"
-
 #include <string>
 
 Conways_life::Conways_life(const int w, const int h) {
@@ -29,11 +28,12 @@ void Conways_life::putStart(const int wi, const int hi) {
 }
 int Conways_life::getH() { return sizeh; }
 int Conways_life::getW() { return sizew; }
+char Conways_life::getPoint(const int wi, const int hi) { return field[hi*sizew + wi]; }
 void Conways_life::redraw() {
     for (int i = 0; i < sizeh; i++) {
-        for (int j = 0; j > sizew; j++) {
+        for (int j = 0; j < sizew; j++) {
             if (check[i*sizew + j]) field[i*sizew + j] = '+';
-            else
+            else 
                 field[i*sizew + j] = '.';
 
             check[i*sizew + j] = false;
@@ -43,12 +43,13 @@ void Conways_life::redraw() {
 void Conways_life::checkNextStep() {
     for (int i = 0; i < sizew; i++) {
         for (int j = 0; j < sizeh; j++) {
-            aliveNextStep(i, j);
+            bool ch = aliveNextStep(i, j);
         }
     }
 }
-void Conways_life::aliveNextStep(const int wi, const int hi) {
+bool Conways_life::aliveNextStep(const int wi, const int hi) {
     int alive_neigh;
+    bool res = true;
     alive_neigh = countNeighbors(wi, hi);
 
     if (field[hi*sizew + wi] == '.') {
@@ -58,9 +59,12 @@ void Conways_life::aliveNextStep(const int wi, const int hi) {
     if (field[hi*sizew + wi] == '+') {
         if (alive_neigh == 2 || alive_neigh == 3)
             check[hi*sizew + wi] = true;
-        else
+        else {
             check[hi*sizew + wi] = false;
+            res = false;
+        }
     }
+    return res;
 }
 int Conways_life::countNeighbors(const int wi, const int hi) {
     int count = 0;
@@ -93,9 +97,9 @@ int Conways_life::countNeighbors(const int wi, const int hi) {
             if (field[0] == '+') count++;
             if (field[1] == '+') count++;
         } else if (wi == sizew - 1 && hi == 0) {
-            if (field[(hi - 1)*sizew + wi - 1] == '+') count++;
-            if (field[(hi - 1)*sizew + wi] == '+') count++;
-            if (field[(hi - 1)*sizew] == '+') count++;
+            if (field[(sizeh - 1)*sizew + wi - 1] == '+') count++;
+            if (field[(sizeh - 1)*sizew + wi] == '+') count++;
+            if (field[(sizeh - 1)*sizew] == '+') count++;
             if (field[wi - 1] == '+') count++;
             if (field[0] == '+') count++;
             if (field[sizew + wi - 1] == '+') count++;
@@ -163,9 +167,14 @@ bool Conways_life::isSystemAlive() {
     return res;
 }
 
+void Conways_life::stepNextField() {
+    checkNextStep();
+    redraw();
+    checkNextStep();
+}
 void Conways_life::Start() {
+    checkNextStep();
     while (isSystemAlive()) {
-        checkNextStep();
-        redraw();
+        stepNextField();
     }
 }
