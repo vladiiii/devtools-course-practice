@@ -9,7 +9,7 @@
 class QueueApplication {
  private:
     std::string message_;
-    Queue que;
+    Queue que_;
     void Help(const char* appname, const char* message = "");
     bool ValidateNumberOfArguments(int argc, const char** argv);
     int ParseOperation(const char** s);

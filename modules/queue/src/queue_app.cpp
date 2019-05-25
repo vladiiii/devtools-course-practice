@@ -3,7 +3,6 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
-#include <iostream>
 #include "include/queue_app.h"
 
 void QueueApplication::Help(const char* appname, const char* message) {
@@ -29,15 +28,15 @@ bool QueueApplication::ValidateNumberOfArguments(int argc, const char** argv) {
 int QueueApplication::ParseOperation(const char** s) {
     if (std::strcmp(s[0], "put") == 0) {
         int value = std::atoi(s[1]);
-        que.Put(value);
+        que_.Put(value);
         return 2;
     }
     if (std::strcmp(s[0], "get") == 0) {
-        message_ = "Gotten element = " + std::to_string(que.Get());
+        message_ = "Gotten element = " + std::to_string(que_.Get());
         return 1;
     }
     if (std::strcmp(s[0], "top") == 0) {
-        message_ = "The top element = " + std::to_string(que.TopElem());
+        message_ = "The top element = " + std::to_string(que_.TopElem());
         return 1;
     }
     return 0;
