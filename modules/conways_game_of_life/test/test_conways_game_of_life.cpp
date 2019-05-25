@@ -126,15 +126,15 @@ TEST(Conways_life, Check_Corners) {
     EXPECT_EQ(zc.getPoint(1, 1), '+');
 }
 TEST(Conways_life, Can_Start) {
-	// Arrange
-	Conways_life zc(5, 5);
-	zc.putStart(1, 1);
-	zc.putStart(2, 1);
-	zc.putStart(3, 3);
+    // Arrange
+    Conways_life zc(5, 5);
+    zc.putStart(1, 1);
+    zc.putStart(2, 1);
+    zc.putStart(3, 3);
 
-	// Act
-	zc.Start();
+    // Act
+    zc.Start();
 
-	// Assert
-	EXPECT_EQ(zc.getPoint(2, 2), '+');
+    // Assert
+    EXPECT_EQ(zc.getPoint(2, 2), '+');
 }
