@@ -20,15 +20,23 @@ std::string QuadraticEquationApplication::operator()(int argc, const char** argv
 
 	for (int i = 1; i < 4; i++)
 		coef[i-1] = atoi(argv[i]);
-	QuadraticEquation qe(coef[0], coef[1], coef[2]);
 
-	if (qe.GetX1() == qe.GetX2())
-		stream << "X1 = X2 = "<< qe.GetX1();
-	else
-		stream << "X1 = "<< qe.GetX1() <<", X2 = " << qe.GetX2();
+	try {
+		QuadraticEquation qe(coef[0], coef[1], coef[2]);
 
-	message_ = stream.str();
-	return message_;
+		if (qe.GetX1() == qe.GetX2())
+			stream << "X1 = X2 = " << qe.GetX1();
+		else
+			stream << "X1 = " << qe.GetX1() << ", X2 = " << qe.GetX2();
+
+		message_ = stream.str();
+		return message_;
+	}
+	catch (const char* s){
+		stream << s;
+		message_ = stream.str();
+		return message_;
+	}	
 }
 
 void QuadraticEquationApplication::Help(const char* appname, const char* message) {
