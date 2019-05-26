@@ -14,15 +14,15 @@ AreaOfPolygon::~AreaOfPolygon() {
 }
 
 double AreaOfPolygon::Area() {
-    int sum = 0;
+    double sum = 0;
     unsigned int i;
     for (i = 0; i < points_.size() - 1; i++) {
-        sum += abs((points_[i][0] + points_[i + 1][0]) *
-                   (points_[i + 1][1] - points_[i][1]));
+        sum += abs(points_[i][0] * points_[i + 1][1] -
+            points_[i + 1][0] * points_[i][1]);
     }
-    sum += abs((points_[0][0] + points_[i][0]) *
-               (points_[0][1] - points_[i][1]));
-    return sum / 2;
+    sum += abs(points_[i][0] * points_[0][1] -
+        points_[0][0] * points_[i][1]);
+    return sum * 0.5;
 }
 
 void AreaOfPolygon::SetPoint(int n, std::vector<int> p) {
