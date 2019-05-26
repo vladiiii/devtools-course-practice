@@ -6,6 +6,7 @@
 #include <include/quadratic_equation.h>
 
 #include <string>
+#include <array>
 class QuadraticEquationApplication {
  public:
      QuadraticEquationApplication() = default;
@@ -13,7 +14,7 @@ class QuadraticEquationApplication {
 
  private:
      std::string message_;
-     int coef[3];
+     std::array<int, 3> coef;
      void Help(const char* appname, const char* message = "");
      bool CheckArguments(int argc, const char** argv);
 };
