@@ -63,14 +63,14 @@ bool Range::IntegerRangeContains(int* arr, int size) {
     return true;
 }
 
-void Range::GetAllPoints() {
-    std::cout << "{";
+std::string Range::GetAllPoints() {
+    std::string str = "Points: ";
     for (int i = interval_[1]; i <= interval_[2]; i++) {
-        std::cout << i;
+        str += std::to_string(i);
         if (i != interval_[2])
-            std::cout << ", ";
+            str += ", ";
     }
-    std::cout << "}" << std::endl;
+    return str;
 }
 
 bool Range::ContainsRange(std::string str) {
@@ -82,8 +82,12 @@ bool Range::ContainsRange(std::string str) {
     return false;
 }
 
-void Range::EndPoints() {
-    std::cout << "{" << interval_[1] << ", " << interval_[2] << "}";
+std::string Range::EndPoints() {
+    std::string str;
+    str = "Start: " + std::to_string(interval_[1]) + "\n"
+        + "End: " + std::to_string(interval_[2]);
+
+    return str;
 }
 
 bool Range::OverlapsRange(std::string str) {
@@ -95,16 +99,15 @@ bool Range::OverlapsRange(std::string str) {
     return true;
 }
 
-bool Range::operator==(const Range obj) const {
-    for (int i = 0; i < 4; i++) {
-        if (obj.interval_[i] != interval_[i])
-            return false;
-    }
+bool Range::operator==(const Range& obj) const {
+    if (obj.interval_[1] != interval_[1] ||
+        obj.interval_[2] != interval_[2])
+        return false;
 
     return true;
 }
 
-bool Range::operator!=(const Range obj) const {
+bool Range::operator!=(const Range& obj) const {
     return !(operator==(obj));
 }
 
