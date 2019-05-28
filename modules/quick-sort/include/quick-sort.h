@@ -1,4 +1,4 @@
-// Copyright 2019 Gaydaychuk Yury
+// Copyright 2019 by Zolotareva Olesya
 
 #ifndef MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
 #define MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_

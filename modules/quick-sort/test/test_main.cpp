@@ -1,4 +1,4 @@
-// Copyright 2019 Gaydaychuk Yury
+// Copyright 2019 by Zolotareva Olesya
 
 #include <gtest/gtest.h>
 

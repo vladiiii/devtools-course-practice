@@ -1,8 +1,9 @@
-// Copyright 2019 Gaydaychuk Yury
+// Copyright 2019 by Zolotareva Olesya
+
+#include <iostream>
+#include <stdbool.h>
 
 #include "include/quick-sort.h"
-
-#include <stdbool.h>
 
 bool QuickSort::CheckIncreasing(const int *pArr, const int size) {
     for (int i = 0; i < size - 1; i++) {
@@ -30,6 +31,8 @@ int QuickSort::Partition(int *arr, int low, int high) {
         if (arr[j] <= pivot) {
             i++;
             MySwap(&arr[i], &arr[j]);
+        } else {
+            std::cout<< "Error: going beyond the bounds of the array";
         }
     }
     MySwap(&arr[i + 1], &arr[high]);
@@ -41,5 +44,8 @@ void QuickSort::BoundedSort(int *arr, int low, int high) {
         int pi = Partition(arr, low, high);
         BoundedSort(arr, low, pi - 1);
         BoundedSort(arr, pi + 1, high);
+    } else {
+        std::cout << "Error: Wrong the length of array"; 
     }
+    
 }

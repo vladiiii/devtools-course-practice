@@ -1,11 +1,11 @@
-// Copyright 2019 Yury Gaydaychuk
+// Copyright 2019 by Zolotareva Olesya
 
 #include <gtest/gtest.h>
 
 #include "include/quick-sort.h"
 
 // Checking of simple increasing list
-TEST(Gaydaychuk_Yury_ComplexNumberTest, Increasing_Checking) {
+TEST(QSort_Testing, Increasing_Checking) {
     // Arrange
     QuickSort qs;
     int arr[3] = {1, 2, 3};
@@ -18,7 +18,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Increasing_Checking) {
 }
 
 // Checking of unsorted list
-TEST(Gaydaychuk_Yury_ComplexNumberTest, Unsorted_Checking) {
+TEST(QSort_Testing, Unsorted_Checking) {
     // Arrange
     QuickSort qs;
     int arr[3] = {1, 3, 2};
@@ -31,7 +31,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Unsorted_Checking) {
 }
 
 // Sort function passes checking
-TEST(Gaydaychuk_Yury_ComplexNumberTest, Sort_Passes_Checking) {
+TEST(QSort_Testing, Sort_Passes_Checking) {
     // Arrange
     QuickSort qs;
     int arr[3] = {3, 2, 1};
@@ -45,7 +45,7 @@ TEST(Gaydaychuk_Yury_ComplexNumberTest, Sort_Passes_Checking) {
 }
 
 // First element checking
-TEST(Gaydaychuk_Yury_ComplexNumberTest, First_Element_Checking) {
+TEST(QSort_Testing, First_Element_Checking) {
     // Arrange
     QuickSort qs;
     int arr[3] = {3, 2, 1};
