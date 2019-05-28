@@ -11,6 +11,8 @@ Conways_life::Conways_life(const int w, const int h) {
         sizew_ = w;
         field_.reserve(w*h);
         check_.reserve(w*h);
+        field_.resize(w*h);
+        check_.resize(w*h);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
                 field_[i*sizew_ + j] = '.';
