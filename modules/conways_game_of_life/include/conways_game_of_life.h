@@ -10,7 +10,7 @@ class Conways_life {
     int sizeh_, sizew_;
     std::vector<char> field_;
     std::vector<bool> check_;
-	
+
     void checkNextStep();
     void redraw();
 
