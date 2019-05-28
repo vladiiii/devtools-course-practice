@@ -1,4 +1,4 @@
-// Copyright 2019 
+// Copyright 2019
 
 #include "include/quick-sort.h"
 #include "include/quick-sort-application.h"
@@ -95,7 +95,6 @@ std::string QuickSortApplication::operator()(int argc, const char** argv) {
         bool result = qs.MySort(array, size);
         if (result == true)
             stream << "Sorted was successful";
-        }
     } else {
         stream << "Error! Array not sorted";
     }

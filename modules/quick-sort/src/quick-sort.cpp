@@ -45,7 +45,6 @@ void QuickSort::BoundedSort(int *arr, int low, int high) {
         BoundedSort(arr, low, pi - 1);
         BoundedSort(arr, pi + 1, high);
     } else {
-        std::cout << "Error: Wrong the length of array"; 
+        std::cout << "Error: Wrong the length of array";
     }
-    
 }

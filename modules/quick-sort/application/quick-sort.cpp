@@ -1,7 +1,8 @@
-// Copyright by 
+// Copyright by
+
+#include "include/quick-sort.h"
 
 #include <iostream>
-#include "include/quick-sort.h"
 
 int main(int argc, const char** argv) {
     QuickSortApplication app;
