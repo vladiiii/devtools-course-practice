@@ -1,9 +1,9 @@
 // Copyright 2019 by Zolotareva Olesya
 
+#include "include/quick-sort.h"
+
 #include <iostream>
 #include <stdbool.h>
-
-#include "include/quick-sort.h"
 
 bool QuickSort::CheckIncreasing(const int *pArr, const int size) {
     for (int i = 0; i < size - 1; i++) {
