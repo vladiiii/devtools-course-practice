@@ -21,7 +21,7 @@ set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 1 1
+    COMMAND ${APPLICATION} 1 2
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Check count of arguments and size of entered array."
@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Size_Of_Array
-    COMMAND ${APPLICATION} 0 1
+    COMMAND ${APPLICATION} 0 2
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Size_Of_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Size must be >= 1"
