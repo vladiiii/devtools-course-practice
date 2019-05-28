@@ -91,8 +91,7 @@ std::string QuickSortApplication::operator()(int argc, const char** argv) {
 
     if (CheckSort(size, array)) {
         QuickSort qs;
-        qs.CheckIncreasing(array, size);
-        bool result = qs.MySort(array, size);
+        bool result = qs.CheckIncreasing(array, size);;
         if (result == true)
             stream << "Sorted was successful";
     } else {
