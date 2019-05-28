@@ -3,11 +3,13 @@
 #ifndef MODULES_CONWAYS_GAME_OF_LIFE_INCLUDE_CONWAYS_GAME_OF_LIFE_H_
 #define MODULES_CONWAYS_GAME_OF_LIFE_INCLUDE_CONWAYS_GAME_OF_LIFE_H_
 
+#include <vector>
+
 class Conways_life {
  private:
-    int sizeh, sizew;
-    char* field;
-    bool* check;
+    int sizeh_, sizew_;
+    std::vector<char> field_;
+    std::vector<bool> check_;
 
     void checkNextStep();
     void redraw();

@@ -7,44 +7,44 @@ Conways_life::Conways_life(const int w, const int h) {
     if (w <= 0 || h <= 0) {
         throw std::string("Wrong input.");
     } else {
-        sizeh = h;
-        sizew = w;
-        field = new char[w*h];
-        check = new bool[w*h];
+        sizeh_ = h;
+        sizew_ = w;
+        field_.reserve(w*h);
+        check_.reserve(w*h);
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                field[i*sizew + j] = '.';
-                check[i*sizew + j] = false;
+                field_[i*sizew_ + j] = '.';
+                check_[i*sizew_ + j] = false;
            }
         }
     }
 }
 void Conways_life::putStart(const int wi, const int hi) {
-    if (wi < 0 || hi < 0 || wi >= sizew || hi >= sizeh) {
+    if (wi < 0 || hi < 0 || wi >= sizew_ || hi >= sizeh_) {
         throw std::string("Wrong point.");
     } else {
-        field[hi*sizew+wi] = '+';
+        field_[hi*sizew_+wi] = '+';
     }
 }
-int Conways_life::getH() { return sizeh; }
-int Conways_life::getW() { return sizew; }
+int Conways_life::getH() { return sizeh_; }
+int Conways_life::getW() { return sizew_; }
 char Conways_life::getPoint(const int wi, const int hi) {
-    return field[hi*sizew + wi];
+    return field_[hi*sizew_ + wi];
 }
 void Conways_life::redraw() {
-    for (int i = 0; i < sizeh; i++) {
-        for (int j = 0; j < sizew; j++) {
-            if (check[i*sizew + j]) field[i*sizew + j] = '+';
+    for (int i = 0; i < sizeh_; i++) {
+        for (int j = 0; j < sizew_; j++) {
+            if (check_[i*sizew_ + j]) field_[i*sizew_ + j] = '+';
             else
-                field[i*sizew + j] = '.';
+                field_[i*sizew_ + j] = '.';
 
-            check[i*sizew + j] = false;
+            check_[i*sizew_ + j] = false;
         }
     }
 }
 void Conways_life::checkNextStep() {
-    for (int i = 0; i < sizew; i++) {
-        for (int j = 0; j < sizeh; j++) {
+    for (int i = 0; i < sizew_; i++) {
+        for (int j = 0; j < sizeh_; j++) {
             aliveNextStep(i, j);
         }
     }
@@ -54,15 +54,15 @@ bool Conways_life::aliveNextStep(const int wi, const int hi) {
     bool res = true;
     alive_neigh = countNeighbors(wi, hi);
 
-    if (field[hi*sizew + wi] == '.') {
+    if (field_[hi*sizew_ + wi] == '.') {
         if (alive_neigh == 3)
-            check[hi*sizew + wi] = true;
+            check_[hi*sizew_ + wi] = true;
     }
-    if (field[hi*sizew + wi] == '+') {
+    if (field_[hi*sizew_ + wi] == '+') {
         if (alive_neigh == 2 || alive_neigh == 3) {
-            check[hi*sizew + wi] = true;
+            check_[hi*sizew_ + wi] = true;
         } else {
-            check[hi*sizew + wi] = false;
+            check_[hi*sizew_ + wi] = false;
             res = false;
         }
     }
@@ -70,88 +70,88 @@ bool Conways_life::aliveNextStep(const int wi, const int hi) {
 }
 int Conways_life::countNeighbors(const int wi, const int hi) {
     int count = 0;
-    if ((wi != 0) && (wi != sizew - 1) && (hi != 0) && (hi != sizeh - 1)) {
-        if (field[hi*sizew + wi + 1] == '+') count++;
-        if (field[hi*sizew + wi - 1] == '+') count++;
-        if (field[(hi + 1)*sizew + wi - 1] == '+') count++;
-        if (field[(hi + 1)*sizew + wi + 1] == '+') count++;
-        if (field[(hi + 1)*sizew + wi] == '+') count++;
-        if (field[(hi - 1)*sizew + wi - 1] == '+') count++;
-        if (field[(hi - 1)*sizew + wi + 1] == '+') count++;
-        if (field[(hi - 1)*sizew + wi] == '+') count++;
+    if ((wi != 0) && (wi != sizew_ - 1) && (hi != 0) && (hi != sizeh_ - 1)) {
+        if (field_[hi*sizew_ + wi + 1] == '+') count++;
+        if (field_[hi*sizew_ + wi - 1] == '+') count++;
+        if (field_[(hi + 1)*sizew_ + wi - 1] == '+') count++;
+        if (field_[(hi + 1)*sizew_ + wi + 1] == '+') count++;
+        if (field_[(hi + 1)*sizew_ + wi] == '+') count++;
+        if (field_[(hi - 1)*sizew_ + wi - 1] == '+') count++;
+        if (field_[(hi - 1)*sizew_ + wi + 1] == '+') count++;
+        if (field_[(hi - 1)*sizew_ + wi] == '+') count++;
     } else {
         if (wi == 0 && hi == 0) {
-            if (field[1] == '+') count++;
-            if (field[sizew-1] == '+') count++;
-            if (field[sizew] == '+') count++;
-            if (field[sizew + 1] == '+') count++;
-            if (field[sizew + sizew - 1] == '+') count++;
-            if (field[(sizeh - 1)*sizew] == '+') count++;
-            if (field[(sizeh - 1)*sizew + 1] == '+') count++;
-            if (field[(sizeh - 1)*sizew + sizew - 1] == '+') count++;
-        } else if (wi == 0 && hi == sizeh - 1) {
-            if (field[(hi - 1)*sizew] == '+') count++;
-            if (field[(hi - 1)*sizew + 1] == '+') count++;
-            if (field[(hi - 1)*sizew + sizew - 1] == '+') count++;
-            if (field[hi*sizew + 1] == '+') count++;
-            if (field[hi*sizew + sizew - 1] == '+') count++;
-            if (field[sizew - 1] == '+') count++;
-            if (field[0] == '+') count++;
-            if (field[1] == '+') count++;
-        } else if (wi == sizew - 1 && hi == 0) {
-            if (field[(sizeh - 1)*sizew + wi - 1] == '+') count++;
-            if (field[(sizeh - 1)*sizew + wi] == '+') count++;
-            if (field[(sizeh - 1)*sizew] == '+') count++;
-            if (field[wi - 1] == '+') count++;
-            if (field[0] == '+') count++;
-            if (field[sizew + wi - 1] == '+') count++;
-            if (field[sizew + wi] == '+') count++;
-            if (field[sizew] == '+') count++;
-        } else if (wi == sizew - 1 && hi == sizeh - 1) {
-            if (field[(hi - 1)*sizew + wi] == '+') count++;
-            if (field[(hi - 1)*sizew + wi - 1] == '+') count++;
-            if (field[(hi - 1)*sizew] == '+') count++;
-            if (field[hi*sizew + wi - 1] == '+') count++;
-            if (field[hi*sizew] == '+') count++;
-            if (field[wi - 1] == '+') count++;
-            if (field[wi] == '+') count++;
-            if (field[0] == '+') count++;
+            if (field_[1] == '+') count++;
+            if (field_[sizew_-1] == '+') count++;
+            if (field_[sizew_] == '+') count++;
+            if (field_[sizew_ + 1] == '+') count++;
+            if (field_[sizew_ + sizew_ - 1] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + 1] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + sizew_ - 1] == '+') count++;
+        } else if (wi == 0 && hi == sizeh_ - 1) {
+            if (field_[(hi - 1)*sizew_] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + 1] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + sizew_ - 1] == '+') count++;
+            if (field_[hi*sizew_ + 1] == '+') count++;
+            if (field_[hi*sizew_ + sizew_ - 1] == '+') count++;
+            if (field_[sizew_ - 1] == '+') count++;
+            if (field_[0] == '+') count++;
+            if (field_[1] == '+') count++;
+        } else if (wi == sizew_ - 1 && hi == 0) {
+            if (field_[(sizeh_ - 1)*sizew_ + wi - 1] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + wi] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_] == '+') count++;
+            if (field_[wi - 1] == '+') count++;
+            if (field_[0] == '+') count++;
+            if (field_[sizew_ + wi - 1] == '+') count++;
+            if (field_[sizew_ + wi] == '+') count++;
+            if (field_[sizew_] == '+') count++;
+        } else if (wi == sizew_ - 1 && hi == sizeh_ - 1) {
+            if (field_[(hi - 1)*sizew_ + wi] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + wi - 1] == '+') count++;
+            if (field_[(hi - 1)*sizew_] == '+') count++;
+            if (field_[hi*sizew_ + wi - 1] == '+') count++;
+            if (field_[hi*sizew_] == '+') count++;
+            if (field_[wi - 1] == '+') count++;
+            if (field_[wi] == '+') count++;
+            if (field_[0] == '+') count++;
         } else if (wi == 0) {
-            if (field[(hi - 1)*sizew] == '+') count++;
-            if (field[(hi + 1)*sizew] == '+') count++;
-            if (field[(hi - 1)*sizew + 1] == '+') count++;
-            if (field[hi*sizew + 1] == '+') count++;
-            if (field[(hi + 1)*sizew + 1] == '+') count++;
-            if (field[(hi - 1)*sizew + sizew - 1] == '+') count++;
-            if (field[hi*sizew + sizew - 1] == '+') count++;
-            if (field[(hi + 1)*sizew + sizew -1] == '+') count++;
+            if (field_[(hi - 1)*sizew_] == '+') count++;
+            if (field_[(hi + 1)*sizew_] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + 1] == '+') count++;
+            if (field_[hi*sizew_ + 1] == '+') count++;
+            if (field_[(hi + 1)*sizew_ + 1] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + sizew_ - 1] == '+') count++;
+            if (field_[hi*sizew_ + sizew_ - 1] == '+') count++;
+            if (field_[(hi + 1)*sizew_ + sizew_ -1] == '+') count++;
         } else if (hi == 0) {
-            if (field[wi - 1] == '+') count++;
-            if (field[wi + 1] == '+') count++;
-            if (field[sizew + wi - 1] == '+') count++;
-            if (field[sizew + wi] == '+') count++;
-            if (field[sizew + wi + 1] == '+') count++;
-            if (field[(sizeh - 1)*sizew + wi - 1] == '+') count++;
-            if (field[(sizeh - 1)*sizew + wi] == '+') count++;
-            if (field[(sizeh - 1)*sizew + wi + 1] == '+') count++;
-        } else if (wi == sizew - 1) {
-            if (field[(hi - 1)*sizew + wi - 1] == '+') count++;
-            if (field[hi*sizew + wi - 1] == '+') count++;
-            if (field[(hi + 1)*sizew + wi] == '+') count++;
-            if (field[(hi - 1)*sizew] == '+') count++;
-            if (field[hi*sizew] == '+') count++;
-            if (field[(hi - 1)*sizew] == '+') count++;
-            if (field[(hi - 1)*sizew + wi] == '+') count++;
-            if (field[(hi + 1)*sizew + wi] == '+') count++;
-        } else if (hi == sizeh - 1) {
-            if (field[(hi - 1)*sizew + wi - 1] == '+') count++;
-            if (field[(hi - 1)*sizew + wi] == '+') count++;
-            if (field[(hi - 1)*sizew + wi + 1] == '+') count++;
-            if (field[wi - 1] == '+') count++;
-            if (field[wi] == '+') count++;
-            if (field[wi + 1] == '+') count++;
-            if (field[hi*sizew + wi - 1] == '+') count++;
-            if (field[hi*sizew + wi + 1] == '+') count++;
+            if (field_[wi - 1] == '+') count++;
+            if (field_[wi + 1] == '+') count++;
+            if (field_[sizew_ + wi - 1] == '+') count++;
+            if (field_[sizew_ + wi] == '+') count++;
+            if (field_[sizew_ + wi + 1] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + wi - 1] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + wi] == '+') count++;
+            if (field_[(sizeh_ - 1)*sizew_ + wi + 1] == '+') count++;
+        } else if (wi == sizew_ - 1) {
+            if (field_[(hi - 1)*sizew_ + wi - 1] == '+') count++;
+            if (field_[hi*sizew_ + wi - 1] == '+') count++;
+            if (field_[(hi + 1)*sizew_ + wi] == '+') count++;
+            if (field_[(hi - 1)*sizew_] == '+') count++;
+            if (field_[hi*sizew_] == '+') count++;
+            if (field_[(hi - 1)*sizew_] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + wi] == '+') count++;
+            if (field_[(hi + 1)*sizew_ + wi] == '+') count++;
+        } else if (hi == sizeh_ - 1) {
+            if (field_[(hi - 1)*sizew_ + wi - 1] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + wi] == '+') count++;
+            if (field_[(hi - 1)*sizew_ + wi + 1] == '+') count++;
+            if (field_[wi - 1] == '+') count++;
+            if (field_[wi] == '+') count++;
+            if (field_[wi + 1] == '+') count++;
+            if (field_[hi*sizew_ + wi - 1] == '+') count++;
+            if (field_[hi*sizew_ + wi + 1] == '+') count++;
         }
     }
 
@@ -160,9 +160,9 @@ int Conways_life::countNeighbors(const int wi, const int hi) {
 
 bool Conways_life::isSystemAlive() {
     bool res = false;
-    for (int i = 0; i < sizeh; i++) {
-        for (int j = 0; j < sizew; j++) {
-            if (check[i*sizew + j])
+    for (int i = 0; i < sizeh_; i++) {
+        for (int j = 0; j < sizew_; j++) {
+            if (check_[i*sizew_ + j])
                 return true;
         }
     }
