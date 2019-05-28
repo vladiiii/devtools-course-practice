@@ -17,7 +17,7 @@ class Queue {
     int GetNextIndex(int index) const;
 
  public:
-    explicit  Queue(int s);
+    explicit Queue(int s = 10);
     Queue(const Queue &q);
 
     void Put(int val);

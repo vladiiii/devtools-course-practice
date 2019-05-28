@@ -15,13 +15,13 @@ class Range {
      Range(const Range& obj);
 
      bool IntegerRangeContains(int* arr, int size);
-     void GetAllPoints();
+     std::string GetAllPoints();
      bool ContainsRange(std::string str);
-     void EndPoints();
+     std::string EndPoints();
      bool OverlapsRange(std::string str);
 
-     bool operator==(const Range obj) const;
-     bool operator!=(const Range obj) const;
+     bool operator==(const Range& obj) const;
+     bool operator!=(const Range& obj) const;
 
      void SetFirst(int val);
      void SetSecond(int val);
