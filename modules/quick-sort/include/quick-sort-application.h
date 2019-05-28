@@ -1,7 +1,7 @@
 // Copyright 2019 by Zolotareva Olesya
 
-#ifndef MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
-#define MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
+#ifndef MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_APPLICATION_H_
+#define MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_APPLICATION_H_
 
 #include <string>
 #include "include/quick-sort.h"
@@ -18,4 +18,4 @@ class QuickSortApplication {
     std::string operator()(int argc, const char** argv);
 };
 
-#endif  // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_H_
+#endif  // MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_APPLICATION_H_

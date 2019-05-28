@@ -1,4 +1,4 @@
-// Copyright by
+// Copyright by 
 
 #include <iostream>
 #include "include/quick-sort.h"

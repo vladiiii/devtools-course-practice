@@ -1,4 +1,4 @@
-// Copyright 2019 Druzhinin Alexei
+// Copyright 2019 
 
 #include "include/quick-sort.h"
 #include "include/quick-sort-application.h"
