@@ -69,8 +69,8 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
 }
 
 TEST_F(QuickSortApplicationTest,
-    Is_Check_Entered_Size_And_Size_Of_Entered_Array) {
-    std::vector<std::string> args = {"3", "1", "3", "5"};
+    Is_Check_Count_of_argument_And_Size) {
+    std::vector<std::string> args = {"2", "1", "3", "5"};
 
     Act(args);
 
@@ -86,7 +86,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format_In_Array) {
 }
 
 TEST_F(QuickSortApplicationTest, Can_Sorted) {
-    std::vector<std::string> args = {"3", "1", "2", "3"};
+    std::vector<std::string> args = {"4", "1", "2", "3"};
 
     Act(args);
 
