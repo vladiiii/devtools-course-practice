@@ -67,3 +67,20 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
 
     Assert("ERROR: Size must be >= 1.*");
 }
+
+TEST_F(QuickSortApplicationTest,
+    Is_Check_Entered_Size_And_Size_Of_Entered_Array) {
+    std::vector<std::string> args = {"3", "5", "1", "2"};
+
+    Act(args);
+
+    Assert("ERROR: Check count of arguments and size of entered array\\..*");
+}
+
+TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format_In_Array) {
+    std::vector<std::string> args = {"3", "one", "2", "3"};
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
