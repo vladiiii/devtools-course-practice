@@ -51,8 +51,17 @@ TEST_F(QuickSortApplicationTest, Is_Checking_Number_Of_Arguments) {
     Assert("ERROR: Check count of arguments and size of entered array\\..*");
 }
 
+TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format) {
+    std::vector<std::string> args = {"e", "pi"};
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
+
 TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
-    std::vector<std::string> args = {"0", "2"};
+    std::vector<std::string> args = {"0"};
 
     Act(args);
 

@@ -4,6 +4,7 @@
 #define MODULES_QUICK_SORT_INCLUDE_QUICK_SORT_APPLICATION_H_
 
 #include <string>
+
 #include "include/quick-sort.h"
 
 class QuickSortApplication {
