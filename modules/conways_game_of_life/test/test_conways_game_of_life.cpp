@@ -48,7 +48,7 @@ TEST(Conways_life, Can_Put_Point) {
     zx.putStart(0, 0);
 
     // Assert
-    EXPECT_EQ(zx.getPoint(0, 0), '+');
+    EXPECT_EQ(zx.getPoint(0, 0), "+");
 }
 TEST(Conways_life, Can_create_field) {
     // Arrange
@@ -73,8 +73,8 @@ TEST(Conways_life, Can_Redraw) {
     zc.stepNextField();
 
     // Assert
-    EXPECT_EQ(zc.getPoint(1, 0), '.');
-    EXPECT_EQ(zc.getPoint(1, 1), '+');
+    EXPECT_EQ(zc.getPoint(1, 0), ".");
+    EXPECT_EQ(zc.getPoint(1, 1), "+");
 }
 TEST(Conways_life, Can_Check_Alive_Next) {
     // Arrange
@@ -119,11 +119,11 @@ TEST(Conways_life, Check_Corners) {
     zc.stepNextField();
 
     // Assert
-    EXPECT_EQ(zc.getPoint(0, 0), '+');
-    EXPECT_EQ(zc.getPoint(2, 0), '+');
-    EXPECT_EQ(zc.getPoint(0, 2), '+');
-    EXPECT_EQ(zc.getPoint(2, 2), '+');
-    EXPECT_EQ(zc.getPoint(1, 1), '+');
+    EXPECT_EQ(zc.getPoint(0, 0), "+");
+    EXPECT_EQ(zc.getPoint(2, 0), "+");
+    EXPECT_EQ(zc.getPoint(0, 2), "+");
+    EXPECT_EQ(zc.getPoint(2, 2), "+");
+    EXPECT_EQ(zc.getPoint(1, 1), "+");
 }
 TEST(Conways_life, Can_Start) {
     // Arrange
@@ -131,10 +131,11 @@ TEST(Conways_life, Can_Start) {
     zc.putStart(1, 1);
     zc.putStart(2, 1);
     zc.putStart(3, 3);
+    std::string os;
 
     // Act
-    zc.Start();
+    zc.Start(os, 1);
 
     // Assert
-    EXPECT_EQ(zc.getPoint(2, 2), '+');
+    EXPECT_EQ(zc.getPoint(2, 2), "+");
 }
