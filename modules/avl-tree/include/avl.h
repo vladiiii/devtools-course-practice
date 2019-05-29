@@ -2,10 +2,11 @@
 
 #ifndef MODULES_AVL_TREE_INCLUDE_AVL_H_
 #define MODULES_AVL_TREE_INCLUDE_AVL_H_
+#include <cinttypes>
 
-using key = int64_t;
+using key = std::int64_t;
 
-key GetRandomKey(int64_t nBegin, int64_t nEnd);
+key GetRandomKey(key nBegin, key nEnd);
 
 struct CNode {
     key data_;
@@ -21,6 +22,7 @@ class CAvl {
     CNode* DoubleLeftRotate(CNode* t);
     CNode* DoubleRightRotate(CNode* t);
     CNode* FindMin(CNode* t);
+    CNode* FindMax(CNode* t);
     CNode* Remove(const key& x, CNode* t);
     int Height(CNode* t);
     CNode* pRoot_;
@@ -30,6 +32,8 @@ class CAvl {
     void Insert(const key& x);
     void Remove(const key& x);
     key GetRoot() const;
+    key FindMin();
+    key FindMax();
 };
 
 #endif  // MODULES_AVL_TREE_INCLUDE_AVL_H_
