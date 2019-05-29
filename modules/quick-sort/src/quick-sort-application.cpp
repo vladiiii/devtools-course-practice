@@ -77,14 +77,13 @@ std::string QuickSortApplication::operator()(int argc, const char** argv) {
         return str;
     }
 
-    if (CheckSort(size, array)) {
         QuickSort qs;
         bool result = qs.CheckIncreasing(array, size);;
-        if (result == true)
+        if (result == true) {
             stream << "Sorted was successful";
-    } else {
+            } else {
         stream << "Error! Array not sorted";
-    }
+            }
 
     message_ = stream.str();
     delete[] array;
