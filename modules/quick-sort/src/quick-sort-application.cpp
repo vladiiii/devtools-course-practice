@@ -34,7 +34,7 @@ int ParseInt(const char* arg) {
 
 bool QuickSortApplication::ValidateNumberOfArguments(int argc,
                                                         const char** argv) {
-    if (argc == 1) {
+    if (argc == 0) {
         Help(argv[0]);
         return false;
     } else {
@@ -62,7 +62,7 @@ bool CheckSort(const int size, const int* array) {
 
      if (i == size - 1)
         return true;
-    else
+     else
         return false;
 }
 
