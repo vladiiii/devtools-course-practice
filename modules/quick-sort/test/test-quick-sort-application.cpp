@@ -86,7 +86,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format_In_Array) {
 }
 
 TEST_F(QuickSortApplicationTest, Can_Sorted) {
-    std::vector<std::string> args = {"4", "1", "2", "3"};
+    std::vector<std::string> args = {"3", "1", "2", "3"};
 
     Act(args);
 
