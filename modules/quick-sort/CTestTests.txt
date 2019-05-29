@@ -60,9 +60,9 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_In_Array PROPERTI
     LABELS "${MODULE}") 
 
 add_test(
-    NAME ${prefix}_can_Search_The_Item
+    NAME ${prefix}_can_Sorted
     COMMAND ${APPLICATION} 3 1 2 3
 )
-set_tests_properties (${prefix}_can_Search_The_Item PROPERTIES
+set_tests_properties (${prefix}_can_Sorted PROPERTIES
     PASS_REGULAR_EXPRESSION "Sorted was successful"
     LABELS "${MODULE}")

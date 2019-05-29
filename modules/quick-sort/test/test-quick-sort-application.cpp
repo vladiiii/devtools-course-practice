@@ -85,7 +85,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format_In_Array) {
     Assert("Wrong number format!.*");
 }
 
-TEST_F(QuickortApplicationTest, Can_Search_Item) {
+TEST_F(QuickSortApplicationTest, Can_Sorted) {
     std::vector<std::string> args = {"3", "1", "2", "3"};
 
     Act(args);
