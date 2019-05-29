@@ -77,7 +77,7 @@ set_tests_properties (${prefix}_can_Double_Number_Format_In_Array PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Size_Format
-    COMMAND ${APPLICATION} -1 2
+    COMMAND ${APPLICATION} -1
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Size_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Size must be >= 1"

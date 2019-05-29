@@ -102,7 +102,7 @@ TEST_F(QuickSortApplicationTest, Can_Double_Number_Format_In_Array) {
 }
 
 TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Format) {
-    std::vector<std::string> args = {"-1", "2"};
+    std::vector<std::string> args = {"-1"};
 
     Act(args);
 
