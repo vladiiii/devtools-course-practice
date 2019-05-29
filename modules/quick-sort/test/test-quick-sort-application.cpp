@@ -40,7 +40,7 @@ TEST_F(QuickSortApplicationTest, Do_Print_Help_Without_Arguments) {
 
      Act(args);
 
-     Assert("This is a binary search application\\..*");
+     Assert("This is a quick sort application\\..*");
 }
 
 TEST_F(QuickSortApplicationTest, Is_Checking_Number_Of_Arguments) {
@@ -61,7 +61,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format) {
 
 
 TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
-    std::vector<std::string> args = {"0"};
+    std::vector<std::string> args = {"0", "2"};
 
     Act(args);
 

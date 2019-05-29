@@ -37,24 +37,21 @@ bool QuickSortApplication::ValidateNumberOfArguments(int argc,
     if (argc == 1) {
         Help(argv[0]);
         return false;
-    } else if (argc != size + 2) {
+    } else {
+        try {
+            size = ParseInt(argv[1]);
+        }
+        catch(std::string& str) {
+            Help(argv[0], "Wrong number format in size!");
+            return false;
+        }
+        if (argc != size + 2) {
             Help(argv[0],
             "ERROR: Check count of arguments and size of entered array.\n\n");
             return false;
         }
+    }
     return true;
-}
-
-bool CheckSort(const int size, const int* array) {
-    int i;
-    for (i = 0; i < size - 1; i++)
-        if (array[i] > array[i + 1])
-            break;
-
-     if (i == size - 1)
-        return true;
-     else
-        return false;
 }
 
 std::string QuickSortApplication::operator()(int argc, const char** argv) {
