@@ -12,16 +12,16 @@ std::string CAvlApplication::operator()(int argc, const char ** argv) {
         switch (xmap[op_]) {
         case etOperation::eSEARCH_ELEMENT:
             key = avl_.Find(searchElem_);
-            return std::string(key + " " + std::to_string(key));
+            return std::string(std::to_string(key));
             break;
         case etOperation::eSEARCH_MAX_ELEMENT:
             key = avl_.
             FindMax();
-            return std::string(key + " " + std::to_string(key));
+            return std::string(std::to_string(key));
             break;
         case etOperation::eSEARCH_MIN_ELEMENT:
             key = avl_.FindMin();
-            return std::string(key + " " + std::to_string(key));
+            return std::string(std::to_string(key));
             break;
         }
     }
