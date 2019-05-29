@@ -61,7 +61,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format) {
 
 
 TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Of_Array) {
-    std::vector<std::string> args = {"0", "2"};
+    std::vector<std::string> args = {"0"};
 
     Act(args);
 
