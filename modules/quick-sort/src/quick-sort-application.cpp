@@ -60,7 +60,7 @@ bool CheckSort(const int size, const int* array) {
         if (array[i] > array[i + 1])
             break;
 
-    if (i == size - 1)
+     if (i == size - 1)
         return true;
     else
         return false;
