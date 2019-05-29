@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Size_Of_Array PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Check_Entered_Size_And_Size_Of_Entered_Array
-    COMMAND ${APPLICATION} 3 5 1 2
+    COMMAND ${APPLICATION} 3 1 3 5 6
 )
 set_tests_properties (${prefix}_can_Check_Entered_Size_And_Size_Of_Entered_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Check count of arguments and size of entered array."
@@ -58,3 +58,11 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_In_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}") 
+
+add_test(
+    NAME ${prefix}_can_Search_The_Item
+    COMMAND ${APPLICATION} 3 1 2 3
+)
+set_tests_properties (${prefix}_can_Search_The_Item PROPERTIES
+    PASS_REGULAR_EXPRESSION "Sorted was successful"
+    LABELS "${MODULE}")
