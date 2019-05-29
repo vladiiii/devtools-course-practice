@@ -45,7 +45,7 @@ bool QuickSortApplication::ValidateNumberOfArguments(int argc,
             Help(argv[0], "Wrong number format in size!");
             return false;
         }
-        if (argc != size + 2) {
+        if (argc != size + 1) {
             Help(argv[0],
             "ERROR: Check count of arguments and size of entered array.\n\n");
             return false;

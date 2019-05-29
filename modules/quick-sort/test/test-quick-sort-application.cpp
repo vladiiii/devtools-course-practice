@@ -56,7 +56,7 @@ TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Number_Format) {
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("Wrong number format in size!.*");
 }
 
 

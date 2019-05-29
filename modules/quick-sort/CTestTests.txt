@@ -28,16 +28,17 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} e ip
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format in size!"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Detect_Wrong_Size_Of_Array
     COMMAND ${APPLICATION} 0 2
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Size_Of_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Size must be >= 1"
-    LABELS "${MODULE}")
-add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format
-    COMMAND ${APPLICATION} e ip
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
