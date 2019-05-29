@@ -92,3 +92,19 @@ TEST_F(QuickSortApplicationTest, Can_Sorted) {
 
     Assert("Sorted was successful");
 }
+
+TEST_F(QuickSortApplicationTest, Can_Double_Number_Format_In_Array) {
+    std::vector<std::string> args = {"3", "8.5", "2", "3"};
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
+TEST_F(QuickSortApplicationTest, Can_Detect_Wrong_Size_Format) {
+    std::vector<std::string> args = {"-1", "2"};
+
+    Act(args);
+
+    Assert("Wrong number format in size!.*");
+}
