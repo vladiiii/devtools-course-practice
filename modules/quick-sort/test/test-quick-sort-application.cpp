@@ -36,7 +36,7 @@ class QuickSortApplicationTest : public ::testing::Test {
 };
 
 TEST_F(QuickSortApplicationTest, Do_Print_Help_Without_Arguments) {
-    std::vector<std::string> args = {};
+     std::vector<std::string> args = {};
 
      Act(args);
 
