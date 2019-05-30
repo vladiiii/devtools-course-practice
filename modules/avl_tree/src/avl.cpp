@@ -30,6 +30,8 @@ CNode* CAvl::Insert(const key& x, CNode* t) {
                 t = DoubleLeftRotate(t);
             }
         }
+    } else if (x == t->data_) {
+        t->data_ = x;
     }
 
     t->height_ = max(Height(t->pLeft_), Height(t->pRight_)) + 1;
@@ -69,6 +71,14 @@ CNode* CAvl::FindMin(CNode* t) {
         return t;
     } else {
         return FindMin(t->pLeft_);
+    }
+}
+
+CNode* CAvl::FindMax(CNode* t) {
+    if (t->pRight_ == nullptr) {
+        return t;
+    } else {
+        return FindMax(t->pRight_);
     }
 }
 
@@ -117,31 +127,31 @@ CNode* CAvl::Remove(const key& x, CNode* t) {
         // If node is unbalanced
         // If left node is deleted, right case
         //
-        if (Height(t->pLeft_->pLeft_) - Height(t->pLeft_->pRight_) == 1) {
+        if (Height(t->pLeft_->pRight_) - Height(t->pLeft_->pLeft_) == 1) {
             //
-            // Right right case
-            //
-            return SingleRightRotate(t);
-        } else {
-            //
-            // Right left case
+            // Right Right case
             //
             return DoubleRightRotate(t);
+        } else {
+            //
+            // Single Left case
+            //
+            return SingleRightRotate(t);
         }
     } else if (Height(t->pRight_) - Height(t->pLeft_) == 2) {
         //
         // If Right node is deleted, left case
         //
-        if (Height(t->pRight_->pRight_) - Height(t->pRight_->pLeft_) == 1) {
+        if (Height(t->pRight_->pLeft_) - Height(t->pRight_->pRight_) == 1) {
             //
             // Left left case
             //
-            return SingleLeftRotate(t);
+            return DoubleLeftRotate(t);
         } else {
             //
-            // Left right case
+            // Single right case
             //
-            return DoubleLeftRotate(t);
+            return SingleLeftRotate(t);
         }
     }
     return t;
@@ -185,7 +195,17 @@ key CAvl::GetRoot() const {
     }
 }
 
-key GetRandomKey(int64_t nBegin, int64_t nEnd) {
+key CAvl::FindMin() {
+    CNode* t = FindMin(pRoot_);
+    return t->data_;
+}
+
+key CAvl::FindMax() {
+    CNode* t = FindMax(pRoot_);
+    return t->data_;
+}
+
+key GetRandomKey(key nBegin, key nEnd) {
     static std::random_device random_device;
     static std::mt19937 generator(random_device());
 
