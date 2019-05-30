@@ -20,6 +20,14 @@ TEST(ModifStack, Can_Creating_Empty_Stack) {
     EXPECT_EQ(y.Size(), 0);
 }
 
+TEST(ModifStack, Can_Create_Empty_Stack) {
+    // Arrange & Arrange
+    ModifStack y;
+
+    // Assert
+    EXPECT_EQ(y.Size(), 0);
+}
+
 TEST(ModifStack, Can_Create_Stack_In_Non_Empty_Vector) {
     // Arrange
     std::vector<int> x = {4, 6, 7};
@@ -99,7 +107,7 @@ TEST(ModifStack, Can_Pop_In_Non_Empty_Stack) {
 
 TEST(Modif_Stack, Can_Get_Min_Via_Top_In_Stack) {
     // Arrange
-    std::vector<int> x = {4, 29, 3};
+    std::vector<int> x = {4, 3, 29};
     ModifStack y(x);
     int min = 0;
 
@@ -110,10 +118,34 @@ TEST(Modif_Stack, Can_Get_Min_Via_Top_In_Stack) {
     EXPECT_EQ(3, min);
 }
 
+TEST(Modif_Stack, Can_Get_Min_Element) {
+    // Arrange
+    std::vector<int> x = {4, 3, 29};
+    ModifStack y(x);
+    int min = 0;
+
+    // Act
+    min = y.GetMinEl();
+
+    // Assert
+    EXPECT_EQ(3, min);
+}
+
 TEST(ModifStack, Can_Push_In_Stack) {
     // Arrange
     std::vector<int> x = {4, 29, 3};
     ModifStack y(x);
+
+    // Act
+    y.Push(21);
+
+    // Assert
+    EXPECT_EQ(21, y.Top().first);
+}
+
+TEST(ModifStack, Can_Push_In_Empty_Stack) {
+    // Arrange
+    ModifStack y;
 
     // Act
     y.Push(21);
