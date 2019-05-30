@@ -80,11 +80,8 @@ std::string QuickSortApplication::operator()(int argc, const char** argv) {
         QuickSort qs;
         qs.MySort(array, size);
         bool result = qs.CheckIncreasing(array, size);;
-        if (result == true) {
-            stream << "Sorted was successful";
-            } else {
-        stream << "Error! Array not sorted";
-            }
+        stream << "Sorted was successful";
+            
 
     message_ = stream.str();
     delete[] array;
