@@ -1,7 +1,7 @@
 // Copyright 2019 Kondrina Tatyana
 
-#ifndef MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H
-#define MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H
+#ifndef MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H_
+#define MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H_
 
 #include <string>
 #include "include/BatcherSort.h"
@@ -16,4 +16,4 @@ class BatcherSortApp {
     std::string operator()(int argc, const char** argv);
 };
 
-#endif  // MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H
+#endif  // MODULES_BATCHER_SORT_INCLUDE_BATCHERSORT_APP_H_

@@ -18,7 +18,7 @@ bool BatcherSortApp::CheckArguments(int argc, const char** argv) {
         Info(argv[0]);
         return false;
     }
-    if ((argc - 1) & ((argc - 1) - 1) != 0) {
+    if (((argc - 1) & ((argc - 1) - 1)) != 0) {
         Info(argv[0], "The number of elements must be a degree of 2 "
             "in the format v[i]. \n\n");
         return false;
