@@ -114,5 +114,5 @@ TEST_F(QuickSortApplicationTest, Can_Negative_Wrong_Number_Format) {
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("ERROR: Check count of arguments and size of entered array.*");
 }
