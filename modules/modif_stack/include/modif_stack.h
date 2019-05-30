@@ -14,15 +14,16 @@ class ModifStack {
     std::vector<std::pair<int, int>> stack_;
 
  public:
+    ModifStack();
     explicit ModifStack(std::vector<int> temp);
     ModifStack(const ModifStack &src) = default;
 
     bool Empty();
     std::size_t Size();
-
     std::pair<int, int> Top();
     void Push(int number);
     void Pop();
+    int GetMinEl();
     std::vector<std::pair<int, int>> ShowReverseStack();
 };
 

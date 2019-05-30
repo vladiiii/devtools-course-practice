@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+ModifStack::ModifStack() {}
+
 ModifStack::ModifStack(std::vector<int> temp) {
     if (temp.size() != 0) {
         std::pair<int, int> tmp;
@@ -47,10 +49,11 @@ std::pair<int, int> ModifStack::Top() {
 
 void ModifStack::Push(int number) {
     std::pair<int, int> res = std::make_pair(number, number);
-    res.second = std::min(number, this->Top().second);
+    if (this->Size() != 0) {
+        res.second = std::min(number, this->Top().second);
+    }
     this->stack_.push_back(res);
 }
-
 
 void ModifStack::Pop() {
     if (this->Size() != 0) {
@@ -58,6 +61,9 @@ void ModifStack::Pop() {
     }
 }
 
+int ModifStack::GetMinEl() {
+    return this->stack_[stack_.size()-1].second;
+}
 
 std::vector<std::pair<int, int>> ModifStack::ShowReverseStack() {
     std::vector<std::pair<int, int>> res(this->stack_);
