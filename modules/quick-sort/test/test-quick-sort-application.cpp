@@ -101,3 +101,10 @@ TEST_F(QuickSortApplicationTest, Can_Double_Number_Format_In_Array) {
     Assert("Wrong number format!.*");
 }
 
+TEST_F(QuickSortApplicationTest, Can_Sorted_Negative) {
+    std::vector<std::string> args = {"3", "-5", "-3", "-1"};
+
+    Act(args);
+
+    Assert("Sorted was successful");
+}

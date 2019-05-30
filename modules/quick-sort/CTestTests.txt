@@ -74,3 +74,11 @@ add_test(
 set_tests_properties (${prefix}_can_Double_Number_Format_In_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}") 
+
+add_test(
+    NAME ${prefix}_can_Sorted_Negative
+    COMMAND ${APPLICATION} 3 -5 -3 -1
+)
+set_tests_properties (${prefix}_can_Sorted PROPERTIES
+    PASS_REGULAR_EXPRESSION "Sorted was successful"
+    LABELS "${MODULE}")
