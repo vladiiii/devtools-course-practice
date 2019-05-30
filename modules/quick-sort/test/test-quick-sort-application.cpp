@@ -1,4 +1,4 @@
-// Copyright 2019 Zolotareva Olesya
+// Copyright 2019 by Zolotareva Olesya
 
 #include <gtest/gtest.h>
 
@@ -13,8 +13,8 @@ class QuickSortApplicationTest : public ::testing::Test {
  protected:
       void Act(std::vector<std::string> args_) {
          std::vector<const char*> options;
+         options.push_back("appname");
 
-          options.push_back("appname");
          for (size_t i = 0; i < args_.size(); ++i) {
              options.push_back(args_[i].c_str());
          }
