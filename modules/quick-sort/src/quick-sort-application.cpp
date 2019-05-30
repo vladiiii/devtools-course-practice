@@ -17,7 +17,7 @@ void QuickSortApplication::Help(const char* appname, const char* message) {
         std::string(message) +
           "This is a quick sort application.\n" +
           "Please provide arguments in the following format:\n\n"+
-          "  $ " + appname + " <size of array> " 
+          " $ " + appname + " <size of array> "
            + "<array>\n\n" +
           "Warning!" +
           " All arguments are integers. The array must be sorted.\n";
