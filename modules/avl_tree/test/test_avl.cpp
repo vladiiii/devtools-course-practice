@@ -140,19 +140,19 @@ TEST(CAvlTest,
 }
 
 TEST(CAvlTest,
-	CanRemoveObjectWithDLRotate) {
-	CAvl tree;
+    CanRemoveObjectWithDLRotate) {
+    CAvl tree;
 
-	tree.Insert(4);
-	tree.Insert(5);
-	tree.Insert(7);
-	tree.Insert(9);
-	// There is double left rotation will be executed
-	tree.Insert(8);
-	tree.Insert(10);
-	tree.Insert(6);
-	tree.Remove(4);
-	EXPECT_EQ(key(), tree.Find(4));
+    tree.Insert(4);
+    tree.Insert(5);
+    tree.Insert(7);
+    tree.Insert(9);
+    // There is double left rotation will be executed
+    tree.Insert(8);
+    tree.Insert(10);
+    tree.Insert(6);
+    tree.Remove(4);
+    EXPECT_EQ(key(), tree.Find(4));
 }
 
 TEST(CAvlTest,
@@ -169,19 +169,19 @@ TEST(CAvlTest,
 }
 
 TEST(CAvlTest,
-	CanRemovebjectWithDRRotate) {
-	CAvl tree;
+    CanRemovebjectWithDRRotate) {
+    CAvl tree;
 
-	tree.Insert(5);
-	tree.Insert(6);
-	tree.Insert(4);
-	tree.Insert(-1);
-	// There is double right rotation will be executed
-	tree.Insert(1);
-	tree.Insert(8);
-	tree.Insert(3);
-	tree.Remove(6);
-	EXPECT_EQ(key(), tree.Find(6));
+    tree.Insert(5);
+    tree.Insert(6);
+    tree.Insert(4);
+    tree.Insert(-1);
+    // There is double right rotation will be executed
+    tree.Insert(1);
+    tree.Insert(8);
+    tree.Insert(3);
+    tree.Remove(6);
+    EXPECT_EQ(key(), tree.Find(6));
 }
 
 TEST(CAvlTest,
