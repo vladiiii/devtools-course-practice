@@ -1,4 +1,4 @@
-﻿  // Copyright 2017 Lobanov Andrey
+  // Copyright 2019 Egorov Vlad
 
 #include "include/application.h"
 #include <stdlib.h>
